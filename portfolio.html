@@ -1,0 +1,1718 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Samarth Patel | Creative Robotics Engineer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Orbitron:wght@400;500;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Rajdhani', 'sans-serif'],
+                        mono: ['Orbitron', 'monospace'],
+                        tech: ['Share Tech Mono', 'monospace'],
+                    },
+                    colors: {
+                        'cyber-black': '#000000',
+                        'cyber-dark': '#0d1117',
+                        'cyber-blue': '#00f0ff',
+                        'cyber-purple': '#7000ff',
+                        'neon-green': '#0aff64',
+                    },
+                    animation: {
+                        'spin-slow': 'spin 10s linear infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-fast': 'pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #02040a; }
+        ::-webkit-scrollbar-thumb { background: #00f0ff; border-radius: 3px; }
+        
+        /* 3D Tilt Effect Styles */
+        .tilt-card {
+            transform-style: preserve-3d;
+            transform: perspective(1000px);
+        }
+        .tilt-inner {
+            transform: translateZ(20px);
+        }
+
+        /* Glitch Effect */
+        .glitch-wrapper { position: relative; display: inline-block; }
+        .glitch {
+            position: relative;
+            color: white;
+            mix-blend-mode: lighten;
+        }
+        .glitch:before, .glitch:after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0; width: 100%; height: 100%;
+            background: #02040a;
+        }
+        .glitch:before { left: 2px; text-shadow: -1px 0 #ff00c1; clip: rect(44px, 450px, 56px, 0); animation: glitch-anim 5s infinite linear alternate-reverse; }
+        .glitch:after { left: -2px; text-shadow: -1px 0 #00fff9; clip: rect(44px, 450px, 56px, 0); animation: glitch-anim2 5s infinite linear alternate-reverse; }
+        
+        @keyframes glitch-anim {
+            0% { clip: rect(30px, 9999px, 10px, 0); }
+            100% { clip: rect(30px, 9999px, 10px, 0); }
+        }
+        @keyframes glitch-anim2 {
+            0% { clip: rect(10px, 9999px, 90px, 0); }
+            100% { clip: rect(10px, 9999px, 90px, 0); }
+        }
+
+        /* Hexagon Grid */
+        .hex-grid {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .hex-item {
+            position: relative;
+            width: 150px;
+            height: 170px;
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            background: rgba(13, 17, 23, 0.8);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 240, 255, 0.1);
+        }
+        .hex-item:hover {
+            background: rgba(0, 240, 255, 0.1);
+            transform: scale(1.1);
+            z-index: 10;
+            box-shadow: 0 0 30px rgba(0, 240, 255, 0.2);
+            border-color: #00f0ff;
+        }
+        .hex-item::before {
+            content: '';
+            position: absolute;
+            inset: 2px;
+            background: #02040a;
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            z-index: -1;
+        }
+
+        /* Scroll Reveal Class */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .cursor-dot, .cursor-outline {
+            position: fixed;
+            top: 0; left: 0;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            z-index: 9999;
+            pointer-events: none;
+        }
+            /* Cursor colors: make the circle blue and visible */
+            .cursor-dot { width: 8px; height: 8px; background-color: #00b7ff; }
+            .cursor-outline { width: 40px; height: 40px; border: 2px solid #00b7ff; box-shadow: 0 0 10px rgba(0,183,255,0.25); transition: width 0.2s, height 0.2s; }
+        body:hover .cursor-outline { width: 50px; height: 50px; border-color: #00b7ff; }
+
+        /* Robot Arm Styles */
+        #robot-arm-container {
+            position: fixed;
+            right: -50px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 300px;
+            height: 600px;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.6;
+            transition: opacity 0.5s;
+        }
+        .joint {
+            /* UPDATED: Fixed transform origin to 0 0 to align with SVG geometry */
+            transform-origin: 0px 0px;
+            transition: transform 0.1s linear;
+        }
+        
+        /* Mobile Robot (Footer) */
+        #mobile-rover {
+            position: absolute;
+            bottom: 0;
+            left: -150px;
+            width: 100px;
+            height: 60px;
+            z-index: 20;
+            pointer-events: none;
+        }
+        /* Wheel transform-origin handled inline on svg elements (keeps per-element control) */
+        .radar-scan {
+            transform-origin: bottom center;
+            animation: radar 2s ease-in-out infinite alternate;
+        }
+        @keyframes radar {
+            from { transform: rotate(-45deg); }
+            to { transform: rotate(45deg); }
+        }
+
+        /* ----------------------------------------------------- */
+        /* --- NEW INTRO SCENE STYLES (Cyberpunk Delivery) --- */
+        /* ----------------------------------------------------- */
+        
+        #scene-container {
+            position: fixed;
+            inset: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: #02040a; /* Starts solid color */
+            z-index: 9999;
+            perspective: 800px;
+            overflow: hidden;
+            transition: background-color 2s ease-out, pointer-events 0s 2.5s;
+        }
+
+        /* The Road */
+        #road {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #0f172a 0%, #00f0ff 50%, #0f172a 100%);
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.6);
+            z-index: 1;
+            transition: opacity 1s ease;
+        }
+
+        /* Grid floor perspective effect */
+        #grid-floor {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            height: 50%;
+            background: 
+                linear-gradient(transparent 0%, rgba(0, 240, 255, 0.05) 1px, transparent 2px),
+                linear-gradient(90deg, transparent 0%, rgba(0, 240, 255, 0.05) 1px, transparent 2px);
+            background-size: 80px 40px;
+            transform: perspective(400px) rotateX(60deg);
+            transform-origin: top center;
+            pointer-events: none;
+            opacity: 0.6;
+            mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 80%);
+            transition: opacity 1s ease;
+        }
+
+        /* Scenery Elements */
+        .scenery {
+            position: absolute;
+            bottom: 50%; 
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            z-index: 0;
+            transform-origin: bottom center;
+        }
+
+        #antenna-container {
+            left: 8%;
+            height: 250px;
+            width: 80px;
+            display: flex;
+            align-items: flex-end;
+            opacity: 0.8;
+        }
+
+        #house-container {
+            right: 8%;
+            height: 220px;
+            width: 180px;
+            display: flex;
+            align-items: flex-end;
+        }
+
+        /* The Robot Container */
+        #robot {
+            position: absolute;
+            bottom: 50%;
+            left: -200px;
+            width: 140px;
+            height: 110px;
+            z-index: 10;
+            transform-origin: bottom center;
+            /* Reflection effect */
+            -webkit-box-reflect: below -10px linear-gradient(to bottom, rgba(0,0,0,0.0), rgba(0,0,0,0.4));
+        }
+
+        /* The Web Page Box (Payload) */
+        #payload {
+            position: absolute;
+            bottom: 50%;
+            left: -400px;
+            width: 110px;
+            height: 80px;
+            background: #0f172a;
+            border: 1px solid #00f0ff;
+            border-radius: 6px;
+            box-shadow: 0 0 15px rgba(0, 240, 255, 0.2);
+            z-index: 9;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            transform-origin: center center;
+            transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.5s ease;
+        }
+
+        .browser-header {
+            height: 20px;
+            background: #1e293b;
+            border-bottom: 1px solid #334155;
+            display: flex;
+            align-items: center;
+            padding-left: 8px;
+            gap: 4px;
+        }
+        .dot { width: 6px; height: 6px; border-radius: 50%; }
+        .browser-content { padding: 10px; flex: 1; background: #020617; display: flex; flex-direction: column; align-items: center; gap: 5px; }
+        
+        /* Mini content inside payload */
+        .mini-avatar { width: 20px; height: 20px; border-radius: 50%; background: #333; border: 1px solid #00f0ff; margin-bottom: 4px;}
+        .mini-line { height: 4px; background: #334155; border-radius: 2px; width: 80%; }
+        .mini-highlight { background: #00f0ff; width: 50%; box-shadow: 0 0 5px rgba(0,240,255,0.5); }
+
+        /* Rope SVG Layer */
+        #rope-layer {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none; z-index: 5;
+            transition: opacity 0.3s ease; /* Added transition for smooth fade out */
+        }
+        
+        /* Animations */
+        .blink { animation: blink 3s infinite; }
+        @keyframes blink { 0%, 90%, 100% { opacity: 0.3; } 5%, 85% { opacity: 1; } }
+        
+        .rotate-radar { animation: radar-spin 4s linear infinite; transform-origin: 40px 35px; }
+        @keyframes radar-spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+    </style>
+</head>
+<body class="bg-cyber-black text-white font-sans antialiased selection:bg-cyber-cyan selection:text-black overflow-x-hidden">
+
+    <!-- INTRO SCENE CONTAINER -->
+    <div id="scene-container">
+        <div id="grid-floor"></div>
+        
+        <!-- Rope Layer -->
+        <svg id="rope-layer">
+            <defs>
+                <linearGradient id="ropeGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" style="stop-color:#00f0ff;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#60a5fa;stop-opacity:0.5" />
+                </linearGradient>
+                <filter id="glow">
+                    <feGaussianBlur stdDeviation="2.5" result="coloredBlur"/>
+                    <feMerge>
+                        <feMergeNode in="coloredBlur"/>
+                        <feMergeNode in="SourceGraphic"/>
+                    </feMerge>
+                </filter>
+            </defs>
+            <line id="rope" x1="0" y1="0" x2="0" y2="0" stroke="url(#ropeGrad)" stroke-width="2" filter="url(#glow)" />
+        </svg>
+
+        <!-- ANTENNA TOWER -->
+        <div id="antenna-container" class="scenery">
+            <svg width="80" height="250" viewBox="0 0 80 250">
+                <defs>
+                    <linearGradient id="metalGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" style="stop-color:#0f172a;stop-opacity:1" />
+                        <stop offset="50%" style="stop-color:#334155;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#0f172a;stop-opacity:1" />
+                    </linearGradient>
+                </defs>
+                <!-- Structure -->
+                <path d="M20 250 L35 50 L45 50 L60 250 H55 L45 70 L35 70 L25 250 Z" fill="url(#metalGrad)" stroke="#1e293b" stroke-width="1" />
+                <path d="M22 220 L58 220 M24 190 L56 190 M26 160 L54 160 M28 130 L52 130 M30 100 L50 100" stroke="#334155" stroke-width="1" />
+                <path d="M22 220 L56 190 L26 160 L52 130 L30 100" fill="none" stroke="#1e293b" stroke-width="1" opacity="0.5"/>
+                <path d="M58 220 L24 190 L54 160 L28 130 L50 100" fill="none" stroke="#1e293b" stroke-width="1" opacity="0.5"/>
+                <rect x="30" y="45" width="20" height="5" fill="#475569" />
+                <!-- Radar Dish -->
+                <g class="rotate-radar">
+                    <path d="M25 35 Q40 55 55 35" fill="none" stroke="#00f0ff" stroke-width="2" />
+                    <line x1="40" y1="35" x2="40" y2="45" stroke="#475569" stroke-width="2" />
+                </g>
+                <circle cx="40" cy="20" r="2" fill="#ef4444" class="blink">
+                    <animate attributeName="opacity" values="1;0.2;1" dur="2s" repeatCount="indefinite" />
+                </circle>
+            </svg>
+        </div>
+
+        <!-- TECH BUILDING -->
+        <div id="house-container" class="scenery">
+            <svg width="180" height="220" viewBox="0 0 180 220">
+                <defs>
+                    <linearGradient id="wallGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" style="stop-color:#0f172a;stop-opacity:1" />
+                        <stop offset="50%" style="stop-color:#1e293b;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#020617;stop-opacity:1" />
+                    </linearGradient>
+                    <linearGradient id="glassGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" style="stop-color:#1e293b;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:0.2" />
+                    </linearGradient>
+                </defs>
+                <path d="M10 220 V80 L60 50 L170 70 V220 H10 Z" fill="url(#wallGrad)" stroke="#1e293b" stroke-width="1" />
+                <path d="M10 80 L60 50 L170 70 L120 100 L10 80" fill="#0f172a" stroke="#334155" stroke-width="1" opacity="0.5" />
+                <rect x="30" y="100" width="20" height="100" fill="#020617" stroke="#334155" stroke-width="1" />
+                <rect x="35" y="110" width="10" height="5" fill="#10b981" opacity="0.8" />
+                <rect x="35" y="120" width="10" height="5" fill="#10b981" opacity="0.4" />
+                <rect x="35" y="130" width="10" height="5" fill="#10b981" opacity="0.6" />
+                <rect x="70" y="90" width="30" height="110" fill="url(#glassGrad)" stroke="#334155" />
+                <line x1="70" y1="130" x2="100" y2="130" stroke="#3b82f6" stroke-width="1" opacity="0.3" />
+                <line x1="70" y1="170" x2="100" y2="170" stroke="#3b82f6" stroke-width="1" opacity="0.3" />
+                <rect x="120" y="110" width="30" height="90" fill="#020617" stroke="#334155" />
+                <circle cx="135" cy="130" r="8" fill="#1e293b" stroke="#334155" />
+                <circle cx="135" cy="160" r="8" fill="#1e293b" stroke="#334155" />
+            </svg>
+        </div>
+
+        <div id="road"></div>
+
+        <!-- Payload (The Mini Website being delivered) -->
+        <div id="payload">
+            <div class="browser-header">
+                <div class="dot" style="background:#ef4444"></div>
+                <div class="dot" style="background:#eab308"></div>
+                <div class="dot" style="background:#22c55e"></div>
+            </div>
+            <div class="browser-content">
+                <div class="mini-avatar"></div>
+                <div class="mini-line mini-highlight"></div>
+                <div class="mini-line"></div>
+                <div class="mini-line" style="width:60%"></div>
+            </div>
+        </div>
+
+        <!-- The Robot -->
+        <div id="robot">
+            <svg width="100%" height="100%" viewBox="0 0 140 110">
+                <defs>
+                    <linearGradient id="robotBodyGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" style="stop-color:#1e293b;stop-opacity:1" />
+                        <stop offset="50%" style="stop-color:#334155;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#1e293b;stop-opacity:1" />
+                    </linearGradient>
+                    <radialGradient id="tireGrad" cx="50%" cy="50%" r="50%">
+                        <stop offset="70%" style="stop-color:#0f172a;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#334155;stop-opacity:1" />
+                    </radialGradient>
+                </defs>
+
+                <!-- Back Wheel (Left) -->
+                <g class="wheel" style="transform-origin: 35px 85px;">
+                    <circle cx="35" cy="85" r="16" fill="url(#tireGrad)" stroke="#0f172a" stroke-width="2" />
+                    <circle cx="35" cy="85" r="14" fill="none" stroke="#334155" stroke-width="2" stroke-dasharray="2 4" />
+                    <circle cx="35" cy="85" r="8" fill="#1e293b" stroke="#3b82f6" stroke-width="1" />
+                    <path d="M35 85 L35 79 M35 85 L41 85 M35 85 L35 91 M35 85 L29 85" stroke="#64748b" stroke-width="2" />
+                    <circle cx="35" cy="85" r="2" fill="#3b82f6" />
+                </g>
+
+                <!-- Front Wheel (Right) -->
+                <g class="wheel" style="transform-origin: 105px 85px;">
+                    <circle cx="105" cy="85" r="16" fill="url(#tireGrad)" stroke="#0f172a" stroke-width="2" />
+                    <circle cx="105" cy="85" r="14" fill="none" stroke="#334155" stroke-width="2" stroke-dasharray="2 4" />
+                    <circle cx="105" cy="85" r="8" fill="#1e293b" stroke="#3b82f6" stroke-width="1" />
+                    <path d="M105 85 L105 79 M105 85 L111 85 M105 85 L105 91 M105 85 L99 85" stroke="#64748b" stroke-width="2" />
+                    <circle cx="105" cy="85" r="2" fill="#3b82f6" />
+                </g>
+
+                <!-- Chassis Connection Bar -->
+                <rect x="35" y="75" width="70" height="6" fill="#1e293b" />
+
+                <!-- Main Body -->
+                <path d="M25 45 H115 L120 75 H20 L25 45 Z" fill="url(#robotBodyGrad)" stroke="#475569" stroke-width="1" />
+                
+                <line x1="50" y1="45" x2="45" y2="75" stroke="#0f172a" stroke-width="1" />
+                <line x1="90" y1="45" x2="95" y2="75" stroke="#0f172a" stroke-width="1" />
+                
+                <!-- Glowing Logo/Strip -->
+                <rect x="55" y="55" width="30" height="4" fill="#3b82f6" rx="2">
+                      <animate attributeName="opacity" values="0.6;1;0.6" dur="1.5s" repeatCount="indefinite" />
+                </rect>
+
+                <!-- Head Turret -->
+                <path d="M85 45 L90 25 L110 25 L115 45" fill="#334155" stroke="#475569" stroke-width="1" />
+                <rect x="92" y="20" width="16" height="10" fill="#1e293b" rx="2" stroke="#3b82f6" stroke-width="1"/>
+                <!-- Eye Lens -->
+                <circle cx="100" cy="25" r="3" fill="#ef4444" filter="url(#glow)" />
+
+                <!-- Antenna on Robot -->
+                <line x1="35" y1="45" x2="25" y2="10" stroke="#64748b" stroke-width="2" />
+                <circle cx="25" cy="10" r="2" fill="#eab308" />
+
+                <!-- Tow Hitch -->
+                <path d="M15 60 L25 60" stroke="#94a3b8" stroke-width="3" stroke-linecap="round"/>
+                <circle cx="15" cy="60" r="3" fill="#cbd5e1" />
+            </svg>
+        </div>
+    </div>
+
+    <!-- Custom Cursor -->
+    <div class="cursor-dot hidden md:block"></div>
+    <div class="cursor-outline hidden md:block"></div>
+
+    <!-- Interactive Background (Reverted) -->
+    <canvas id="networkCanvas" class="fixed top-0 left-0 w-full h-full pointer-events-none z-0 opacity-50"></canvas>
+
+    <!-- ROBOTIC ARM OVERLAY (Fixed on right) -->
+    <div id="robot-arm-container" class="hidden lg:block">
+        <svg viewBox="0 0 200 600" width="100%" height="100%">
+            <defs>
+                <linearGradient id="metalGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" style="stop-color:#1f2937;stop-opacity:1" />
+                    <stop offset="50%" style="stop-color:#374151;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#1f2937;stop-opacity:1" />
+                </linearGradient>
+            </defs>
+            
+            <!-- Base -->
+            <g transform="translate(100, 550)">
+                <rect x="-40" y="-20" width="80" height="40" fill="url(#metalGradient)" stroke="#00f0ff" stroke-width="2" />
+                
+                <!-- Link 1 (Shoulder) -->
+                <g id="arm-link-1" class="joint">
+                    <rect x="-15" y="-200" width="30" height="200" rx="5" fill="url(#metalGradient)" stroke="#00f0ff" stroke-width="1" />
+                    <circle cx="0" cy="0" r="12" fill="#111827" stroke="#00f0ff" stroke-width="2"/>
+                    
+                    <!-- Link 2 (Elbow) -->
+                    <g id="arm-link-2" class="joint" transform="translate(0, -180)">
+                        <rect x="-10" y="-150" width="20" height="150" rx="5" fill="url(#metalGradient)" stroke="#00f0ff" stroke-width="1" />
+                        <circle cx="0" cy="0" r="10" fill="#111827" stroke="#00f0ff" stroke-width="2"/>
+                        
+                        <!-- End Effector (Wrist/Claw) -->
+                        <g id="arm-claw" class="joint" transform="translate(0, -140)">
+                            <circle cx="0" cy="0" r="8" fill="#00f0ff" />
+                            <!-- Left Finger -->
+                            <path d="M -5 0 L -15 -30 L -5 -40" fill="none" stroke="#00f0ff" stroke-width="2" />
+                            <!-- Right Finger -->
+                            <path d="M 5 0 L 15 -30 L 5 -40" fill="none" stroke="#00f0ff" stroke-width="2" />
+                            <!-- Laser Beam -->
+                            <line x1="0" y1="0" x2="0" y2="1000" stroke="#ef4444" stroke-width="1" opacity="0.5" stroke-dasharray="5,5" />
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </svg>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 top-0 left-0 bg-cyber-black/80 backdrop-blur-md border-b border-white/10 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex-shrink-0 group">
+                    <a href="#" class="font-mono text-2xl font-bold text-white flex items-center gap-2">
+                        <!-- JUST ICON -->
+                        <div class="w-10 h-10 rounded-lg bg-cyber-blue/20 flex items-center justify-center border border-cyber-blue/50 group-hover:bg-cyber-blue/40 transition-all">
+                             <i class="fas fa-robot text-cyber-blue group-hover:animate-spin"></i>
+                        </div>
+                    </a>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#about" class="hover:text-cyber-blue px-3 py-2 rounded-md text-sm font-medium transition-colors font-tech uppercase tracking-widest">About</a>
+                        <a href="#skills" class="hover:text-cyber-blue px-3 py-2 rounded-md text-sm font-medium transition-colors font-tech uppercase tracking-widest">Skills</a>
+                        <a href="#ai-lab" class="hover:text-cyber-blue px-3 py-2 rounded-md text-sm font-medium transition-colors font-tech uppercase tracking-widest text-cyber-purple"><i class="fas fa-sparkles mr-1"></i>AI Lab</a>
+                        <a href="#projects" class="hover:text-cyber-blue px-3 py-2 rounded-md text-sm font-medium transition-colors font-tech uppercase tracking-widest">Projects</a>
+                        <a href="#contact" class="px-6 py-2 rounded-full bg-cyber-blue/10 border border-cyber-blue/50 text-cyber-blue hover:bg-cyber-blue hover:text-black transition-all text-sm font-bold font-mono shadow-[0_0_15px_rgba(0,240,255,0.3)] hover:shadow-[0_0_25px_rgba(0,240,255,0.6)]">Get In Touch</a>
+                    </div>
+                </div>
+                 <!-- Mobile menu button -->
+                 <div class="-mr-2 flex md:hidden">
+                    <button onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-cyber-dark border-b border-white/10">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#about" class="block hover:text-cyber-blue px-3 py-2 rounded-md text-base font-medium">About</a>
+                <a href="#skills" class="block hover:text-cyber-blue px-3 py-2 rounded-md text-base font-medium">Skills</a>
+                 <a href="#ai-lab" class="block text-cyber-purple px-3 py-2 rounded-md text-base font-medium"><i class="fas fa-sparkles mr-1"></i>AI Lab</a>
+                <a href="#projects" class="block hover:text-cyber-blue px-3 py-2 rounded-md text-base font-medium">Projects</a>
+                <a href="#contact" class="block text-cyber-blue px-3 py-2 rounded-md text-base font-medium">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center pt-16 z-10 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative flex flex-col items-center">
+            <div class="relative inline-block mb-8 group perspective-container">
+                <!-- Profile Image Container (CENTERED) -->
+                <div class="w-48 h-48 mx-auto rounded-full p-1 bg-gradient-to-r from-cyber-blue to-cyber-purple shadow-[0_0_50px_rgba(0,240,255,0.4)] transition-all duration-500 group-hover:scale-105 group-hover:shadow-[0_0_80px_rgba(112,0,255,0.6)]">
+                    <div class="w-full h-full rounded-full bg-gray-800 overflow-hidden relative">
+                         <!-- Image Logic: Cropped to face -->
+                         <img 
+                         src="profile.jpg" 
+                         alt="Samarth Patel" 
+                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 group-hover:rotate-3"
+                         style="object-position: center 15%;" 
+                         onerror="this.src='https://ui-avatars.com/api/?name=Samarth+Patel&background=00f0ff&color=fff&size=256'"
+                      >
+                        <div class="absolute inset-0 bg-cyber-blue/10 group-hover:bg-transparent transition-colors"></div>
+                    </div>
+                </div>
+                <!-- Status Indicator -->
+                <div class="absolute bottom-4 right-0 flex items-center gap-2 bg-cyber-black/80 backdrop-blur px-3 py-1 rounded-full border border-green-500/30">
+                    <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+                    <span class="text-xs font-mono text-green-400">READY TO DEPLOY</span>
+                </div>
+            </div>
+            
+            <h1 class="text-5xl sm:text-7xl font-bold text-white font-mono mb-4 tracking-tight glitch-wrapper">
+                Hi, I'm <span class="glitch text-transparent bg-clip-text bg-gradient-to-r from-cyber-blue to-cyber-blue" data-text="Samarth Patel">Samarth Patel</span>
+            </h1>
+            
+            <div class="h-8 mb-8 flex justify-center items-center">
+                <p class="text-xl sm:text-2xl text-cyber-blue font-tech" id="typing-text"></p>
+                <span class="w-2 h-6 bg-cyber-blue animate-pulse ml-1"></span>
+            </div>
+
+            <p class="text-base sm:text-lg text-gray-400 mb-12 max-w-2xl mx-auto leading-relaxed reveal">
+                Bridging the gap between <span class="text-white font-bold">Algorithms</span> and <span class="text-white font-bold">Reality</span>. Specializing in ROS2, SLAM, and creating autonomous systems that think.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row justify-center gap-6 reveal delay-200">
+                <!-- UPDATED BUTTON: Matches style of Initiate Projects -->
+                <button onclick="toggleChat()" class="relative px-8 py-4 rounded-lg border border-cyber-blue text-cyber-blue font-bold font-mono overflow-hidden group hover:text-black hover:border-cyber-blue/0">
+                    <span class="absolute inset-0 bg-cyber-blue translate-y-full group-hover:translate-y-0 transition-transform duration-300"></span>
+                    <span class="relative flex items-center gap-2">
+                        <i class="fas fa-comment-dots"></i> Talk to Digital Twin
+                    </span>
+                </button>
+
+                <a href="#projects" class="relative px-8 py-4 rounded-lg border border-cyber-purple text-cyber-purple font-bold font-mono overflow-hidden group hover:text-white hover:border-cyber-purple/0">
+                    <span class="absolute inset-0 bg-cyber-purple translate-y-full group-hover:translate-y-0 transition-transform duration-300"></span>
+                    <span class="relative flex items-center gap-2">
+                        <i class="fas fa-code-branch"></i> INITIATE_PROJECTS
+                    </span>
+                </a>
+            </div>
+
+            <div class="mt-16 flex justify-center gap-8 reveal delay-300">
+                <a href="https://github.com/SAMP2411" target="_blank" class="text-gray-400 hover:text-white hover:scale-125 transition-all duration-300"><i class="fab fa-github text-3xl"></i></a>
+                <a href="https://www.linkedin.com/in/samarth-patel-206451197/" target="_blank" class="text-gray-400 hover:text-blue-500 hover:scale-125 transition-all duration-300"><i class="fab fa-linkedin text-3xl"></i></a>
+                <a href="mailto:samarthp2411@gmail.com" class="text-gray-400 hover:text-cyber-blue hover:scale-125 transition-all duration-300"><i class="fas fa-envelope text-3xl"></i></a>
+            </div>
+        </div>
+        
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <a href="#about" class="text-gray-500 hover:text-cyber-blue">
+                <i class="fas fa-chevron-down text-2xl"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 relative z-10 bg-cyber-dark/30 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div class="reveal">
+                    <div class="flex items-center gap-4 mb-6">
+                        <!-- UPDATED HEADING -->
+                        <h2 class="text-3xl font-bold text-white font-mono">
+                            <span class="text-cyber-blue">/</span> Core Architecture
+                        </h2>
+                    </div>
+                    <div class="text-gray-400 space-y-6 leading-relaxed font-light text-lg">
+                        <p>
+                            I execute logic at <span class="text-cyber-blue font-bold">TU Dortmund</span>, compiling my Master's in Automation and Robotics. My core loop is driven by a fascination with making machines perceive, decide, and act in complex, unstructured environments.
+                        </p>
+                        <p>
+                            Initialized with a <span class="text-white">Mechatronics</span> background from SRM Institute, I've upgraded my stack to include advanced navigation, sensor fusion, and cloud robotics.
+                        </p>
+                        <p class="border-l-4 border-cyber-purple pl-4 italic text-gray-300">
+                            "Currently optimizing state estimation deployments using Kubernetes and Docker—bridging the gap between hardware and modern DevOps."
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Interactive Card Grid (Tilt Effect) -->
+                <div class="grid grid-cols-2 gap-4 perspective-1000">
+                    <div class="tilt-card p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-cyber-blue/50 transition-all group cursor-none" onmousemove="tiltCard(event, this)" onmouseleave="resetCard(this)">
+                        <div class="tilt-inner flex flex-col items-center text-center">
+                            <i class="fas fa-robot text-5xl text-cyber-blue mb-4 group-hover:scale-110 transition-transform"></i>
+                            <h3 class="text-xl font-bold text-white font-mono">Robotics</h3>
+                            <p class="text-xs text-gray-400 mt-2 font-tech">ROS NOETIC • ROS2 • SLAM</p>
+                        </div>
+                    </div>
+                    <div class="tilt-card p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-cyber-purple/50 transition-all group cursor-none" onmousemove="tiltCard(event, this)" onmouseleave="resetCard(this)">
+                        <div class="tilt-inner flex flex-col items-center text-center">
+                            <i class="fas fa-brain text-5xl text-cyber-purple mb-4 group-hover:scale-110 transition-transform"></i>
+                            <h3 class="text-xl font-bold text-white font-mono">AI Core</h3>
+                            <p class="text-xs text-gray-400 mt-2 font-tech">TENSORFLOW • CV • NUMPY</p>
+                        </div>
+                    </div>
+                    <div class="tilt-card p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-green-400/50 transition-all group cursor-none" onmousemove="tiltCard(event, this)" onmouseleave="resetCard(this)">
+                        <div class="tilt-inner flex flex-col items-center text-center">
+                            <i class="fas fa-microchip text-5xl text-green-400 mb-4 group-hover:scale-110 transition-transform"></i>
+                            <h3 class="text-xl font-bold text-white font-mono">Hardware</h3>
+                            <p class="text-xs text-gray-400 mt-2 font-tech">ARDUINO • RPI • SENSORS</p>
+                        </div>
+                    </div>
+                    <div class="tilt-card p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-cyber-blue/50 transition-all group cursor-none" onmousemove="tiltCard(event, this)" onmouseleave="resetCard(this)">
+                        <div class="tilt-inner flex flex-col items-center text-center">
+                            <i class="fas fa-server text-5xl text-cyber-blue mb-4 group-hover:scale-110 transition-transform"></i>
+                            <h3 class="text-xl font-bold text-white font-mono">DevOps</h3>
+                            <p class="text-xs text-gray-400 mt-2 font-tech">DOCKER • K8S • CI/CD</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Soft Skills Section -->
+    <section class="py-20 relative z-10 bg-cyber-black overflow-hidden">
+        <!-- Background Illustration -->
+        <div class="absolute top-0 right-0 opacity-10 pointer-events-none">
+             <svg width="400" height="400" viewBox="0 0 200 200">
+                <path d="M100 10 L190 50 L190 150 L100 190 L10 150 L10 50 Z" fill="none" stroke="#00f0ff" stroke-width="1"/>
+                <path d="M100 30 L170 60 L170 140 L100 170 L30 140 L30 60 Z" fill="none" stroke="#00f0ff" stroke-width="1"/>
+                <circle cx="100" cy="100" r="20" fill="#7000ff" />
+             </svg>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-3xl font-bold text-white font-mono mb-4">
+                    <span class="text-cyber-purple">/</span> Soft Skills Matrix
+                </h2>
+                <p class="text-gray-400 font-tech">SOFT SKILLS & ATTRIBUTES</p>
+            </div>
+
+            <div class="hex-grid reveal">
+                <!-- Skill 1 -->
+                <div class="hex-item group">
+                    <i class="fas fa-users text-3xl text-cyber-blue mb-2 group-hover:animate-bounce"></i>
+                    <h4 class="text-white font-bold text-sm">Collaboration</h4>
+                    <p class="text-xs text-gray-400 text-center px-2 mt-1">Cross-functional team synergy</p>
+                </div>
+                <!-- Skill 2 -->
+                <div class="hex-item group">
+                    <i class="fas fa-lightbulb text-3xl text-yellow-400 mb-2 group-hover:animate-bounce"></i>
+                    <h4 class="text-white font-bold text-sm">Problem Solving</h4>
+                    <p class="text-xs text-gray-400 text-center px-2 mt-1">Creative debugging & logic</p>
+                </div>
+                <!-- Skill 3 -->
+                <div class="hex-item group">
+                    <i class="fas fa-sync-alt text-3xl text-green-400 mb-2 group-hover:animate-spin"></i>
+                    <h4 class="text-white font-bold text-sm">Adaptability</h4>
+                    <p class="text-xs text-gray-400 text-center px-2 mt-1">Fast learner in new environments</p>
+                </div>
+                <!-- Skill 4 -->
+                <div class="hex-item group">
+                    <i class="fas fa-comments text-3xl text-pink-400 mb-2 group-hover:animate-bounce"></i>
+                    <h4 class="text-white font-bold text-sm">Communication</h4>
+                    <p class="text-xs text-gray-400 text-center px-2 mt-1">English (C1) • Gujarati (C2)</p>
+                </div>
+                 <!-- Skill 5 -->
+                 <div class="hex-item group">
+                    <i class="fas fa-tasks text-3xl text-orange-400 mb-2 group-hover:animate-bounce"></i>
+                    <h4 class="text-white font-bold text-sm">Management</h4>
+                    <p class="text-xs text-gray-400 text-center px-2 mt-1">Workflow optimization</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Skills & Experience Tabs -->
+    <section id="skills" class="py-20 relative z-10 bg-cyber-dark/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center gap-4 mb-12 reveal">
+                <!-- <span class="text-6xl font-mono font-bold text-white/10">02</span> -->
+                <h2 class="text-3xl font-bold text-white font-mono">
+                    <span class="text-cyber-blue">/</span> Technical Arsenal
+                </h2>
+            </div>
+            
+            <!-- Skill Bars with Animation -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div class="space-y-8 reveal">
+                    <div>
+                        <div class="flex justify-between mb-2 text-sm font-mono text-cyber-blue">
+                            <span>PYTHON / C++</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="h-2 bg-gray-800 rounded-full overflow-hidden">
+                            <div class="h-full bg-gradient-to-r from-cyber-blue to-cyber-purple w-[90%] animate-pulse"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-2 text-sm font-mono text-cyber-blue">
+                            <span>ROS / ROS2</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="h-2 bg-gray-800 rounded-full overflow-hidden">
+                            <div class="h-full bg-gradient-to-r from-cyber-blue to-blue-600 w-[85%] animate-pulse"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-2 text-sm font-mono text-green-400">
+                            <span>COMPUTER VISION</span>
+                            <span>75%</span>
+                        </div>
+                        <div class="h-2 bg-gray-800 rounded-full overflow-hidden">
+                            <div class="h-full bg-gradient-to-r from-green-400 to-green-600 w-[75%] animate-pulse"></div>
+                        </div>
+                    </div>
+                      <div>
+                        <div class="flex justify-between mb-2 text-sm font-mono text-purple-400">
+                            <span>KUBERNETES / DOCKER</span>
+                            <span>70%</span>
+                        </div>
+                        <div class="h-2 bg-gray-800 rounded-full overflow-hidden">
+                            <div class="h-full bg-gradient-to-r from-purple-400 to-purple-600 w-[70%] animate-pulse"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Experience Timeline -->
+                <div class="border-l-2 border-white/10 pl-8 space-y-10 reveal delay-200">
+                    <div class="relative group">
+                        <div class="absolute -left-[41px] top-0 w-5 h-5 rounded-full bg-cyber-black border-2 border-cyber-blue group-hover:bg-cyber-blue transition-colors"></div>
+                        <span class="text-cyber-blue font-mono text-sm">01/2024 - 07/2024</span>
+                        <h3 class="text-xl font-bold text-white mt-1 group-hover:translate-x-2 transition-transform">ML & Data Science Trainee</h3>
+                        <p class="text-gray-500 text-sm mb-2">GeeksforGeeks</p>
+                        <p class="text-gray-400 text-sm">Engineered Python scrapers and analyzed 50+ years of global data.</p>
+                        <a href="https://github.com/SAMP2411/Data_Science-Machine_Learning" target="_blank" class="inline-flex items-center mt-2 text-xs text-cyber-blue font-mono hover:underline">
+                            <i class="fab fa-github mr-2"></i> ACCESS_REPO
+                        </a>
+                    </div>
+                    <div class="relative group">
+                        <div class="absolute -left-[41px] top-0 w-5 h-5 rounded-full bg-cyber-black border-2 border-gray-600 group-hover:border-white transition-colors"></div>
+                        <span class="text-gray-500 font-mono text-sm">10/2023 - 01/2024</span>
+                        <h3 class="text-xl font-bold text-white mt-1 group-hover:translate-x-2 transition-transform">Electronics Intern</h3>
+                        <p class="text-gray-500 text-sm mb-2">Omsara Industries</p>
+                        <p class="text-gray-400 text-sm">Integrated 50+ PCBs for IoT systems, boosting throughput by 10%.</p>
+                    </div>
+                    <!-- NEW ENTRY -->
+                    <div class="relative group">
+                        <div class="absolute -left-[41px] top-0 w-5 h-5 rounded-full bg-cyber-black border-2 border-neon-green group-hover:border-white transition-colors"></div>
+                        <span class="text-neon-green font-mono text-sm">06/2023 - 09/2023</span>
+                        <h3 class="text-xl font-bold text-white mt-1 group-hover:translate-x-2 transition-transform">Manufacturing Support Intern</h3>
+                        <p class="text-gray-500 text-sm mb-2">Ashlesh Bright Bars Pvt. Ltd.</p>
+                        <p class="text-gray-400 text-sm">Calibrated industrial sensors (12% accuracy inc) and documented production metrics.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW: AI LAB / Neural Architect -->
+    <section id="ai-lab" class="py-24 relative z-10 bg-gradient-to-r from-cyber-black to-cyber-dark/50 border-y border-cyber-purple/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 reveal">
+                <span class="px-3 py-1 rounded-full bg-cyber-purple/20 text-cyber-purple border border-cyber-purple/50 text-xs font-mono mb-4 inline-block">POWERED BY GEMINI AI ✨</span>
+                <h2 class="text-4xl font-bold text-white font-mono mb-4">
+                    <span class="text-cyber-purple">/</span> Neural Project Architect
+                </h2>
+                <p class="text-gray-400 max-w-2xl mx-auto font-light">
+                    Enter a field of application (e.g., "Agriculture", "Space", "Underwater") and my AI will generate a full robotics project concept including sensors, algorithms, and tech stack.
+                </p>
+            </div>
+
+            <div class="max-w-3xl mx-auto bg-cyber-black/50 backdrop-blur-lg border border-cyber-purple/30 rounded-2xl p-8 shadow-[0_0_40px_rgba(99,102,241,0.1)] reveal">
+                <div class="flex flex-col md:flex-row gap-4 mb-6">
+                    <input type="text" id="ideaInput" placeholder="Enter a domain (e.g. 'Smart Warehouse')" class="flex-1 bg-gray-900/80 border border-gray-700 rounded-lg px-4 py-3 text-white focus:border-cyber-purple focus:outline-none font-mono">
+                    <button onclick="generateIdea()" class="bg-cyber-purple hover:bg-indigo-500 text-white font-bold py-3 px-8 rounded-lg transition-all shadow-[0_0_15px_rgba(99,102,241,0.4)] hover:shadow-[0_0_25px_rgba(99,102,241,0.6)] whitespace-nowrap">
+                        <i class="fas fa-magic mr-2"></i> Generate ✨
+                    </button>
+                </div>
+                
+                <!-- Output Container -->
+                <div id="ideaOutput" class="hidden">
+                    <div class="h-px w-full bg-gradient-to-r from-transparent via-cyber-purple/50 to-transparent mb-6"></div>
+                    <h3 id="ideaTitle" class="text-xl font-bold text-white font-mono mb-2"></h3>
+                    <p id="ideaDesc" class="text-gray-300 text-sm leading-relaxed mb-4"></p>
+                    <div class="flex flex-wrap gap-2" id="ideaTags">
+                        <!-- Tags will be injected here -->
+                    </div>
+                </div>
+                
+                <div id="ideaLoader" class="hidden text-center py-8">
+                    <i class="fas fa-circle-notch fa-spin text-3xl text-cyber-purple mb-3"></i>
+                    <p class="text-cyber-purple font-mono text-xs animate-pulse">NEURAL NETWORK PROCESSING...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 relative z-10">
+        <!-- Mobile Robot SVG (Absolute in this section) -->
+        <div id="mobile-rover-container" class="absolute bottom-0 w-full h-20 overflow-hidden pointer-events-none hidden md:block">
+             <div id="mobile-rover">
+                <svg viewBox="0 0 100 60" width="100%" height="100%">
+                    <!-- Body -->
+                    <rect x="10" y="20" width="80" height="30" rx="5" fill="#1f2937" stroke="#00f0ff" stroke-width="2" />
+                    <!-- Cockpit/Sensor -->
+                    <path d="M 60 20 L 70 10 L 90 20 Z" fill="#00f0ff" opacity="0.8"/>
+                    <!-- Radar Dish -->
+                    <g transform="translate(30, 20)">
+                        <path d="M -15 -15 Q 0 0 15 -15" fill="none" stroke="#6366f1" stroke-width="2" class="radar-scan"/>
+                        <line x1="0" y1="0" x2="0" y2="-15" stroke="#6366f1" stroke-width="1"/>
+                    </g>
+                    <!-- Wheels -->
+                    <circle cx="25" cy="50" r="10" fill="#000" stroke="#374151" stroke-width="2" class="wheel"/>
+                    <circle cx="75" cy="50" r="10" fill="#000" stroke="#374151" stroke-width="2" class="wheel"/>
+                </svg>
+             </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-4xl font-bold text-white font-mono mb-4">
+                    <span class="text-cyber-blue">/</span> Featured Protocols
+                </h2>
+                <div class="h-1 w-20 bg-cyber-blue mx-auto rounded-full"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                
+                <!-- Project 1: Distributed State Estimation -->
+                <div class="tilt-card group cursor-none rounded-xl overflow-hidden border border-white/10 bg-cyber-dark/50 hover:border-cyber-blue/50 transition-all" onmousemove="tiltCard(event, this)" onmouseleave="resetCard(this)">
+                    <div class="h-52 relative overflow-hidden tilt-inner bg-gray-900">
+                        <img src="project1.jpg" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-40 transition-opacity duration-500" alt="Distributed State Estimation" onerror="this.src='https://www.transparenttextures.com/patterns/cubes.png'">
+                        
+                        <!-- Overlay Content -->
+                        <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                             <i class="fas fa-network-wired text-6xl text-cyber-blue/50 group-hover:text-cyber-blue transition-colors z-10"></i>
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-cyber-black via-transparent to-transparent opacity-80"></div>
+                    </div>
+
+                    <div class="p-8 relative tilt-inner bg-cyber-black/50 backdrop-blur-sm">
+                        <h3 class="text-2xl font-bold text-white font-mono mb-2 group-hover:text-cyber-blue transition-colors">Distributed State Estimation</h3>
+                        <p class="text-cyber-blue font-tech text-xs mb-4">[ PYTHON • DOCKER • K8S ]</p>
+                        <p class="text-gray-400 text-sm mb-6">
+                            Automating deployment of SE algorithms to edge devices. Designed bare-metal provisioning workflows (PXE, BootC) for power grid digital twins.
+                        </p>
+                        <!-- Updated Link -->
+                        <a href="https://gitlab.tu-dortmund.de/ie3/ie3_protection_and_automation/pgwise2526/-/tree/samarth?ref_type=heads" target="_blank" class="inline-flex items-center text-white hover:text-cyber-blue transition-colors font-mono text-sm">
+                            <i class="fab fa-gitlab mr-2"></i> ACCESS REPO <i class="fas fa-arrow-right ml-2 transform group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 2: Telepresence Robot -->
+                <div class="tilt-card group cursor-none rounded-xl overflow-hidden border border-white/10 bg-cyber-dark/50 hover:border-cyber-purple/50 transition-all" onmousemove="tiltCard(event, this)" onmouseleave="resetCard(this)">
+                    <div class="h-52 relative overflow-hidden tilt-inner bg-gray-900">
+                         <img src="project2.jpg" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-40 transition-opacity duration-500" alt="Telepresence Robot" onerror="this.src='https://www.transparenttextures.com/patterns/carbon-fibre.png'">
+                        
+                        <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                             <i class="fas fa-robot text-6xl text-cyber-purple/50 group-hover:text-cyber-purple transition-colors z-10"></i>
+                        </div>
+                         <div class="absolute inset-0 bg-gradient-to-t from-cyber-black via-transparent to-transparent opacity-80"></div>
+                    </div>
+
+                    <div class="p-8 relative tilt-inner bg-cyber-black/50 backdrop-blur-sm">
+                        <h3 class="text-2xl font-bold text-white font-mono mb-2 group-hover:text-cyber-purple transition-colors">Telepresence Robot</h3>
+                        <p class="text-cyber-purple font-tech text-xs mb-4">[ ROS NOETIC • LIDAR • C++ ]</p>
+                        <p class="text-gray-400 text-sm mb-6">
+                            Autonomous navigation robot integrating LiDAR and IMU. Tuned navigation stack and SLAM in Gazebo/RViz for reliable indoor mobility.
+                        </p>
+                        <!-- Updated Link -->
+                        <a href="https://github.com/SAMP2411/Telepresence-Robot" target="_blank" class="inline-flex items-center text-white hover:text-cyber-purple transition-colors font-mono text-sm">
+                            <i class="fab fa-github mr-2"></i> ACCESS REPO <i class="fas fa-arrow-right ml-2 transform group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 3: Competitive Robotics -->
+                <div class="tilt-card group cursor-none rounded-xl overflow-hidden border border-white/10 bg-cyber-dark/50 hover:border-neon-green/50 transition-all" onmousemove="tiltCard(event, this)" onmouseleave="resetCard(this)">
+                    <div class="h-52 relative overflow-hidden tilt-inner bg-gray-900">
+                         <img src="project3.jpg" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-40 transition-opacity duration-500" alt="Competitive Robotics" onerror="this.src='https://www.transparenttextures.com/patterns/cubes.png'">
+
+                        <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                             <i class="fas fa-trophy text-6xl text-neon-green/50 group-hover:text-neon-green transition-colors z-10"></i>
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-cyber-black via-transparent to-transparent opacity-80"></div>
+                    </div>
+
+                    <div class="p-8 relative tilt-inner bg-cyber-black/50 backdrop-blur-sm">
+                        <h3 class="text-2xl font-bold text-white font-mono mb-2 group-hover:text-neon-green transition-colors">Competitive Robotics</h3>
+                        <p class="text-neon-green font-tech text-xs mb-4">[ EMBEDDED • SENSOR FUSION ]</p>
+                        <p class="text-gray-400 text-sm mb-6">
+                             Achieved 90%+ success in autonomous tasks for DD Robocon. Reduced completion time by 40% through advanced coordination algorithms.
+                        </p>
+                        <!-- Updated Link -->
+                        <a href="https://github.com/SAMP2411/Robocon-2k22" target="_blank" class="inline-flex items-center text-white hover:text-neon-green transition-colors font-mono text-sm">
+                            <i class="fas fa-external-link-alt mr-2"></i> VIEW DETAILS <i class="fas fa-arrow-right ml-2 transform group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 4: UGV -->
+                <div class="tilt-card group cursor-none rounded-xl overflow-hidden border border-white/10 bg-cyber-dark/50 hover:border-red-500/50 transition-all" onmousemove="tiltCard(event, this)" onmouseleave="resetCard(this)">
+                    <div class="h-52 relative overflow-hidden tilt-inner bg-gray-900">
+                        <img src="project4.jpg" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-40 transition-opacity duration-500" alt="UGV" onerror="this.src='https://www.transparenttextures.com/patterns/carbon-fibre.png'">
+
+                        <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                             <i class="fas fa-car-battery text-6xl text-red-500/50 group-hover:text-red-500 transition-colors z-10"></i>
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-cyber-black via-transparent to-transparent opacity-80"></div>
+                    </div>
+
+                    <div class="p-8 relative tilt-inner bg-cyber-black/50 backdrop-blur-sm">
+                        <h3 class="text-2xl font-bold text-white font-mono mb-2 group-hover:text-red-500 transition-colors">Unmanned Ground Vehicle</h3>
+                        <p class="text-red-500 font-tech text-xs mb-4">[ PID • KALMAN FILTER • GPS/IMU ]</p>
+                        <p class="text-gray-400 text-sm mb-6">
+                            Optimized PID loops for sub-10cm trajectory tracking. Implemented sensor fusion algorithms reducing positional error by 25% on varied terrains.
+                        </p>
+                        <!-- Updated Link -->
+                        <a href="https://github.com/SAMP2411/Unmanned_Ground_Vehicle" target="_blank" class="inline-flex items-center text-white hover:text-red-500 transition-colors font-mono text-sm">
+                            <i class="fas fa-code mr-2"></i> VIEW CODE <i class="fas fa-arrow-right ml-2 transform group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section (SECURE TERMINAL) -->
+    <section id="contact" class="py-24 relative z-10 bg-black border-t border-cyber-blue/20">
+        <div class="max-w-4xl mx-auto px-4 text-center reveal">
+            <div class="inline-block p-4 rounded-full bg-cyber-blue/5 mb-6 animate-float border border-cyber-blue/30">
+                <i class="fas fa-satellite-dish text-4xl text-cyber-blue"></i>
+            </div>
+            <h2 class="text-4xl font-bold text-white font-mono mb-6">
+                SECURE <span class="text-cyber-blue">TRANSMISSION</span>
+            </h2>
+            
+            <div class="bg-cyber-dark/80 border border-cyber-blue/20 p-8 rounded-lg backdrop-blur-md max-w-lg mx-auto text-left relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-full h-1 bg-cyber-blue/50"></div>
+                <div class="font-mono text-xs text-cyber-blue mb-4">Encypted Connection: ACTIVE</div>
+                
+                <div class="space-y-4">
+                    <div>
+                        <!-- UPDATED: Using Share Tech Mono font for better readability but tech aesthetic -->
+                        <label class="block text-gray-300 text-lg font-tech font-bold tracking-wide mb-2">OPERATOR ID (Name)</label>
+                        <input type="text" class="w-full bg-black border border-gray-700 text-white p-3 font-tech text-lg focus:border-cyber-blue focus:outline-none transition-colors placeholder-gray-600" placeholder="Enter your name">
+                    </div>
+                    <div>
+                        <label class="block text-gray-300 text-lg font-tech font-bold tracking-wide mb-2">UPLINK ADDRESS (Email)</label>
+                        <input type="email" class="w-full bg-black border border-gray-700 text-white p-3 font-tech text-lg focus:border-cyber-blue focus:outline-none transition-colors placeholder-gray-600" placeholder="Enter your email">
+                    </div>
+                    <div>
+                        <label class="block text-gray-300 text-lg font-tech font-bold tracking-wide mb-2">DATA PACKET (Message)</label>
+                        <textarea rows="4" class="w-full bg-black border border-gray-700 text-white p-3 font-tech text-lg focus:border-cyber-blue focus:outline-none transition-colors placeholder-gray-600" placeholder="Enter your message"></textarea>
+                    </div>
+                    <button class="w-full bg-cyber-blue/10 border border-cyber-blue text-cyber-blue py-3 font-mono font-bold hover:bg-cyber-blue hover:text-black transition-all text-lg">
+                        TRANSMIT_DATA
+                    </button>
+                </div>
+            </div>
+
+            <div class="mt-12 flex justify-center gap-8 text-2xl text-gray-500">
+                <a href="#" class="hover:text-white hover:scale-125 transition-all"><i class="fab fa-github"></i></a>
+                <a href="#" class="hover:text-blue-500 hover:scale-125 transition-all"><i class="fab fa-linkedin"></i></a>
+                <a href="mailto:samarthp2411@gmail.com" class="hover:text-cyber-blue hover:scale-125 transition-all"><i class="fas fa-envelope"></i></a>
+            </div>
+
+            <footer class="mt-12 pt-8 border-t border-gray-800 text-sm text-gray-600">
+                <p class="font-mono">SYS.VER.2024 // SP.ROBOTICS</p>
+            </footer>
+        </div>
+    </section>
+
+    <!-- AI CHAT WIDGET -->
+    <div id="ai-chat-widget" class="fixed bottom-6 right-6 z-50 font-sans hidden flex-col items-end">
+        <div id="chat-window" class="bg-cyber-black border border-cyber-blue/30 rounded-2xl w-80 sm:w-96 h-[500px] shadow-[0_0_50px_rgba(0,0,0,0.8)] flex flex-col overflow-hidden mb-4 transform transition-all scale-95 opacity-0 origin-bottom-right">
+            <div class="bg-gray-900/90 p-4 border-b border-gray-800 flex justify-between items-center">
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-full bg-gradient-to-br from-cyber-blue to-purple-600 flex items-center justify-center">
+                        <i class="fas fa-robot text-white text-xs"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-white font-bold text-sm font-mono">SP.Digital_Twin</h3>
+                        <div class="flex items-center gap-1">
+                            <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+                            <span class="text-xs text-gray-400 font-mono">ONLINE</span>
+                        </div>
+                    </div>
+                </div>
+                <button onclick="toggleChat()" class="text-gray-400 hover:text-white"><i class="fas fa-times"></i></button>
+            </div>
+            <div id="chat-messages" class="flex-1 overflow-y-auto p-4 space-y-4 scroll-smooth">
+                <div class="flex items-start gap-2 animate-slide-in">
+                    <div class="w-6 h-6 rounded-full bg-cyber-blue/20 flex-shrink-0 flex items-center justify-center text-xs text-cyber-blue border border-cyber-blue/50"><i class="fas fa-robot"></i></div>
+                    <div class="bg-gray-800/50 text-sm text-gray-200 p-3 rounded-2xl rounded-tl-none border border-gray-700">
+                        Hello! I am Samarth's AI Digital Twin. Ask me about his experience with ROS2, SLAM, or his projects at TU Dortmund! ✨
+                    </div>
+                </div>
+            </div>
+            <div class="p-4 bg-gray-900/90 border-t border-gray-800">
+                <div class="relative">
+                    <input type="text" id="chatInput" placeholder="Ask a question..." class="w-full bg-black/50 border border-gray-700 rounded-full px-4 py-2 pr-10 text-sm text-white focus:border-cyber-blue focus:outline-none transition-colors" onkeypress="handleChatKey(event)">
+                    <button onclick="sendMessage()" class="absolute right-2 top-1/2 transform -translate-y-1/2 text-cyber-blue hover:text-white transition-colors p-1">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <button onclick="toggleChat()" id="chat-toggle-btn" class="w-14 h-14 bg-gradient-to-r from-cyber-blue to-cyber-purple rounded-full shadow-[0_0_20px_rgba(14,165,233,0.5)] flex items-center justify-center text-white text-xl hover:scale-110 transition-transform group">
+            <i class="fas fa-comment-dots group-hover:hidden"></i>
+            <i class="fas fa-chevron-down hidden group-hover:block"></i>
+        </button>
+    </div>
+
+    <script>
+        const apiKey = ""; 
+
+        /* --- INTRO ANIMATION LOGIC --- */
+        
+        const config = {
+            robotSpeed: 2.5, // Much faster
+            pauseDuration: 800, // Shorter pause
+            zoomDuration: 800, // Snappier zoom
+            exitSpeedMultiplier: 2.5
+        };
+
+        const sceneContainer = document.getElementById('scene-container');
+        const robot = document.getElementById('robot');
+        const payload = document.getElementById('payload');
+        const wheels = document.querySelectorAll('.wheel');
+        const ropeLine = document.getElementById('rope');
+        const ropeLayer = document.getElementById('rope-layer'); // Grab the layer to fade it out
+        const sceneryElements = document.querySelectorAll('.scenery');
+        const gridFloor = document.getElementById('grid-floor');
+        const road = document.getElementById('road');
+        const typingTextElement = document.getElementById('typing-text'); // For later use
+
+        let animationId = null;
+        let state = 'ENTERING'; 
+        let robotX = -20; // Start off screen left
+        let payloadX = -35;
+        
+        // UPDATED: Robot stops further right (58%) so the payload (trailing by ~12%) lands roughly at center (46%)
+        const centerTarget = 58; 
+        const exitTarget = 120; // Exit off screen right
+
+        // Auto-start on load
+        document.addEventListener('DOMContentLoaded', () => {
+            // Add keyframe for wheel spin dynamically
+            const styleSheet = document.createElement("style");
+            styleSheet.innerText = `
+                @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+            `;
+            document.head.appendChild(styleSheet);
+            
+            requestAnimationFrame(loop);
+        });
+
+        function updateRope() {
+            const robotRect = robot.getBoundingClientRect();
+            const payloadRect = payload.getBoundingClientRect();
+
+            // Robot Hitch point (relative to visual design)
+            const hookX = robotRect.left + (robotRect.width * (15/140));
+            const hookY = robotRect.top + (robotRect.height * (60/110));
+
+            // Payload Attach point (Center Right side)
+            const loadX = payloadRect.right;
+            const loadY = payloadRect.top + (payloadRect.height * 0.5);
+
+            ropeLine.setAttribute('x1', hookX);
+            ropeLine.setAttribute('y1', hookY);
+            ropeLine.setAttribute('x2', loadX);
+            ropeLine.setAttribute('y2', loadY);
+        }
+
+        function setWheelsRotating(isRotating) {
+            wheels.forEach(w => {
+                if (isRotating) {
+                    w.style.animation = `spin ${0.8 / config.robotSpeed}s linear infinite`;
+                } else {
+                    w.style.animation = 'none';
+                }
+            });
+        }
+
+        function loop() {
+            if (state === 'ENTERING') {
+                setWheelsRotating(true);
+                if (robotX < centerTarget) {
+                    robotX += 0.3 * config.robotSpeed;
+                } else {
+                    robotX = centerTarget;
+                    state = 'PAUSED';
+                    setWheelsRotating(false);
+                    setTimeout(() => { state = 'ZOOMING'; }, config.pauseDuration);
+                }
+                
+                // Payload trails behind
+                const targetPayloadX = robotX - 12; 
+                payloadX += (targetPayloadX - payloadX) * 0.1;
+
+            } else if (state === 'PAUSED') {
+                const targetPayloadX = robotX - 12;
+                payloadX += (targetPayloadX - payloadX) * 0.1;
+
+            } else if (state === 'ZOOMING') {
+                // Zoom payload to fill screen
+                payload.style.transform = 'scale(30)';
+                payload.style.opacity = '0'; // Fade out payload box to reveal site behind
+                
+                // FADE OUT ROPE IMMEDIATELY to prevent "blue line" artifact
+                ropeLayer.style.opacity = '0';
+
+                // Fade out the scenery/grid/road to "reveal" the site
+                sceneryElements.forEach(el => el.style.opacity = '0');
+                gridFloor.style.opacity = '0';
+                road.style.opacity = '0';
+                
+                // Fade out the solid black background of the intro container to transparent
+                sceneContainer.style.backgroundColor = 'transparent';
+                // Allow clicks to pass through scene container after transition
+                sceneContainer.style.pointerEvents = 'none';
+
+                setTimeout(() => { state = 'LEAVING'; }, config.zoomDuration);
+
+            } else if (state === 'LEAVING') {
+                setWheelsRotating(true);
+                robotX += 0.5 * config.robotSpeed * config.exitSpeedMultiplier;
+                
+                const targetPayloadX = robotX - 12;
+                payloadX += (targetPayloadX - payloadX) * 0.1;
+
+                if (robotX > exitTarget) {
+                    state = 'FINISHED';
+                    setWheelsRotating(false);
+                    // Start typing effect of main site
+                    typeEffect();
+                    // Cleanup intro DOM elements to save resources
+                    setTimeout(() => {
+                         sceneContainer.style.display = 'none';
+                    }, 500);
+                }
+            }
+
+            robot.style.left = `${robotX}%`;
+            payload.style.left = `${payloadX}%`;
+
+            updateRope();
+
+            if (state !== 'FINISHED') {
+                requestAnimationFrame(loop);
+            }
+        }
+
+        window.addEventListener('resize', updateRope);
+
+
+        /* --- 2. Typing Effect (Existing Logic) --- */
+        const roles = [
+            "ROBOTICS ENGINEER",
+            "ROS DEVELOPER",
+            "AUTOMATION SPECIALIST",
+            "PROBLEM SOLVER"
+        ];
+        let roleIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        // typingElement is defined above but used here
+        
+        function typeEffect() {
+            const currentRole = roles[roleIndex];
+            const typingElement = document.getElementById('typing-text');
+            
+            if (!typingElement) return;
+
+            if (isDeleting) {
+                typingElement.textContent = currentRole.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typingElement.textContent = currentRole.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            if (!isDeleting && charIndex === currentRole.length) {
+                setTimeout(() => isDeleting = true, 2000);
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                roleIndex = (roleIndex + 1) % roles.length;
+            }
+
+            const speed = isDeleting ? 50 : 100;
+            setTimeout(typeEffect, speed);
+        }
+
+        /* --- 3. Scroll Reveal Animation --- */
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 150;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+        window.addEventListener("scroll", reveal);
+        reveal();
+
+        /* --- 4. 3D Tilt Effect --- */
+        function tiltCard(e, card) {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            
+            const rotateX = ((y - centerY) / centerY) * -10;
+            const rotateY = ((x - centerX) / centerX) * 10;
+
+            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+        }
+
+        function resetCard(card) {
+            card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
+        }
+
+        /* --- 5. Advanced Particle Network --- */
+        const canvas = document.getElementById('networkCanvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+        const mouse = { x: null, y: null, radius: 150 };
+
+        window.addEventListener('mousemove', (e) => {
+            mouse.x = e.x;
+            mouse.y = e.y;
+            const cursorDot = document.querySelector('.cursor-dot');
+            const cursorOutline = document.querySelector('.cursor-outline');
+            if(cursorDot) {
+                cursorDot.style.left = `${e.clientX}px`;
+                cursorDot.style.top = `${e.clientY}px`;
+            }
+            if(cursorOutline) {
+                cursorOutline.animate({
+                    left: `${e.clientX}px`,
+                    top: `${e.clientY}px`
+                }, { duration: 500, fill: "forwards" });
+            }
+        });
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 2 + 1;
+                this.baseX = this.x;
+                this.baseY = this.y;
+                // INCREASED DENSITY VAR FOR FASTER MOVEMENT
+                this.density = (Math.random() * 40) + 5; 
+            }
+            draw() {
+                ctx.fillStyle = '#00f0ff';
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.closePath();
+                ctx.fill();
+            }
+            update() {
+                let dx = mouse.x - this.x;
+                let dy = mouse.y - this.y;
+                let distance = Math.sqrt(dx * dx + dy * dy);
+                let forceDirectionX = dx / distance;
+                let forceDirectionY = dy / distance;
+                let maxDistance = mouse.radius;
+                let force = (maxDistance - distance) / maxDistance;
+                
+                // FASTER MOVEMENT MULTIPLIER
+                let directionX = forceDirectionX * force * this.density * 2;
+                let directionY = forceDirectionY * force * this.density * 2;
+
+                if (distance < mouse.radius) {
+                    this.x -= directionX;
+                    this.y -= directionY;
+                } else {
+                    if (this.x !== this.baseX) {
+                        let dx = this.x - this.baseX;
+                        // FASTER RETURN SPEED (smaller divisor = faster return)
+                        this.x -= dx / 5; 
+                    }
+                    if (this.y !== this.baseY) {
+                        let dy = this.y - this.baseY;
+                        // FASTER RETURN SPEED
+                        this.y -= dy / 5; 
+                    }
+                }
+            }
+        }
+
+        // UPDATED: Reduced Density Multiplier by 50% (from 2.0 to 1.0)
+        const particleDensity = 4000; 
+        const particleMultiplier = 0.6; 
+        
+        function initParticles() {
+            particles = [];
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            let numberOfParticles = Math.ceil((canvas.width * canvas.height) / particleDensity * particleMultiplier);
+            for (let i = 0; i < numberOfParticles; i++) {
+                particles.push(new Particle());
+            }
+        }
+
+        function animateParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            for (let i = 0; i < particles.length; i++) {
+                particles[i].draw();
+                particles[i].update();
+                for (let j = i; j < particles.length; j++) {
+                    let dx = particles[i].x - particles[j].x;
+                    let dy = particles[i].y - particles[j].y;
+                    let distance = Math.sqrt(dx * dx + dy * dy);
+                    if (distance < 100) {
+                        ctx.beginPath();
+                        ctx.strokeStyle = `rgba(0, 240, 255, ${1 - distance/100})`;
+                        ctx.lineWidth = 0.5;
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+            requestAnimationFrame(animateParticles);
+        }
+        window.addEventListener('resize', initParticles);
+        initParticles();
+        animateParticles();
+        /* --- 6. SCROLL ANIMATIONS (Robot Arm + Rover + Drone) --- */
+
+        // smoothing state for robotic arm joints
+        // define curled (rest) and straight (deployed) poses
+        const curledPose = { a1: 60, a2: -120 };
+        curledPose.a3 = -curledPose.a1 - curledPose.a2;
+        const straightPose = { a1: -20, a2: 10 };
+        straightPose.a3 = -straightPose.a1 - straightPose.a2;
+
+        const targetAngles = { ...curledPose };
+        const currentAngles = { ...curledPose };
+
+        function lerp(a, b, t) { return a + (b - a) * t; }
+
+        function updateArmSmooth() {
+            const armLink1 = document.getElementById('arm-link-1');
+            const armLink2 = document.getElementById('arm-link-2');
+            const armClaw = document.getElementById('arm-claw');
+
+            currentAngles.a1 = lerp(currentAngles.a1, targetAngles.a1, 0.12);
+            currentAngles.a2 = lerp(currentAngles.a2, targetAngles.a2, 0.12);
+            currentAngles.a3 = lerp(currentAngles.a3, targetAngles.a3, 0.12);
+
+            if (armLink1) armLink1.style.transform = `rotate(${currentAngles.a1}deg)`;
+            if (armLink2) armLink2.style.transform = `translate(0, -180px) rotate(${currentAngles.a2}deg)`;
+            if (armClaw) armClaw.style.transform = `translate(0, -140px) rotate(${currentAngles.a3}deg)`;
+
+            requestAnimationFrame(updateArmSmooth);
+        }
+
+        // start smoothing loop
+        requestAnimationFrame(updateArmSmooth);
+
+        // apply initial curled pose immediately (if elements available)
+        (function applyInitialPose(){
+            const armLink1 = document.getElementById('arm-link-1');
+            const armLink2 = document.getElementById('arm-link-2');
+            const armClaw = document.getElementById('arm-claw');
+            if (armLink1) armLink1.style.transform = `rotate(${currentAngles.a1}deg)`;
+            if (armLink2) armLink2.style.transform = `translate(0, -180px) rotate(${currentAngles.a2}deg)`;
+            if (armClaw) armClaw.style.transform = `translate(0, -140px) rotate(${currentAngles.a3}deg)`;
+        })();
+
+        window.addEventListener('scroll', () => {
+            const scrollY = window.scrollY;
+            const windowHeight = window.innerHeight;
+            
+            // --- BACKGROUND CONVEYOR BELT EFFECT ---
+            const belt = document.getElementById('conveyor-belt');
+            if(belt) {
+                // Update the background position to simulate movement based on scroll
+                belt.style.backgroundPositionY = `${scrollY}px`;
+            }
+
+            // --- Robotic Arm Logic (Skills Section) ---
+            const skillsSection = document.getElementById('skills');
+            const armContainer = document.getElementById('robot-arm-container');
+            
+            if (skillsSection && armContainer) {
+                const rect = skillsSection.getBoundingClientRect();
+                const start = windowHeight;
+                const end = -rect.height;
+
+                if (rect.top < start && rect.bottom > 0) {
+                    armContainer.style.opacity = '1';
+                    const progress = Math.max(0, Math.min(1, (start - rect.top) / (start - end)));
+
+                    // interpolate between curled (rest) and straight (deployed) poses
+                    targetAngles.a1 = curledPose.a1 + (straightPose.a1 - curledPose.a1) * progress;
+                    targetAngles.a2 = curledPose.a2 + (straightPose.a2 - curledPose.a2) * progress;
+                    targetAngles.a3 = curledPose.a3 + (straightPose.a3 - curledPose.a3) * progress;
+                } else {
+                    armContainer.style.opacity = '0.2';
+                    targetAngles.a1 = curledPose.a1;
+                    targetAngles.a2 = curledPose.a2;
+                    targetAngles.a3 = curledPose.a3;
+                }
+            }
+
+            // --- Mobile Rover Logic (Projects Section) ---
+            const projectsSection = document.getElementById('projects');
+            const rover = document.getElementById('mobile-rover');
+            
+            if (projectsSection && rover) {
+                const rect = projectsSection.getBoundingClientRect();
+                if (rect.top < windowHeight && rect.bottom > 0) {
+                    const progress = 1 - (rect.top / windowHeight);
+                    const moveX = Math.min(Math.max(progress * 120, -20), 120);
+                    rover.style.left = `${moveX}%`;
+                }
+            }
+
+            // --- Drone Logic ---
+            const drone = document.getElementById('drone-float');
+            if(drone) {
+                const droneY = scrollY * 0.2 + 100;
+                const droneX = Math.sin(scrollY * 0.005) * 20 + 50;
+                drone.style.transform = `translate(${droneX}px, ${droneY}px)`;
+            }
+        });
+
+        /* --- AI Chat Logic --- */
+        
+        const chatWidget = document.getElementById('ai-chat-widget');
+        const chatWindow = document.getElementById('chat-window');
+        const messagesContainer = document.getElementById('chat-messages');
+        let isChatOpen = false;
+
+        function toggleChat() {
+            if (!isChatOpen) {
+                chatWidget.classList.remove('hidden');
+                chatWidget.classList.add('flex');
+                requestAnimationFrame(() => {
+                    chatWindow.classList.remove('opacity-0', 'scale-95');
+                    chatWindow.classList.add('opacity-100', 'scale-100');
+                });
+            } else {
+                chatWindow.classList.remove('opacity-100', 'scale-100');
+                chatWindow.classList.add('opacity-0', 'scale-95');
+                setTimeout(() => {
+                    chatWidget.classList.add('hidden');
+                    chatWidget.classList.remove('flex');
+                }, 300);
+            }
+            isChatOpen = !isChatOpen;
+        }
+
+        function handleChatKey(event) {
+            if (event.key === 'Enter') sendMessage();
+        }
+
+        async function sendMessage() {
+            const input = document.getElementById('chatInput');
+            const text = input.value.trim();
+            if (!text) return;
+
+            addMessage(text, 'user');
+            input.value = '';
+
+            const loadingId = addLoadingIndicator();
+
+            try {
+                const response = await callGeminiChat(text);
+                removeMessage(loadingId);
+                addMessage(response, 'ai');
+            } catch (error) {
+                removeMessage(loadingId);
+                addMessage("My circuits are overloaded. Please try again later.", 'ai');
+                console.error(error);
+            }
+        }
+
+        function addMessage(text, sender) {
+            const div = document.createElement('div');
+            div.className = `flex items-start gap-2 animate-slide-in ${sender === 'user' ? 'flex-row-reverse' : ''}`;
+            
+            const icon = sender === 'user' 
+                ? `<div class="w-6 h-6 rounded-full bg-purple-600 flex-shrink-0 flex items-center justify-center text-xs text-white"><i class="fas fa-user"></i></div>`
+                : `<div class="w-6 h-6 rounded-full bg-cyber-blue/20 flex-shrink-0 flex items-center justify-center text-xs text-cyber-blue border border-cyber-blue/50"><i class="fas fa-robot"></i></div>`;
+            
+            const bubble = sender === 'user'
+                ? `bg-cyber-purple text-white rounded-tr-none`
+                : `bg-gray-800/50 text-gray-200 border border-gray-700 rounded-tl-none`;
+
+            div.innerHTML = `
+                ${icon}
+                <div class="${bubble} text-sm p-3 rounded-2xl max-w-[80%]">
+                    ${text}
+                </div>
+            `;
+            messagesContainer.appendChild(div);
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
+
+        function addLoadingIndicator() {
+            const id = 'loading-' + Date.now();
+            const div = document.createElement('div');
+            div.id = id;
+            div.className = `flex items-start gap-2 animate-slide-in`;
+            div.innerHTML = `
+                <div class="w-6 h-6 rounded-full bg-cyber-blue/20 flex-shrink-0 flex items-center justify-center text-xs text-cyber-blue border border-cyber-blue/50"><i class="fas fa-robot"></i></div>
+                <div class="bg-gray-800/50 text-gray-200 border border-gray-700 rounded-tl-none text-sm p-3 rounded-2xl flex gap-1 items-center h-10">
+                    <span class="w-1.5 h-1.5 bg-gray-400 rounded-full typing-dot"></span>
+                    <span class="w-1.5 h-1.5 bg-gray-400 rounded-full typing-dot"></span>
+                    <span class="w-1.5 h-1.5 bg-gray-400 rounded-full typing-dot"></span>
+                </div>
+            `;
+            messagesContainer.appendChild(div);
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+            return id;
+        }
+
+        function removeMessage(id) {
+            const el = document.getElementById(id);
+            if (el) el.remove();
+        }
+
+        async function generateIdea() {
+            const domain = document.getElementById('ideaInput').value;
+            if (!domain) return;
+
+            const loader = document.getElementById('ideaLoader');
+            const output = document.getElementById('ideaOutput');
+            
+            output.classList.add('hidden');
+            loader.classList.remove('hidden');
+
+            try {
+                const prompt = `Generate a creative robotics project idea for the field: ${domain}. 
+                Return ONLY a JSON object with these keys: "title", "description", "tech_stack" (array of strings like ROS2, Lidar, etc.).
+                Make it sound professional and innovative.`;
+
+                const resultText = await callGemini(prompt);
+                
+                let cleanJson = resultText.replace(/```json/g, '').replace(/```/g, '').trim();
+                const data = JSON.parse(cleanJson);
+
+                document.getElementById('ideaTitle').textContent = data.title;
+                document.getElementById('ideaDesc').textContent = data.description;
+                
+                const tagsContainer = document.getElementById('ideaTags');
+                tagsContainer.innerHTML = '';
+                data.tech_stack.forEach(tech => {
+                    const span = document.createElement('span');
+                    span.className = 'px-2 py-1 rounded border border-cyber-purple/30 bg-cyber-purple/10 text-cyber-purple text-xs font-mono';
+                    span.textContent = tech;
+                    tagsContainer.appendChild(span);
+                });
+
+                loader.classList.add('hidden');
+                output.classList.remove('hidden');
+
+            } catch (e) {
+                console.error(e);
+                loader.classList.add('hidden');
+                console.error("Neural network error. Please try again.");
+            }
+        }
+
+        const systemContext = `
+            You are the AI Digital Twin of Samarth Patel. 
+            Samarth is a Master's student in Automation and Robotics at TU Dortmund, Germany.
+            He has a B.Tech in Mechatronics from SRM Institute (9.06 CGPA).
+            SKILLS:
+            - Core: ROS/ROS2, SLAM, Path Planning, Localization, PID, Kalman Filter, Sensor Fusion.
+            - Languages: Python, C++, English (C1), Gujarati (C2).
+            - DevOps/Cloud: Docker, Kubernetes, GitLab CI/CD, MQTT.
+            - AI/ML: TensorFlow, OpenCV, Scikit-learn.
+            EXPERIENCE:
+            - ML Trainee at GeeksforGeeks (Built regression models, analyzed GDP data).
+            - Electronics Intern at Omsara Industries (Integrated 50+ PCBs).
+            PROJECTS:
+            - Distributed State Estimation (Python, K8s, Edge devices).
+            - Autonomous Telepresence Robot (ROS Noetic, Lidar, GMapping).
+            - DD Robocon Competitive Robotics (Tower reconstruction, 90% success rate).
+            TONE:
+            Professional, helpful, slightly enthusiastic about robotics. 
+            Use technical terms correctly. 
+            If asked about contact, give email: samarthp2411@gmail.com.
+            Keep answers concise (under 3 sentences).
+        `;
+
+        async function callGeminiChat(userMessage) {
+            const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
+            
+            const payload = {
+                contents: [{ parts: [{ text: userMessage }] }],
+                systemInstruction: { parts: [{ text: systemContext }] }
+            };
+
+            const response = await fetch(url, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            });
+
+            const data = await response.json();
+            return data.candidates?.[0]?.content?.parts?.[0]?.text || "Error communicating with AI.";
+        }
+
+        async function callGemini(prompt) {
+             const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
+             const payload = {
+                contents: [{ parts: [{ text: prompt }] }]
+            };
+            
+            const response = await fetch(url, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            });
+
+            const data = await response.json();
+            return data.candidates?.[0]?.content?.parts?.[0]?.text || "{}";
+        }
+    </script>
+</body>
+</html>
