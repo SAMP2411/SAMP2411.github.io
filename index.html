@@ -625,7 +625,6 @@
             <div class="mt-16 flex justify-center gap-8 reveal delay-300">
                 <a href="https://github.com/SAMP2411" target="_blank" class="text-gray-400 hover:text-white hover:scale-125 transition-all duration-300"><i class="fab fa-github text-3xl"></i></a>
                 <a href="https://www.linkedin.com/in/samarth-patel-206451197/" target="_blank" class="text-gray-400 hover:text-blue-500 hover:scale-125 transition-all duration-300"><i class="fab fa-linkedin text-3xl"></i></a>
-                <a href="mailto:samarthp2411@gmail.com" class="text-gray-400 hover:text-cyber-blue hover:scale-125 transition-all duration-300"><i class="fas fa-envelope text-3xl"></i></a>
             </div>
         </div>
         
@@ -1151,7 +1150,7 @@
     </div>
 
     <script>
-        const apiKey = "AIzaSyCjbSVAGzFU_cecHf75gcgR_t49Y8yKDrc"; 
+        const apiKey = "AIzaSyC2zOzYf-iPYhv0DJElQVMGlxV-AZDZ4SY"; 
 
         /* --- CLIPBOARD FUNCTION --- */
         function copyToClipboard(text) {
@@ -1187,9 +1186,10 @@
         }
 
         /* --- 5. Advanced Particle Network & Cursor --- */
+        // Initialization wrapped to prevent null reference errors
         document.addEventListener('DOMContentLoaded', () => {
             const canvas = document.getElementById('networkCanvas');
-            if (!canvas) return; 
+            if (!canvas) return; // Prevent crash if canvas is missing
             
             const ctx = canvas.getContext('2d');
             let particles = [];
@@ -1298,10 +1298,10 @@
         /* --- INTRO ANIMATION LOGIC --- */
         
         const config = {
-            robotSpeed: 2.5, // Increased speed (was 1.2)
-            pauseDuration: 500, // Shorter pause (was 1500)
-            zoomDuration: 800, // Faster zoom (was 1500)
-            exitSpeedMultiplier: 3.0 // Faster exit (was 2.0)
+            robotSpeed: 3.5, // Increased from 2.5
+            pauseDuration: 300, // Reduced from 500
+            zoomDuration: 600, // Reduced from 800
+            exitSpeedMultiplier: 3.5 // Increased from 3.0
         };
 
         const sceneContainer = document.getElementById('scene-container');
@@ -1623,6 +1623,9 @@
                     chatWindow.classList.remove('opacity-0', 'scale-95');
                     chatWindow.classList.add('opacity-100', 'scale-100');
                 });
+                setTimeout(() => {
+                    document.getElementById('chatInput').focus();
+                }, 100);
             } else {
                 chatWindow.classList.remove('opacity-100', 'scale-100');
                 chatWindow.classList.add('opacity-0', 'scale-95');
