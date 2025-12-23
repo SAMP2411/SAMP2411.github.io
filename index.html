@@ -135,7 +135,7 @@
             z-index: 9999;
             pointer-events: none;
         }
-        .cursor-dot { width: 8px; height: 8px; background-color: #00b7ff; }
+        .cursor-dot { width: 8px; height: 8px; background-color: #00b7ff; box-shadow: 0 0 10px #00f0ff; }
         .cursor-outline { width: 40px; height: 40px; border: 2px solid #00b7ff; box-shadow: 0 0 10px rgba(0,183,255,0.25); transition: width 0.2s, height 0.2s; }
         body:hover .cursor-outline { width: 50px; height: 50px; border-color: #00b7ff; }
 
@@ -819,6 +819,7 @@
                             <span class="px-2 py-1 text-xs font-mono bg-cyber-blue/10 text-cyber-blue rounded border border-cyber-blue/30">MQTT</span>
                             <span class="px-2 py-1 text-xs font-mono bg-cyber-blue/10 text-cyber-blue rounded border border-cyber-blue/30">OpenCV</span>
                             <span class="px-2 py-1 text-xs font-mono bg-cyber-blue/10 text-cyber-blue rounded border border-cyber-blue/30">TensorFlow</span>
+                            <span class="px-2 py-1 text-xs font-mono bg-cyber-blue/10 text-cyber-blue rounded border border-cyber-blue/30">Pneumatics</span>
                         </div>
                     </div>
                 </div>
@@ -1038,20 +1039,17 @@
                 ESTABLISH <span class="text-cyber-blue">UPLINK</span>
             </h2>
             
-            <!-- PROFESSIONAL TERMINAL CARD -->
-            <div class="bg-gray-900/80 border border-gray-700 rounded-lg backdrop-blur-md max-w-2xl mx-auto text-left relative overflow-hidden shadow-[0_0_50px_rgba(0,0,0,0.5)]">
-                 <!-- Top Bar -->
-                 <div class="bg-gray-800 px-4 py-2 border-b border-gray-700 flex justify-between items-center">
-                    <div class="flex gap-2">
-                        <div class="w-3 h-3 rounded-full bg-red-500"></div>
-                        <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
-                        <div class="w-3 h-3 rounded-full bg-green-500"></div>
-                    </div>
-                    <div class="text-xs font-mono text-gray-400">COMMS_MODULE_V1.0</div>
+            <!-- PROFESSIONAL TERMINAL CARD (Reverted Header Style) -->
+            <div class="bg-gray-900/80 border border-cyber-blue/20 rounded-lg backdrop-blur-md max-w-2xl mx-auto text-left relative overflow-hidden shadow-[0_0_50px_rgba(0,0,0,0.5)]">
+                 <!-- Top Bar (Reverted to Blue Line style) -->
+                 <div class="absolute top-0 left-0 w-full h-1 bg-cyber-blue/50"></div>
+                 <div class="flex justify-between items-center px-8 pt-4 pb-2">
+                    <div class="text-xs font-mono text-cyber-blue tracking-widest">COMMS_MODULE_V1.0</div>
+                    <div class="text-xs font-mono text-green-500 animate-pulse">● SECURE</div>
                  </div>
                  
                  <!-- Terminal Content -->
-                 <div class="p-8 font-mono text-sm sm:text-base">
+                 <div class="p-8 pt-2 font-mono text-sm sm:text-base">
                     <div class="mb-4 text-gray-400">
                         <span class="text-green-400">root@portfolio:~$</span> ./initiate_contact.sh
                     </div>
@@ -1065,7 +1063,10 @@
                         <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
                             <div>
                                 <div class="text-xs text-gray-500 uppercase tracking-widest mb-1">Primary Frequency (Email)</div>
-                                <div class="text-xl text-white font-bold tracking-wide select-all">samarthp2411@gmail.com</div>
+                                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=samarthp2411@gmail.com" target="_blank" class="text-xl text-white font-bold tracking-wide hover:text-cyber-blue transition-colors flex items-center gap-2 group" title="Open Encrypted Channel (Gmail)">
+                                    samarthp2411@gmail.com
+                                    <i class="fas fa-external-link-alt text-xs opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                                </a>
                             </div>
                             
                             <div class="flex gap-3">
@@ -1078,9 +1079,9 @@
                                 
                                 <!-- COPY BUTTON (Icon) -->
                                 <button onclick="copyToClipboard('samarthp2411@gmail.com')" 
-                                        class="w-10 h-10 flex items-center justify-center rounded border border-gray-600 text-gray-400 hover:border-white hover:text-white transition-all"
+                                        class="w-10 h-10 flex items-center justify-center rounded border border-gray-600 text-gray-400 hover:border-white hover:text-white transition-all group relative"
                                         title="Copy Email Address">
-                                    <i class="fas fa-copy"></i>
+                                    <i class="fas fa-copy group-hover:scale-110 transition-transform"></i>
                                 </button>
                             </div>
                         </div>
@@ -1100,7 +1101,6 @@
             <div class="mt-12 flex justify-center gap-8 text-2xl text-gray-500">
                 <a href="https://github.com/SAMP2411" target="_blank" class="hover:text-white hover:scale-125 transition-all"><i class="fab fa-github"></i></a>
                 <a href="https://www.linkedin.com/in/samarth-patel-206451197/" target="_blank" class="hover:text-blue-500 hover:scale-125 transition-all"><i class="fab fa-linkedin"></i></a>
-                <a href="mailto:samarthp2411@gmail.com" class="hover:text-cyber-blue hover:scale-125 transition-all"><i class="fas fa-envelope"></i></a>
             </div>
 
             <footer class="mt-12 pt-8 border-t border-gray-800 text-sm text-gray-600">
@@ -1186,13 +1186,122 @@
             document.body.removeChild(textArea);
         }
 
+        /* --- 5. Advanced Particle Network & Cursor --- */
+        document.addEventListener('DOMContentLoaded', () => {
+            const canvas = document.getElementById('networkCanvas');
+            if (!canvas) return; 
+            
+            const ctx = canvas.getContext('2d');
+            let particles = [];
+            const mouse = { x: null, y: null, radius: 150 };
+
+            window.addEventListener('mousemove', (e) => {
+                mouse.x = e.x;
+                mouse.y = e.y;
+                const cursorDot = document.querySelector('.cursor-dot');
+                const cursorOutline = document.querySelector('.cursor-outline');
+                if(cursorDot) {
+                    cursorDot.style.left = `${e.clientX}px`;
+                    cursorDot.style.top = `${e.clientY}px`;
+                }
+                if(cursorOutline) {
+                    cursorOutline.animate({
+                        left: `${e.clientX}px`,
+                        top: `${e.clientY}px`
+                    }, { duration: 500, fill: "forwards" });
+                }
+            });
+
+            class Particle {
+                constructor() {
+                    this.x = Math.random() * canvas.width;
+                    this.y = Math.random() * canvas.height;
+                    this.size = Math.random() * 2 + 1;
+                    this.baseX = this.x;
+                    this.baseY = this.y;
+                    this.density = (Math.random() * 30) + 1;
+                }
+                draw() {
+                    ctx.fillStyle = '#00f0ff';
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                    ctx.closePath();
+                    ctx.fill();
+                }
+                update() {
+                    let dx = mouse.x - this.x;
+                    let dy = mouse.y - this.y;
+                    let distance = Math.sqrt(dx * dx + dy * dy);
+                    let forceDirectionX = dx / distance;
+                    let forceDirectionY = dy / distance;
+                    let maxDistance = mouse.radius;
+                    let force = (maxDistance - distance) / maxDistance;
+                    let directionX = forceDirectionX * force * this.density;
+                    let directionY = forceDirectionY * force * this.density;
+
+                    if (distance < mouse.radius) {
+                        this.x -= directionX;
+                        this.y -= directionY;
+                    } else {
+                        if (this.x !== this.baseX) {
+                            let dx = this.x - this.baseX;
+                            this.x -= dx / 10;
+                        }
+                        if (this.y !== this.baseY) {
+                            let dy = this.y - this.baseY;
+                            this.y -= dy / 10;
+                        }
+                    }
+                }
+            }
+
+            // UPDATED: Reduced Density Multiplier by 50% (from 2.0 to 1.0)
+            const particleDensity = 4000; 
+            const particleMultiplier = 0.7; // Increased by ~16% from 0.6 to 0.7 for density
+            
+            function initParticles() {
+                particles = [];
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+                let numberOfParticles = Math.ceil((canvas.width * canvas.height) / particleDensity * particleMultiplier);
+                for (let i = 0; i < numberOfParticles; i++) {
+                    particles.push(new Particle());
+                }
+            }
+
+            function animateParticles() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                for (let i = 0; i < particles.length; i++) {
+                    particles[i].draw();
+                    particles[i].update();
+                    for (let j = i; j < particles.length; j++) {
+                        let dx = particles[i].x - particles[j].x;
+                        let dy = particles[i].y - particles[j].y;
+                        let distance = Math.sqrt(dx * dx + dy * dy);
+                        if (distance < 100) {
+                            ctx.beginPath();
+                            ctx.strokeStyle = `rgba(0, 240, 255, ${1 - distance/100})`;
+                            ctx.lineWidth = 0.5;
+                            ctx.moveTo(particles[i].x, particles[i].y);
+                            ctx.lineTo(particles[j].x, particles[j].y);
+                            ctx.stroke();
+                        }
+                    }
+                }
+                requestAnimationFrame(animateParticles);
+            }
+            window.addEventListener('resize', initParticles);
+            initParticles();
+            animateParticles();
+        });
+
         /* --- INTRO ANIMATION LOGIC --- */
         
         const config = {
-            robotSpeed: 1.2,
-            pauseDuration: 1500,
-            zoomDuration: 1500,
-            exitSpeedMultiplier: 2.0
+            robotSpeed: 2.5, // Increased speed (was 1.2)
+            pauseDuration: 500, // Shorter pause (was 1500)
+            zoomDuration: 800, // Faster zoom (was 1500)
+            exitSpeedMultiplier: 3.0 // Faster exit (was 2.0)
         };
 
         const sceneContainer = document.getElementById('scene-container');
@@ -1398,111 +1507,6 @@
             card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
         }
 
-        /* --- 5. Advanced Particle Network --- */
-        // Initialization wrapped to prevent null reference errors
-        document.addEventListener('DOMContentLoaded', () => {
-            const canvas = document.getElementById('networkCanvas');
-            if (!canvas) return; // Prevent crash if canvas is missing
-            
-            const ctx = canvas.getContext('2d');
-            let particles = [];
-            const mouse = { x: null, y: null, radius: 150 };
-
-            window.addEventListener('mousemove', (e) => {
-                mouse.x = e.x;
-                mouse.y = e.y;
-                const cursorDot = document.querySelector('.cursor-dot');
-                const cursorOutline = document.querySelector('.cursor-outline');
-                if(cursorDot) {
-                    cursorDot.style.left = `${e.clientX}px`;
-                    cursorDot.style.top = `${e.clientY}px`;
-                }
-                if(cursorOutline) {
-                    cursorOutline.animate({
-                        left: `${e.clientX}px`,
-                        top: `${e.clientY}px`
-                    }, { duration: 500, fill: "forwards" });
-                }
-            });
-
-            class Particle {
-                constructor() {
-                    this.x = Math.random() * canvas.width;
-                    this.y = Math.random() * canvas.height;
-                    this.size = Math.random() * 2 + 1;
-                    this.baseX = this.x;
-                    this.baseY = this.y;
-                    this.density = (Math.random() * 30) + 1;
-                }
-                draw() {
-                    ctx.fillStyle = '#00f0ff';
-                    ctx.beginPath();
-                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                    ctx.closePath();
-                    ctx.fill();
-                }
-                update() {
-                    let dx = mouse.x - this.x;
-                    let dy = mouse.y - this.y;
-                    let distance = Math.sqrt(dx * dx + dy * dy);
-                    let forceDirectionX = dx / distance;
-                    let forceDirectionY = dy / distance;
-                    let maxDistance = mouse.radius;
-                    let force = (maxDistance - distance) / maxDistance;
-                    let directionX = forceDirectionX * force * this.density;
-                    let directionY = forceDirectionY * force * this.density;
-
-                    if (distance < mouse.radius) {
-                        this.x -= directionX;
-                        this.y -= directionY;
-                    } else {
-                        if (this.x !== this.baseX) {
-                            let dx = this.x - this.baseX;
-                            this.x -= dx / 10;
-                        }
-                        if (this.y !== this.baseY) {
-                            let dy = this.y - this.baseY;
-                            this.y -= dy / 10;
-                        }
-                    }
-                }
-            }
-
-            function initParticles() {
-                particles = [];
-                canvas.width = window.innerWidth;
-                canvas.height = window.innerHeight;
-                let numberOfParticles = (canvas.width * canvas.height) / 9000;
-                for (let i = 0; i < numberOfParticles; i++) {
-                    particles.push(new Particle());
-                }
-            }
-
-            function animateParticles() {
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
-                for (let i = 0; i < particles.length; i++) {
-                    particles[i].draw();
-                    particles[i].update();
-                    for (let j = i; j < particles.length; j++) {
-                        let dx = particles[i].x - particles[j].x;
-                        let dy = particles[i].y - particles[j].y;
-                        let distance = Math.sqrt(dx * dx + dy * dy);
-                        if (distance < 100) {
-                            ctx.beginPath();
-                            ctx.strokeStyle = `rgba(0, 240, 255, ${1 - distance/100})`;
-                            ctx.lineWidth = 0.5;
-                            ctx.moveTo(particles[i].x, particles[i].y);
-                            ctx.lineTo(particles[j].x, particles[j].y);
-                            ctx.stroke();
-                        }
-                    }
-                }
-                requestAnimationFrame(animateParticles);
-            }
-            window.addEventListener('resize', initParticles);
-            initParticles();
-            animateParticles();
-        });
         /* --- 6. SCROLL ANIMATIONS (Robot Arm + Rover + Drone) --- */
 
         // smoothing state for robotic arm joints
