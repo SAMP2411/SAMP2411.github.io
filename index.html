@@ -980,81 +980,124 @@
                     </div>
                 </div>
 
+                <!-- Project 5: TurtleBot3 -->
+                <div class="tilt-card group cursor-none rounded-xl overflow-hidden border border-white/10 bg-cyber-dark/50 hover:border-cyber-blue/50 transition-all" onmousemove="tiltCard(event, this)" onmouseleave="resetCard(this)">
+                    <div class="h-52 relative overflow-hidden tilt-inner bg-gray-900">
+                        <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                            <i class="fas fa-route text-6xl text-cyber-blue/50 group-hover:text-cyber-blue transition-colors z-10"></i>
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-cyber-black via-transparent to-transparent opacity-80"></div>
+                    </div>
+                    <div class="p-8 relative tilt-inner bg-cyber-black/50 backdrop-blur-sm">
+                        <h3 class="text-2xl font-bold text-white font-mono mb-2 group-hover:text-cyber-blue transition-colors">TurtleBot3 Autonomous Navigation</h3>
+                        <p class="text-cyber-blue font-tech text-xs mb-4">[ ROS2 • NAV2 • AMCL • SLAM ]</p>
+                        <p class="text-gray-400 text-sm mb-6">Built and validated a ROS2 navigation workflow covering TF/odometry checks, SLAM, AMCL localization, Nav2 planning, planner comparison and simulation-to-real execution.</p>
+                        <span class="inline-flex items-center text-gray-400 font-mono text-sm"><i class="fas fa-microchip mr-2"></i> ROS2 NAVIGATION CASE STUDY</span>
+                    </div>
+                </div>
+
+                <!-- Project 6: UR10 -->
+                <div class="tilt-card group cursor-none rounded-xl overflow-hidden border border-white/10 bg-cyber-dark/50 hover:border-cyber-purple/50 transition-all" onmousemove="tiltCard(event, this)" onmouseleave="resetCard(this)">
+                    <div class="h-52 relative overflow-hidden tilt-inner bg-gray-900">
+                        <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                            <i class="fas fa-robot text-6xl text-cyber-purple/50 group-hover:text-cyber-purple transition-colors z-10"></i>
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-cyber-black via-transparent to-transparent opacity-80"></div>
+                    </div>
+                    <div class="p-8 relative tilt-inner bg-cyber-black/50 backdrop-blur-sm">
+                        <h3 class="text-2xl font-bold text-white font-mono mb-2 group-hover:text-cyber-purple transition-colors">UR10 Manipulator Control</h3>
+                        <p class="text-cyber-purple font-tech text-xs mb-4">[ MATLAB • ROS • KINEMATICS • DLS ]</p>
+                        <p class="text-gray-400 text-sm mb-6">Implemented forward/inverse kinematics, damped least-squares control and ROS joint-trajectory workflows, validating motion in simulation before hardware execution.</p>
+                        <span class="inline-flex items-center text-gray-400 font-mono text-sm"><i class="fas fa-project-diagram mr-2"></i> MANIPULATOR CONTROL CASE STUDY</span>
+                    </div>
+                </div>
+
+                <!-- Project 7: IIoT Anomaly Detector -->
+                <div class="tilt-card group cursor-none rounded-xl overflow-hidden border border-white/10 bg-cyber-dark/50 hover:border-neon-green/50 transition-all" onmousemove="tiltCard(event, this)" onmouseleave="resetCard(this)">
+                    <div class="h-52 relative overflow-hidden tilt-inner bg-gray-900">
+                        <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                            <i class="fas fa-wave-square text-6xl text-neon-green/50 group-hover:text-neon-green transition-colors z-10"></i>
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-cyber-black via-transparent to-transparent opacity-80"></div>
+                    </div>
+                    <div class="p-8 relative tilt-inner bg-cyber-black/50 backdrop-blur-sm">
+                        <h3 class="text-2xl font-bold text-white font-mono mb-2 group-hover:text-neon-green transition-colors">IIoT Anomaly Detector</h3>
+                        <p class="text-neon-green font-tech text-xs mb-4">[ PYTHON • MQTT • ISOLATION FOREST ]</p>
+                        <p class="text-gray-400 text-sm mb-6">Developed an MQTT-based streaming sensor pipeline with Isolation Forest anomaly detection and Plotly monitoring, processing 5,000+ datapoints with sub-300 ms latency.</p>
+                        <a href="https://github.com/SAMP2411/AI-Based-IIoT-Anomaly-Detector" target="_blank" class="inline-flex items-center text-white hover:text-neon-green transition-colors font-mono text-sm"><i class="fab fa-github mr-2"></i> ACCESS REPO <i class="fas fa-arrow-right ml-2 transform group-hover:translate-x-1 transition-transform"></i></a>
+                    </div>
+                </div>
+
+                <!-- Project 8: Offline Face Recognition -->
+                <div class="tilt-card group cursor-none rounded-xl overflow-hidden border border-white/10 bg-cyber-dark/50 hover:border-cyber-blue/50 transition-all" onmousemove="tiltCard(event, this)" onmouseleave="resetCard(this)">
+                    <div class="h-52 relative overflow-hidden tilt-inner bg-gray-900">
+                        <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                            <i class="fas fa-user-check text-6xl text-cyber-blue/50 group-hover:text-cyber-blue transition-colors z-10"></i>
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-cyber-black via-transparent to-transparent opacity-80"></div>
+                    </div>
+                    <div class="p-8 relative tilt-inner bg-cyber-black/50 backdrop-blur-sm">
+                        <h3 class="text-2xl font-bold text-white font-mono mb-2 group-hover:text-cyber-blue transition-colors">Offline Face Recognition</h3>
+                        <p class="text-cyber-blue font-tech text-xs mb-4">[ INSIGHTFACE • ONNX • OPENCV ]</p>
+                        <p class="text-gray-400 text-sm mb-6">Built an offline guided-enrollment and recognition pipeline with pose-aware sample validation, local ONNX inference and real-time OpenCV processing.</p>
+                        <a href="https://github.com/SAMP2411/Face-Recognition-System" target="_blank" class="inline-flex items-center text-white hover:text-cyber-blue transition-colors font-mono text-sm"><i class="fab fa-github mr-2"></i> ACCESS REPO <i class="fas fa-arrow-right ml-2 transform group-hover:translate-x-1 transition-transform"></i></a>
+                    </div>
+                </div>
+
+                <!-- Project 9: RST Hackathon -->
+                <div class="tilt-card group cursor-none rounded-xl overflow-hidden border border-white/10 bg-cyber-dark/50 hover:border-yellow-400/50 transition-all" onmousemove="tiltCard(event, this)" onmouseleave="resetCard(this)">
+                    <div class="h-52 relative overflow-hidden tilt-inner bg-gray-900">
+                        <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                            <i class="fas fa-trophy text-6xl text-yellow-400/50 group-hover:text-yellow-400 transition-colors z-10"></i>
+                        </div>
+                        <div class="absolute top-4 right-4 z-20 px-2 py-1 text-[10px] font-mono border border-yellow-400/50 text-yellow-300 bg-black/60">3RD PLACE</div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-cyber-black via-transparent to-transparent opacity-80"></div>
+                    </div>
+                    <div class="p-8 relative tilt-inner bg-cyber-black/50 backdrop-blur-sm">
+                        <h3 class="text-2xl font-bold text-white font-mono mb-2 group-hover:text-yellow-400 transition-colors">RST Hackathon</h3>
+                        <p class="text-yellow-400 font-tech text-xs mb-4">[ VISION • TRACKING • TRANSFORMS ]</p>
+                        <p class="text-gray-400 text-sm mb-6">Built a vision-guided robot-arm solution combining target tracking, coordinate transforms and a robust ball-throw strategy under hackathon time constraints.</p>
+                        <span class="inline-flex items-center text-gray-400 font-mono text-sm"><i class="fas fa-medal mr-2"></i> 3RD PLACE • OCT 2025</span>
+                    </div>
+                </div>
+
+                <!-- Project 10: J&J MedTech -->
+                <div class="tilt-card group cursor-none rounded-xl overflow-hidden border border-white/10 bg-cyber-dark/50 hover:border-red-400/50 transition-all" onmousemove="tiltCard(event, this)" onmouseleave="resetCard(this)">
+                    <div class="h-52 relative overflow-hidden tilt-inner bg-gray-900">
+                        <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                            <i class="fas fa-stethoscope text-6xl text-red-400/50 group-hover:text-red-400 transition-colors z-10"></i>
+                        </div>
+                        <div class="absolute top-4 right-4 z-20 px-2 py-1 text-[10px] font-mono border border-red-400/40 text-red-300 bg-black/60">FORAGE SIMULATION</div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-cyber-black via-transparent to-transparent opacity-80"></div>
+                    </div>
+                    <div class="p-8 relative tilt-inner bg-cyber-black/50 backdrop-blur-sm">
+                        <h3 class="text-2xl font-bold text-white font-mono mb-2 group-hover:text-red-400 transition-colors">J&J MedTech Robotics & Controls</h3>
+                        <p class="text-red-400 font-tech text-xs mb-4">[ PYTHON • DEBUGGING • VALIDATION ]</p>
+                        <p class="text-gray-400 text-sm mb-6">Investigated simulated robotic-arm command timing, reviewed Python control logic, iteratively tested improvements and documented engineering findings and recommendations.</p>
+                        <span class="inline-flex items-center text-gray-400 font-mono text-sm"><i class="fas fa-clipboard-check mr-2"></i> ROBOTICS CONTROL SIMULATION</span>
+                    </div>
+                </div>
+
+                <!-- Project 11: SO-101 -->
+                <div class="tilt-card group cursor-none rounded-xl overflow-hidden border border-white/10 bg-cyber-dark/50 hover:border-pink-400/50 transition-all" onmousemove="tiltCard(event, this)" onmouseleave="resetCard(this)">
+                    <div class="h-52 relative overflow-hidden tilt-inner bg-gray-900">
+                        <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                            <i class="fas fa-grip text-6xl text-pink-400/50 group-hover:text-pink-400 transition-colors z-10"></i>
+                        </div>
+                        <div class="absolute top-4 right-4 z-20 px-2 py-1 text-[10px] font-mono border border-pink-400/40 text-pink-300 bg-black/60">IN DEVELOPMENT</div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-cyber-black via-transparent to-transparent opacity-80"></div>
+                    </div>
+                    <div class="p-8 relative tilt-inner bg-cyber-black/50 backdrop-blur-sm">
+                        <h3 class="text-2xl font-bold text-white font-mono mb-2 group-hover:text-pink-400 transition-colors">SO-101 Robot Learning</h3>
+                        <p class="text-pink-400 font-tech text-xs mb-4">[ ZERO-SHOT • FEW-SHOT • IN-CONTEXT ]</p>
+                        <p class="text-gray-400 text-sm mb-6">Developing a pick-and-place experimentation framework to compare zero-shot, few-shot and in-context learning strategies before transfer to SO-101 hardware.</p>
+                        <span class="inline-flex items-center text-pink-300 font-mono text-sm"><i class="fas fa-tools mr-2"></i> IN DEVELOPMENT</span>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
-
-<!-- Expanded Portfolio Projects -->
-<section id="expanded-projects-home" class="py-20 relative z-10 border-t border-cyber-blue/20 bg-cyber-dark/20">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center mb-14 reveal">
-      <p class="font-tech text-cyber-blue tracking-[0.25em] text-xs mb-3">EXPANDED PROJECT ARCHIVE</p>
-      <h2 class="text-4xl font-bold text-white font-mono mb-4"><span class="text-cyber-blue">/</span> Robotics & AI Case Studies</h2>
-      <p class="text-gray-400 max-w-3xl mx-auto">Detailed technical case studies covering autonomous navigation, manipulator control, industrial AI, computer vision, robot learning and engineering validation.</p>
-    </div>
-
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      <a href="projects.html#turtlebot3" class="tilt-card group rounded-xl border border-cyber-blue/20 bg-cyber-black/60 p-6 hover:border-cyber-blue/60 transition-all">
-        <i class="fas fa-route text-3xl text-cyber-blue mb-4"></i>
-        <h3 class="font-mono text-xl text-white font-bold mb-2">TurtleBot3 Navigation</h3>
-        <p class="font-tech text-xs text-cyber-blue mb-3">ROS2 · NAV2 · AMCL · SLAM</p>
-        <p class="text-sm text-gray-400">Simulation-to-real navigation, mapping, localization, TF/odometry validation and planner comparison.</p>
-      </a>
-
-      <a href="projects.html#ur10" class="tilt-card group rounded-xl border border-cyber-purple/20 bg-cyber-black/60 p-6 hover:border-cyber-purple/60 transition-all">
-        <i class="fas fa-robot text-3xl text-purple-400 mb-4"></i>
-        <h3 class="font-mono text-xl text-white font-bold mb-2">UR10 Manipulator</h3>
-        <p class="font-tech text-xs text-purple-300 mb-3">MATLAB · ROS · DLS · TRAJECTORY CONTROL</p>
-        <p class="text-sm text-gray-400">Forward/inverse kinematics, damped least-squares control, trajectory generation and hardware validation.</p>
-      </a>
-
-      <a href="projects.html#iiot" class="tilt-card group rounded-xl border border-neon-green/20 bg-cyber-black/60 p-6 hover:border-neon-green/60 transition-all">
-        <i class="fas fa-wave-square text-3xl text-neon-green mb-4"></i>
-        <h3 class="font-mono text-xl text-white font-bold mb-2">IIoT Anomaly Detector</h3>
-        <p class="font-tech text-xs text-neon-green mb-3">PYTHON · MQTT · ISOLATION FOREST</p>
-        <p class="text-sm text-gray-400">Streaming industrial telemetry, unsupervised anomaly detection and low-latency monitoring.</p>
-      </a>
-
-      <a href="projects.html#face-recognition" class="tilt-card group rounded-xl border border-sky-400/20 bg-cyber-black/60 p-6 hover:border-sky-400/60 transition-all">
-        <i class="fas fa-user-check text-3xl text-sky-300 mb-4"></i>
-        <h3 class="font-mono text-xl text-white font-bold mb-2">Offline Face Recognition</h3>
-        <p class="font-tech text-xs text-sky-300 mb-3">INSIGHTFACE · ONNX · OPENCV</p>
-        <p class="text-sm text-gray-400">Guided multi-pose enrollment, local inference and real-time recognition without a cloud API.</p>
-      </a>
-
-      <a href="projects.html#rst-hackathon" class="tilt-card group rounded-xl border border-yellow-400/20 bg-cyber-black/60 p-6 hover:border-yellow-400/60 transition-all">
-        <i class="fas fa-trophy text-3xl text-yellow-300 mb-4"></i>
-        <h3 class="font-mono text-xl text-white font-bold mb-2">RST Hackathon</h3>
-        <p class="font-tech text-xs text-yellow-300 mb-3">VISION · TRACKING · ROBOT ARM</p>
-        <p class="text-sm text-gray-400">Vision-guided robot-arm challenge using tracking, coordinate transforms and a robust execution strategy.</p>
-      </a>
-
-      <a href="projects.html#jj-medtech" class="tilt-card group rounded-xl border border-rose-400/20 bg-cyber-black/60 p-6 hover:border-rose-400/60 transition-all">
-        <i class="fas fa-stethoscope text-3xl text-rose-300 mb-4"></i>
-        <h3 class="font-mono text-xl text-white font-bold mb-2">J&J MedTech Simulation</h3>
-        <p class="font-tech text-xs text-rose-300 mb-3">PYTHON · DEBUGGING · VALIDATION</p>
-        <p class="text-sm text-gray-400">Robotic control timing investigation, optimization, iterative testing and engineering documentation.</p>
-      </a>
-
-      <a href="projects.html#so101" class="tilt-card group rounded-xl border border-fuchsia-400/20 bg-cyber-black/60 p-6 hover:border-fuchsia-400/60 transition-all lg:col-start-2">
-        <i class="fas fa-grip text-3xl text-fuchsia-300 mb-4"></i>
-        <div class="flex items-center justify-between gap-3 mb-2">
-          <h3 class="font-mono text-xl text-white font-bold">SO-101 Robot Learning</h3>
-          <span class="font-tech text-[10px] border border-fuchsia-400/40 text-fuchsia-300 px-2 py-1">IN DEVELOPMENT</span>
-        </div>
-        <p class="font-tech text-xs text-fuchsia-300 mb-3">ZERO-SHOT · FEW-SHOT · IN-CONTEXT</p>
-        <p class="text-sm text-gray-400">Pick-and-place experiments comparing prompting and learning strategies before hardware transfer.</p>
-      </a>
-    </div>
-
-    <div class="text-center mt-10 reveal">
-      <a href="projects.html" class="inline-flex items-center px-7 py-3 rounded border border-cyber-blue text-cyber-blue font-mono hover:bg-cyber-blue hover:text-black transition-all">
-        OPEN FULL PROJECT ARCHIVE <i class="fas fa-arrow-right ml-3"></i>
-      </a>
-    </div>
-  </div>
-</section>
-
 
     <!-- Contact Section (SECURE TERMINAL) -->
     <section id="contact" class="py-24 relative z-10 bg-black border-t border-cyber-blue/20">
