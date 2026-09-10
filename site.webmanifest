@@ -1,0 +1,17 @@
+{
+  "name": "Samarth Patel | Robotics Portfolio",
+  "short_name": "SP Robotics",
+  "description": "Robotics, autonomy, computer vision and industrial AI engineering portfolio of Samarth Patel.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#02040a",
+  "theme_color": "#02040a",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
