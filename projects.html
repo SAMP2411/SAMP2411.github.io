@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects | Samarth Patel</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Orbitron:wght@400;500;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Rajdhani','sans-serif'],
+            mono: ['Orbitron','monospace'],
+            tech: ['Share Tech Mono','monospace']
+          },
+          colors: {
+            'cyber-black':'#000000',
+            'cyber-dark':'#0d1117',
+            'cyber-blue':'#00f0ff',
+            'cyber-purple':'#7000ff',
+            'neon-green':'#0aff64'
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    ::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:#02040a}::-webkit-scrollbar-thumb{background:#00f0ff;border-radius:3px}
+    body{background:#000;color:#fff}
+    .grid-bg{background-image:linear-gradient(rgba(0,240,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(0,240,255,.035) 1px,transparent 1px);background-size:40px 40px}
+    .project-card{transform-style:preserve-3d;transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease}
+    .project-card:hover{transform:translateY(-5px);box-shadow:0 0 34px rgba(0,240,255,.08)}
+    .detail-panel{display:none}.detail-panel.open{display:block}
+  </style>
+</head>
+<body class="font-sans antialiased bg-cyber-black text-white grid-bg">
+  <nav class="sticky top-0 z-50 bg-black/90 backdrop-blur border-b border-cyber-blue/20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <a href="index.html" class="font-mono font-bold text-white hover:text-cyber-blue transition-colors">SP<span class="text-cyber-blue">.</span>ROBOTICS</a>
+      <div class="flex items-center gap-5 font-tech text-sm">
+        <a href="index.html#projects" class="text-gray-400 hover:text-white">HOME PROJECTS</a>
+        <a href="https://github.com/SAMP2411" target="_blank" class="text-cyber-blue hover:text-white"><i class="fab fa-github mr-2"></i>GITHUB</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-14">
+    <p class="font-tech text-cyber-blue tracking-[.28em] text-xs mb-4">PROJECT ARCHIVE // ROBOTICS · AUTONOMY · AI · INDUSTRIAL SYSTEMS</p>
+    <h1 class="font-mono text-4xl md:text-6xl font-bold leading-tight">Engineering <span class="text-cyber-blue">Projects</span></h1>
+    <p class="mt-6 text-gray-400 max-w-3xl text-lg">Selected hands-on work spanning mobile robotics, manipulator control, robot-learning experiments, industrial anomaly detection, computer vision and engineering validation. Entries separate completed work from ongoing development and only claim results supported by the underlying project work.</p>
+    <div class="mt-8 flex flex-wrap gap-3 font-tech text-xs">
+      <span class="px-3 py-2 border border-cyber-blue/30 bg-cyber-blue/5 text-cyber-blue">ROS / ROS2</span>
+      <span class="px-3 py-2 border border-cyber-purple/30 bg-cyber-purple/5 text-purple-300">ROBOT CONTROL</span>
+      <span class="px-3 py-2 border border-neon-green/30 bg-neon-green/5 text-neon-green">COMPUTER VISION</span>
+      <span class="px-3 py-2 border border-white/20 bg-white/5 text-gray-300">PYTHON · C++ · MATLAB</span>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-24">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+      <article class="project-card rounded-xl overflow-hidden border border-cyber-blue/20 bg-cyber-dark/80" id="turtlebot3">
+        <div class="h-48 relative bg-gradient-to-br from-slate-950 to-cyan-950 flex items-center justify-center overflow-hidden">
+          <i class="fas fa-route text-7xl text-cyber-blue/55"></i>
+          <span class="absolute top-4 right-4 font-tech text-[11px] px-2 py-1 border border-neon-green/40 text-neon-green bg-black/60">COMPLETED</span>
+        </div>
+        <div class="p-7">
+          <h2 class="font-mono text-2xl font-bold">TurtleBot3 — Autonomous Navigation, SLAM & Localization</h2>
+          <p class="font-tech text-xs text-cyber-blue mt-2">[ ROS2 · NAV2 · AMCL · SLAM · TF/ODOMETRY · GAZEBO/RVIZ ]</p>
+          <p class="text-gray-400 mt-4">Built and validated a mobile-robot navigation workflow from robot bring-up and transforms through mapping, probabilistic localization, planner evaluation and simulation-to-real execution.</p>
+          <button onclick="togglePanel('tb3-detail')" class="mt-5 font-mono text-sm text-white hover:text-cyber-blue">OPEN CASE STUDY <i class="fas fa-chevron-down ml-2"></i></button>
+          <div id="tb3-detail" class="detail-panel mt-6 pt-6 border-t border-white/10 text-sm text-gray-400 space-y-4">
+            <p><span class="text-white font-semibold">System flow:</span> sensor/odometry inputs → TF tree → map generation → AMCL pose estimate → Nav2 global/local planning → velocity commands → closed-loop navigation checks.</p>
+            <p><span class="text-white font-semibold">Implementation:</span> configured robot bring-up, TF and odometry, performed SLAM in simulation and on real hardware, used AMCL for localization and worked with Nav2 navigation behavior. Planner experiments included RRT, BiRRT and PRM comparisons alongside the navigation-stack work.</p>
+            <p><span class="text-white font-semibold">Validation focus:</span> reproducible launch sequences, map/localization consistency, navigation behavior in RViz/Gazebo and transfer of validated workflows from simulation to the physical TurtleBot3.</p>
+            <p><span class="text-white font-semibold">Portfolio evidence to add:</span> TF tree capture, saved map, RViz localization screenshot, Nav2 path visualization, planner-comparison plot/table and short sim-to-real navigation video.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="project-card rounded-xl overflow-hidden border border-cyber-purple/25 bg-cyber-dark/80" id="ur10">
+        <div class="h-48 relative bg-gradient-to-br from-slate-950 to-violet-950 flex items-center justify-center overflow-hidden">
+          <i class="fas fa-robot text-7xl text-purple-400/55"></i>
+          <span class="absolute top-4 right-4 font-tech text-[11px] px-2 py-1 border border-neon-green/40 text-neon-green bg-black/60">COMPLETED</span>
+        </div>
+        <div class="p-7">
+          <h2 class="font-mono text-2xl font-bold">UR10 Manipulator — Kinematics, Trajectory Planning & Control</h2>
+          <p class="font-tech text-xs text-purple-300 mt-2">[ MATLAB · SIMULINK/SIMSCAPE · ROS · KINEMATICS · DLS ]</p>
+          <p class="text-gray-400 mt-4">Implemented manipulator-motion workflows around forward/inverse kinematics, damped least-squares control and ROS-compatible joint trajectories, then validated motion before hardware execution.</p>
+          <button onclick="togglePanel('ur10-detail')" class="mt-5 font-mono text-sm text-white hover:text-purple-300">OPEN CASE STUDY <i class="fas fa-chevron-down ml-2"></i></button>
+          <div id="ur10-detail" class="detail-panel mt-6 pt-6 border-t border-white/10 text-sm text-gray-400 space-y-4">
+            <p><span class="text-white font-semibold">Core workflow:</span> desired end-effector/task state → kinematic computation → joint configuration/vector conversion → trajectory generation → ROS JointTrajectory message → simulation/hardware execution.</p>
+            <p><span class="text-white font-semibold">Implementation detail:</span> the project used helper functions for joint-name/index mapping and conversion between joint configurations and joint vectors, plus a trajectory-message conversion stage for ROS motion commands. Forward/inverse kinematics and DLS were used to reason about and control manipulator motion.</p>
+            <p><span class="text-white font-semibold">Validation:</span> trajectories were checked in the simulation workflow before transfer to hardware experiments, reducing the risk of executing unverified joint commands directly on the robot.</p>
+            <p><span class="text-white font-semibold">Portfolio evidence to add:</span> kinematic diagram, trajectory plot, MATLAB/Simulink screenshots, Gazebo/RViz motion sequence and short hardware demonstration.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="project-card rounded-xl overflow-hidden border border-neon-green/20 bg-cyber-dark/80" id="iiot">
+        <div class="h-48 relative bg-gradient-to-br from-slate-950 to-emerald-950 flex items-center justify-center overflow-hidden">
+          <i class="fas fa-wave-square text-7xl text-neon-green/55"></i>
+          <span class="absolute top-4 right-4 font-tech text-[11px] px-2 py-1 border border-neon-green/40 text-neon-green bg-black/60">COMPLETED</span>
+        </div>
+        <div class="p-7">
+          <h2 class="font-mono text-2xl font-bold">IIoT Anomaly Detector — Edge-to-Cloud Monitoring</h2>
+          <p class="font-tech text-xs text-neon-green mt-2">[ PYTHON · MQTT · ISOLATION FOREST · PLOTLY · SCIKIT-LEARN ]</p>
+          <p class="text-gray-400 mt-4">Developed an MQTT-based industrial sensor pipeline that processed more than 5,000 datapoints, detected abnormal operating states with Isolation Forest and visualized trends with Plotly.</p>
+          <button onclick="togglePanel('iiot-detail')" class="mt-5 font-mono text-sm text-white hover:text-neon-green">OPEN CASE STUDY <i class="fas fa-chevron-down ml-2"></i></button>
+          <div id="iiot-detail" class="detail-panel mt-6 pt-6 border-t border-white/10 text-sm text-gray-400 space-y-4">
+            <p><span class="text-white font-semibold">Architecture:</span> sensor/data producer → MQTT transport → Python processing → feature/data handling → Isolation Forest inference → anomaly flagging → Plotly visualization.</p>
+            <p><span class="text-white font-semibold">Engineering focus:</span> streaming telemetry rather than only offline CSV analysis, lightweight unsupervised detection for abnormal behavior, and readable visualization for inspecting measurements and trends.</p>
+            <p><span class="text-white font-semibold">Measured behavior:</span> the project processed 5,000+ datapoints with sub-300 ms pipeline latency in the documented implementation.</p>
+            <a href="https://github.com/SAMP2411/AI-Based-IIoT-Anomaly-Detector" target="_blank" class="inline-flex items-center text-white hover:text-neon-green font-mono"><i class="fab fa-github mr-2"></i>ACCESS REPO <i class="fas fa-arrow-right ml-2"></i></a>
+          </div>
+        </div>
+      </article>
+
+      <article class="project-card rounded-xl overflow-hidden border border-cyan-400/20 bg-cyber-dark/80" id="face-recognition">
+        <div class="h-48 relative bg-gradient-to-br from-slate-950 to-sky-950 flex items-center justify-center overflow-hidden">
+          <i class="fas fa-user-check text-7xl text-sky-300/55"></i>
+          <span class="absolute top-4 right-4 font-tech text-[11px] px-2 py-1 border border-neon-green/40 text-neon-green bg-black/60">COMPLETED</span>
+        </div>
+        <div class="p-7">
+          <h2 class="font-mono text-2xl font-bold">Offline Guided Face Enrollment and Recognition</h2>
+          <p class="font-tech text-xs text-sky-300 mt-2">[ INSIGHTFACE · ONNX RUNTIME · OPENCV · PYTHON ]</p>
+          <p class="text-gray-400 mt-4">Built an offline computer-vision pipeline for guided face enrollment and recognition with pose-aware input validation and low-latency video processing.</p>
+          <button onclick="togglePanel('face-detail')" class="mt-5 font-mono text-sm text-white hover:text-sky-300">OPEN CASE STUDY <i class="fas fa-chevron-down ml-2"></i></button>
+          <div id="face-detail" class="detail-panel mt-6 pt-6 border-t border-white/10 text-sm text-gray-400 space-y-4">
+            <p><span class="text-white font-semibold">Pipeline:</span> camera frame → face detection/alignment → pose/input-quality validation → embedding extraction → enrollment or similarity comparison → identity result.</p>
+            <p><span class="text-white font-semibold">Design choice:</span> enrollment is guided rather than accepting every detected frame. Pose validation helps reject weak enrollment samples before they enter the stored identity representation.</p>
+            <p><span class="text-white font-semibold">Offline execution:</span> InsightFace models are executed locally through ONNX Runtime and OpenCV handles image/video acquisition and processing, avoiding reliance on a cloud recognition API.</p>
+            <a href="https://github.com/SAMP2411/Face-Recognition-System" target="_blank" class="inline-flex items-center text-white hover:text-sky-300 font-mono"><i class="fab fa-github mr-2"></i>ACCESS REPO <i class="fas fa-arrow-right ml-2"></i></a>
+          </div>
+        </div>
+      </article>
+
+      <article class="project-card rounded-xl overflow-hidden border border-yellow-400/20 bg-cyber-dark/80" id="rst-hackathon">
+        <div class="h-48 relative bg-gradient-to-br from-slate-950 to-amber-950 flex items-center justify-center overflow-hidden">
+          <i class="fas fa-trophy text-7xl text-yellow-300/55"></i>
+          <span class="absolute top-4 right-4 font-tech text-[11px] px-2 py-1 border border-yellow-400/50 text-yellow-300 bg-black/60">3RD PLACE · 10/2025</span>
+        </div>
+        <div class="p-7">
+          <h2 class="font-mono text-2xl font-bold">RST Hackathon — Vision-Guided Robot Arm Challenge</h2>
+          <p class="font-tech text-xs text-yellow-300 mt-2">[ COMPUTER VISION · TRACKING · COORDINATE TRANSFORMS · ROBOT STRATEGY ]</p>
+          <p class="text-gray-400 mt-4">Developed a time-constrained robotic solution combining visual tracking, coordinate transformation and a deliberately reliable ball-throw strategy, contributing to a third-place result.</p>
+          <button onclick="togglePanel('rst-detail')" class="mt-5 font-mono text-sm text-white hover:text-yellow-300">OPEN CASE STUDY <i class="fas fa-chevron-down ml-2"></i></button>
+          <div id="rst-detail" class="detail-panel mt-6 pt-6 border-t border-white/10 text-sm text-gray-400 space-y-4">
+            <p><span class="text-white font-semibold">Perception-to-action chain:</span> visual target observation → target tracking/localization → camera/task-frame relationship → coordinate transformation → robot action/throw strategy.</p>
+            <p><span class="text-white font-semibold">Hackathon decision:</span> under a roughly 36–40 hour development window, the team prioritized a robust strategy over adding risky features that could reduce repeatability during the final challenge.</p>
+            <p><span class="text-white font-semibold">What it demonstrates:</span> rapid prototyping, integration across perception and manipulation, debugging under time pressure, and engineering trade-off decisions based on task reliability.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="project-card rounded-xl overflow-hidden border border-red-400/20 bg-cyber-dark/80" id="jnj">
+        <div class="h-48 relative bg-gradient-to-br from-slate-950 to-rose-950 flex items-center justify-center overflow-hidden">
+          <i class="fas fa-stethoscope text-7xl text-red-300/55"></i>
+          <span class="absolute top-4 right-4 font-tech text-[11px] px-2 py-1 border border-neon-green/40 text-neon-green bg-black/60">COMPLETED SIMULATION</span>
+        </div>
+        <div class="p-7">
+          <h2 class="font-mono text-2xl font-bold">J&J MedTech — Robotics & Controls Troubleshooting</h2>
+          <p class="font-tech text-xs text-red-300 mt-2">[ PYTHON · CONTROL CODE REVIEW · PERFORMANCE TESTING · DOCUMENTATION ]</p>
+          <p class="text-gray-400 mt-4">Investigated a high-severity simulated robotic-control support ticket, reviewed command timing behavior, iteratively tested changes and documented findings and recommendations.</p>
+          <button onclick="togglePanel('jnj-detail')" class="mt-5 font-mono text-sm text-white hover:text-red-300">OPEN CASE STUDY <i class="fas fa-chevron-down ml-2"></i></button>
+          <div id="jnj-detail" class="detail-panel mt-6 pt-6 border-t border-white/10 text-sm text-gray-400 space-y-4">
+            <p><span class="text-white font-semibold">Ticket context:</span> simulated Mercy General Hospital support case, robot model RBA-2201, ticket #2437, severity High, with <code class="text-red-300">rotate_joint</code> identified as the affected command.</p>
+            <p><span class="text-white font-semibold">Initial timings:</span> move_arm 0.104 s, rotate_joint 0.151 s, adjust_grip 0.063 s. After the exercise's optimization cycle: 0.083 s, 0.121 s and 0.041 s respectively.</p>
+            <p><span class="text-white font-semibold">Engineering workflow:</span> reproduce ticket behavior → inspect Python control code → isolate likely bottleneck/logic path → modify/test iteratively → compare measured command timings → document steps, findings and recommendations.</p>
+            <p><span class="text-white font-semibold">Scope note:</span> this is a completed J&J MedTech Forage job simulation and is presented as simulation experience, not employment at Johnson & Johnson.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="project-card rounded-xl overflow-hidden border border-orange-400/20 bg-cyber-dark/80 md:col-span-2" id="so101">
+        <div class="md:grid md:grid-cols-[.8fr_1.2fr]">
+          <div class="min-h-56 relative bg-gradient-to-br from-slate-950 to-orange-950 flex items-center justify-center overflow-hidden">
+            <i class="fas fa-hand-paper text-8xl text-orange-300/55"></i>
+            <span class="absolute top-4 right-4 font-tech text-[11px] px-2 py-1 border border-orange-400/50 text-orange-300 bg-black/60">IN DEVELOPMENT</span>
+          </div>
+          <div class="p-7">
+            <h2 class="font-mono text-2xl font-bold">SO-101 Robot Arm — Zero-Shot, Few-Shot & In-Context Learning for Pick-and-Place</h2>
+            <p class="font-tech text-xs text-orange-300 mt-2">[ SO-101 · ROBOT LEARNING · ZERO/FEW-SHOT · IN-CONTEXT LEARNING · PICK & PLACE ]</p>
+            <p class="text-gray-400 mt-4">Ongoing project comparing learning strategies for robotic pick-and-place with a practical path from lightweight/offline experimentation to the physical SO-101 arm.</p>
+            <button onclick="togglePanel('so101-detail')" class="mt-5 font-mono text-sm text-white hover:text-orange-300">OPEN DEVELOPMENT PLAN <i class="fas fa-chevron-down ml-2"></i></button>
+            <div id="so101-detail" class="detail-panel mt-6 pt-6 border-t border-white/10 text-sm text-gray-400 space-y-4">
+              <p><span class="text-white font-semibold">Current constraint:</span> development targets a 16 GB RAM laptop with a GTX 1050 Ti 4 GB, so the workflow avoids depending on heavy Isaac Sim requirements and favors lightweight simulation/offline evaluation before hardware execution.</p>
+              <p><span class="text-white font-semibold">Experiment structure:</span> define a common pick-and-place task and success criteria → establish a deterministic baseline → implement/evaluate zero-shot behavior → add a small number of demonstrations for few-shot comparison → test in-context conditioning → compare task success, execution consistency and failure modes.</p>
+              <p><span class="text-white font-semibold">Planned evidence:</span> reproducible configs, task definitions, demonstration format, evaluation script, per-method results table, failure-case gallery and final hardware demonstration once validated.</p>
+              <p><span class="text-orange-300 font-semibold">Status rule:</span> planned methods, milestones and expected outputs are intentionally not presented as completed results.</p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+    </div>
+
+    <section class="mt-16 border border-white/10 rounded-xl bg-cyber-dark/70 p-8">
+      <h2 class="font-mono text-2xl font-bold"><span class="text-cyber-blue">/</span> Documentation Standard</h2>
+      <p class="mt-4 text-gray-400">Each project is being documented as an engineering case study rather than only a gallery card. The target evidence set is: problem definition, architecture/workflow, implementation decisions, reproducible setup, test methodology, measured results where verified, failure cases, screenshots/plots/video and a clear distinction between completed work and future improvements.</p>
+    </section>
+  </main>
+
+  <footer class="border-t border-cyber-blue/20 bg-black py-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between gap-4 text-sm text-gray-500 font-tech">
+      <span>SYS.VER.2026 // SP.ROBOTICS</span>
+      <a href="index.html" class="hover:text-cyber-blue">RETURN TO MAIN PORTFOLIO</a>
+    </div>
+  </footer>
+
+  <script>
+    function togglePanel(id){
+      const panel=document.getElementById(id);
+      if(panel) panel.classList.toggle('open');
+    }
+  </script>
+</body>
+</html>
