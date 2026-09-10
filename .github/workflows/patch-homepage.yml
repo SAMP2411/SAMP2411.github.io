@@ -5,6 +5,9 @@ on:
     branches: [main]
     paths:
       - '.github/workflows/patch-homepage.yml'
+      - 'homepage-expanded-projects.html'
+      - 'favicon.svg'
+      - 'site.webmanifest'
   workflow_dispatch:
 
 permissions:
@@ -15,108 +18,38 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
       - name: Patch index.html
         shell: bash
         run: |
           python - <<'PY'
           from pathlib import Path
 
-          p = Path('index.html')
-          text = p.read_text(encoding='utf-8')
+          index = Path('index.html')
+          text = index.read_text(encoding='utf-8')
 
-          # Add favicon + manifest metadata once.
+          title = '<title>Samarth Patel | Creative Robotics Engineer</title>'
+          favicon_meta = (
+              title + '\n'
+              '    <link rel="icon" href="favicon.svg" type="image/svg+xml">\n'
+              '    <link rel="shortcut icon" href="favicon.svg" type="image/svg+xml">\n'
+              '    <link rel="manifest" href="site.webmanifest">\n'
+              '    <meta name="theme-color" content="#02040a">'
+          )
+
           if 'rel="icon" href="favicon.svg"' not in text:
-              text = text.replace(
-                  '<title>Samarth Patel | Creative Robotics Engineer</title>',
-                  '<title>Samarth Patel | Creative Robotics Engineer</title>\n'
-                  '    <link rel="icon" href="favicon.svg" type="image/svg+xml">\n'
-                  '    <link rel="shortcut icon" href="favicon.svg" type="image/svg+xml">\n'
-                  '    <link rel="manifest" href="site.webmanifest">\n'
-                  '    <meta name="theme-color" content="#02040a">',
-                  1
-              )
+              if title not in text:
+                  raise SystemExit('Page title marker not found')
+              text = text.replace(title, favicon_meta, 1)
 
-          marker = '    <!-- Contact Section (SECURE TERMINAL) -->'
-          section_id = 'expanded-projects-home'
-          if section_id not in text:
-              expanded = r'''
-    <!-- Expanded Portfolio Projects -->
-    <section id="expanded-projects-home" class="py-20 relative z-10 border-t border-cyber-blue/20 bg-cyber-dark/20">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-14 reveal">
-                <p class="font-tech text-cyber-blue tracking-[0.25em] text-xs mb-3">EXPANDED PROJECT ARCHIVE</p>
-                <h2 class="text-4xl font-bold text-white font-mono mb-4"><span class="text-cyber-blue">/</span> Robotics & AI Case Studies</h2>
-                <p class="text-gray-400 max-w-3xl mx-auto">Detailed technical case studies covering autonomous navigation, manipulator control, industrial AI, computer vision, robot learning and engineering validation.</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <a href="projects.html#turtlebot3" class="tilt-card group rounded-xl border border-cyber-blue/20 bg-cyber-black/60 p-6 hover:border-cyber-blue/60 transition-all">
-                    <i class="fas fa-route text-3xl text-cyber-blue mb-4"></i>
-                    <h3 class="font-mono text-xl text-white font-bold mb-2">TurtleBot3 Navigation</h3>
-                    <p class="font-tech text-xs text-cyber-blue mb-3">ROS2 · NAV2 · AMCL · SLAM</p>
-                    <p class="text-sm text-gray-400">Simulation-to-real navigation, mapping, localization, TF/odometry validation and planner comparison.</p>
-                </a>
-
-                <a href="projects.html#ur10" class="tilt-card group rounded-xl border border-cyber-purple/20 bg-cyber-black/60 p-6 hover:border-cyber-purple/60 transition-all">
-                    <i class="fas fa-robot text-3xl text-purple-400 mb-4"></i>
-                    <h3 class="font-mono text-xl text-white font-bold mb-2">UR10 Manipulator</h3>
-                    <p class="font-tech text-xs text-purple-300 mb-3">MATLAB · ROS · DLS · TRAJECTORY CONTROL</p>
-                    <p class="text-sm text-gray-400">Forward/inverse kinematics, damped least-squares control, trajectory generation and hardware validation.</p>
-                </a>
-
-                <a href="projects.html#iiot" class="tilt-card group rounded-xl border border-neon-green/20 bg-cyber-black/60 p-6 hover:border-neon-green/60 transition-all">
-                    <i class="fas fa-wave-square text-3xl text-neon-green mb-4"></i>
-                    <h3 class="font-mono text-xl text-white font-bold mb-2">IIoT Anomaly Detector</h3>
-                    <p class="font-tech text-xs text-neon-green mb-3">PYTHON · MQTT · ISOLATION FOREST</p>
-                    <p class="text-sm text-gray-400">Streaming industrial telemetry, unsupervised anomaly detection and low-latency monitoring.</p>
-                </a>
-
-                <a href="projects.html#face-recognition" class="tilt-card group rounded-xl border border-sky-400/20 bg-cyber-black/60 p-6 hover:border-sky-400/60 transition-all">
-                    <i class="fas fa-user-check text-3xl text-sky-300 mb-4"></i>
-                    <h3 class="font-mono text-xl text-white font-bold mb-2">Offline Face Recognition</h3>
-                    <p class="font-tech text-xs text-sky-300 mb-3">INSIGHTFACE · ONNX · OPENCV</p>
-                    <p class="text-sm text-gray-400">Guided multi-pose enrollment, local inference and real-time recognition without a cloud API.</p>
-                </a>
-
-                <a href="projects.html#rst-hackathon" class="tilt-card group rounded-xl border border-yellow-400/20 bg-cyber-black/60 p-6 hover:border-yellow-400/60 transition-all">
-                    <i class="fas fa-trophy text-3xl text-yellow-300 mb-4"></i>
-                    <h3 class="font-mono text-xl text-white font-bold mb-2">RST Hackathon</h3>
-                    <p class="font-tech text-xs text-yellow-300 mb-3">VISION · TRACKING · ROBOT ARM</p>
-                    <p class="text-sm text-gray-400">Vision-guided robot-arm challenge using tracking, coordinate transforms and a robust execution strategy.</p>
-                </a>
-
-                <a href="projects.html#jj-medtech" class="tilt-card group rounded-xl border border-rose-400/20 bg-cyber-black/60 p-6 hover:border-rose-400/60 transition-all">
-                    <i class="fas fa-stethoscope text-3xl text-rose-300 mb-4"></i>
-                    <h3 class="font-mono text-xl text-white font-bold mb-2">J&J MedTech Simulation</h3>
-                    <p class="font-tech text-xs text-rose-300 mb-3">PYTHON · DEBUGGING · VALIDATION</p>
-                    <p class="text-sm text-gray-400">Robotic control timing investigation, optimization, iterative testing and engineering documentation.</p>
-                </a>
-
-                <a href="projects.html#so101" class="tilt-card group rounded-xl border border-fuchsia-400/20 bg-cyber-black/60 p-6 hover:border-fuchsia-400/60 transition-all lg:col-start-2">
-                    <i class="fas fa-grip text-3xl text-fuchsia-300 mb-4"></i>
-                    <div class="flex items-center justify-between gap-3 mb-2">
-                        <h3 class="font-mono text-xl text-white font-bold">SO-101 Robot Learning</h3>
-                        <span class="font-tech text-[10px] border border-fuchsia-400/40 text-fuchsia-300 px-2 py-1">IN DEVELOPMENT</span>
-                    </div>
-                    <p class="font-tech text-xs text-fuchsia-300 mb-3">ZERO-SHOT · FEW-SHOT · IN-CONTEXT</p>
-                    <p class="text-sm text-gray-400">Pick-and-place experiments comparing prompting and learning strategies before hardware transfer.</p>
-                </a>
-            </div>
-
-            <div class="text-center mt-10 reveal">
-                <a href="projects.html" class="inline-flex items-center px-7 py-3 rounded border border-cyber-blue text-cyber-blue font-mono hover:bg-cyber-blue hover:text-black transition-all">
-                    OPEN FULL PROJECT ARCHIVE <i class="fas fa-arrow-right ml-3"></i>
-                </a>
-            </div>
-        </div>
-    </section>
-
-'''
+          if 'id="expanded-projects-home"' not in text:
+              marker = '    <!-- Contact Section (SECURE TERMINAL) -->'
               if marker not in text:
-                  raise SystemExit('Contact-section marker not found; refusing unsafe patch')
-              text = text.replace(marker, expanded + marker, 1)
+                  raise SystemExit('Contact-section marker not found')
+              section = Path('homepage-expanded-projects.html').read_text(encoding='utf-8')
+              text = text.replace(marker, section + '\n\n' + marker, 1)
 
-          p.write_text(text, encoding='utf-8')
+          index.write_text(text, encoding='utf-8')
           PY
 
       - name: Commit homepage integration
