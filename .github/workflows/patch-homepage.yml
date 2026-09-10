@@ -1,13 +1,11 @@
-name: Patch homepage with expanded projects
+name: Merge project cards into homepage
 
 on:
   push:
     branches: [main]
     paths:
       - '.github/workflows/patch-homepage.yml'
-      - 'homepage-expanded-projects.html'
-      - 'favicon.svg'
-      - 'site.webmanifest'
+      - 'project-cards-extra.html'
   workflow_dispatch:
 
 permissions:
@@ -19,7 +17,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Patch index.html
+      - name: Merge project cards into existing grid
         shell: bash
         run: |
           python - <<'PY'
@@ -28,31 +26,34 @@ jobs:
           index = Path('index.html')
           text = index.read_text(encoding='utf-8')
 
-          title = '<title>Samarth Patel | Creative Robotics Engineer</title>'
-          favicon_meta = (
-              title + '\n'
-              '    <link rel="icon" href="favicon.svg" type="image/svg+xml">\n'
-              '    <link rel="shortcut icon" href="favicon.svg" type="image/svg+xml">\n'
-              '    <link rel="manifest" href="site.webmanifest">\n'
-              '    <meta name="theme-color" content="#02040a">'
-          )
+          # Remove the previously-added standalone archive section entirely.
+          start_marker = '<!-- Expanded Portfolio Projects -->'
+          end_marker = '    <!-- Contact Section (SECURE TERMINAL) -->'
+          if start_marker in text:
+              start = text.index(start_marker)
+              end = text.index(end_marker, start)
+              text = text[:start] + text[end:]
 
-          if 'rel="icon" href="favicon.svg"' not in text:
-              if title not in text:
-                  raise SystemExit('Page title marker not found')
-              text = text.replace(title, favicon_meta, 1)
+          # Add the new cards inside the original Projects Section grid.
+          card_marker = '<!-- Project 5: TurtleBot3 -->'
+          if card_marker not in text:
+              section_start = text.index('    <!-- Projects Section -->')
+              section_end = text.index('    <!-- Contact Section (SECURE TERMINAL) -->', section_start)
+              project_section = text[section_start:section_end]
 
-          if 'id="expanded-projects-home"' not in text:
-              marker = '    <!-- Contact Section (SECURE TERMINAL) -->'
-              if marker not in text:
-                  raise SystemExit('Contact-section marker not found')
-              section = Path('homepage-expanded-projects.html').read_text(encoding='utf-8')
-              text = text.replace(marker, section + '\n\n' + marker, 1)
+              closing = '            </div>\n        </div>\n    </section>'
+              pos = project_section.rfind(closing)
+              if pos == -1:
+                  raise SystemExit('Original projects grid closing marker not found')
+
+              cards = Path('project-cards-extra.html').read_text(encoding='utf-8').rstrip() + '\n\n'
+              project_section = project_section[:pos] + cards + project_section[pos:]
+              text = text[:section_start] + project_section + text[section_end:]
 
           index.write_text(text, encoding='utf-8')
           PY
 
-      - name: Commit homepage integration
+      - name: Commit homepage card integration
         shell: bash
         run: |
           if git diff --quiet; then
@@ -62,5 +63,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add index.html
-          git commit -m "Integrate expanded projects into homepage"
+          git commit -m "Merge new projects into Featured Protocols cards"
           git push
