@@ -28,12 +28,12 @@ jobs:
       - name: Commit generated portfolio updates
         shell: bash
         run: |
-          if git diff --quiet && [ -z "$(git ls-files --others --exclude-standard project/ experience/)" ]; then
+          if git diff --quiet && [ -z "$(git ls-files --others --exclude-standard project/ experience/ assets/ai/)" ]; then
             echo "No generated changes required."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add index.html project/ experience/
-          git commit -m "Refresh portfolio projects experience skills and visuals"
+          git add index.html project/ experience/ assets/ai/*.svg
+          git commit -m "Upgrade portfolio visuals to vector HD"
           git push
