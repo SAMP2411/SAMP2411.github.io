@@ -112,13 +112,25 @@ def patch_card(text, slug, asset):
         return text
     block = text[start:end]
     style = f"background-image:url('assets/ai/{asset}');background-size:cover;background-position:center;background-repeat:no-repeat"
-    block = re.sub(r'(<div class="h-28 relative overflow-hidden tilt-inner bg-gray-900")(?: style="[^"]*")?>', rf'\1 style="{style}">', block, count=1)
+
+    visual_marker = '<div class="h-28 relative overflow-hidden tilt-inner bg-gray-900"'
+    vm = block.find(visual_marker)
+    if vm >= 0:
+        gt = block.find('>', vm)
+        if gt >= 0:
+            block = block[:vm] + f'<div class="h-28 relative overflow-hidden tilt-inner bg-gray-900" style="{style}">' + block[gt+1:]
+
     block = re.sub(r'<img\s+[^>]*>', '', block, count=1)
-    first_visual = block.find('class="h-28 relative overflow-hidden tilt-inner bg-gray-900"')
-    if first_visual >= 0 and 'AI VISUAL' not in block[first_visual:first_visual+700]:
-        gt = block.find('>', first_visual)
+    block = re.sub(r'<span class="absolute top-2 left-2 z-20[^>]*>AI VISUAL(?:[^<]*)</span>', '', block)
+    vm = block.find('class="h-28 relative overflow-hidden tilt-inner bg-gray-900"')
+    if vm >= 0:
+        gt = block.find('>', vm)
         block = block[:gt+1] + BADGE + block[gt+1:]
-    block = block.replace('bg-gradient-to-t from-cyber-black via-transparent to-transparent opacity-80', 'bg-gradient-to-t from-black/25 via-transparent to-transparent opacity-30')
+
+    block = block.replace('bg-gradient-to-t from-cyber-black via-transparent to-transparent opacity-80', 'bg-gradient-to-t from-black/10 via-transparent to-transparent opacity-10')
+    block = block.replace('bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-25', 'bg-gradient-to-t from-black/10 via-transparent to-transparent opacity-10')
+    block = block.replace('bg-gradient-to-t from-black/25 via-transparent to-transparent opacity-30', 'bg-gradient-to-t from-black/10 via-transparent to-transparent opacity-10')
+    block = re.sub(r'(text-6xl\s+text-[^\s]+?)/50(\s+group-hover:)', r'\1/20\2', block)
     text = text[:start] + block + text[end:]
     return text
 
@@ -137,7 +149,7 @@ def main():
     p = Path('index.html')
     text = p.read_text(encoding='utf-8')
     text = text.replace('opacity-60 group-hover:opacity-40', 'opacity-100 group-hover:opacity-100')
-    text = text.replace('bg-gradient-to-t from-cyber-black via-transparent to-transparent opacity-80', 'bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-25')
+    text = text.replace('bg-gradient-to-t from-cyber-black via-transparent to-transparent opacity-80', 'bg-gradient-to-t from-black/10 via-transparent to-transparent opacity-10')
     for slug, cfg in VISUALS.items():
         text = patch_card(text, slug, cfg['file'])
     p.write_text(text, encoding='utf-8')
