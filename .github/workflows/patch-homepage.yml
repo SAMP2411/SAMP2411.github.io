@@ -7,8 +7,9 @@ on:
       - '.github/workflows/patch-homepage.yml'
       - 'scripts/build_project_pages.py'
       - 'scripts/apply_ai_assets.py'
+      - 'scripts/upscale_photoreal_assets.py'
+      - 'scripts/apply_photoreal_hd.py'
       - 'project-detail.css'
-      - 'assets/ai/**'
   workflow_dispatch:
 
 permissions:
@@ -20,10 +21,15 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Generate portfolio pages and refresh homepage
+      - name: Install image enhancement dependencies
+        run: python -m pip install --disable-pip-version-check pillow opencv-contrib-python-headless
+
+      - name: Build photorealistic HD portfolio
         run: |
+          python scripts/upscale_photoreal_assets.py
           python scripts/build_project_pages.py
           python scripts/apply_ai_assets.py
+          python scripts/apply_photoreal_hd.py
 
       - name: Commit generated portfolio updates
         shell: bash
@@ -34,6 +40,6 @@ jobs:
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add index.html project/ experience/ project-detail.css assets/ai/*.svg
-          git commit -m "Render project visuals in vector HD"
+          git add index.html project/ experience/ project-detail.css assets/ai/*-photo-hd.webp
+          git commit -m "Restore photorealistic project visuals in HD"
           git push
