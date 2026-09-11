@@ -1,0 +1,1 @@
+HD project visuals are stored at 1672x941 resolution using high-quality WebP encoding. Generated imagery is labeled as AI visualization in the portfolio UI.
