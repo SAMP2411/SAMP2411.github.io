@@ -319,7 +319,8 @@
         .rotate-radar { animation: radar-spin 4s linear infinite; transform-origin: 40px 35px; }
         @keyframes radar-spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 
-    </style>
+    .skill-chip{padding:.35rem .55rem;font-size:.75rem;font-family:"Share Tech Mono",monospace;background:rgba(0,240,255,.07);color:#9be7ff;border:1px solid rgba(0,240,255,.22);border-radius:.35rem}
+</style>
 </head>
 <body class="bg-cyber-black text-white font-sans antialiased selection:bg-cyber-cyan selection:text-black overflow-x-hidden cursor-none">
 
@@ -632,224 +633,13 @@
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-24 relative z-10 bg-cyber-dark/30 border-t border-white/5">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                <div class="reveal">
-                    <div class="flex items-center gap-4 mb-6">
-                        <h2 class="text-3xl font-bold text-white font-mono">
-                            <span class="text-cyber-blue">/</span> Engineer Profile
-                        </h2>
-                    </div>
-                    <div class="text-gray-400 space-y-6 leading-relaxed font-light text-lg">
-                        <p>
-                            I execute logic at <span class="text-cyber-blue font-bold">TU Dortmund</span>, compiling my Master's in Automation and Robotics. My core loop is driven by a fascination with making machines perceive, decide, and act in complex, unstructured environments.
-                        </p>
-                        <p>
-                            Initialized with a <span class="text-white">Mechatronics</span> background from SRM Institute, I've upgraded my stack to include advanced navigation, sensor fusion, and cloud robotics.
-                        </p>
-                        <p class="pl-4 italic text-gray-300">
-                            "Currently optimizing state estimation deployments using Kubernetes and Docker—bridging the gap between hardware and modern DevOps."
-                        </p>
-                    </div>
-                </div>
-                
-                <!-- Interactive Card Grid (Tilt Effect) -->
-                <div class="grid grid-cols-2 gap-4 perspective-1000">
-                    <div class="tilt-card p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-cyber-blue/50 transition-all group cursor-none" onmousemove="tiltCard(event, this)" onmouseleave="resetCard(this)">
-                        <div class="tilt-inner flex flex-col items-center text-center">
-                            <i class="fas fa-robot text-5xl text-cyber-blue mb-4 group-hover:scale-110 transition-transform"></i>
-                            <h3 class="text-xl font-bold text-white font-mono">Robotics</h3>
-                            <p class="text-xs text-gray-400 mt-2 font-tech">ROS NOETIC • ROS2 • SLAM</p>
-                        </div>
-                    </div>
-                    <div class="tilt-card p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-cyber-purple/50 transition-all group cursor-none" onmousemove="tiltCard(event, this)" onmouseleave="resetCard(this)">
-                        <div class="tilt-inner flex flex-col items-center text-center">
-                            <i class="fas fa-brain text-5xl text-cyber-purple mb-4 group-hover:scale-110 transition-transform"></i>
-                            <h3 class="text-xl font-bold text-white font-mono">AI Core</h3>
-                            <p class="text-xs text-gray-400 mt-2 font-tech">TENSORFLOW • CV • NUMPY</p>
-                        </div>
-                    </div>
-                    <div class="tilt-card p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-green-400/50 transition-all group cursor-none" onmousemove="tiltCard(event, this)" onmouseleave="resetCard(this)">
-                        <div class="tilt-inner flex flex-col items-center text-center">
-                            <i class="fas fa-microchip text-5xl text-green-400 mb-4 group-hover:scale-110 transition-transform"></i>
-                            <h3 class="text-xl font-bold text-white font-mono">Hardware</h3>
-                            <p class="text-xs text-gray-400 mt-2 font-tech">ARDUINO • RPI • SENSORS</p>
-                        </div>
-                    </div>
-                    <div class="tilt-card p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-cyber-blue/50 transition-all group cursor-none" onmousemove="tiltCard(event, this)" onmouseleave="resetCard(this)">
-                        <div class="tilt-inner flex flex-col items-center text-center">
-                            <i class="fas fa-server text-5xl text-cyber-blue mb-4 group-hover:scale-110 transition-transform"></i>
-                            <h3 class="text-xl font-bold text-white font-mono">DevOps</h3>
-                            <p class="text-xs text-gray-400 mt-2 font-tech">DOCKER • K8S • CI/CD</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <section id="about" class="py-24 relative z-10 bg-cyber-dark/30 border-t border-white/5"><div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"><div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center"><div class="reveal"><div class="flex items-center gap-4 mb-6"><h2 class="text-3xl font-bold text-white font-mono"><span class="text-cyber-blue">/</span> Engineer Profile</h2></div><div class="text-gray-400 space-y-6 leading-relaxed font-light text-lg"><p>I am an M.Sc. Automation & Robotics student at <span class="text-cyber-blue font-bold">TU Dortmund</span> focused on building robot systems that can perceive, localize, plan, move and recover from real integration problems.</p><p>My project work spans <span class="text-white">ROS/ROS2 mobile robotics</span>, UR10 manipulation, computer vision, industrial anomaly detection, embedded Linux/OTA deployment and an ongoing SO-101 robot-learning study.</p><p class="pl-4 italic text-gray-300">"My preferred workflow is systems-first: instrument the behavior, isolate the failing layer, validate the fix in simulation or controlled tests, then transfer it to hardware."</p></div></div><div class="grid grid-cols-2 gap-4 perspective-1000"><div class="tilt-card p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-cyber-blue/50 transition-all group cursor-none" onmousemove="tiltCard(event, this)" onmouseleave="resetCard(this)"><div class="tilt-inner flex flex-col items-center text-center"><i class="fas fa-route text-5xl text-cyber-blue mb-4"></i><h3 class="text-xl font-bold text-white font-mono">Autonomy</h3><p class="text-xs text-gray-400 mt-2 font-tech">ROS2 • NAV2 • SLAM • AMCL • TF2</p></div></div><div class="tilt-card p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-cyber-purple/50 transition-all group cursor-none" onmousemove="tiltCard(event, this)" onmouseleave="resetCard(this)"><div class="tilt-inner flex flex-col items-center text-center"><i class="fas fa-robot text-5xl text-cyber-purple mb-4"></i><h3 class="text-xl font-bold text-white font-mono">Manipulation</h3><p class="text-xs text-gray-400 mt-2 font-tech">UR10 • FK/IK • DLS • TRAJECTORIES</p></div></div><div class="tilt-card p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-green-400/50 transition-all group cursor-none" onmousemove="tiltCard(event, this)" onmouseleave="resetCard(this)"><div class="tilt-inner flex flex-col items-center text-center"><i class="fas fa-eye text-5xl text-green-400 mb-4"></i><h3 class="text-xl font-bold text-white font-mono">Perception & AI</h3><p class="text-xs text-gray-400 mt-2 font-tech">OPENCV • INSIGHTFACE • ONNX • ML</p></div></div><div class="tilt-card p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-cyber-blue/50 transition-all group cursor-none" onmousemove="tiltCard(event, this)" onmouseleave="resetCard(this)"><div class="tilt-inner flex flex-col items-center text-center"><i class="fas fa-microchip text-5xl text-cyber-blue mb-4"></i><h3 class="text-xl font-bold text-white font-mono">Embedded Linux</h3><p class="text-xs text-gray-400 mt-2 font-tech">YOCTO • RAUC • U-BOOT • CONTAINERD</p></div></div></div></div></div></section>
 
     <!-- Soft Skills Section -->
-    <section class="py-20 relative z-10 bg-cyber-black overflow-hidden">
-        <!-- Background Illustration -->
-        <div class="absolute top-0 right-0 opacity-10 pointer-events-none">
-             <svg width="400" height="400" viewBox="0 0 200 200">
-                <path d="M100 10 L190 50 L190 150 L100 190 L10 150 L10 50 Z" fill="none" stroke="#00f0ff" stroke-width="1"/>
-                <path d="M100 30 L170 60 L170 140 L100 170 L30 140 L30 60 Z" fill="none" stroke="#00f0ff" stroke-width="1"/>
-                <circle cx="100" cy="100" r="20" fill="#7000ff" />
-             </svg>
-        </div>
-
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-            <div class="text-center mb-16 reveal">
-                <h2 class="text-3xl font-bold text-white font-mono mb-4">
-                    <span class="text-cyber-purple">/</span> Soft Skills Matrix
-                </h2>
-                <p class="text-gray-400 font-tech">SOFT SKILLS & ATTRIBUTES</p>
-            </div>
-
-            <div class="hex-grid reveal">
-                <!-- Skill 1 -->
-                <div class="hex-item group">
-                    <i class="fas fa-users text-3xl text-cyber-blue mb-2 group-hover:animate-bounce"></i>
-                    <h4 class="text-white font-bold text-sm">Collaboration</h4>
-                    <p class="text-xs text-gray-400 text-center px-2 mt-1">Cross-functional team synergy</p>
-                </div>
-                <!-- Skill 2 -->
-                <div class="hex-item group">
-                    <i class="fas fa-lightbulb text-3xl text-yellow-400 mb-2 group-hover:animate-bounce"></i>
-                    <h4 class="text-white font-bold text-sm">Problem Solving</h4>
-                    <p class="text-xs text-gray-400 text-center px-2 mt-1">Creative debugging & logic</p>
-                </div>
-                <!-- Skill 3 -->
-                <div class="hex-item group">
-                    <i class="fas fa-sync-alt text-3xl text-green-400 mb-2 group-hover:animate-spin"></i>
-                    <h4 class="text-white font-bold text-sm">Adaptability</h4>
-                    <p class="text-xs text-gray-400 text-center px-2 mt-1">Fast learner in new environments</p>
-                </div>
-                <!-- Skill 4 -->
-                <div class="hex-item group">
-                    <i class="fas fa-comments text-3xl text-pink-400 mb-2 group-hover:animate-bounce"></i>
-                    <h4 class="text-white font-bold text-sm">Communication</h4>
-                    <p class="text-xs text-gray-400 text-center px-2 mt-1">English (C1) • Gujarati (C2)</p>
-                </div>
-                 <!-- Skill 5 -->
-                 <div class="hex-item group">
-                    <i class="fas fa-tasks text-3xl text-orange-400 mb-2 group-hover:animate-bounce"></i>
-                    <h4 class="text-white font-bold text-sm">Management</h4>
-                    <p class="text-xs text-gray-400 text-center px-2 mt-1">Workflow optimization</p>
-                </div>
-            </div>
-        </div>
-    </section>
+    <section class="py-20 relative z-10 bg-cyber-black overflow-hidden"><div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative"><div class="text-center mb-16 reveal"><h2 class="text-3xl font-bold text-white font-mono mb-4"><span class="text-cyber-purple">/</span> Engineering Strengths</h2><p class="text-gray-400 font-tech">HOW I WORK ACROSS ROBOTICS SYSTEMS</p></div><div class="hex-grid reveal"><div class="hex-item group"><i class="fas fa-magnifying-glass-chart text-3xl text-cyber-blue mb-2"></i><h4 class="text-white font-bold text-sm">Systems Debugging</h4><p class="text-xs text-gray-400 text-center px-2 mt-1">Trace faults across TF, localization, control & data</p></div><div class="hex-item group"><i class="fas fa-vial-circle-check text-3xl text-yellow-400 mb-2"></i><h4 class="text-white font-bold text-sm">Validation</h4><p class="text-xs text-gray-400 text-center px-2 mt-1">Measure, retest and compare before/after behavior</p></div><div class="hex-item group"><i class="fas fa-people-group text-3xl text-green-400 mb-2"></i><h4 class="text-white font-bold text-sm">Team Integration</h4><p class="text-xs text-gray-400 text-center px-2 mt-1">Connect software, controls, hardware and test workflows</p></div><div class="hex-item group"><i class="fas fa-file-code text-3xl text-pink-400 mb-2"></i><h4 class="text-white font-bold text-sm">Documentation</h4><p class="text-xs text-gray-400 text-center px-2 mt-1">Reproducible procedures, reports and technical handover</p></div><div class="hex-item group"><i class="fas fa-bolt text-3xl text-orange-400 mb-2"></i><h4 class="text-white font-bold text-sm">Rapid Prototyping</h4><p class="text-xs text-gray-400 text-center px-2 mt-1">Scope for reliability under time and hardware constraints</p></div></div></div></section>
 
     <!-- Technical Skills & Experience Tabs -->
-    <section id="skills" class="py-20 relative z-10 bg-cyber-dark/30">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center gap-4 mb-12 reveal">
-                <h2 class="text-3xl font-bold text-white font-mono">
-                    <span class="text-cyber-blue">/</span> Technical Arsenal
-                </h2>
-            </div>
-            
-            <!-- Skill Bars with Animation -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-                <div class="space-y-8 reveal">
-                    <div>
-                        <div class="flex justify-between mb-2 text-sm font-mono text-cyber-blue">
-                            <span>PYTHON / C++</span>
-                            <span>90%</span>
-                        </div>
-                        <!-- GLOWING BAR -->
-                        <div class="h-2 bg-gray-800 rounded-full overflow-hidden relative">
-                            <div class="absolute inset-0 w-[90%] bg-cyber-blue shadow-[0_0_15px_rgba(0,240,255,0.8)] animate-pulse rounded-full"></div>
-                            <div class="absolute inset-0 w-[90%] bg-gradient-to-r from-transparent via-white/50 to-transparent opacity-30"></div>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="flex justify-between mb-2 text-sm font-mono text-cyber-blue">
-                            <span>ROS / ROS2</span>
-                            <span>85%</span>
-                        </div>
-                        <!-- GLOWING BAR -->
-                        <div class="h-2 bg-gray-800 rounded-full overflow-hidden relative">
-                            <div class="absolute inset-0 w-[85%] bg-blue-500 shadow-[0_0_15px_rgba(59,130,246,0.8)] animate-pulse rounded-full"></div>
-                            <div class="absolute inset-0 w-[85%] bg-gradient-to-r from-transparent via-white/50 to-transparent opacity-30"></div>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="flex justify-between mb-2 text-sm font-mono text-green-400">
-                            <span>COMPUTER VISION</span>
-                            <span>75%</span>
-                        </div>
-                        <!-- GLOWING BAR -->
-                        <div class="h-2 bg-gray-800 rounded-full overflow-hidden relative">
-                            <div class="absolute inset-0 w-[75%] bg-green-500 shadow-[0_0_15px_rgba(16,185,129,0.8)] animate-pulse rounded-full"></div>
-                            <div class="absolute inset-0 w-[75%] bg-gradient-to-r from-transparent via-white/50 to-transparent opacity-30"></div>
-                        </div>
-                    </div>
-                      <div>
-                        <div class="flex justify-between mb-2 text-sm font-mono text-purple-400">
-                            <span>KUBERNETES / DOCKER</span>
-                            <span>70%</span>
-                        </div>
-                        <!-- GLOWING BAR -->
-                        <div class="h-2 bg-gray-800 rounded-full overflow-hidden relative">
-                            <div class="absolute inset-0 w-[70%] bg-purple-500 shadow-[0_0_15px_rgba(168,85,247,0.8)] animate-pulse rounded-full"></div>
-                            <div class="absolute inset-0 w-[70%] bg-gradient-to-r from-transparent via-white/50 to-transparent opacity-30"></div>
-                        </div>
-                    </div>
-
-                    <!-- Summary List of Skills -->
-                    <div class="mt-6 p-4 bg-white/5 rounded-lg border border-white/10">
-                        <h3 class="text-white font-mono text-sm mb-3">CORE COMPETENCIES</h3>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-2 py-1 text-xs font-mono bg-cyber-blue/10 text-cyber-blue rounded border border-cyber-blue/30">SLAM</span>
-                            <span class="px-2 py-1 text-xs font-mono bg-cyber-blue/10 text-cyber-blue rounded border border-cyber-blue/30">Path Planning</span>
-                            <span class="px-2 py-1 text-xs font-mono bg-cyber-blue/10 text-cyber-blue rounded border border-cyber-blue/30">Localization</span>
-                            <span class="px-2 py-1 text-xs font-mono bg-cyber-blue/10 text-cyber-blue rounded border border-cyber-blue/30">PID Control</span>
-                            <span class="px-2 py-1 text-xs font-mono bg-cyber-blue/10 text-cyber-blue rounded border border-cyber-blue/30">Kalman Filter</span>
-                            <span class="px-2 py-1 text-xs font-mono bg-cyber-blue/10 text-cyber-blue rounded border border-cyber-blue/30">Sensor Fusion</span>
-                            <span class="px-2 py-1 text-xs font-mono bg-cyber-blue/10 text-cyber-blue rounded border border-cyber-blue/30">GitLab CI/CD</span>
-                            <span class="px-2 py-1 text-xs font-mono bg-cyber-blue/10 text-cyber-blue rounded border border-cyber-blue/30">MQTT</span>
-                            <span class="px-2 py-1 text-xs font-mono bg-cyber-blue/10 text-cyber-blue rounded border border-cyber-blue/30">OpenCV</span>
-                            <span class="px-2 py-1 text-xs font-mono bg-cyber-blue/10 text-cyber-blue rounded border border-cyber-blue/30">TensorFlow</span>
-                            <span class="px-2 py-1 text-xs font-mono bg-cyber-blue/10 text-cyber-blue rounded border border-cyber-blue/30">Pneumatics</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Experience Timeline -->
-                <div class="border-l-2 border-white/10 pl-8 space-y-10 reveal delay-200">
-                    <div class="relative group">
-                        <div class="absolute -left-[41px] top-0 w-5 h-5 rounded-full bg-cyber-black border-2 border-cyber-blue group-hover:bg-cyber-blue transition-colors"></div>
-                        <span class="text-cyber-blue font-mono text-sm">01/2024 - 07/2024</span>
-                        <h3 class="text-xl font-bold text-white mt-1 group-hover:translate-x-2 transition-transform">ML & Data Science Trainee</h3>
-                        <p class="text-gray-500 text-sm mb-2">GeeksforGeeks</p>
-                        <p class="text-gray-400 text-sm">Engineered Python scrapers and analyzed 50+ years of global data.</p>
-                        <a href="https://github.com/SAMP2411/Data_Science-Machine_Learning" target="_blank" class="inline-flex items-center mt-2 text-xs text-cyber-blue font-mono hover:underline">
-                            <i class="fab fa-github mr-2"></i> ACCESS_REPO
-                        </a>
-                    </div>
-                    <div class="relative group">
-                        <div class="absolute -left-[41px] top-0 w-5 h-5 rounded-full bg-cyber-black border-2 border-gray-600 group-hover:border-white transition-colors"></div>
-                        <span class="text-gray-500 font-mono text-sm">10/2023 - 01/2024</span>
-                        <h3 class="text-xl font-bold text-white mt-1 group-hover:translate-x-2 transition-transform">Electronics Intern</h3>
-                        <p class="text-gray-500 text-sm mb-2">Omsara Industries</p>
-                        <p class="text-gray-400 text-sm">Integrated 50+ PCBs for IoT systems, boosting throughput by 10%.</p>
-                    </div>
-                    <!-- NEW ENTRY -->
-                    <div class="relative group">
-                        <div class="absolute -left-[41px] top-0 w-5 h-5 rounded-full bg-cyber-black border-2 border-neon-green group-hover:border-white transition-colors"></div>
-                        <span class="text-neon-green font-mono text-sm">06/2023 - 09/2023</span>
-                        <h3 class="text-xl font-bold text-white mt-1 group-hover:translate-x-2 transition-transform">Manufacturing Support Intern</h3>
-                        <p class="text-gray-500 text-sm mb-2">Ashlesh Bright Bars Pvt. Ltd.</p>
-                        <p class="text-gray-400 text-sm">Calibrated industrial sensors (12% accuracy inc) and documented production metrics.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <section id="skills" class="py-20 relative z-10 bg-cyber-dark/30"><div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"><div class="flex items-center gap-4 mb-12 reveal"><h2 class="text-3xl font-bold text-white font-mono"><span class="text-cyber-blue">/</span> Technical Arsenal & Experience</h2></div><div class="grid grid-cols-1 md:grid-cols-2 gap-12"><div class="space-y-5 reveal"><div class="p-5 bg-white/5 rounded-xl border border-cyber-blue/20"><h3 class="font-mono text-cyber-blue mb-2">AUTONOMOUS ROBOTICS</h3><p class="text-gray-400 text-sm leading-6">ROS Noetic, ROS2 Humble, Nav2, TF2, GMapping, Cartographer, AMCL, move_base, DWA, TEB, RRT/BiRRT/PRM, Gazebo and RViz.</p></div><div class="p-5 bg-white/5 rounded-xl border border-cyber-purple/20"><h3 class="font-mono text-purple-300 mb-2">MANIPULATION & CONTROL</h3><p class="text-gray-400 text-sm leading-6">UR10, forward/inverse kinematics, damped least squares, JointTrajectory workflows, MATLAB, Simulink, Simscape, PID control and Kalman filtering.</p></div><div class="p-5 bg-white/5 rounded-xl border border-green-400/20"><h3 class="font-mono text-green-400 mb-2">PERCEPTION, AI & DATA</h3><p class="text-gray-400 text-sm leading-6">OpenCV, InsightFace, ONNX Runtime, scikit-learn, Isolation Forest, Pandas, NumPy, Plotly, guided enrollment and robot-learning experiment design.</p></div><div class="p-5 bg-white/5 rounded-xl border border-orange-400/20"><h3 class="font-mono text-orange-300 mb-2">EMBEDDED & DEPLOYMENT</h3><p class="text-gray-400 text-sm leading-6">Yocto, Buildroot, RAUC A/B OTA, U-Boot, containerd, BusyBox, musl, QEMU ARM, GitLab CI, Bash, MQTT, I2C, SPI, UART and Raspberry Pi.</p></div><div class="p-5 bg-white/5 rounded-xl border border-white/10"><h3 class="font-mono text-white mb-3">PROGRAMMING & ENGINEERING TOOLS</h3><div class="flex flex-wrap gap-2"><span class="skill-chip">Python</span><span class="skill-chip">C++</span><span class="skill-chip">Embedded C</span><span class="skill-chip">Git</span><span class="skill-chip">Linux</span><span class="skill-chip">SolidWorks</span><span class="skill-chip">Jira / Confluence</span><span class="skill-chip">ROS bags & diagnostics</span></div></div></div><div class="border-l-2 border-white/10 pl-8 space-y-10 reveal delay-200"><div class="relative group"><div class="absolute -left-[41px] top-0 w-5 h-5 rounded-full bg-cyber-black border-2 border-neon-green group-hover:bg-neon-green transition-colors"></div><span class="text-neon-green font-mono text-sm">04/2026 - PRESENT</span><h3 class="text-xl font-bold text-white mt-1">Software Engineer (Student)</h3><p class="text-gray-500 text-sm mb-2">GETracing Dortmund e.V.</p><p class="text-gray-400 text-sm">Worked on localization robustness, sensor uncertainty, map consistency and reproducible ROS debugging using TF analysis, recorded data and systematic fault isolation.</p></div><a href="experience/jj-medtech-robotics.html" class="block relative group"><div class="absolute -left-[41px] top-0 w-5 h-5 rounded-full bg-cyber-black border-2 border-pink-400 group-hover:bg-pink-400 transition-colors"></div><span class="text-pink-300 font-mono text-sm">09/2026</span><h3 class="text-xl font-bold text-white mt-1">Robotics & Controls Job Simulation</h3><p class="text-gray-500 text-sm mb-2">Johnson & Johnson MedTech · Forage</p><p class="text-gray-400 text-sm">Reviewed Python robotic-control code, measured command response, iterated on changes, retested performance and documented corrective actions and recommendations.</p><span class="inline-flex items-center mt-2 text-xs text-pink-300 font-mono">VIEW EXPERIENCE CASE STUDY <i class="fas fa-arrow-right ml-2"></i></span></a><div class="relative group"><div class="absolute -left-[41px] top-0 w-5 h-5 rounded-full bg-cyber-black border-2 border-cyber-blue group-hover:bg-cyber-blue transition-colors"></div><span class="text-cyber-blue font-mono text-sm">01/2024 - 07/2024</span><h3 class="text-xl font-bold text-white mt-1">ML & Data Science Trainee</h3><p class="text-gray-500 text-sm mb-2">GeeksforGeeks</p><p class="text-gray-400 text-sm">Built regression/classification workflows, cross-validation experiments, data tooling and Python automation projects.</p></div><div class="relative group"><div class="absolute -left-[41px] top-0 w-5 h-5 rounded-full bg-cyber-black border-2 border-gray-600 group-hover:border-white transition-colors"></div><span class="text-gray-500 font-mono text-sm">10/2023 - 01/2024</span><h3 class="text-xl font-bold text-white mt-1">Electronics Production Intern</h3><p class="text-gray-500 text-sm mb-2">Omsara Industries</p><p class="text-gray-400 text-sm">Assembled and tested 50+ PCBs, debugged electronics and validated I2C/SPI interfaces using lab instrumentation.</p></div><div class="relative group"><div class="absolute -left-[41px] top-0 w-5 h-5 rounded-full bg-cyber-black border-2 border-orange-400 group-hover:border-white transition-colors"></div><span class="text-orange-300 font-mono text-sm">06/2023 - 09/2023</span><h3 class="text-xl font-bold text-white mt-1">Manufacturing Support Intern</h3><p class="text-gray-500 text-sm mb-2">Ashlesh Bright Bars Pvt. Ltd.</p><p class="text-gray-400 text-sm">Supported calibration, maintenance, process documentation and practical manufacturing improvement work.</p></div></div></div></div></section>
 
     <!-- Projects Section -->
     <section id="projects" class="py-20 relative z-10 border-t border-cyber-purple/20 bg-cyber-black">
@@ -897,9 +687,9 @@
 
                     <div class="p-5 relative tilt-inner bg-cyber-black/50 backdrop-blur-sm">
                         <h3 class="text-xl font-bold text-white font-mono mb-2 group-hover:text-cyber-blue transition-colors">Distributed State Estimation</h3>
-                        <p class="text-cyber-blue font-tech text-xs mb-4">[ PYTHON • DOCKER • K8S ]</p>
+                        <p class="text-cyber-blue font-tech text-xs mb-4">[ YOCTO • RAUC • CONTAINERD ]</p>
                         <p class="text-gray-400 text-sm mb-3">
-                            Automating deployment of SE algorithms to edge devices. Designed bare-metal provisioning workflows (PXE, BootC) for power grid digital twins.
+                            Designed a minimal ARM Linux deployment layer with Yocto/Buildroot, containerd and signed RAUC A/B OTA updates for a distributed state-estimation research project.
                         </p>
                         <!-- Updated Link -->
                         <a href="https://gitlab.tu-dortmund.de/ie3/ie3_protection_and_automation/pgwise2526/-/tree/samarth?ref_type=heads" target="_blank" class="inline-flex items-center text-white hover:text-cyber-blue transition-colors font-mono text-sm">
@@ -921,7 +711,7 @@
 
                     <div class="p-5 relative tilt-inner bg-cyber-black/50 backdrop-blur-sm">
                         <h3 class="text-xl font-bold text-white font-mono mb-2 group-hover:text-cyber-purple transition-colors">Telepresence Robot</h3>
-                        <p class="text-cyber-purple font-tech text-xs mb-4">[ ROS NOETIC • LIDAR • C++ ]</p>
+                        <p class="text-cyber-purple font-tech text-xs mb-4">[ ROS NOETIC • GMAPPING • AMCL • DWA ]</p>
                         <p class="text-gray-400 text-sm mb-3">
                             Autonomous navigation robot integrating LiDAR and IMU. Tuned navigation stack and SLAM in Gazebo/RViz for reliable indoor mobility.
                         </p>
@@ -945,9 +735,9 @@
 
                     <div class="p-5 relative tilt-inner bg-cyber-black/50 backdrop-blur-sm">
                         <h3 class="text-xl font-bold text-white font-mono mb-2 group-hover:text-neon-green transition-colors">Competitive Robotics</h3>
-                        <p class="text-neon-green font-tech text-xs mb-4">[ EMBEDDED • SENSOR FUSION ]</p>
+                        <p class="text-neon-green font-tech text-xs mb-4">[ RPI • ARDUINO • EMBEDDED CONTROL ]</p>
                         <p class="text-gray-400 text-sm mb-3">
-                             Achieved 90%+ success in autonomous tasks for DD Robocon. Reduced completion time by 40% through advanced coordination algorithms.
+                             Integrated Raspberry Pi/Arduino control, PS4 operator input, PID-oriented tuning and mechanism routines for DD Robocon competition robots.
                         </p>
                         <!-- Updated Link -->
                         <a href="https://github.com/SAMP2411/Robocon-2k22" target="_blank" class="inline-flex items-center text-white hover:text-neon-green transition-colors font-mono text-sm">
@@ -971,7 +761,7 @@
                         <h3 class="text-xl font-bold text-white font-mono mb-2 group-hover:text-red-500 transition-colors">Unmanned Ground Vehicle</h3>
                         <p class="text-red-500 font-tech text-xs mb-4">[ PID • KALMAN FILTER • GPS/IMU ]</p>
                         <p class="text-gray-400 text-sm mb-3">
-                            Optimized PID loops for sub-10cm trajectory tracking. Implemented sensor fusion algorithms reducing positional error by 25% on varied terrains.
+                            Implemented GPS/IMU Kalman-filter fusion, waypoint navigation and PID control on Raspberry Pi, with typical documented position accuracy below roughly 50 cm.
                         </p>
                         <!-- Updated Link -->
                         <a href="https://github.com/SAMP2411/Unmanned_Ground_Vehicle" target="_blank" class="inline-flex items-center text-white hover:text-red-500 transition-colors font-mono text-sm">
@@ -982,7 +772,7 @@
 
                 <!-- Project 5: TurtleBot3 -->
                 <div class="tilt-card group cursor-pointer rounded-xl overflow-hidden border border-white/10 bg-cyber-dark/50 hover:border-cyber-blue/50 transition-all" onmousemove="tiltCard(event, this)" onmouseleave="resetCard(this)" data-project-detail="project/turtlebot3-navigation.html" role="link" tabindex="0" onclick="if(!event.target.closest('a')) window.location.href='project/turtlebot3-navigation.html'" onkeydown="if(event.key==='Enter' || event.key===' ') window.location.href='project/turtlebot3-navigation.html'">
-                    <div class="h-28 relative overflow-hidden tilt-inner bg-gray-900">
+                    <div class="h-28 relative overflow-hidden tilt-inner bg-gray-900" style="background-image:url('assets/portfolio-ai-sprite.svg');background-size:100% 700%;background-position:center 0%;background-repeat:no-repeat"><span class="absolute top-2 left-2 z-20 px-2 py-1 text-[9px] font-mono border border-white/20 text-gray-300 bg-black/65">AI VISUAL</span>
                         <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
                             <i class="fas fa-route text-6xl text-cyber-blue/50 group-hover:text-cyber-blue transition-colors z-10"></i>
                         </div>
@@ -998,7 +788,7 @@
 
                 <!-- Project 6: UR10 -->
                 <div class="tilt-card group cursor-pointer rounded-xl overflow-hidden border border-white/10 bg-cyber-dark/50 hover:border-cyber-purple/50 transition-all" onmousemove="tiltCard(event, this)" onmouseleave="resetCard(this)" data-project-detail="project/ur10-manipulator.html" role="link" tabindex="0" onclick="if(!event.target.closest('a')) window.location.href='project/ur10-manipulator.html'" onkeydown="if(event.key==='Enter' || event.key===' ') window.location.href='project/ur10-manipulator.html'">
-                    <div class="h-28 relative overflow-hidden tilt-inner bg-gray-900">
+                    <div class="h-28 relative overflow-hidden tilt-inner bg-gray-900" style="background-image:url('assets/portfolio-ai-sprite.svg');background-size:100% 700%;background-position:center 16.6667%;background-repeat:no-repeat"><span class="absolute top-2 left-2 z-20 px-2 py-1 text-[9px] font-mono border border-white/20 text-gray-300 bg-black/65">AI VISUAL</span>
                         <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
                             <i class="fas fa-robot text-6xl text-cyber-purple/50 group-hover:text-cyber-purple transition-colors z-10"></i>
                         </div>
@@ -1014,7 +804,7 @@
 
                 <!-- Project 7: IIoT Anomaly Detector -->
                 <div class="tilt-card group cursor-pointer rounded-xl overflow-hidden border border-white/10 bg-cyber-dark/50 hover:border-neon-green/50 transition-all" onmousemove="tiltCard(event, this)" onmouseleave="resetCard(this)" data-project-detail="project/iiot-anomaly-detector.html" role="link" tabindex="0" onclick="if(!event.target.closest('a')) window.location.href='project/iiot-anomaly-detector.html'" onkeydown="if(event.key==='Enter' || event.key===' ') window.location.href='project/iiot-anomaly-detector.html'">
-                    <div class="h-28 relative overflow-hidden tilt-inner bg-gray-900">
+                    <div class="h-28 relative overflow-hidden tilt-inner bg-gray-900" style="background-image:url('assets/portfolio-ai-sprite.svg');background-size:100% 700%;background-position:center 33.3333%;background-repeat:no-repeat"><span class="absolute top-2 left-2 z-20 px-2 py-1 text-[9px] font-mono border border-white/20 text-gray-300 bg-black/65">AI VISUAL</span>
                         <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
                             <i class="fas fa-wave-square text-6xl text-neon-green/50 group-hover:text-neon-green transition-colors z-10"></i>
                         </div>
@@ -1030,7 +820,7 @@
 
                 <!-- Project 8: Offline Face Recognition -->
                 <div class="tilt-card group cursor-pointer rounded-xl overflow-hidden border border-white/10 bg-cyber-dark/50 hover:border-cyber-blue/50 transition-all" onmousemove="tiltCard(event, this)" onmouseleave="resetCard(this)" data-project-detail="project/offline-face-recognition.html" role="link" tabindex="0" onclick="if(!event.target.closest('a')) window.location.href='project/offline-face-recognition.html'" onkeydown="if(event.key==='Enter' || event.key===' ') window.location.href='project/offline-face-recognition.html'">
-                    <div class="h-28 relative overflow-hidden tilt-inner bg-gray-900">
+                    <div class="h-28 relative overflow-hidden tilt-inner bg-gray-900" style="background-image:url('assets/portfolio-ai-sprite.svg');background-size:100% 700%;background-position:center 50%;background-repeat:no-repeat"><span class="absolute top-2 left-2 z-20 px-2 py-1 text-[9px] font-mono border border-white/20 text-gray-300 bg-black/65">AI VISUAL</span>
                         <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
                             <i class="fas fa-user-check text-6xl text-cyber-blue/50 group-hover:text-cyber-blue transition-colors z-10"></i>
                         </div>
@@ -1046,7 +836,7 @@
 
                 <!-- Project 9: RST Hackathon -->
                 <div class="tilt-card group cursor-pointer rounded-xl overflow-hidden border border-white/10 bg-cyber-dark/50 hover:border-yellow-400/50 transition-all" onmousemove="tiltCard(event, this)" onmouseleave="resetCard(this)" data-project-detail="project/rst-hackathon.html" role="link" tabindex="0" onclick="if(!event.target.closest('a')) window.location.href='project/rst-hackathon.html'" onkeydown="if(event.key==='Enter' || event.key===' ') window.location.href='project/rst-hackathon.html'">
-                    <div class="h-28 relative overflow-hidden tilt-inner bg-gray-900">
+                    <div class="h-28 relative overflow-hidden tilt-inner bg-gray-900" style="background-image:url('assets/portfolio-ai-sprite.svg');background-size:100% 700%;background-position:center 66.6667%;background-repeat:no-repeat"><span class="absolute top-2 left-2 z-20 px-2 py-1 text-[9px] font-mono border border-white/20 text-gray-300 bg-black/65">AI VISUAL</span>
                         <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
                             <i class="fas fa-trophy text-6xl text-yellow-400/50 group-hover:text-yellow-400 transition-colors z-10"></i>
                         </div>
@@ -1061,26 +851,9 @@
                     </div>
                 </div>
 
-                <!-- Project 10: J&J MedTech -->
-                <div class="tilt-card group cursor-pointer rounded-xl overflow-hidden border border-white/10 bg-cyber-dark/50 hover:border-red-400/50 transition-all" onmousemove="tiltCard(event, this)" onmouseleave="resetCard(this)" data-project-detail="project/jj-medtech-robotics.html" role="link" tabindex="0" onclick="if(!event.target.closest('a')) window.location.href='project/jj-medtech-robotics.html'" onkeydown="if(event.key==='Enter' || event.key===' ') window.location.href='project/jj-medtech-robotics.html'">
-                    <div class="h-28 relative overflow-hidden tilt-inner bg-gray-900">
-                        <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
-                            <i class="fas fa-stethoscope text-6xl text-red-400/50 group-hover:text-red-400 transition-colors z-10"></i>
-                        </div>
-                        <div class="absolute top-4 right-4 z-20 px-2 py-1 text-[10px] font-mono border border-red-400/40 text-red-300 bg-black/60">FORAGE SIMULATION</div>
-                        <div class="absolute inset-0 bg-gradient-to-t from-cyber-black via-transparent to-transparent opacity-80"></div>
-                    </div>
-                    <div class="p-5 relative tilt-inner bg-cyber-black/50 backdrop-blur-sm">
-                        <h3 class="text-xl font-bold text-white font-mono mb-2 group-hover:text-red-400 transition-colors">J&J MedTech Robotics & Controls</h3>
-                        <p class="text-red-400 font-tech text-xs mb-4">[ PYTHON • DEBUGGING • VALIDATION ]</p>
-                        <p class="text-gray-400 text-sm mb-3">Investigated simulated robotic-arm command timing, reviewed Python control logic, iteratively tested improvements and documented engineering findings and recommendations.</p>
-                        <span class="inline-flex items-center text-gray-400 font-mono text-sm"><i class="fas fa-clipboard-check mr-2"></i> ROBOTICS CONTROL SIMULATION</span>
-                    </div>
-                </div>
-
                 <!-- Project 11: SO-101 -->
                 <div class="tilt-card group cursor-pointer rounded-xl overflow-hidden border border-white/10 bg-cyber-dark/50 hover:border-pink-400/50 transition-all" onmousemove="tiltCard(event, this)" onmouseleave="resetCard(this)" data-project-detail="project/so101-robot-learning.html" role="link" tabindex="0" onclick="if(!event.target.closest('a')) window.location.href='project/so101-robot-learning.html'" onkeydown="if(event.key==='Enter' || event.key===' ') window.location.href='project/so101-robot-learning.html'">
-                    <div class="h-28 relative overflow-hidden tilt-inner bg-gray-900">
+                    <div class="h-28 relative overflow-hidden tilt-inner bg-gray-900" style="background-image:url('assets/portfolio-ai-sprite.svg');background-size:100% 700%;background-position:center 83.3333%;background-repeat:no-repeat"><span class="absolute top-2 left-2 z-20 px-2 py-1 text-[9px] font-mono border border-white/20 text-gray-300 bg-black/65">AI VISUAL</span>
                         <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
                             <i class="fas fa-grip text-6xl text-pink-400/50 group-hover:text-pink-400 transition-colors z-10"></i>
                         </div>
