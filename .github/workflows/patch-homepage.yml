@@ -1,4 +1,4 @@
-name: Build compact project cards and detail pages
+name: Refresh portfolio projects, experience and skills
 
 on:
   push:
@@ -7,29 +7,30 @@ on:
       - '.github/workflows/patch-homepage.yml'
       - 'scripts/build_project_pages.py'
       - 'project-detail.css'
+      - 'assets/portfolio-ai-sprite.svg'
   workflow_dispatch:
 
 permissions:
   contents: write
 
 jobs:
-  build-project-pages:
+  build-portfolio:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
-      - name: Generate project pages and patch Featured Protocols
+      - name: Generate portfolio pages and refresh homepage
         run: python scripts/build_project_pages.py
 
-      - name: Commit generated portfolio pages
+      - name: Commit generated portfolio updates
         shell: bash
         run: |
-          if git diff --quiet && [ -z "$(git ls-files --others --exclude-standard project/)" ]; then
+          if git diff --quiet && [ -z "$(git ls-files --others --exclude-standard project/ experience/)" ]; then
             echo "No generated changes required."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add index.html project/
-          git commit -m "Add compact clickable project cards and detailed pages"
+          git add index.html project/ experience/
+          git commit -m "Refresh portfolio projects experience and skills"
           git push
