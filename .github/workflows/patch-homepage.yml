@@ -6,8 +6,9 @@ on:
     paths:
       - '.github/workflows/patch-homepage.yml'
       - 'scripts/build_project_pages.py'
+      - 'scripts/apply_ai_assets.py'
       - 'project-detail.css'
-      - 'assets/portfolio-ai-sprite.svg'
+      - 'assets/ai/**'
   workflow_dispatch:
 
 permissions:
@@ -20,7 +21,9 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Generate portfolio pages and refresh homepage
-        run: python scripts/build_project_pages.py
+        run: |
+          python scripts/build_project_pages.py
+          python scripts/apply_ai_assets.py
 
       - name: Commit generated portfolio updates
         shell: bash
@@ -32,5 +35,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add index.html project/ experience/
-          git commit -m "Refresh portfolio projects experience and skills"
+          git commit -m "Refresh portfolio projects experience skills and visuals"
           git push
