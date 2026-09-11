@@ -7,7 +7,6 @@ on:
       - '.github/workflows/patch-homepage.yml'
       - 'scripts/build_project_pages.py'
       - 'scripts/apply_ai_assets.py'
-      - 'scripts/install_hd_vector_visuals.py'
       - 'project-detail.css'
       - 'assets/ai/**'
   workflow_dispatch:
@@ -25,7 +24,6 @@ jobs:
         run: |
           python scripts/build_project_pages.py
           python scripts/apply_ai_assets.py
-          python scripts/install_hd_vector_visuals.py
 
       - name: Commit generated portfolio updates
         shell: bash
@@ -37,5 +35,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add index.html project/ experience/ project-detail.css assets/ai/*.svg
-          git commit -m "Render HD project visuals at full visibility"
+          git commit -m "Render project visuals in vector HD"
           git push
