@@ -44,7 +44,9 @@ for stem, source_name in SOURCES.items():
     pil = Image.fromarray(rgb)
     pil = pil.filter(ImageFilter.UnsharpMask(radius=1.0, percent=110, threshold=3))
 
-    out = OUT_DIR / f'{stem}-hd.webp'
+    # Versioned filename intentionally bypasses any cached copy of the previously
+    # truncated image assets on browsers/CDNs.
+    out = OUT_DIR / f'{stem}-hd-v2.webp'
     pil.save(out, 'WEBP', quality=95, method=6)
 
     with Image.open(out) as check:
@@ -56,14 +58,19 @@ for stem, source_name in SOURCES.items():
         raise RuntimeError(f'{out}: output unexpectedly small/truncated ({out.stat().st_size} bytes)')
     print(f'VALID {out}: 1600x900, {out.stat().st_size} bytes')
 
+REPLACEMENTS = {
+    'autonomous-industrial-inspection-hd.webp': 'autonomous-industrial-inspection-hd-v2.webp',
+    'robot-fleet-observability-hd.webp': 'robot-fleet-observability-hd-v2.webp',
+    'industrial-robot-operations-intelligence-hd.jpg': 'industrial-robot-operations-intelligence-hd-v2.webp',
+    'industrial-robot-operations-intelligence-hd.webp': 'industrial-robot-operations-intelligence-hd-v2.webp',
+}
+
 for path in [ROOT / 'index.html', *(ROOT / 'project').glob('*.html')]:
     if not path.exists():
         continue
     text = path.read_text()
-    text = text.replace(
-        'industrial-robot-operations-intelligence-hd.jpg',
-        'industrial-robot-operations-intelligence-hd.webp'
-    )
+    for old, new in REPLACEMENTS.items():
+        text = text.replace(old, new)
     path.write_text(text)
 
-print('Industrial project HD images regenerated and verified.')
+print('Industrial project HD v2 images regenerated, verified and cache-busted.')
