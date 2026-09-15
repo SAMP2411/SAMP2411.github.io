@@ -13,6 +13,7 @@ on:
       - 'scripts/apply_new_project_card_art.py'
       - 'scripts/add_project_flowcharts.py'
       - 'scripts/apply_objectives_detailed_flowcharts.py'
+      - 'scripts/fix_industrial_image_rendering.py'
       - 'project-detail.css'
   workflow_dispatch:
 
@@ -38,6 +39,7 @@ jobs:
           python scripts/apply_new_project_card_art.py
           python scripts/add_project_flowcharts.py
           python scripts/apply_objectives_detailed_flowcharts.py
+          python scripts/fix_industrial_image_rendering.py
 
       - name: Commit generated portfolio updates
         shell: bash
@@ -49,5 +51,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add index.html project/ experience/ project-detail.css assets/ai/*-photo-hd.webp assets/project/ assets/flowcharts/
-          git commit -m "Apply HD project images, objectives and detailed flowcharts"
+          git commit -m "Fix industrial project image rendering"
           git push
