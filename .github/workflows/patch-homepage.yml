@@ -14,6 +14,8 @@ on:
       - 'scripts/add_project_flowcharts.py'
       - 'scripts/apply_objectives_detailed_flowcharts.py'
       - 'scripts/fix_industrial_image_rendering.py'
+      - 'scripts/upscale_industrial_project_sources.py'
+      - 'assets/project/source/**'
       - 'project-detail.css'
   workflow_dispatch:
 
@@ -40,6 +42,7 @@ jobs:
           python scripts/add_project_flowcharts.py
           python scripts/apply_objectives_detailed_flowcharts.py
           python scripts/fix_industrial_image_rendering.py
+          python scripts/upscale_industrial_project_sources.py
 
       - name: Commit generated portfolio updates
         shell: bash
@@ -51,5 +54,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add index.html project/ experience/ project-detail.css assets/ai/*-photo-hd.webp assets/project/ assets/flowcharts/
-          git commit -m "Fix industrial project image rendering"
+          git commit -m "Regenerate verified industrial project HD images"
           git push
