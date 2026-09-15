@@ -11,6 +11,7 @@ on:
       - 'scripts/apply_photoreal_hd.py'
       - 'scripts/add_industrial_platform_projects.py'
       - 'scripts/apply_new_project_card_art.py'
+      - 'scripts/add_project_flowcharts.py'
       - 'project-detail.css'
   workflow_dispatch:
 
@@ -34,16 +35,17 @@ jobs:
           python scripts/apply_photoreal_hd.py
           python scripts/add_industrial_platform_projects.py
           python scripts/apply_new_project_card_art.py
+          python scripts/add_project_flowcharts.py
 
       - name: Commit generated portfolio updates
         shell: bash
         run: |
-          if git diff --quiet && [ -z "$(git ls-files --others --exclude-standard project/ experience/ assets/ai/ assets/project/)" ]; then
+          if git diff --quiet && [ -z "$(git ls-files --others --exclude-standard project/ experience/ assets/ai/ assets/project/ assets/flowcharts/)" ]; then
             echo "No generated changes required."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add index.html project/ experience/ project-detail.css assets/ai/*-photo-hd.webp assets/project/
-          git commit -m "Apply HD illustrations to industrial project cards"
+          git add index.html project/ experience/ project-detail.css assets/ai/*-photo-hd.webp assets/project/ assets/flowcharts/
+          git commit -m "Add architecture flowcharts to project detail pages"
           git push
