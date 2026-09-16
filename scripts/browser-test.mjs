@@ -13,6 +13,7 @@ const checks = [];
 const measurements = [];
 const fallbackChecks = [];
 const notFoundChecks = [];
+const screenshotPaths = new Set(['/', '/index.html', '/projects.html', '/project/turtlebot3-navigation.html', '/project/industrial-robot-operations-intelligence.html', '/experience.html']);
 function assert(condition, message) { if (!condition) failures.push(message); }
 const browser = await chromium.launch();
 const context = await browser.newContext({ viewport: { width: 1440, height: 1000 } });
@@ -74,7 +75,9 @@ try {
       await page.setViewportSize({ width, height: 1000 });
       await page.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))));
       assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1), `${address.pathname}: horizontal overflow at ${width}px`);
-      await page.screenshot({ path: path.join(out, `${address.pathname.replace(/[^a-z0-9]/gi, '_') || 'home'}-${width}.png`), fullPage: true, animations: 'disabled' });
+      if (screenshotPaths.has(address.pathname) || process.env.QA_ALL_SCREENSHOTS === '1') {
+        await page.screenshot({ path: path.join(out, `${address.pathname.replace(/[^a-z0-9]/gi, '_') || 'home'}-${width}.png`), fullPage: true, animations: 'disabled' });
+      }
     }
     const axe = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21aa']).analyze();
     failures.push(...axe.violations.map(v => `${address.pathname}: accessibility ${v.id}: ${v.nodes.map(n => n.target.join(' ')).join(', ')}`));

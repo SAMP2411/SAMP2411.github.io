@@ -18,7 +18,7 @@ Deliver a polished, recruiter-readable robotics engineering portfolio with deep 
 | M4 — Complete static implementation | Complete | 21 generated documents including 13 project case studies, homepage, projects, experience, skills, about, printable résumé, Forage experience and 404. Shared generator, data, styles and progressive JS. |
 | M5 — Content and asset integration | Complete | All existing project routes and detailed objectives retained; IIoT reviewed diagram added; images separated from diagrams; simulation and development boundaries explicit. Original binary image blobs unchanged. |
 | M6 — First browser and visual verification | Complete | Commit `d0c69518e1810235c1778b860cccb6c4dfd48d0c`; GitHub Actions run `35070804270` passed. 21 route visits, 390/768/1440px screenshots, no reported browser/axe/image/overflow/interaction failures. Screenshots reviewed. |
-| M7 — Release regression | In progress | Final metadata, intrinsic image dimensions, documentation and no-JavaScript/404/focus tests added. Must pass before promotion. |
+| M7 — Release regression | In progress | Run `35119624744` passed structural, image, no-JS, responsive and 404 checks but found reverse-Tab escaping the dialog. Explicit focus wrapping added; regression rerun required before promotion. |
 | M8 — GitHub Pages deployment | Pending | Promote validated commit to main without force; wait for successful Pages deployment for that commit. |
 | M9 — Live validation and handoff | Pending | Open live homepage, project explorer and case studies; confirm visuals, assets and interactions; record final commit/deployment URL and remaining limitations. |
 
