@@ -1,0 +1,2320 @@
+{
+  "audit_date": "2026-09-16",
+  "scope": "Baseline inventory and decoded current implementation assets",
+  "assets": [
+    {
+      "path": "assets/ai/competitive-hd.svg",
+      "format": "svg",
+      "local_bytes": 3885,
+      "sha256": "02f2ad5f7eb021e874a7a5f3c4f1e7f3f2ead379bfad1d9f15b68106d46e4a3d",
+      "local_verified": true,
+      "references": [],
+      "width": null,
+      "height": null,
+      "viewBox": "0 0 1600 900",
+      "dimensions_evidence": "Verified SVG XML attributes",
+      "remote_blob_sha": "74639c6ff8534bb750aee03612fcec45b76ecc6d",
+      "remote_bytes": 3884,
+      "remote_exists": true,
+      "current_references": [],
+      "current_git_blob_sha": "15381040403fe6cff5bdbcdf0177ee948a8a8e97",
+      "baseline_bytes_preserved": false,
+      "decode_status": "passed"
+    },
+    {
+      "path": "assets/ai/competitive-photo-hd.webp",
+      "format": "webp",
+      "local_verified": true,
+      "dimensions_evidence": "Pillow full decode; display dimensions after ImageOps.exif_transpose",
+      "references": [
+        {
+          "file": "index.html",
+          "line": 727,
+          "reference": "assets/ai/competitive-photo-hd.webp"
+        },
+        {
+          "file": "project/competitive-robotics.html",
+          "line": 1,
+          "reference": "../assets/ai/competitive-photo-hd.webp"
+        }
+      ],
+      "declared_pipeline_output": [
+        1600,
+        900
+      ],
+      "remote_blob_sha": "7a517dc3aa0a34366606fb552a4dda3ce715bbc5",
+      "remote_bytes": 153276,
+      "remote_exists": true,
+      "local_bytes": 153276,
+      "sha256": "5ee658db820e5a1a2c90eb0ee73acda32c096bc9885d44441fac6ad00f131bf3",
+      "current_references": [
+        {
+          "file": "projects.html",
+          "line": 9,
+          "reference": "assets/ai/competitive-photo-hd.webp"
+        },
+        {
+          "file": "project/distributed-state-estimation.html",
+          "line": 9,
+          "reference": "../assets/ai/competitive-photo-hd.webp"
+        },
+        {
+          "file": "project/competitive-robotics.html",
+          "line": 9,
+          "reference": "../assets/ai/competitive-photo-hd.webp"
+        },
+        {
+          "file": "data/projects.json",
+          "project": "competitive-robotics"
+        }
+      ],
+      "current_git_blob_sha": "7a517dc3aa0a34366606fb552a4dda3ce715bbc5",
+      "baseline_bytes_preserved": true,
+      "width": 1600,
+      "height": 900,
+      "display_width": 1600,
+      "display_height": 900,
+      "decoded_format": "WEBP",
+      "exif_orientation": null,
+      "decode_status": "passed"
+    },
+    {
+      "path": "assets/ai/competitive.webp",
+      "format": "webp",
+      "local_verified": true,
+      "references": [],
+      "dimensions_evidence": "Pillow full decode; display dimensions after ImageOps.exif_transpose",
+      "remote_blob_sha": "2ecc76ca8956f5e37562426ad65c85ee614a2085",
+      "remote_bytes": 5898,
+      "remote_exists": true,
+      "local_bytes": 5898,
+      "sha256": "ce113ff0290f5a9f4c828cec0a05bfe736bfeb9aa203959f6de40d1ef43bd381",
+      "current_references": [],
+      "current_git_blob_sha": "2ecc76ca8956f5e37562426ad65c85ee614a2085",
+      "baseline_bytes_preserved": true,
+      "width": 360,
+      "height": 203,
+      "display_width": 360,
+      "display_height": 203,
+      "decoded_format": "WEBP",
+      "exif_orientation": null,
+      "decode_status": "passed"
+    },
+    {
+      "path": "assets/ai/dse-hd.svg",
+      "format": "svg",
+      "local_bytes": 4804,
+      "sha256": "3032129c835e2a62580260bb0c7b1b188ced53812fa2e2aa016abf6e2183c68b",
+      "local_verified": true,
+      "references": [],
+      "width": null,
+      "height": null,
+      "viewBox": "0 0 1600 900",
+      "dimensions_evidence": "Verified SVG XML attributes",
+      "remote_blob_sha": "03e0a1611dbf77bb7df3290048906405f3c4ad32",
+      "remote_bytes": 4803,
+      "remote_exists": true,
+      "current_references": [],
+      "current_git_blob_sha": "4e921eac7a3f7de8f483e7725de391445aa1ac4b",
+      "baseline_bytes_preserved": false,
+      "decode_status": "passed"
+    },
+    {
+      "path": "assets/ai/dse-photo-hd.webp",
+      "format": "webp",
+      "local_verified": true,
+      "dimensions_evidence": "Pillow full decode; display dimensions after ImageOps.exif_transpose",
+      "references": [
+        {
+          "file": "index.html",
+          "line": 678,
+          "reference": "assets/ai/dse-photo-hd.webp"
+        },
+        {
+          "file": "project/distributed-state-estimation.html",
+          "line": 1,
+          "reference": "../assets/ai/dse-photo-hd.webp"
+        }
+      ],
+      "declared_pipeline_output": [
+        1600,
+        900
+      ],
+      "remote_blob_sha": "d00c211087399f79fb319f4e6c3c08340bd9b2d6",
+      "remote_bytes": 166660,
+      "remote_exists": true,
+      "local_bytes": 166660,
+      "sha256": "49c2d7290d361a4744115ee652302b9d9d7347fb1b43b8dcc0feb9dfd58716e9",
+      "current_references": [
+        {
+          "file": "index.html",
+          "line": 90,
+          "reference": "assets/ai/dse-photo-hd.webp"
+        },
+        {
+          "file": "projects.html",
+          "line": 9,
+          "reference": "assets/ai/dse-photo-hd.webp"
+        },
+        {
+          "file": "project/offline-face-recognition.html",
+          "line": 9,
+          "reference": "../assets/ai/dse-photo-hd.webp"
+        },
+        {
+          "file": "project/so101-robot-learning.html",
+          "line": 9,
+          "reference": "../assets/ai/dse-photo-hd.webp"
+        },
+        {
+          "file": "project/distributed-state-estimation.html",
+          "line": 9,
+          "reference": "../assets/ai/dse-photo-hd.webp"
+        },
+        {
+          "file": "project/autonomous-industrial-inspection-robot.html",
+          "line": 9,
+          "reference": "../assets/ai/dse-photo-hd.webp"
+        },
+        {
+          "file": "project/industrial-robot-operations-intelligence.html",
+          "line": 9,
+          "reference": "../assets/ai/dse-photo-hd.webp"
+        },
+        {
+          "file": "project/rst-hackathon.html",
+          "line": 9,
+          "reference": "../assets/ai/dse-photo-hd.webp"
+        },
+        {
+          "file": "project/iiot-anomaly-detector.html",
+          "line": 9,
+          "reference": "../assets/ai/dse-photo-hd.webp"
+        },
+        {
+          "file": "project/robot-fleet-observability-platform.html",
+          "line": 9,
+          "reference": "../assets/ai/dse-photo-hd.webp"
+        },
+        {
+          "file": "project/competitive-robotics.html",
+          "line": 9,
+          "reference": "../assets/ai/dse-photo-hd.webp"
+        },
+        {
+          "file": "project/ur10-manipulator.html",
+          "line": 9,
+          "reference": "../assets/ai/dse-photo-hd.webp"
+        },
+        {
+          "file": "data/projects.json",
+          "project": "distributed-state-estimation"
+        }
+      ],
+      "current_git_blob_sha": "d00c211087399f79fb319f4e6c3c08340bd9b2d6",
+      "baseline_bytes_preserved": true,
+      "width": 1600,
+      "height": 900,
+      "display_width": 1600,
+      "display_height": 900,
+      "decoded_format": "WEBP",
+      "exif_orientation": null,
+      "decode_status": "passed"
+    },
+    {
+      "path": "assets/ai/dse.webp",
+      "format": "webp",
+      "local_verified": true,
+      "references": [],
+      "dimensions_evidence": "Pillow full decode; display dimensions after ImageOps.exif_transpose",
+      "remote_blob_sha": "82bda1063c44ef9d9b47a1e5411bf1c66fb213d8",
+      "remote_bytes": 6106,
+      "remote_exists": true,
+      "local_bytes": 6106,
+      "sha256": "c241ac1461beda0938b297eab3fd75b6564d21972c00abc4fff35565cfafc496",
+      "current_references": [],
+      "current_git_blob_sha": "82bda1063c44ef9d9b47a1e5411bf1c66fb213d8",
+      "baseline_bytes_preserved": true,
+      "width": 360,
+      "height": 203,
+      "display_width": 360,
+      "display_height": 203,
+      "decoded_format": "WEBP",
+      "exif_orientation": null,
+      "decode_status": "passed"
+    },
+    {
+      "path": "assets/ai/face-hd.svg",
+      "format": "svg",
+      "local_bytes": 3650,
+      "sha256": "6b5b96104685c603e54c917956d149ad8763616b3e058e3c6f7496e03bd8d1b3",
+      "local_verified": true,
+      "references": [],
+      "width": null,
+      "height": null,
+      "viewBox": "0 0 1600 900",
+      "dimensions_evidence": "Verified SVG XML attributes",
+      "remote_blob_sha": "ce3647906ac2a06ca2c45dd90e0eff895bb4ea5e",
+      "remote_bytes": 3649,
+      "remote_exists": true,
+      "current_references": [],
+      "current_git_blob_sha": "fae733c850c41f61b4eb6e2ae23e099e610776ff",
+      "baseline_bytes_preserved": false,
+      "decode_status": "passed"
+    },
+    {
+      "path": "assets/ai/face-photo-hd.webp",
+      "format": "webp",
+      "local_verified": true,
+      "dimensions_evidence": "Pillow full decode; display dimensions after ImageOps.exif_transpose",
+      "references": [
+        {
+          "file": "index.html",
+          "line": 823,
+          "reference": "assets/ai/face-photo-hd.webp"
+        },
+        {
+          "file": "project/offline-face-recognition.html",
+          "line": 1,
+          "reference": "../assets/ai/face-photo-hd.webp"
+        }
+      ],
+      "declared_pipeline_output": [
+        1600,
+        900
+      ],
+      "remote_blob_sha": "d067e362b48a446eb9ac88b854774533c908ee38",
+      "remote_bytes": 88822,
+      "remote_exists": true,
+      "local_bytes": 88822,
+      "sha256": "6801a3f316e598b9f1b703728156ff491fb1b5714dbc4660710ef8d8fad1f00e",
+      "current_references": [
+        {
+          "file": "projects.html",
+          "line": 9,
+          "reference": "assets/ai/face-photo-hd.webp"
+        },
+        {
+          "file": "project/offline-face-recognition.html",
+          "line": 9,
+          "reference": "../assets/ai/face-photo-hd.webp"
+        },
+        {
+          "file": "data/projects.json",
+          "project": "offline-face-recognition"
+        }
+      ],
+      "current_git_blob_sha": "d067e362b48a446eb9ac88b854774533c908ee38",
+      "baseline_bytes_preserved": true,
+      "width": 1600,
+      "height": 900,
+      "display_width": 1600,
+      "display_height": 900,
+      "decoded_format": "WEBP",
+      "exif_orientation": null,
+      "decode_status": "passed"
+    },
+    {
+      "path": "assets/ai/face.webp",
+      "format": "webp",
+      "local_verified": true,
+      "references": [],
+      "dimensions_evidence": "Pillow full decode; display dimensions after ImageOps.exif_transpose",
+      "remote_blob_sha": "3d876c8883e5c6f904d1d3d836eb78792da5f06f",
+      "remote_bytes": 3450,
+      "remote_exists": true,
+      "local_bytes": 3450,
+      "sha256": "3c91e16b2fb296325aa025988e8bc8f8d2db31554d1eff75f25af6b6dd0a0533",
+      "current_references": [],
+      "current_git_blob_sha": "3d876c8883e5c6f904d1d3d836eb78792da5f06f",
+      "baseline_bytes_preserved": true,
+      "width": 360,
+      "height": 203,
+      "display_width": 360,
+      "display_height": 203,
+      "decoded_format": "WEBP",
+      "exif_orientation": null,
+      "decode_status": "passed"
+    },
+    {
+      "path": "assets/ai/iiot-hd.svg",
+      "format": "svg",
+      "local_bytes": 3585,
+      "sha256": "c550cbb7fd191788a569cb732526feaad01b8ace344c0534876d14d16fc18337",
+      "local_verified": true,
+      "references": [],
+      "width": null,
+      "height": null,
+      "viewBox": "0 0 1600 900",
+      "dimensions_evidence": "Verified SVG XML attributes",
+      "remote_blob_sha": "95043b1b852777bda1921c66f51daed674a7689f",
+      "remote_bytes": 3584,
+      "remote_exists": true,
+      "current_references": [],
+      "current_git_blob_sha": "897e6b6bfd4eeb2200cf1f262d1948b6af4436f2",
+      "baseline_bytes_preserved": false,
+      "decode_status": "passed"
+    },
+    {
+      "path": "assets/ai/iiot-photo-hd.webp",
+      "format": "webp",
+      "local_verified": true,
+      "dimensions_evidence": "Pillow full decode; display dimensions after ImageOps.exif_transpose",
+      "references": [
+        {
+          "file": "index.html",
+          "line": 807,
+          "reference": "assets/ai/iiot-photo-hd.webp"
+        },
+        {
+          "file": "project/iiot-anomaly-detector.html",
+          "line": 1,
+          "reference": "../assets/ai/iiot-photo-hd.webp"
+        }
+      ],
+      "declared_pipeline_output": [
+        1600,
+        900
+      ],
+      "remote_blob_sha": "98f97f21182ba6b2b4abb298b4a298adaa7b613d",
+      "remote_bytes": 102970,
+      "remote_exists": true,
+      "local_bytes": 102970,
+      "sha256": "ae3490b6b2900cd288ace77e7359e1d16ac17c3bf2185629eba29ad750a4af12",
+      "current_references": [
+        {
+          "file": "projects.html",
+          "line": 9,
+          "reference": "assets/ai/iiot-photo-hd.webp"
+        },
+        {
+          "file": "project/iiot-anomaly-detector.html",
+          "line": 9,
+          "reference": "../assets/ai/iiot-photo-hd.webp"
+        },
+        {
+          "file": "data/projects.json",
+          "project": "iiot-anomaly-detector"
+        }
+      ],
+      "current_git_blob_sha": "98f97f21182ba6b2b4abb298b4a298adaa7b613d",
+      "baseline_bytes_preserved": true,
+      "width": 1600,
+      "height": 900,
+      "display_width": 1600,
+      "display_height": 900,
+      "decoded_format": "WEBP",
+      "exif_orientation": null,
+      "decode_status": "passed"
+    },
+    {
+      "path": "assets/ai/iiot.webp",
+      "format": "webp",
+      "local_verified": true,
+      "references": [],
+      "dimensions_evidence": "Pillow full decode; display dimensions after ImageOps.exif_transpose",
+      "remote_blob_sha": "3ff2efd3503d855a530200b78af786a20dc55fb6",
+      "remote_bytes": 3954,
+      "remote_exists": true,
+      "local_bytes": 3954,
+      "sha256": "edd74f7d728ab21895f11377aa7a06f83178a8157101662cd2c17f7ad57349d8",
+      "current_references": [],
+      "current_git_blob_sha": "3ff2efd3503d855a530200b78af786a20dc55fb6",
+      "baseline_bytes_preserved": true,
+      "width": 360,
+      "height": 203,
+      "display_width": 360,
+      "display_height": 203,
+      "decoded_format": "WEBP",
+      "exif_orientation": null,
+      "decode_status": "passed"
+    },
+    {
+      "path": "assets/ai/jj-hd.svg",
+      "format": "svg",
+      "local_bytes": 4152,
+      "sha256": "cd4a8593f76269c79a8bf57450f31e7f2f8115c942d088dcb3adb6d2bf389098",
+      "local_verified": true,
+      "references": [],
+      "width": null,
+      "height": null,
+      "viewBox": "0 0 1600 900",
+      "dimensions_evidence": "Verified SVG XML attributes",
+      "remote_blob_sha": "6deb9068eb253a559b7267c114af2eeb83bd130f",
+      "remote_bytes": 4151,
+      "remote_exists": true,
+      "current_references": [],
+      "current_git_blob_sha": "ff2a24e73f49ef8a7e9ce90c1716be99c0b3fbfd",
+      "baseline_bytes_preserved": false,
+      "decode_status": "passed"
+    },
+    {
+      "path": "assets/ai/jj-photo-hd.webp",
+      "format": "webp",
+      "local_verified": true,
+      "dimensions_evidence": "Pillow full decode; display dimensions after ImageOps.exif_transpose",
+      "references": [
+        {
+          "file": "experience/jj-medtech-robotics.html",
+          "line": 1,
+          "reference": "../assets/ai/jj-photo-hd.webp"
+        }
+      ],
+      "declared_pipeline_output": [
+        1600,
+        900
+      ],
+      "remote_blob_sha": "31a2a6e47f8c23312f58299e2774af7e5a8f813a",
+      "remote_bytes": 135112,
+      "remote_exists": true,
+      "local_bytes": 135112,
+      "sha256": "afb63e0acabbb26c697b5b3a13faa0b20e27fc3f3d20381147bf42b008bf3481",
+      "current_references": [],
+      "current_git_blob_sha": "31a2a6e47f8c23312f58299e2774af7e5a8f813a",
+      "baseline_bytes_preserved": true,
+      "width": 1600,
+      "height": 900,
+      "display_width": 1600,
+      "display_height": 900,
+      "decoded_format": "WEBP",
+      "exif_orientation": null,
+      "decode_status": "passed"
+    },
+    {
+      "path": "assets/ai/jj.webp",
+      "format": "webp",
+      "local_verified": true,
+      "references": [],
+      "dimensions_evidence": "Pillow full decode; display dimensions after ImageOps.exif_transpose",
+      "remote_blob_sha": "640dd802f83cc9e349cb139b8a3b1df1d4e883b8",
+      "remote_bytes": 5138,
+      "remote_exists": true,
+      "local_bytes": 5138,
+      "sha256": "ad4cabf25a9cbb9081c802d97dbffc437bb482925ad558cdd9737180ea52e073",
+      "current_references": [],
+      "current_git_blob_sha": "640dd802f83cc9e349cb139b8a3b1df1d4e883b8",
+      "baseline_bytes_preserved": true,
+      "width": 360,
+      "height": 203,
+      "display_width": 360,
+      "display_height": 203,
+      "decoded_format": "WEBP",
+      "exif_orientation": null,
+      "decode_status": "passed"
+    },
+    {
+      "path": "assets/ai/rst-hd.svg",
+      "format": "svg",
+      "local_bytes": 4078,
+      "sha256": "39b36ed2202d0f92a234fa4182a3ec5d9b95456e18048225404f1e1ecc77c601",
+      "local_verified": true,
+      "references": [],
+      "width": null,
+      "height": null,
+      "viewBox": "0 0 1600 900",
+      "dimensions_evidence": "Verified SVG XML attributes",
+      "remote_blob_sha": "6cb9c2fde338ec39051636abbd1446e978e3570c",
+      "remote_bytes": 4077,
+      "remote_exists": true,
+      "current_references": [],
+      "current_git_blob_sha": "7f3396353db898e2994b0dc3922608e863233c5c",
+      "baseline_bytes_preserved": false,
+      "decode_status": "passed"
+    },
+    {
+      "path": "assets/ai/rst-photo-hd.webp",
+      "format": "webp",
+      "local_verified": true,
+      "dimensions_evidence": "Pillow full decode; display dimensions after ImageOps.exif_transpose",
+      "references": [
+        {
+          "file": "index.html",
+          "line": 839,
+          "reference": "assets/ai/rst-photo-hd.webp"
+        },
+        {
+          "file": "project/rst-hackathon.html",
+          "line": 1,
+          "reference": "../assets/ai/rst-photo-hd.webp"
+        }
+      ],
+      "declared_pipeline_output": [
+        1600,
+        900
+      ],
+      "remote_blob_sha": "807fa7d3996feffbf44178bbb5839c4613c9244b",
+      "remote_bytes": 106092,
+      "remote_exists": true,
+      "local_bytes": 106092,
+      "sha256": "e9d5b545106a939ebbfbcff23980e1928d8d9d67912ff1aca73e2746b74d45dd",
+      "current_references": [
+        {
+          "file": "projects.html",
+          "line": 9,
+          "reference": "assets/ai/rst-photo-hd.webp"
+        },
+        {
+          "file": "project/rst-hackathon.html",
+          "line": 9,
+          "reference": "../assets/ai/rst-photo-hd.webp"
+        },
+        {
+          "file": "project/ur10-manipulator.html",
+          "line": 9,
+          "reference": "../assets/ai/rst-photo-hd.webp"
+        },
+        {
+          "file": "data/projects.json",
+          "project": "rst-hackathon"
+        }
+      ],
+      "current_git_blob_sha": "807fa7d3996feffbf44178bbb5839c4613c9244b",
+      "baseline_bytes_preserved": true,
+      "width": 1600,
+      "height": 900,
+      "display_width": 1600,
+      "display_height": 900,
+      "decoded_format": "WEBP",
+      "exif_orientation": null,
+      "decode_status": "passed"
+    },
+    {
+      "path": "assets/ai/rst.webp",
+      "format": "webp",
+      "local_verified": true,
+      "references": [],
+      "dimensions_evidence": "Pillow full decode; display dimensions after ImageOps.exif_transpose",
+      "remote_blob_sha": "0e95870df14837a1382b87aad117c3915b024160",
+      "remote_bytes": 4170,
+      "remote_exists": true,
+      "local_bytes": 4170,
+      "sha256": "9a42c332691e076735b03a620d3a8296f780f1af851b9e9b34c6548395eb7f3f",
+      "current_references": [],
+      "current_git_blob_sha": "0e95870df14837a1382b87aad117c3915b024160",
+      "baseline_bytes_preserved": true,
+      "width": 360,
+      "height": 203,
+      "display_width": 360,
+      "display_height": 203,
+      "decoded_format": "WEBP",
+      "exif_orientation": null,
+      "decode_status": "passed"
+    },
+    {
+      "path": "assets/ai/so101-hd.svg",
+      "format": "svg",
+      "local_bytes": 4093,
+      "sha256": "f2c745c02c4adf67960ac99a8971a7e4fac62437e0219c8fe22033b2c1a90b35",
+      "local_verified": true,
+      "references": [],
+      "width": null,
+      "height": null,
+      "viewBox": "0 0 1600 900",
+      "dimensions_evidence": "Verified SVG XML attributes",
+      "remote_blob_sha": "30f92c4ea9458b9e07515af79fd03c1035f59c50",
+      "remote_bytes": 4092,
+      "remote_exists": true,
+      "current_references": [],
+      "current_git_blob_sha": "2a8af41bb4cfe079120237bc6cb66effdaf0e68a",
+      "baseline_bytes_preserved": false,
+      "decode_status": "passed"
+    },
+    {
+      "path": "assets/ai/so101-photo-hd.webp",
+      "format": "webp",
+      "local_verified": true,
+      "dimensions_evidence": "Pillow full decode; display dimensions after ImageOps.exif_transpose",
+      "references": [
+        {
+          "file": "index.html",
+          "line": 856,
+          "reference": "assets/ai/so101-photo-hd.webp"
+        },
+        {
+          "file": "project/so101-robot-learning.html",
+          "line": 1,
+          "reference": "../assets/ai/so101-photo-hd.webp"
+        }
+      ],
+      "declared_pipeline_output": [
+        1600,
+        900
+      ],
+      "remote_blob_sha": "80540f79dc02f0470a58d364b09163ae628e87e0",
+      "remote_bytes": 107700,
+      "remote_exists": true,
+      "local_bytes": 107700,
+      "sha256": "00fb2275da060c8387ddc551c41f9ed0966884b4c2d862d0a6912e6a1c0def64",
+      "current_references": [
+        {
+          "file": "projects.html",
+          "line": 9,
+          "reference": "assets/ai/so101-photo-hd.webp"
+        },
+        {
+          "file": "project/so101-robot-learning.html",
+          "line": 9,
+          "reference": "../assets/ai/so101-photo-hd.webp"
+        },
+        {
+          "file": "data/projects.json",
+          "project": "so101-robot-learning"
+        }
+      ],
+      "current_git_blob_sha": "80540f79dc02f0470a58d364b09163ae628e87e0",
+      "baseline_bytes_preserved": true,
+      "width": 1600,
+      "height": 900,
+      "display_width": 1600,
+      "display_height": 900,
+      "decoded_format": "WEBP",
+      "exif_orientation": null,
+      "decode_status": "passed"
+    },
+    {
+      "path": "assets/ai/so101.webp",
+      "format": "webp",
+      "local_verified": true,
+      "references": [],
+      "dimensions_evidence": "Pillow full decode; display dimensions after ImageOps.exif_transpose",
+      "remote_blob_sha": "df02df659dee7d150cf79698974f03e55e2f7278",
+      "remote_bytes": 4216,
+      "remote_exists": true,
+      "local_bytes": 4216,
+      "sha256": "5a0f3d904744ffd2e0e3b9635dd8869f288c89201a78d5a4b3a326eaadce77a0",
+      "current_references": [],
+      "current_git_blob_sha": "df02df659dee7d150cf79698974f03e55e2f7278",
+      "baseline_bytes_preserved": true,
+      "width": 360,
+      "height": 203,
+      "display_width": 360,
+      "display_height": 203,
+      "decoded_format": "WEBP",
+      "exif_orientation": null,
+      "decode_status": "passed"
+    },
+    {
+      "path": "assets/ai/turtlebot3-hd.svg",
+      "format": "svg",
+      "local_bytes": 3816,
+      "sha256": "a92247cee00734625038cae770fcda44bdec18a06d490634509522eb8a2ec41a",
+      "local_verified": true,
+      "references": [],
+      "width": null,
+      "height": null,
+      "viewBox": "0 0 1600 900",
+      "dimensions_evidence": "Verified SVG XML attributes",
+      "remote_blob_sha": "605c44710c252da00dc06acbf2c173e1ec4f858e",
+      "remote_bytes": 3815,
+      "remote_exists": true,
+      "current_references": [],
+      "current_git_blob_sha": "7ecf62c6a181f0456c02788c025eaf2d953e610c",
+      "baseline_bytes_preserved": false,
+      "decode_status": "passed"
+    },
+    {
+      "path": "assets/ai/turtlebot3-photo-hd.webp",
+      "format": "webp",
+      "local_verified": true,
+      "dimensions_evidence": "Pillow full decode; display dimensions after ImageOps.exif_transpose",
+      "references": [
+        {
+          "file": "index.html",
+          "line": 775,
+          "reference": "assets/ai/turtlebot3-photo-hd.webp"
+        },
+        {
+          "file": "project/turtlebot3-navigation.html",
+          "line": 1,
+          "reference": "../assets/ai/turtlebot3-photo-hd.webp"
+        }
+      ],
+      "declared_pipeline_output": [
+        1600,
+        900
+      ],
+      "remote_blob_sha": "4c85b881fc89d3350deb8c0e4d98617ecd22ba03",
+      "remote_bytes": 82546,
+      "remote_exists": true,
+      "local_bytes": 82546,
+      "sha256": "74a8468a43ddd289cf875ea32dfc0c4800b80ce8b173a6601c4e2c3435ed9a5b",
+      "current_references": [
+        {
+          "file": "index.html",
+          "line": 90,
+          "reference": "assets/ai/turtlebot3-photo-hd.webp"
+        },
+        {
+          "file": "projects.html",
+          "line": 9,
+          "reference": "assets/ai/turtlebot3-photo-hd.webp"
+        },
+        {
+          "file": "project/telepresence-robot.html",
+          "line": 9,
+          "reference": "../assets/ai/turtlebot3-photo-hd.webp"
+        },
+        {
+          "file": "project/turtlebot3-navigation.html",
+          "line": 9,
+          "reference": "../assets/ai/turtlebot3-photo-hd.webp"
+        },
+        {
+          "file": "project/unmanned-ground-vehicle.html",
+          "line": 9,
+          "reference": "../assets/ai/turtlebot3-photo-hd.webp"
+        },
+        {
+          "file": "data/projects.json",
+          "project": "turtlebot3-navigation"
+        }
+      ],
+      "current_git_blob_sha": "4c85b881fc89d3350deb8c0e4d98617ecd22ba03",
+      "baseline_bytes_preserved": true,
+      "width": 1600,
+      "height": 900,
+      "display_width": 1600,
+      "display_height": 900,
+      "decoded_format": "WEBP",
+      "exif_orientation": null,
+      "decode_status": "passed"
+    },
+    {
+      "path": "assets/ai/turtlebot3.webp",
+      "format": "webp",
+      "local_verified": true,
+      "references": [],
+      "dimensions_evidence": "Pillow full decode; display dimensions after ImageOps.exif_transpose",
+      "remote_blob_sha": "37ba04aeb513c0d2474ba4c2536d7fc206435d66",
+      "remote_bytes": 3084,
+      "remote_exists": true,
+      "local_bytes": 3084,
+      "sha256": "1317ff0a34480290c4b4cfce703e736d48ce1b6108e871b646d99a3f5bf594a6",
+      "current_references": [],
+      "current_git_blob_sha": "37ba04aeb513c0d2474ba4c2536d7fc206435d66",
+      "baseline_bytes_preserved": true,
+      "width": 360,
+      "height": 203,
+      "display_width": 360,
+      "display_height": 203,
+      "decoded_format": "WEBP",
+      "exif_orientation": null,
+      "decode_status": "passed"
+    },
+    {
+      "path": "assets/ai/ur10-hd.svg",
+      "format": "svg",
+      "local_bytes": 4008,
+      "sha256": "0d182cef5f0ac8722bdc65625bb554f0cff28b5458f72b1f312e239540558c41",
+      "local_verified": true,
+      "references": [],
+      "width": null,
+      "height": null,
+      "viewBox": "0 0 1600 900",
+      "dimensions_evidence": "Verified SVG XML attributes",
+      "remote_blob_sha": "723bde4c543ce0b4a9875d3751144a47df52548c",
+      "remote_bytes": 4007,
+      "remote_exists": true,
+      "current_references": [],
+      "current_git_blob_sha": "83ab63adebec37dbb70858eb22475165dc2a66a2",
+      "baseline_bytes_preserved": false,
+      "decode_status": "passed"
+    },
+    {
+      "path": "assets/ai/ur10-photo-hd.webp",
+      "format": "webp",
+      "local_verified": true,
+      "dimensions_evidence": "Pillow full decode; display dimensions after ImageOps.exif_transpose",
+      "references": [
+        {
+          "file": "index.html",
+          "line": 791,
+          "reference": "assets/ai/ur10-photo-hd.webp"
+        },
+        {
+          "file": "project/ur10-manipulator.html",
+          "line": 1,
+          "reference": "../assets/ai/ur10-photo-hd.webp"
+        }
+      ],
+      "declared_pipeline_output": [
+        1600,
+        900
+      ],
+      "remote_blob_sha": "9c578f0d968e947d8c94d286fc351321ce05f41d",
+      "remote_bytes": 109020,
+      "remote_exists": true,
+      "local_bytes": 109020,
+      "sha256": "f63be67bef0895a5dec0ea4987ff3d8381b078cd2a4982557d76f28d8fe5b852",
+      "current_references": [
+        {
+          "file": "index.html",
+          "line": 90,
+          "reference": "assets/ai/ur10-photo-hd.webp"
+        },
+        {
+          "file": "projects.html",
+          "line": 9,
+          "reference": "assets/ai/ur10-photo-hd.webp"
+        },
+        {
+          "file": "project/rst-hackathon.html",
+          "line": 9,
+          "reference": "../assets/ai/ur10-photo-hd.webp"
+        },
+        {
+          "file": "project/ur10-manipulator.html",
+          "line": 9,
+          "reference": "../assets/ai/ur10-photo-hd.webp"
+        },
+        {
+          "file": "data/projects.json",
+          "project": "ur10-manipulator"
+        }
+      ],
+      "current_git_blob_sha": "9c578f0d968e947d8c94d286fc351321ce05f41d",
+      "baseline_bytes_preserved": true,
+      "width": 1600,
+      "height": 900,
+      "display_width": 1600,
+      "display_height": 900,
+      "decoded_format": "WEBP",
+      "exif_orientation": null,
+      "decode_status": "passed"
+    },
+    {
+      "path": "assets/ai/ur10.webp",
+      "format": "webp",
+      "local_verified": true,
+      "references": [],
+      "dimensions_evidence": "Pillow full decode; display dimensions after ImageOps.exif_transpose",
+      "remote_blob_sha": "3076241816e7219419f61dd538e06bdb6013f924",
+      "remote_bytes": 4406,
+      "remote_exists": true,
+      "local_bytes": 4406,
+      "sha256": "5fa3ad3af189ca4227c7be003043b60c1d04f8f250d86bd8b84517424d7984aa",
+      "current_references": [],
+      "current_git_blob_sha": "3076241816e7219419f61dd538e06bdb6013f924",
+      "baseline_bytes_preserved": true,
+      "width": 360,
+      "height": 203,
+      "display_width": 360,
+      "display_height": 203,
+      "decoded_format": "WEBP",
+      "exif_orientation": null,
+      "decode_status": "passed"
+    },
+    {
+      "path": "assets/flowcharts/autonomous-industrial-inspection-robot-detailed.svg",
+      "format": "svg",
+      "local_bytes": 14480,
+      "sha256": "9ed3bf8ba2ae2c1534cb6a8fba619914cbb73aab5d88b0669c8542c1139baa2a",
+      "local_verified": true,
+      "references": [
+        {
+          "file": "project/autonomous-industrial-inspection-robot.html",
+          "line": 1,
+          "reference": "../assets/flowcharts/autonomous-industrial-inspection-robot-detailed.svg"
+        }
+      ],
+      "width": "1600",
+      "height": "900",
+      "viewBox": "0 0 1600 900",
+      "dimensions_evidence": "Verified SVG XML attributes",
+      "remote_blob_sha": "6fcdb5c30704d31597e888a75846dfe1206bf725",
+      "remote_bytes": 14479,
+      "remote_exists": true,
+      "current_references": [
+        {
+          "file": "project/autonomous-industrial-inspection-robot.html",
+          "line": 9,
+          "reference": "../assets/flowcharts/autonomous-industrial-inspection-robot-detailed.svg"
+        },
+        {
+          "file": "project/autonomous-industrial-inspection-robot.html",
+          "line": 9,
+          "reference": "../assets/flowcharts/autonomous-industrial-inspection-robot-detailed.svg"
+        }
+      ],
+      "current_git_blob_sha": "c16d9a35411ad32e7fcbc6b0790a9946936440f5",
+      "baseline_bytes_preserved": false,
+      "decode_status": "passed"
+    },
+    {
+      "path": "assets/flowcharts/autonomous-industrial-inspection-robot.svg",
+      "format": "svg",
+      "local_bytes": 6344,
+      "sha256": "0a7a4dbdcd138300f237cffd00d441f93f7971161fc4c1d4aebe8283ff8dc974",
+      "local_verified": true,
+      "references": [],
+      "width": "1600",
+      "height": "650",
+      "viewBox": "0 0 1600 650",
+      "dimensions_evidence": "Verified SVG XML attributes",
+      "remote_blob_sha": "086495572264ad20b2637026898bf4f520f0ef21",
+      "remote_bytes": 6343,
+      "remote_exists": true,
+      "current_references": [],
+      "current_git_blob_sha": "2a7b6f5d6681edc5c0819d0f2a139f48a33d889b",
+      "baseline_bytes_preserved": false,
+      "decode_status": "passed"
+    },
+    {
+      "path": "assets/flowcharts/competitive-robotics-detailed.svg",
+      "format": "svg",
+      "local_bytes": 11747,
+      "sha256": "05516c6d3dbc6853072092c7ba07b1c45ca46112b921663c739b5df977751fab",
+      "local_verified": true,
+      "references": [
+        {
+          "file": "project/competitive-robotics.html",
+          "line": 1,
+          "reference": "../assets/flowcharts/competitive-robotics-detailed.svg"
+        }
+      ],
+      "width": "1600",
+      "height": "900",
+      "viewBox": "0 0 1600 900",
+      "dimensions_evidence": "Verified SVG XML attributes",
+      "remote_blob_sha": "efaf96823adebe32df6eedfdd49e9758a557c811",
+      "remote_bytes": 11746,
+      "remote_exists": true,
+      "current_references": [
+        {
+          "file": "project/competitive-robotics.html",
+          "line": 9,
+          "reference": "../assets/flowcharts/competitive-robotics-detailed.svg"
+        },
+        {
+          "file": "project/competitive-robotics.html",
+          "line": 9,
+          "reference": "../assets/flowcharts/competitive-robotics-detailed.svg"
+        }
+      ],
+      "current_git_blob_sha": "753a3749e5e143c4a4bf16bb828e45aa48551ce8",
+      "baseline_bytes_preserved": false,
+      "decode_status": "passed"
+    },
+    {
+      "path": "assets/flowcharts/competitive-robotics.svg",
+      "format": "svg",
+      "local_bytes": 4934,
+      "sha256": "fa7e081a3e1fc5f2f84405010de88c8df97ccfdcb27ed505475bd538f8d69b7e",
+      "local_verified": true,
+      "references": [],
+      "width": "1600",
+      "height": "650",
+      "viewBox": "0 0 1600 650",
+      "dimensions_evidence": "Verified SVG XML attributes",
+      "remote_blob_sha": "6cf3f64d15fbc8498ccb08106f6bd049f73345ba",
+      "remote_bytes": 4933,
+      "remote_exists": true,
+      "current_references": [],
+      "current_git_blob_sha": "ecbda5f01ae2dd89edf0f02cb1dc1fc6a8cc73b9",
+      "baseline_bytes_preserved": false,
+      "decode_status": "passed"
+    },
+    {
+      "path": "assets/flowcharts/distributed-state-estimation-detailed.svg",
+      "format": "svg",
+      "local_bytes": 13136,
+      "sha256": "0ef40f724a826072d9c3db7ec51f190b6ed520997ec4170f323544da3a563c75",
+      "local_verified": true,
+      "references": [
+        {
+          "file": "project/distributed-state-estimation.html",
+          "line": 1,
+          "reference": "../assets/flowcharts/distributed-state-estimation-detailed.svg"
+        }
+      ],
+      "width": "1600",
+      "height": "900",
+      "viewBox": "0 0 1600 900",
+      "dimensions_evidence": "Verified SVG XML attributes",
+      "remote_blob_sha": "b219a954fdecc2ec793ff31b46dcb77a59162a4a",
+      "remote_bytes": 13135,
+      "remote_exists": true,
+      "current_references": [
+        {
+          "file": "project/distributed-state-estimation.html",
+          "line": 9,
+          "reference": "../assets/flowcharts/distributed-state-estimation-detailed.svg"
+        },
+        {
+          "file": "project/distributed-state-estimation.html",
+          "line": 9,
+          "reference": "../assets/flowcharts/distributed-state-estimation-detailed.svg"
+        }
+      ],
+      "current_git_blob_sha": "a2a675703cae38a26485e92a1f3cb4a2971e7cc2",
+      "baseline_bytes_preserved": false,
+      "decode_status": "passed"
+    },
+    {
+      "path": "assets/flowcharts/distributed-state-estimation.svg",
+      "format": "svg",
+      "local_bytes": 6013,
+      "sha256": "b6bc3b9d0e4d472647d96d43e332784fcb39d3802069882b129226840f028da0",
+      "local_verified": true,
+      "references": [],
+      "width": "1600",
+      "height": "650",
+      "viewBox": "0 0 1600 650",
+      "dimensions_evidence": "Verified SVG XML attributes",
+      "remote_blob_sha": "80cc784a7627b9c22b7e599cadaf9002f6db1e31",
+      "remote_bytes": 6012,
+      "remote_exists": true,
+      "current_references": [],
+      "current_git_blob_sha": "7b96dc5923194b65df8092e86060bcd9dcfe7e09",
+      "baseline_bytes_preserved": false,
+      "decode_status": "passed"
+    },
+    {
+      "path": "assets/flowcharts/iiot-anomaly-detector-detailed.svg",
+      "format": "svg",
+      "local_bytes": 11818,
+      "sha256": "3afc688ed542b9725acedb042d49b21e9daf88854cf2fb07d2b0f6ae095a1126",
+      "local_verified": true,
+      "references": [
+        {
+          "file": "project/iiot-anomaly-detector.html",
+          "line": 1,
+          "reference": "../assets/flowcharts/iiot-anomaly-detector-detailed.svg"
+        }
+      ],
+      "width": "1600",
+      "height": "900",
+      "viewBox": "0 0 1600 900",
+      "dimensions_evidence": "Verified SVG XML attributes",
+      "remote_blob_sha": "c7267bc7cdd1f5a5c2bd31c168e2f4471524f825",
+      "remote_bytes": 11817,
+      "remote_exists": true,
+      "current_references": [],
+      "current_git_blob_sha": "bf804f57bbe008774ad5d9bf36b631be39dbaec1",
+      "baseline_bytes_preserved": false,
+      "decode_status": "passed"
+    },
+    {
+      "path": "assets/flowcharts/iiot-anomaly-detector-reviewed.svg",
+      "format": "svg",
+      "references": [],
+      "local_verified": true,
+      "local_bytes": 4285,
+      "sha256": "afca5ad24780900945617c65a78b3c1e81bda50b3f652ff22667bde477b38d66",
+      "current_references": [
+        {
+          "file": "project/iiot-anomaly-detector.html",
+          "line": 9,
+          "reference": "../assets/flowcharts/iiot-anomaly-detector-reviewed.svg"
+        },
+        {
+          "file": "project/iiot-anomaly-detector.html",
+          "line": 9,
+          "reference": "../assets/flowcharts/iiot-anomaly-detector-reviewed.svg"
+        }
+      ],
+      "current_git_blob_sha": "5a9a4cdf11a4c43cc3f7cea6ff193ed5382accf6",
+      "width": "1100",
+      "height": "940",
+      "viewBox": "0 0 1100 940",
+      "dimensions_evidence": "Verified SVG XML attributes",
+      "decode_status": "passed"
+    },
+    {
+      "path": "assets/flowcharts/iiot-anomaly-detector.svg",
+      "format": "svg",
+      "local_bytes": 6172,
+      "sha256": "233c4425eae6f5d89d77df9e7ae4e0f39f2dddabf89da2d53f961999aaddf3c9",
+      "local_verified": true,
+      "references": [],
+      "width": "1600",
+      "height": "650",
+      "viewBox": "0 0 1600 650",
+      "dimensions_evidence": "Verified SVG XML attributes",
+      "remote_blob_sha": "4aea6160cccb4faa0332680204bed44aa2bda29a",
+      "remote_bytes": 6171,
+      "remote_exists": true,
+      "current_references": [],
+      "current_git_blob_sha": "86c983f08c52c016a64062991d20c9ee221267c7",
+      "baseline_bytes_preserved": false,
+      "decode_status": "passed"
+    },
+    {
+      "path": "assets/flowcharts/industrial-robot-operations-intelligence-detailed.svg",
+      "format": "svg",
+      "local_bytes": 15381,
+      "sha256": "ff797dc71716735fe818c91fffaf03426fb6585a94e1b315aadea65d51929916",
+      "local_verified": true,
+      "references": [
+        {
+          "file": "project/industrial-robot-operations-intelligence.html",
+          "line": 1,
+          "reference": "../assets/flowcharts/industrial-robot-operations-intelligence-detailed.svg"
+        }
+      ],
+      "width": "1600",
+      "height": "900",
+      "viewBox": "0 0 1600 900",
+      "dimensions_evidence": "Verified SVG XML attributes",
+      "remote_blob_sha": "d5dd2761b81f547c09b33b855f2eabca06e9a41b",
+      "remote_bytes": 15380,
+      "remote_exists": true,
+      "current_references": [
+        {
+          "file": "project/industrial-robot-operations-intelligence.html",
+          "line": 9,
+          "reference": "../assets/flowcharts/industrial-robot-operations-intelligence-detailed.svg"
+        },
+        {
+          "file": "project/industrial-robot-operations-intelligence.html",
+          "line": 9,
+          "reference": "../assets/flowcharts/industrial-robot-operations-intelligence-detailed.svg"
+        }
+      ],
+      "current_git_blob_sha": "28262100c5d2a096c5deff03a1849c625192cad2",
+      "baseline_bytes_preserved": false,
+      "decode_status": "passed"
+    },
+    {
+      "path": "assets/flowcharts/industrial-robot-operations-intelligence.svg",
+      "format": "svg",
+      "local_bytes": 8569,
+      "sha256": "c7f8d517e11b6174d883679b8b624e1a543b84c94fae09a23d292a5c9152083d",
+      "local_verified": true,
+      "references": [],
+      "width": "1600",
+      "height": "650",
+      "viewBox": "0 0 1600 650",
+      "dimensions_evidence": "Verified SVG XML attributes",
+      "remote_blob_sha": "a580a9fe5233ef433f702b006dee011ce26361a2",
+      "remote_bytes": 8568,
+      "remote_exists": true,
+      "current_references": [],
+      "current_git_blob_sha": "c4ed2957b4877f95e1bc2b56c2f75083014365d9",
+      "baseline_bytes_preserved": false,
+      "decode_status": "passed"
+    },
+    {
+      "path": "assets/flowcharts/offline-face-recognition-detailed.svg",
+      "format": "svg",
+      "local_bytes": 11551,
+      "sha256": "ef87e67de5e92ff484bcc11a0b840de15674f92cd63216d82781bcc5164c359d",
+      "local_verified": true,
+      "references": [
+        {
+          "file": "project/offline-face-recognition.html",
+          "line": 1,
+          "reference": "../assets/flowcharts/offline-face-recognition-detailed.svg"
+        }
+      ],
+      "width": "1600",
+      "height": "900",
+      "viewBox": "0 0 1600 900",
+      "dimensions_evidence": "Verified SVG XML attributes",
+      "remote_blob_sha": "59259bf8071418c29c51583972cedf5a67ee02a4",
+      "remote_bytes": 11550,
+      "remote_exists": true,
+      "current_references": [
+        {
+          "file": "project/offline-face-recognition.html",
+          "line": 9,
+          "reference": "../assets/flowcharts/offline-face-recognition-detailed.svg"
+        },
+        {
+          "file": "project/offline-face-recognition.html",
+          "line": 9,
+          "reference": "../assets/flowcharts/offline-face-recognition-detailed.svg"
+        }
+      ],
+      "current_git_blob_sha": "f393eb4c7de3288299c3bdb09f252d6e58d6b136",
+      "baseline_bytes_preserved": false,
+      "decode_status": "passed"
+    },
+    {
+      "path": "assets/flowcharts/offline-face-recognition.svg",
+      "format": "svg",
+      "local_bytes": 6069,
+      "sha256": "fcaac75bb0c4b46fcfbd6c7ae4f9a7e33c6e3b79c132cf5d54cb0d390d41330a",
+      "local_verified": true,
+      "references": [],
+      "width": "1600",
+      "height": "650",
+      "viewBox": "0 0 1600 650",
+      "dimensions_evidence": "Verified SVG XML attributes",
+      "remote_blob_sha": "ab09aa5b77f418f0903e25e500c5a2812330e355",
+      "remote_bytes": 6068,
+      "remote_exists": true,
+      "current_references": [],
+      "current_git_blob_sha": "4846955fa0d9775c61d80c66dd4e0d9cd1d8bcfd",
+      "baseline_bytes_preserved": false,
+      "decode_status": "passed"
+    },
+    {
+      "path": "assets/flowcharts/robot-fleet-observability-platform-detailed.svg",
+      "format": "svg",
+      "local_bytes": 13477,
+      "sha256": "0ad08d126c6d4e76daf22e2a30b6263efa71724c8c8976eb7731f038a7b1ee02",
+      "local_verified": true,
+      "references": [
+        {
+          "file": "project/robot-fleet-observability-platform.html",
+          "line": 1,
+          "reference": "../assets/flowcharts/robot-fleet-observability-platform-detailed.svg"
+        }
+      ],
+      "width": "1600",
+      "height": "900",
+      "viewBox": "0 0 1600 900",
+      "dimensions_evidence": "Verified SVG XML attributes",
+      "remote_blob_sha": "34669978f3eabe987eaec8c977d4294dd77d80fd",
+      "remote_bytes": 13476,
+      "remote_exists": true,
+      "current_references": [
+        {
+          "file": "project/robot-fleet-observability-platform.html",
+          "line": 9,
+          "reference": "../assets/flowcharts/robot-fleet-observability-platform-detailed.svg"
+        },
+        {
+          "file": "project/robot-fleet-observability-platform.html",
+          "line": 9,
+          "reference": "../assets/flowcharts/robot-fleet-observability-platform-detailed.svg"
+        }
+      ],
+      "current_git_blob_sha": "d2cecd3b8a2254d06d2ce92a59aa5403576a7b01",
+      "baseline_bytes_preserved": false,
+      "decode_status": "passed"
+    },
+    {
+      "path": "assets/flowcharts/robot-fleet-observability-platform.svg",
+      "format": "svg",
+      "local_bytes": 6468,
+      "sha256": "b5012ffebd15bb4fc936cb23a8ad6c4bed89122969a3f03e0a23893a5daed4f4",
+      "local_verified": true,
+      "references": [],
+      "width": "1600",
+      "height": "650",
+      "viewBox": "0 0 1600 650",
+      "dimensions_evidence": "Verified SVG XML attributes",
+      "remote_blob_sha": "0606c2523036909ceee024f629dc2db21dcfc83f",
+      "remote_bytes": 6467,
+      "remote_exists": true,
+      "current_references": [],
+      "current_git_blob_sha": "bf5b7a967b0fa253f7154a99623ec4a88c284bd9",
+      "baseline_bytes_preserved": false,
+      "decode_status": "passed"
+    },
+    {
+      "path": "assets/flowcharts/rst-hackathon-detailed.svg",
+      "format": "svg",
+      "local_bytes": 10959,
+      "sha256": "17e5e2d4b3afae8f28acce8d471b3d5c826541c977dedb3a3181be1453a73290",
+      "local_verified": true,
+      "references": [
+        {
+          "file": "project/rst-hackathon.html",
+          "line": 1,
+          "reference": "../assets/flowcharts/rst-hackathon-detailed.svg"
+        }
+      ],
+      "width": "1600",
+      "height": "900",
+      "viewBox": "0 0 1600 900",
+      "dimensions_evidence": "Verified SVG XML attributes",
+      "remote_blob_sha": "9baea1999536644e8d2f64a11fea4246cf702369",
+      "remote_bytes": 10958,
+      "remote_exists": true,
+      "current_references": [
+        {
+          "file": "project/rst-hackathon.html",
+          "line": 9,
+          "reference": "../assets/flowcharts/rst-hackathon-detailed.svg"
+        },
+        {
+          "file": "project/rst-hackathon.html",
+          "line": 9,
+          "reference": "../assets/flowcharts/rst-hackathon-detailed.svg"
+        }
+      ],
+      "current_git_blob_sha": "6252eec56a30673038c80d3d716248819f9e077c",
+      "baseline_bytes_preserved": false,
+      "decode_status": "passed"
+    },
+    {
+      "path": "assets/flowcharts/rst-hackathon.svg",
+      "format": "svg",
+      "local_bytes": 5482,
+      "sha256": "5ede267f7a22326470ffb2ce9cffae54a48e4c7ab6a6527bba4bc1c59dcfaeb4",
+      "local_verified": true,
+      "references": [],
+      "width": "1600",
+      "height": "650",
+      "viewBox": "0 0 1600 650",
+      "dimensions_evidence": "Verified SVG XML attributes",
+      "remote_blob_sha": "b8c4e758b714c8ff01d5e49523bf19c2438f2dce",
+      "remote_bytes": 5481,
+      "remote_exists": true,
+      "current_references": [],
+      "current_git_blob_sha": "2952a7850dfb7f3f6e4859c1a57922e8ef830027",
+      "baseline_bytes_preserved": false,
+      "decode_status": "passed"
+    },
+    {
+      "path": "assets/flowcharts/so101-robot-learning-detailed.svg",
+      "format": "svg",
+      "local_bytes": 14800,
+      "sha256": "48df222ea4e9015176f10bb4c6f4cb5fffe414bb57bc96d945d19ca83e1104c8",
+      "local_verified": true,
+      "references": [
+        {
+          "file": "project/so101-robot-learning.html",
+          "line": 1,
+          "reference": "../assets/flowcharts/so101-robot-learning-detailed.svg"
+        }
+      ],
+      "width": "1600",
+      "height": "900",
+      "viewBox": "0 0 1600 900",
+      "dimensions_evidence": "Verified SVG XML attributes",
+      "remote_blob_sha": "b115dd47e037e9261b11359ebc631b0a48d4c82f",
+      "remote_bytes": 14799,
+      "remote_exists": true,
+      "current_references": [
+        {
+          "file": "project/so101-robot-learning.html",
+          "line": 9,
+          "reference": "../assets/flowcharts/so101-robot-learning-detailed.svg"
+        },
+        {
+          "file": "project/so101-robot-learning.html",
+          "line": 9,
+          "reference": "../assets/flowcharts/so101-robot-learning-detailed.svg"
+        }
+      ],
+      "current_git_blob_sha": "6ef812b4459106617b7456b0d0bf5bb4b1a4b3d4",
+      "baseline_bytes_preserved": false,
+      "decode_status": "passed"
+    },
+    {
+      "path": "assets/flowcharts/so101-robot-learning.svg",
+      "format": "svg",
+      "local_bytes": 6310,
+      "sha256": "8a3671a0640b91814f743653ad2d18c950524b5703ad33da3b0879e4a071558b",
+      "local_verified": true,
+      "references": [],
+      "width": "1600",
+      "height": "650",
+      "viewBox": "0 0 1600 650",
+      "dimensions_evidence": "Verified SVG XML attributes",
+      "remote_blob_sha": "68a602b7d1357b96d9f0abcfe5354cadb035bded",
+      "remote_bytes": 6309,
+      "remote_exists": true,
+      "current_references": [],
+      "current_git_blob_sha": "3cd183d18cb956c354fe4b2954f5c9942fb203c1",
+      "baseline_bytes_preserved": false,
+      "decode_status": "passed"
+    },
+    {
+      "path": "assets/flowcharts/telepresence-robot-detailed.svg",
+      "format": "svg",
+      "local_bytes": 13448,
+      "sha256": "9c3b36afdcd0b06b731e0d4c30e5a9e5fdb5de00bcd998b74eb9aae3c7ff2afb",
+      "local_verified": true,
+      "references": [
+        {
+          "file": "project/telepresence-robot.html",
+          "line": 1,
+          "reference": "../assets/flowcharts/telepresence-robot-detailed.svg"
+        }
+      ],
+      "width": "1600",
+      "height": "900",
+      "viewBox": "0 0 1600 900",
+      "dimensions_evidence": "Verified SVG XML attributes",
+      "remote_blob_sha": "ce0e0e676a7b0f260bade5b44f2e7d5fa8886736",
+      "remote_bytes": 13447,
+      "remote_exists": true,
+      "current_references": [
+        {
+          "file": "project/telepresence-robot.html",
+          "line": 9,
+          "reference": "../assets/flowcharts/telepresence-robot-detailed.svg"
+        },
+        {
+          "file": "project/telepresence-robot.html",
+          "line": 9,
+          "reference": "../assets/flowcharts/telepresence-robot-detailed.svg"
+        }
+      ],
+      "current_git_blob_sha": "d6fae20193129bc707ee9c802a98a9828cd86aff",
+      "baseline_bytes_preserved": false,
+      "decode_status": "passed"
+    },
+    {
+      "path": "assets/flowcharts/telepresence-robot.svg",
+      "format": "svg",
+      "local_bytes": 6045,
+      "sha256": "7bb3da2d9f0356057e443476847e64df4965af9f430433f61114557c15a18cf2",
+      "local_verified": true,
+      "references": [],
+      "width": "1600",
+      "height": "650",
+      "viewBox": "0 0 1600 650",
+      "dimensions_evidence": "Verified SVG XML attributes",
+      "remote_blob_sha": "185c1367d848ddc50362652fc52d42ad605591c0",
+      "remote_bytes": 6044,
+      "remote_exists": true,
+      "current_references": [],
+      "current_git_blob_sha": "afd3ef51f72b2568d4b0ff59ec44471b305f2d81",
+      "baseline_bytes_preserved": false,
+      "decode_status": "passed"
+    },
+    {
+      "path": "assets/flowcharts/turtlebot3-navigation-detailed.svg",
+      "format": "svg",
+      "local_bytes": 12305,
+      "sha256": "ee051c2d5a30815da5ec8c055c1b2e104822ec00d96a89bd54a206480024a9b5",
+      "local_verified": true,
+      "references": [
+        {
+          "file": "project/turtlebot3-navigation.html",
+          "line": 1,
+          "reference": "../assets/flowcharts/turtlebot3-navigation-detailed.svg"
+        }
+      ],
+      "width": "1600",
+      "height": "900",
+      "viewBox": "0 0 1600 900",
+      "dimensions_evidence": "Verified SVG XML attributes",
+      "remote_blob_sha": "b662308600c3805dee3c3fa8d5190cc9ee38031a",
+      "remote_bytes": 12304,
+      "remote_exists": true,
+      "current_references": [
+        {
+          "file": "project/turtlebot3-navigation.html",
+          "line": 9,
+          "reference": "../assets/flowcharts/turtlebot3-navigation-detailed.svg"
+        },
+        {
+          "file": "project/turtlebot3-navigation.html",
+          "line": 9,
+          "reference": "../assets/flowcharts/turtlebot3-navigation-detailed.svg"
+        }
+      ],
+      "current_git_blob_sha": "c7d637377a21cae11b092c6b3d4ac4c68188615a",
+      "baseline_bytes_preserved": false,
+      "decode_status": "passed"
+    },
+    {
+      "path": "assets/flowcharts/turtlebot3-navigation.svg",
+      "format": "svg",
+      "local_bytes": 6171,
+      "sha256": "badde6be84f99a7d4612f4dddfc4315b41f00b2e7f02fc3f5914d333101d8999",
+      "local_verified": true,
+      "references": [],
+      "width": "1600",
+      "height": "650",
+      "viewBox": "0 0 1600 650",
+      "dimensions_evidence": "Verified SVG XML attributes",
+      "remote_blob_sha": "a25a70e11cda2f2151e7998d5a09b2d7fd232f8e",
+      "remote_bytes": 6170,
+      "remote_exists": true,
+      "current_references": [],
+      "current_git_blob_sha": "371cc9fa7ebb5fd50e15ebef6de4a44b4fbf9d18",
+      "baseline_bytes_preserved": false,
+      "decode_status": "passed"
+    },
+    {
+      "path": "assets/flowcharts/unmanned-ground-vehicle-detailed.svg",
+      "format": "svg",
+      "local_bytes": 12692,
+      "sha256": "6552adab56330c8c273fbca7dfca903e5e08c4019b49f89b11b659f766733df2",
+      "local_verified": true,
+      "references": [
+        {
+          "file": "project/unmanned-ground-vehicle.html",
+          "line": 1,
+          "reference": "../assets/flowcharts/unmanned-ground-vehicle-detailed.svg"
+        }
+      ],
+      "width": "1600",
+      "height": "900",
+      "viewBox": "0 0 1600 900",
+      "dimensions_evidence": "Verified SVG XML attributes",
+      "remote_blob_sha": "b3c913f7684f30786ac545bd98bcf34524fb3fc9",
+      "remote_bytes": 12691,
+      "remote_exists": true,
+      "current_references": [
+        {
+          "file": "project/unmanned-ground-vehicle.html",
+          "line": 9,
+          "reference": "../assets/flowcharts/unmanned-ground-vehicle-detailed.svg"
+        },
+        {
+          "file": "project/unmanned-ground-vehicle.html",
+          "line": 9,
+          "reference": "../assets/flowcharts/unmanned-ground-vehicle-detailed.svg"
+        }
+      ],
+      "current_git_blob_sha": "0b9917fd97932dddddb995b6929d046a87005536",
+      "baseline_bytes_preserved": false,
+      "decode_status": "passed"
+    },
+    {
+      "path": "assets/flowcharts/unmanned-ground-vehicle.svg",
+      "format": "svg",
+      "local_bytes": 6025,
+      "sha256": "cb3a406b03cd86e8d8545f53e6251b1af5e311a54da1e9daba5c748e59bd0d9b",
+      "local_verified": true,
+      "references": [],
+      "width": "1600",
+      "height": "650",
+      "viewBox": "0 0 1600 650",
+      "dimensions_evidence": "Verified SVG XML attributes",
+      "remote_blob_sha": "e1a60695c8e1a3994e0d16e2962a4b2c6ae71bc5",
+      "remote_bytes": 6024,
+      "remote_exists": true,
+      "current_references": [],
+      "current_git_blob_sha": "d38e6d2e4800a462f2c2e8207efec7c587edb146",
+      "baseline_bytes_preserved": false,
+      "decode_status": "passed"
+    },
+    {
+      "path": "assets/flowcharts/ur10-manipulator-detailed.svg",
+      "format": "svg",
+      "local_bytes": 13493,
+      "sha256": "5149d79ae6712335dc3d55ebbbb86f428ba3386cbeadc4f83b5393c5fe60051e",
+      "local_verified": true,
+      "references": [
+        {
+          "file": "project/ur10-manipulator.html",
+          "line": 1,
+          "reference": "../assets/flowcharts/ur10-manipulator-detailed.svg"
+        }
+      ],
+      "width": "1600",
+      "height": "900",
+      "viewBox": "0 0 1600 900",
+      "dimensions_evidence": "Verified SVG XML attributes",
+      "remote_blob_sha": "5085904974181f06d6013f834b441184268950b5",
+      "remote_bytes": 13492,
+      "remote_exists": true,
+      "current_references": [
+        {
+          "file": "project/ur10-manipulator.html",
+          "line": 9,
+          "reference": "../assets/flowcharts/ur10-manipulator-detailed.svg"
+        },
+        {
+          "file": "project/ur10-manipulator.html",
+          "line": 9,
+          "reference": "../assets/flowcharts/ur10-manipulator-detailed.svg"
+        }
+      ],
+      "current_git_blob_sha": "21137415f5a477388e78bf0ab01c09d07dfebf95",
+      "baseline_bytes_preserved": false,
+      "decode_status": "passed"
+    },
+    {
+      "path": "assets/flowcharts/ur10-manipulator.svg",
+      "format": "svg",
+      "local_bytes": 6338,
+      "sha256": "cf52d5cab73e069f8eee072e9e8066730bcdf1f156b07b19216ee1ddd0adbda0",
+      "local_verified": true,
+      "references": [],
+      "width": "1600",
+      "height": "650",
+      "viewBox": "0 0 1600 650",
+      "dimensions_evidence": "Verified SVG XML attributes",
+      "remote_blob_sha": "a7afd5254068852dec6ab3e6e162b38dfc9dd85a",
+      "remote_bytes": 6337,
+      "remote_exists": true,
+      "current_references": [],
+      "current_git_blob_sha": "86e0f4103fc813eeabcfef454a3abdd3cb6efb33",
+      "baseline_bytes_preserved": false,
+      "decode_status": "passed"
+    },
+    {
+      "path": "assets/portfolio-ai-sprite.svg",
+      "format": "svg",
+      "local_bytes": 10046,
+      "sha256": "fcfa55a0dcb72ae0100771ca076d84c7771be4cb909e81de77efc37cf49de53d",
+      "local_verified": true,
+      "references": [],
+      "width": null,
+      "height": null,
+      "viewBox": "0 0 800 3150",
+      "dimensions_evidence": "Verified SVG XML attributes",
+      "remote_blob_sha": "f2eb835ea1f6e938cb75ae6165351dff4f2d55f4",
+      "remote_bytes": 10045,
+      "remote_exists": true,
+      "current_references": [],
+      "current_git_blob_sha": "9ba63c6daade7f3d143ef3c9f1db50469cc71049",
+      "baseline_bytes_preserved": false,
+      "decode_status": "passed"
+    },
+    {
+      "path": "assets/project/autonomous-industrial-inspection-hd-v2.webp",
+      "format": "webp",
+      "references": [],
+      "local_verified": true,
+      "local_bytes": 139960,
+      "sha256": "9db6956bf2d7015821bbfdf2ce4a61174b640bc50396d871b329d227374ab901",
+      "current_references": [
+        {
+          "file": "projects.html",
+          "line": 9,
+          "reference": "assets/project/autonomous-industrial-inspection-hd-v2.webp"
+        },
+        {
+          "file": "project/autonomous-industrial-inspection-robot.html",
+          "line": 9,
+          "reference": "../assets/project/autonomous-industrial-inspection-hd-v2.webp"
+        },
+        {
+          "file": "data/projects.json",
+          "project": "autonomous-industrial-inspection-robot"
+        }
+      ],
+      "current_git_blob_sha": "c10626bb8b25b806b1b0a725e42433788d57c3e1",
+      "provenance": {
+        "repository": "SAMP2411/SAMP2411.github.io",
+        "branch": "hq-original-project-images",
+        "commit": "835584084349e96809a81be2d7ac912b5d997ae3",
+        "action": "Recovered existing valid file without resampling or recompression; corrupt original retained separately",
+        "recovered_git_blob_sha": "c10626bb8b25b806b1b0a725e42433788d57c3e1"
+      },
+      "width": 1600,
+      "height": 900,
+      "display_width": 1600,
+      "display_height": 900,
+      "decoded_format": "WEBP",
+      "exif_orientation": null,
+      "dimensions_evidence": "Pillow full decode; display dimensions after ImageOps.exif_transpose",
+      "decode_status": "passed"
+    },
+    {
+      "path": "assets/project/autonomous-industrial-inspection-hd.webp",
+      "format": "webp",
+      "local_verified": true,
+      "dimensions_evidence": "Unavailable binary; do not infer from filename",
+      "references": [
+        {
+          "file": "index.html",
+          "line": 873,
+          "reference": "assets/project/autonomous-industrial-inspection-hd.webp"
+        },
+        {
+          "file": "project/autonomous-industrial-inspection-robot.html",
+          "line": 1,
+          "reference": "../assets/project/autonomous-industrial-inspection-hd.webp"
+        }
+      ],
+      "remote_blob_sha": "536051f56fc8ffcdb9422a806aa5d417f333e363",
+      "remote_bytes": 15044,
+      "remote_exists": true,
+      "local_bytes": 15044,
+      "sha256": "fee9afc3366e30488a90d414182df9ad4afec6ca6de47ed546804cbda60263c8",
+      "current_references": [],
+      "current_git_blob_sha": "536051f56fc8ffcdb9422a806aa5d417f333e363",
+      "baseline_bytes_preserved": true,
+      "decode_status": "failed",
+      "decode_error": "could not create decoder object"
+    },
+    {
+      "path": "assets/project/fleet-observability-system.svg",
+      "format": "svg",
+      "local_bytes": 5509,
+      "sha256": "ee302e04a4f0329a9f15c0ddc7c902b1a9f0e94fbd8e59b05b845fe0fbfe9306",
+      "local_verified": true,
+      "references": [],
+      "svg_parse_error": "not well-formed (invalid token): line 25, column 150",
+      "remote_blob_sha": "d07fef4145dfbcce2be34f7fd045aab9b25bcb6c",
+      "remote_bytes": 5508,
+      "remote_exists": true,
+      "current_references": [],
+      "current_git_blob_sha": "8374fb5aed43761a3849b99091b85383d8c386a0",
+      "baseline_bytes_preserved": false,
+      "decode_status": "failed",
+      "decode_error": "not well-formed (invalid token): line 25, column 150"
+    },
+    {
+      "path": "assets/project/industrial-inspection-system.svg",
+      "format": "svg",
+      "local_bytes": 4715,
+      "sha256": "28851011309ffe7c7d71e18db2ab90dc49accfdd0004e9e94c92c2e099bffc76",
+      "local_verified": true,
+      "references": [],
+      "width": "1600",
+      "height": "900",
+      "viewBox": "0 0 1600 900",
+      "dimensions_evidence": "Verified SVG XML attributes",
+      "remote_blob_sha": "e0c605a96eaeadca7f20cf6a327cd77344de31c8",
+      "remote_bytes": 4714,
+      "remote_exists": true,
+      "current_references": [],
+      "current_git_blob_sha": "0c1112e267ec885adcec04e42113ad8c5d45bdd4",
+      "baseline_bytes_preserved": false,
+      "decode_status": "passed"
+    },
+    {
+      "path": "assets/project/industrial-robot-operations-intelligence-hd-v2.webp",
+      "format": "webp",
+      "references": [],
+      "local_verified": true,
+      "local_bytes": 89078,
+      "sha256": "1c4318170a239d2bd4e5845420dc406b15d82e3c6bf0c911daa6e8528b386c71",
+      "current_references": [
+        {
+          "file": "projects.html",
+          "line": 9,
+          "reference": "assets/project/industrial-robot-operations-intelligence-hd-v2.webp"
+        },
+        {
+          "file": "project/industrial-robot-operations-intelligence.html",
+          "line": 9,
+          "reference": "../assets/project/industrial-robot-operations-intelligence-hd-v2.webp"
+        },
+        {
+          "file": "project/robot-fleet-observability-platform.html",
+          "line": 9,
+          "reference": "../assets/project/industrial-robot-operations-intelligence-hd-v2.webp"
+        },
+        {
+          "file": "data/projects.json",
+          "project": "industrial-robot-operations-intelligence"
+        }
+      ],
+      "current_git_blob_sha": "d3efa47d10f1ae49209d60f59cdd3b588544be5d",
+      "provenance": {
+        "repository": "SAMP2411/SAMP2411.github.io",
+        "branch": "hq-original-project-images",
+        "commit": "835584084349e96809a81be2d7ac912b5d997ae3",
+        "action": "Recovered existing valid file without resampling or recompression; corrupt original retained separately",
+        "recovered_git_blob_sha": "d3efa47d10f1ae49209d60f59cdd3b588544be5d"
+      },
+      "width": 1600,
+      "height": 900,
+      "display_width": 1600,
+      "display_height": 900,
+      "decoded_format": "WEBP",
+      "exif_orientation": null,
+      "dimensions_evidence": "Pillow full decode; display dimensions after ImageOps.exif_transpose",
+      "decode_status": "passed"
+    },
+    {
+      "path": "assets/project/industrial-robot-operations-intelligence-hd.jpg",
+      "format": "jpg",
+      "local_verified": true,
+      "dimensions_evidence": "Unavailable binary; do not infer from filename",
+      "references": [
+        {
+          "file": "index.html",
+          "line": 883,
+          "reference": "assets/project/industrial-robot-operations-intelligence-hd.jpg"
+        },
+        {
+          "file": "project/industrial-robot-operations-intelligence.html",
+          "line": 1,
+          "reference": "../assets/project/industrial-robot-operations-intelligence-hd.jpg"
+        }
+      ],
+      "remote_blob_sha": "fd5796d424c61c73897744bb6ab06a6f6a006bed",
+      "remote_bytes": 15082,
+      "remote_exists": true,
+      "local_bytes": 15082,
+      "sha256": "11afafef4f472dafadd8e7cfe6eed494876ce034d713c3dbf63bda59f4fb7bfd",
+      "current_references": [],
+      "current_git_blob_sha": "fd5796d424c61c73897744bb6ab06a6f6a006bed",
+      "baseline_bytes_preserved": true,
+      "decode_status": "failed",
+      "decode_error": "cannot identify image file '/workspace/scratch/7c33d256affc/portfolio/assets/project/industrial-robot-operations-intelligence-hd.jpg'"
+    },
+    {
+      "path": "assets/project/operations-intelligence-system.svg",
+      "format": "svg",
+      "local_bytes": 5408,
+      "sha256": "79596fba196aae4f16ce04746c769002298df8ade6d94b28ffb73d7b161c5b0f",
+      "local_verified": true,
+      "references": [],
+      "width": "1600",
+      "height": "900",
+      "viewBox": "0 0 1600 900",
+      "dimensions_evidence": "Verified SVG XML attributes",
+      "remote_blob_sha": "5ca5aa52b3744045943dae546941ce7dd6634115",
+      "remote_bytes": 5407,
+      "remote_exists": true,
+      "current_references": [],
+      "current_git_blob_sha": "9a1c4b7791bb3b475e2cc0c7c6876d9a3f2e7503",
+      "baseline_bytes_preserved": false,
+      "decode_status": "passed"
+    },
+    {
+      "path": "assets/project/robot-fleet-observability-hd-v2.webp",
+      "format": "webp",
+      "references": [],
+      "local_verified": true,
+      "local_bytes": 121170,
+      "sha256": "efbd32d567949ce2b4c68c720e1839783c2ea27e05f233c587e6d0338e64ec1d",
+      "current_references": [
+        {
+          "file": "projects.html",
+          "line": 9,
+          "reference": "assets/project/robot-fleet-observability-hd-v2.webp"
+        },
+        {
+          "file": "project/industrial-robot-operations-intelligence.html",
+          "line": 9,
+          "reference": "../assets/project/robot-fleet-observability-hd-v2.webp"
+        },
+        {
+          "file": "project/robot-fleet-observability-platform.html",
+          "line": 9,
+          "reference": "../assets/project/robot-fleet-observability-hd-v2.webp"
+        },
+        {
+          "file": "data/projects.json",
+          "project": "robot-fleet-observability-platform"
+        }
+      ],
+      "current_git_blob_sha": "ff9db97d8295129020d8ef3774451bd90d356e46",
+      "provenance": {
+        "repository": "SAMP2411/SAMP2411.github.io",
+        "branch": "hq-original-project-images",
+        "commit": "835584084349e96809a81be2d7ac912b5d997ae3",
+        "action": "Recovered existing valid file without resampling or recompression; corrupt original retained separately",
+        "recovered_git_blob_sha": "ff9db97d8295129020d8ef3774451bd90d356e46"
+      },
+      "width": 1600,
+      "height": 900,
+      "display_width": 1600,
+      "display_height": 900,
+      "decoded_format": "WEBP",
+      "exif_orientation": null,
+      "dimensions_evidence": "Pillow full decode; display dimensions after ImageOps.exif_transpose",
+      "decode_status": "passed"
+    },
+    {
+      "path": "assets/project/robot-fleet-observability-hd.webp",
+      "format": "webp",
+      "local_verified": true,
+      "dimensions_evidence": "Unavailable binary; do not infer from filename",
+      "references": [
+        {
+          "file": "index.html",
+          "line": 878,
+          "reference": "assets/project/robot-fleet-observability-hd.webp"
+        },
+        {
+          "file": "project/robot-fleet-observability-platform.html",
+          "line": 1,
+          "reference": "../assets/project/robot-fleet-observability-hd.webp"
+        }
+      ],
+      "remote_blob_sha": "fcd4f9960de846501a9caed8a5775065900ed349",
+      "remote_bytes": 15008,
+      "remote_exists": true,
+      "local_bytes": 15008,
+      "sha256": "6ea55cb077589587645cb652bfd0a9827e18f769c61bde65109bd609eeaf97cd",
+      "current_references": [],
+      "current_git_blob_sha": "fcd4f9960de846501a9caed8a5775065900ed349",
+      "baseline_bytes_preserved": true,
+      "decode_status": "failed",
+      "decode_error": "could not create decoder object"
+    },
+    {
+      "path": "assets/robotics-scene.svg",
+      "format": "svg",
+      "references": [],
+      "local_verified": true,
+      "local_bytes": 7297,
+      "sha256": "c33c86b02607f71bd55feb90704d3c8246e02d887ef73e35319ab0c40c7c1100",
+      "current_references": [
+        {
+          "file": "scripts/build_site.py",
+          "use": "Read and inline in homepage"
+        }
+      ],
+      "current_git_blob_sha": "357ebb6c799a1898123d8dd0fecf494ffe152488",
+      "width": null,
+      "height": null,
+      "viewBox": "0 0 720 600",
+      "dimensions_evidence": "Verified SVG XML attributes",
+      "decode_status": "passed"
+    },
+    {
+      "path": "favicon.svg",
+      "format": "svg",
+      "local_bytes": 869,
+      "sha256": "ee1901c17856958fe267008289d2ed52749e2c04d4541cd02b6b85362c342899",
+      "local_verified": true,
+      "references": [
+        {
+          "file": "index.html",
+          "line": 7,
+          "reference": "favicon.svg"
+        },
+        {
+          "file": "index.html",
+          "line": 8,
+          "reference": "favicon.svg"
+        },
+        {
+          "file": "project/rst-hackathon.html",
+          "line": 1,
+          "reference": "../favicon.svg"
+        },
+        {
+          "file": "project/iiot-anomaly-detector.html",
+          "line": 1,
+          "reference": "../favicon.svg"
+        },
+        {
+          "file": "project/robot-fleet-observability-platform.html",
+          "line": 1,
+          "reference": "../favicon.svg"
+        },
+        {
+          "file": "project/offline-face-recognition.html",
+          "line": 1,
+          "reference": "../favicon.svg"
+        },
+        {
+          "file": "project/turtlebot3-navigation.html",
+          "line": 1,
+          "reference": "../favicon.svg"
+        },
+        {
+          "file": "project/ur10-manipulator.html",
+          "line": 1,
+          "reference": "../favicon.svg"
+        },
+        {
+          "file": "project/industrial-robot-operations-intelligence.html",
+          "line": 1,
+          "reference": "../favicon.svg"
+        },
+        {
+          "file": "project/distributed-state-estimation.html",
+          "line": 1,
+          "reference": "../favicon.svg"
+        },
+        {
+          "file": "project/autonomous-industrial-inspection-robot.html",
+          "line": 1,
+          "reference": "../favicon.svg"
+        },
+        {
+          "file": "project/so101-robot-learning.html",
+          "line": 1,
+          "reference": "../favicon.svg"
+        },
+        {
+          "file": "project/telepresence-robot.html",
+          "line": 1,
+          "reference": "../favicon.svg"
+        },
+        {
+          "file": "project/unmanned-ground-vehicle.html",
+          "line": 1,
+          "reference": "../favicon.svg"
+        },
+        {
+          "file": "project/competitive-robotics.html",
+          "line": 1,
+          "reference": "../favicon.svg"
+        },
+        {
+          "file": "experience/jj-medtech-robotics.html",
+          "line": 1,
+          "reference": "../favicon.svg"
+        }
+      ],
+      "width": null,
+      "height": null,
+      "viewBox": "0 0 64 64",
+      "dimensions_evidence": "Verified SVG XML attributes",
+      "remote_blob_sha": "4ab673b7ea135d99ea242bb4c7156025db941025",
+      "remote_bytes": 868,
+      "remote_exists": true,
+      "current_references": [
+        {
+          "file": "index.html",
+          "line": 4,
+          "reference": "favicon.svg"
+        },
+        {
+          "file": "projects.html",
+          "line": 4,
+          "reference": "favicon.svg"
+        },
+        {
+          "file": "project/offline-face-recognition.html",
+          "line": 4,
+          "reference": "../favicon.svg"
+        },
+        {
+          "file": "project/so101-robot-learning.html",
+          "line": 4,
+          "reference": "../favicon.svg"
+        },
+        {
+          "file": "project/telepresence-robot.html",
+          "line": 4,
+          "reference": "../favicon.svg"
+        },
+        {
+          "file": "project/distributed-state-estimation.html",
+          "line": 4,
+          "reference": "../favicon.svg"
+        },
+        {
+          "file": "project/autonomous-industrial-inspection-robot.html",
+          "line": 4,
+          "reference": "../favicon.svg"
+        },
+        {
+          "file": "project/industrial-robot-operations-intelligence.html",
+          "line": 4,
+          "reference": "../favicon.svg"
+        },
+        {
+          "file": "project/rst-hackathon.html",
+          "line": 4,
+          "reference": "../favicon.svg"
+        },
+        {
+          "file": "project/turtlebot3-navigation.html",
+          "line": 4,
+          "reference": "../favicon.svg"
+        },
+        {
+          "file": "project/iiot-anomaly-detector.html",
+          "line": 4,
+          "reference": "../favicon.svg"
+        },
+        {
+          "file": "project/robot-fleet-observability-platform.html",
+          "line": 4,
+          "reference": "../favicon.svg"
+        },
+        {
+          "file": "project/unmanned-ground-vehicle.html",
+          "line": 4,
+          "reference": "../favicon.svg"
+        },
+        {
+          "file": "project/competitive-robotics.html",
+          "line": 4,
+          "reference": "../favicon.svg"
+        },
+        {
+          "file": "project/ur10-manipulator.html",
+          "line": 4,
+          "reference": "../favicon.svg"
+        },
+        {
+          "file": "experience/jj-medtech-robotics.html",
+          "line": 4,
+          "reference": "../favicon.svg"
+        }
+      ],
+      "current_git_blob_sha": "6d3f124d84effffe2fea77fe0f75ed9f1051e209",
+      "baseline_bytes_preserved": false,
+      "decode_status": "passed"
+    },
+    {
+      "path": "profile.jpg",
+      "format": "jpg",
+      "local_verified": true,
+      "dimensions_evidence": "Pillow full decode; display dimensions after ImageOps.exif_transpose",
+      "references": [
+        {
+          "file": "index.html",
+          "line": 584,
+          "reference": "profile.jpg"
+        }
+      ],
+      "remote_blob_sha": "bf0cead449581ceb9f65fa175db0c9f33ab12bcb",
+      "remote_bytes": 2635689,
+      "remote_exists": true,
+      "width": 1792,
+      "height": 2400,
+      "local_bytes": 2635689,
+      "sha256": "95895ae14bb4661ce2ae5ac0cf3fe7903b5f47bcdb66a378a4dee54c026dab00",
+      "current_references": [],
+      "current_git_blob_sha": "bf0cead449581ceb9f65fa175db0c9f33ab12bcb",
+      "baseline_bytes_preserved": true,
+      "display_width": 1792,
+      "display_height": 2400,
+      "decoded_format": "JPEG",
+      "exif_orientation": null,
+      "decode_status": "passed"
+    },
+    {
+      "path": "project2.jpg",
+      "format": "jpg",
+      "local_verified": true,
+      "dimensions_evidence": "Pillow full decode; display dimensions after ImageOps.exif_transpose",
+      "references": [
+        {
+          "file": "index.html",
+          "line": 704,
+          "reference": "project2.jpg"
+        },
+        {
+          "file": "project/telepresence-robot.html",
+          "line": 1,
+          "reference": "../project2.jpg"
+        }
+      ],
+      "remote_blob_sha": "9b370ee14efdb4fd91e0e078bfd624ea7f6dbff2",
+      "remote_bytes": 168713,
+      "remote_exists": true,
+      "width": 887,
+      "height": 592,
+      "local_bytes": 168713,
+      "sha256": "1f947a1929349170bf70f3ef3e4eb79ed155fa2f6f6a2334d0a325c5ad03d373",
+      "current_references": [
+        {
+          "file": "projects.html",
+          "line": 9,
+          "reference": "project2.jpg"
+        },
+        {
+          "file": "project/offline-face-recognition.html",
+          "line": 9,
+          "reference": "../project2.jpg"
+        },
+        {
+          "file": "project/so101-robot-learning.html",
+          "line": 9,
+          "reference": "../project2.jpg"
+        },
+        {
+          "file": "project/telepresence-robot.html",
+          "line": 9,
+          "reference": "../project2.jpg"
+        },
+        {
+          "file": "project/distributed-state-estimation.html",
+          "line": 9,
+          "reference": "../project2.jpg"
+        },
+        {
+          "file": "project/autonomous-industrial-inspection-robot.html",
+          "line": 9,
+          "reference": "../project2.jpg"
+        },
+        {
+          "file": "project/turtlebot3-navigation.html",
+          "line": 9,
+          "reference": "../project2.jpg"
+        },
+        {
+          "file": "project/iiot-anomaly-detector.html",
+          "line": 9,
+          "reference": "../project2.jpg"
+        },
+        {
+          "file": "project/unmanned-ground-vehicle.html",
+          "line": 9,
+          "reference": "../project2.jpg"
+        },
+        {
+          "file": "project/competitive-robotics.html",
+          "line": 9,
+          "reference": "../project2.jpg"
+        },
+        {
+          "file": "data/projects.json",
+          "project": "telepresence-robot"
+        }
+      ],
+      "current_git_blob_sha": "9b370ee14efdb4fd91e0e078bfd624ea7f6dbff2",
+      "baseline_bytes_preserved": true,
+      "display_width": 887,
+      "display_height": 592,
+      "decoded_format": "PNG",
+      "exif_orientation": null,
+      "decode_status": "passed"
+    },
+    {
+      "path": "project4.jpg",
+      "format": "jpg",
+      "local_verified": true,
+      "dimensions_evidence": "Pillow full decode; display dimensions after ImageOps.exif_transpose",
+      "references": [
+        {
+          "file": "index.html",
+          "line": 752,
+          "reference": "project4.jpg"
+        },
+        {
+          "file": "project/unmanned-ground-vehicle.html",
+          "line": 1,
+          "reference": "../project4.jpg"
+        }
+      ],
+      "remote_blob_sha": "9f88db7a790c0149e2c4ff5424a919bc6234c7c8",
+      "remote_bytes": 8473049,
+      "remote_exists": true,
+      "width": 4000,
+      "height": 3000,
+      "local_bytes": 8473049,
+      "sha256": "a045ea3d05ac7df3e87b0cd1069ae12f5128b0e4d00d46c03eaab3a93457fe63",
+      "current_references": [
+        {
+          "file": "projects.html",
+          "line": 9,
+          "reference": "project4.jpg"
+        },
+        {
+          "file": "project/telepresence-robot.html",
+          "line": 9,
+          "reference": "../project4.jpg"
+        },
+        {
+          "file": "project/turtlebot3-navigation.html",
+          "line": 9,
+          "reference": "../project4.jpg"
+        },
+        {
+          "file": "project/unmanned-ground-vehicle.html",
+          "line": 9,
+          "reference": "../project4.jpg"
+        },
+        {
+          "file": "data/projects.json",
+          "project": "unmanned-ground-vehicle"
+        }
+      ],
+      "current_git_blob_sha": "9f88db7a790c0149e2c4ff5424a919bc6234c7c8",
+      "baseline_bytes_preserved": true,
+      "display_width": 3000,
+      "display_height": 4000,
+      "decoded_format": "JPEG",
+      "exif_orientation": 6,
+      "decode_status": "passed"
+    }
+  ],
+  "external_image_references": {
+    "https://www.transparenttextures.com/patterns/carbon-fibre.png": [
+      {
+        "file": "index.html",
+        "line": 704,
+        "reference": "https://www.transparenttextures.com/patterns/carbon-fibre.png"
+      },
+      {
+        "file": "index.html",
+        "line": 752,
+        "reference": "https://www.transparenttextures.com/patterns/carbon-fibre.png"
+      }
+    ]
+  },
+  "limitations": [
+    "Image decoding verifies validity and dimensions, not subjective photographic fidelity.",
+    "SVG validation verifies XML syntax and declared canvas; visual browser checks are reported separately."
+  ],
+  "baseline_tree_sha": "d2efd1781c07c497fcd8147e38e4aae4f08fb66c"
+}

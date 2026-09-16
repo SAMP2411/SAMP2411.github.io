@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="940" viewBox="0 0 1100 940" role="img" aria-labelledby="iiot-title iiot-desc">
+<title id="iiot-title">IIoT anomaly detection: source-reviewed architecture</title>
+<desc id="iiot-desc">Main alert loop: locally simulated readings, Isolation Forest prediction, anomaly selection and MQTT alert publication. Separate offline scripts generate a tabular dataset and visualize anomaly results with Matplotlib. This diagram reconstructs the source structure; it does not establish measured performance.</desc>
+<defs>
+ <marker id="iiot-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="m1 1 8 4-8 4" fill="none" stroke="#67d7d8" stroke-width="1.5"/></marker>
+ <style>
+  text{font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}
+  .heading{fill:#f0f5f7;font-size:22px;font-weight:650}
+  .body{fill:#bdcdd6;font-size:18px}
+  .meta{fill:#a5b9c7;font-size:16px}
+  .label{fill:#67d7d8;font-size:14px;font-weight:650;letter-spacing:1.6px}
+  .box{fill:#162631;stroke:#3b5566;stroke-width:1.5}
+  .arrow{fill:none;stroke:#67d7d8;stroke-width:2;marker-end:url(#iiot-arrow)}
+ </style>
+</defs>
+<rect width="1100" height="940" rx="20" fill="#0c1620"/>
+<text x="48" y="54" class="label">INDUSTRIAL AI / EXPLANATORY ARCHITECTURE</text>
+<text x="48" y="103" fill="#f0f5f7" font-size="34" font-weight="700">IIoT Anomaly Detector</text>
+<text x="48" y="137" class="body">Simulated measurements → anomaly prediction → alert publication</text>
+<path d="M48 166h1004" stroke="#304656"/>
+<text x="48" y="203" class="label">ALERT LOOP · ai_agent.py</text>
+<text x="714" y="203" class="label">SEPARATE OFFLINE SCRIPTS</text>
+<rect class="box" x="48" y="226" width="602" height="112" rx="12"/>
+<text x="72" y="259" class="label">01 / LOCAL INPUT</text>
+<text x="72" y="291" class="heading">Simulated data</text>
+<text x="72" y="318" class="body">50 local readings at one-second intervals</text>
+<path d="M349 338v39" class="arrow"/>
+<rect class="box" x="48" y="386" width="602" height="112" rx="12"/>
+<text x="72" y="419" class="label">02 / MODEL INFERENCE</text>
+<text x="72" y="451" class="heading">Isolation Forest</text>
+<text x="72" y="478" class="body">Select features; predict normal or anomalous readings</text>
+<path d="M349 498v39" class="arrow"/>
+<rect class="box" x="48" y="546" width="602" height="112" rx="12"/>
+<text x="72" y="579" class="label">03 / ALERT CONDITION</text>
+<text x="72" y="611" class="heading">Anomaly selection</text>
+<text x="72" y="638" class="body">Identify predicted anomalies for publication</text>
+<path d="M349 658v39" class="arrow"/>
+<rect class="box" x="48" y="706" width="602" height="112" rx="12"/>
+<text x="72" y="739" class="label">04 / MESSAGE OUTPUT</text>
+<text x="72" y="771" class="heading">MQTT publication</text>
+<text x="72" y="798" class="body">Publish anomaly alerts for downstream monitoring</text>
+<!-- These tools are intentionally disconnected from the live-style alert loop. -->
+<rect x="694" y="226" width="358" height="206" rx="12" fill="#111f2b" stroke="#3b5566"/>
+<text x="718" y="263" class="heading">Dataset generation</text>
+<text x="718" y="302" class="body">Create 1,000 simulated rows</text>
+<text x="718" y="332" class="body">for tabular experimentation.</text>
+<text x="718" y="395" class="meta">simulate_sensor_data.py</text>
+<rect x="694" y="460" width="358" height="206" rx="12" fill="#111f2b" stroke="#3b5566"/>
+<text x="718" y="497" class="heading">Offline visualization</text>
+<text x="718" y="536" class="body">Explore anomaly results</text>
+<text x="718" y="566" class="body">using Matplotlib.</text>
+<text x="718" y="629" class="meta">detect_anomalies.py</text>
+<text x="714" y="711" class="meta">Separate exploratory tools;</text>
+<text x="714" y="736" class="meta">not a subscriber inference stage</text>
+<text x="714" y="761" class="meta">or a real-time web dashboard.</text>
+<path d="M48 851h1004" stroke="#304656"/>
+<text x="48" y="885" class="meta">Evidence boundary: source-reviewed prototype structure, not a performance benchmark.</text>
+<text x="48" y="912" class="meta">No verified end-to-end latency or labelled fault-classification accuracy is asserted.</text>
+</svg>

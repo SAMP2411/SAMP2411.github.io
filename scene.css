@@ -1,0 +1,21 @@
+/* Repository-owned conceptual illustration. Animation is opt-in after JS loads. */
+.robotics-visual{position:relative;isolation:isolate;width:100%;min-width:0}
+.robotics-scene{display:block;width:100%;height:auto;overflow:visible}
+.scene-arm{transform-origin:400px 309px}
+.scene-amr{transform-origin:217px 414px}
+.robotics-visual.scene-ready .scene-arm{animation:robot-arm-settle 12s ease-in-out infinite}
+.robotics-visual.scene-ready .scene-amr{animation:robot-route-traverse 18s ease-in-out infinite}
+.robotics-visual.scene-ready .scene-route{animation:robot-route-flow 5s linear infinite}
+.robotics-visual.scene-ready .scene-lidar{animation:robot-scan 6s ease-in-out infinite}
+.robotics-visual.scene-paused *{animation-play-state:paused!important}
+.scene-caption{display:flex;align-items:center;justify-content:space-between;gap:1rem;margin:0 1rem;color:#a6bbc4;font:500 .65rem/1.5 ui-monospace,monospace;letter-spacing:.08em;text-transform:uppercase}
+.scene-toggle{background:transparent;color:#bdcdd4;border:1px solid #3a515e;border-radius:4px;padding:.55rem .7rem;min-height:44px;cursor:pointer;font:inherit;letter-spacing:.03em;text-transform:none;white-space:nowrap}
+.scene-toggle:hover{border-color:#76d3d5;color:#e4ffff}
+.scene-toggle:focus-visible{outline:2px solid #76d3d5;outline-offset:4px}
+.scene-toggle[hidden]{display:none}
+@keyframes robot-arm-settle{0%,15%,100%{transform:rotate(0deg)}45%,65%{transform:rotate(-8deg)}}
+@keyframes robot-route-traverse{0%,12%,100%{transform:translate(0,0)}42%,58%{transform:translate(84px,49px)}}
+@keyframes robot-route-flow{to{stroke-dashoffset:-52}}
+@keyframes robot-scan{0%,100%{opacity:.35}50%{opacity:1}}
+@media(max-width:600px){.scene-caption{font-size:.6rem;margin:0}.robotics-visual.scene-ready .scene-lidar{animation:none}.robotics-scene{max-height:410px}}
+@media(prefers-reduced-motion:reduce){.robotics-visual.scene-ready *{animation:none!important}.scene-toggle{display:none}}

@@ -1,0 +1,16 @@
+{
+  "name": "samarth-robotics-portfolio",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Static GitHub Pages portfolio; npm dependencies are development-only QA tools.",
+  "type": "module",
+  "scripts": {
+    "build": "python3 scripts/build_site.py",
+    "validate": "python3 scripts/validate_site.py",
+    "test:browser": "node scripts/browser-test.mjs"
+  },
+  "devDependencies": {
+    "playwright": "1.56.1",
+    "@axe-core/playwright": "4.10.2"
+  }
+}

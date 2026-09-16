@@ -1,0 +1,659 @@
+[
+  {
+    "path": "assets/ai/competitive-hd.svg",
+    "bytes": 3885,
+    "sha256": "02f2ad5f7eb021e874a7a5f3c4f1e7f3f2ead379bfad1d9f15b68106d46e4a3d",
+    "format": "SVG",
+    "width": null,
+    "height": null,
+    "viewBox": "0 0 1600 900"
+  },
+  {
+    "path": "assets/ai/competitive-photo-hd.webp",
+    "bytes": 153276,
+    "sha256": "5ee658db820e5a1a2c90eb0ee73acda32c096bc9885d44441fac6ad00f131bf3",
+    "format": "WEBP",
+    "width": 1600,
+    "height": 900,
+    "display_width": 1600,
+    "display_height": 900,
+    "exif_orientation": null
+  },
+  {
+    "path": "assets/ai/competitive.webp",
+    "bytes": 5898,
+    "sha256": "ce113ff0290f5a9f4c828cec0a05bfe736bfeb9aa203959f6de40d1ef43bd381",
+    "format": "WEBP",
+    "width": 360,
+    "height": 203,
+    "display_width": 360,
+    "display_height": 203,
+    "exif_orientation": null
+  },
+  {
+    "path": "assets/ai/dse-hd.svg",
+    "bytes": 4804,
+    "sha256": "3032129c835e2a62580260bb0c7b1b188ced53812fa2e2aa016abf6e2183c68b",
+    "format": "SVG",
+    "width": null,
+    "height": null,
+    "viewBox": "0 0 1600 900"
+  },
+  {
+    "path": "assets/ai/dse-photo-hd.webp",
+    "bytes": 166660,
+    "sha256": "49c2d7290d361a4744115ee652302b9d9d7347fb1b43b8dcc0feb9dfd58716e9",
+    "format": "WEBP",
+    "width": 1600,
+    "height": 900,
+    "display_width": 1600,
+    "display_height": 900,
+    "exif_orientation": null
+  },
+  {
+    "path": "assets/ai/dse.webp",
+    "bytes": 6106,
+    "sha256": "c241ac1461beda0938b297eab3fd75b6564d21972c00abc4fff35565cfafc496",
+    "format": "WEBP",
+    "width": 360,
+    "height": 203,
+    "display_width": 360,
+    "display_height": 203,
+    "exif_orientation": null
+  },
+  {
+    "path": "assets/ai/face-hd.svg",
+    "bytes": 3650,
+    "sha256": "6b5b96104685c603e54c917956d149ad8763616b3e058e3c6f7496e03bd8d1b3",
+    "format": "SVG",
+    "width": null,
+    "height": null,
+    "viewBox": "0 0 1600 900"
+  },
+  {
+    "path": "assets/ai/face-photo-hd.webp",
+    "bytes": 88822,
+    "sha256": "6801a3f316e598b9f1b703728156ff491fb1b5714dbc4660710ef8d8fad1f00e",
+    "format": "WEBP",
+    "width": 1600,
+    "height": 900,
+    "display_width": 1600,
+    "display_height": 900,
+    "exif_orientation": null
+  },
+  {
+    "path": "assets/ai/face.webp",
+    "bytes": 3450,
+    "sha256": "3c91e16b2fb296325aa025988e8bc8f8d2db31554d1eff75f25af6b6dd0a0533",
+    "format": "WEBP",
+    "width": 360,
+    "height": 203,
+    "display_width": 360,
+    "display_height": 203,
+    "exif_orientation": null
+  },
+  {
+    "path": "assets/ai/iiot-hd.svg",
+    "bytes": 3585,
+    "sha256": "c550cbb7fd191788a569cb732526feaad01b8ace344c0534876d14d16fc18337",
+    "format": "SVG",
+    "width": null,
+    "height": null,
+    "viewBox": "0 0 1600 900"
+  },
+  {
+    "path": "assets/ai/iiot-photo-hd.webp",
+    "bytes": 102970,
+    "sha256": "ae3490b6b2900cd288ace77e7359e1d16ac17c3bf2185629eba29ad750a4af12",
+    "format": "WEBP",
+    "width": 1600,
+    "height": 900,
+    "display_width": 1600,
+    "display_height": 900,
+    "exif_orientation": null
+  },
+  {
+    "path": "assets/ai/iiot.webp",
+    "bytes": 3954,
+    "sha256": "edd74f7d728ab21895f11377aa7a06f83178a8157101662cd2c17f7ad57349d8",
+    "format": "WEBP",
+    "width": 360,
+    "height": 203,
+    "display_width": 360,
+    "display_height": 203,
+    "exif_orientation": null
+  },
+  {
+    "path": "assets/ai/jj-hd.svg",
+    "bytes": 4152,
+    "sha256": "cd4a8593f76269c79a8bf57450f31e7f2f8115c942d088dcb3adb6d2bf389098",
+    "format": "SVG",
+    "width": null,
+    "height": null,
+    "viewBox": "0 0 1600 900"
+  },
+  {
+    "path": "assets/ai/jj-photo-hd.webp",
+    "bytes": 135112,
+    "sha256": "afb63e0acabbb26c697b5b3a13faa0b20e27fc3f3d20381147bf42b008bf3481",
+    "format": "WEBP",
+    "width": 1600,
+    "height": 900,
+    "display_width": 1600,
+    "display_height": 900,
+    "exif_orientation": null
+  },
+  {
+    "path": "assets/ai/jj.webp",
+    "bytes": 5138,
+    "sha256": "ad4cabf25a9cbb9081c802d97dbffc437bb482925ad558cdd9737180ea52e073",
+    "format": "WEBP",
+    "width": 360,
+    "height": 203,
+    "display_width": 360,
+    "display_height": 203,
+    "exif_orientation": null
+  },
+  {
+    "path": "assets/ai/rst-hd.svg",
+    "bytes": 4078,
+    "sha256": "39b36ed2202d0f92a234fa4182a3ec5d9b95456e18048225404f1e1ecc77c601",
+    "format": "SVG",
+    "width": null,
+    "height": null,
+    "viewBox": "0 0 1600 900"
+  },
+  {
+    "path": "assets/ai/rst-photo-hd.webp",
+    "bytes": 106092,
+    "sha256": "e9d5b545106a939ebbfbcff23980e1928d8d9d67912ff1aca73e2746b74d45dd",
+    "format": "WEBP",
+    "width": 1600,
+    "height": 900,
+    "display_width": 1600,
+    "display_height": 900,
+    "exif_orientation": null
+  },
+  {
+    "path": "assets/ai/rst.webp",
+    "bytes": 4170,
+    "sha256": "9a42c332691e076735b03a620d3a8296f780f1af851b9e9b34c6548395eb7f3f",
+    "format": "WEBP",
+    "width": 360,
+    "height": 203,
+    "display_width": 360,
+    "display_height": 203,
+    "exif_orientation": null
+  },
+  {
+    "path": "assets/ai/so101-hd.svg",
+    "bytes": 4093,
+    "sha256": "f2c745c02c4adf67960ac99a8971a7e4fac62437e0219c8fe22033b2c1a90b35",
+    "format": "SVG",
+    "width": null,
+    "height": null,
+    "viewBox": "0 0 1600 900"
+  },
+  {
+    "path": "assets/ai/so101-photo-hd.webp",
+    "bytes": 107700,
+    "sha256": "00fb2275da060c8387ddc551c41f9ed0966884b4c2d862d0a6912e6a1c0def64",
+    "format": "WEBP",
+    "width": 1600,
+    "height": 900,
+    "display_width": 1600,
+    "display_height": 900,
+    "exif_orientation": null
+  },
+  {
+    "path": "assets/ai/so101.webp",
+    "bytes": 4216,
+    "sha256": "5a0f3d904744ffd2e0e3b9635dd8869f288c89201a78d5a4b3a326eaadce77a0",
+    "format": "WEBP",
+    "width": 360,
+    "height": 203,
+    "display_width": 360,
+    "display_height": 203,
+    "exif_orientation": null
+  },
+  {
+    "path": "assets/ai/turtlebot3-hd.svg",
+    "bytes": 3816,
+    "sha256": "a92247cee00734625038cae770fcda44bdec18a06d490634509522eb8a2ec41a",
+    "format": "SVG",
+    "width": null,
+    "height": null,
+    "viewBox": "0 0 1600 900"
+  },
+  {
+    "path": "assets/ai/turtlebot3-photo-hd.webp",
+    "bytes": 82546,
+    "sha256": "74a8468a43ddd289cf875ea32dfc0c4800b80ce8b173a6601c4e2c3435ed9a5b",
+    "format": "WEBP",
+    "width": 1600,
+    "height": 900,
+    "display_width": 1600,
+    "display_height": 900,
+    "exif_orientation": null
+  },
+  {
+    "path": "assets/ai/turtlebot3.webp",
+    "bytes": 3084,
+    "sha256": "1317ff0a34480290c4b4cfce703e736d48ce1b6108e871b646d99a3f5bf594a6",
+    "format": "WEBP",
+    "width": 360,
+    "height": 203,
+    "display_width": 360,
+    "display_height": 203,
+    "exif_orientation": null
+  },
+  {
+    "path": "assets/ai/ur10-hd.svg",
+    "bytes": 4008,
+    "sha256": "0d182cef5f0ac8722bdc65625bb554f0cff28b5458f72b1f312e239540558c41",
+    "format": "SVG",
+    "width": null,
+    "height": null,
+    "viewBox": "0 0 1600 900"
+  },
+  {
+    "path": "assets/ai/ur10-photo-hd.webp",
+    "bytes": 109020,
+    "sha256": "f63be67bef0895a5dec0ea4987ff3d8381b078cd2a4982557d76f28d8fe5b852",
+    "format": "WEBP",
+    "width": 1600,
+    "height": 900,
+    "display_width": 1600,
+    "display_height": 900,
+    "exif_orientation": null
+  },
+  {
+    "path": "assets/ai/ur10.webp",
+    "bytes": 4406,
+    "sha256": "5fa3ad3af189ca4227c7be003043b60c1d04f8f250d86bd8b84517424d7984aa",
+    "format": "WEBP",
+    "width": 360,
+    "height": 203,
+    "display_width": 360,
+    "display_height": 203,
+    "exif_orientation": null
+  },
+  {
+    "path": "assets/flowcharts/autonomous-industrial-inspection-robot-detailed.svg",
+    "bytes": 14480,
+    "sha256": "9ed3bf8ba2ae2c1534cb6a8fba619914cbb73aab5d88b0669c8542c1139baa2a",
+    "format": "SVG",
+    "width": "1600",
+    "height": "900",
+    "viewBox": "0 0 1600 900"
+  },
+  {
+    "path": "assets/flowcharts/autonomous-industrial-inspection-robot.svg",
+    "bytes": 6344,
+    "sha256": "0a7a4dbdcd138300f237cffd00d441f93f7971161fc4c1d4aebe8283ff8dc974",
+    "format": "SVG",
+    "width": "1600",
+    "height": "650",
+    "viewBox": "0 0 1600 650"
+  },
+  {
+    "path": "assets/flowcharts/competitive-robotics-detailed.svg",
+    "bytes": 11747,
+    "sha256": "05516c6d3dbc6853072092c7ba07b1c45ca46112b921663c739b5df977751fab",
+    "format": "SVG",
+    "width": "1600",
+    "height": "900",
+    "viewBox": "0 0 1600 900"
+  },
+  {
+    "path": "assets/flowcharts/competitive-robotics.svg",
+    "bytes": 4934,
+    "sha256": "fa7e081a3e1fc5f2f84405010de88c8df97ccfdcb27ed505475bd538f8d69b7e",
+    "format": "SVG",
+    "width": "1600",
+    "height": "650",
+    "viewBox": "0 0 1600 650"
+  },
+  {
+    "path": "assets/flowcharts/distributed-state-estimation-detailed.svg",
+    "bytes": 13136,
+    "sha256": "0ef40f724a826072d9c3db7ec51f190b6ed520997ec4170f323544da3a563c75",
+    "format": "SVG",
+    "width": "1600",
+    "height": "900",
+    "viewBox": "0 0 1600 900"
+  },
+  {
+    "path": "assets/flowcharts/distributed-state-estimation.svg",
+    "bytes": 6013,
+    "sha256": "b6bc3b9d0e4d472647d96d43e332784fcb39d3802069882b129226840f028da0",
+    "format": "SVG",
+    "width": "1600",
+    "height": "650",
+    "viewBox": "0 0 1600 650"
+  },
+  {
+    "path": "assets/flowcharts/iiot-anomaly-detector-detailed.svg",
+    "bytes": 11818,
+    "sha256": "3afc688ed542b9725acedb042d49b21e9daf88854cf2fb07d2b0f6ae095a1126",
+    "format": "SVG",
+    "width": "1600",
+    "height": "900",
+    "viewBox": "0 0 1600 900"
+  },
+  {
+    "path": "assets/flowcharts/iiot-anomaly-detector-reviewed.svg",
+    "bytes": 4285,
+    "sha256": "afca5ad24780900945617c65a78b3c1e81bda50b3f652ff22667bde477b38d66",
+    "format": "SVG",
+    "width": "1100",
+    "height": "940",
+    "viewBox": "0 0 1100 940"
+  },
+  {
+    "path": "assets/flowcharts/iiot-anomaly-detector.svg",
+    "bytes": 6172,
+    "sha256": "233c4425eae6f5d89d77df9e7ae4e0f39f2dddabf89da2d53f961999aaddf3c9",
+    "format": "SVG",
+    "width": "1600",
+    "height": "650",
+    "viewBox": "0 0 1600 650"
+  },
+  {
+    "path": "assets/flowcharts/industrial-robot-operations-intelligence-detailed.svg",
+    "bytes": 15381,
+    "sha256": "ff797dc71716735fe818c91fffaf03426fb6585a94e1b315aadea65d51929916",
+    "format": "SVG",
+    "width": "1600",
+    "height": "900",
+    "viewBox": "0 0 1600 900"
+  },
+  {
+    "path": "assets/flowcharts/industrial-robot-operations-intelligence.svg",
+    "bytes": 8569,
+    "sha256": "c7f8d517e11b6174d883679b8b624e1a543b84c94fae09a23d292a5c9152083d",
+    "format": "SVG",
+    "width": "1600",
+    "height": "650",
+    "viewBox": "0 0 1600 650"
+  },
+  {
+    "path": "assets/flowcharts/offline-face-recognition-detailed.svg",
+    "bytes": 11551,
+    "sha256": "ef87e67de5e92ff484bcc11a0b840de15674f92cd63216d82781bcc5164c359d",
+    "format": "SVG",
+    "width": "1600",
+    "height": "900",
+    "viewBox": "0 0 1600 900"
+  },
+  {
+    "path": "assets/flowcharts/offline-face-recognition.svg",
+    "bytes": 6069,
+    "sha256": "fcaac75bb0c4b46fcfbd6c7ae4f9a7e33c6e3b79c132cf5d54cb0d390d41330a",
+    "format": "SVG",
+    "width": "1600",
+    "height": "650",
+    "viewBox": "0 0 1600 650"
+  },
+  {
+    "path": "assets/flowcharts/robot-fleet-observability-platform-detailed.svg",
+    "bytes": 13477,
+    "sha256": "0ad08d126c6d4e76daf22e2a30b6263efa71724c8c8976eb7731f038a7b1ee02",
+    "format": "SVG",
+    "width": "1600",
+    "height": "900",
+    "viewBox": "0 0 1600 900"
+  },
+  {
+    "path": "assets/flowcharts/robot-fleet-observability-platform.svg",
+    "bytes": 6468,
+    "sha256": "b5012ffebd15bb4fc936cb23a8ad6c4bed89122969a3f03e0a23893a5daed4f4",
+    "format": "SVG",
+    "width": "1600",
+    "height": "650",
+    "viewBox": "0 0 1600 650"
+  },
+  {
+    "path": "assets/flowcharts/rst-hackathon-detailed.svg",
+    "bytes": 10959,
+    "sha256": "17e5e2d4b3afae8f28acce8d471b3d5c826541c977dedb3a3181be1453a73290",
+    "format": "SVG",
+    "width": "1600",
+    "height": "900",
+    "viewBox": "0 0 1600 900"
+  },
+  {
+    "path": "assets/flowcharts/rst-hackathon.svg",
+    "bytes": 5482,
+    "sha256": "5ede267f7a22326470ffb2ce9cffae54a48e4c7ab6a6527bba4bc1c59dcfaeb4",
+    "format": "SVG",
+    "width": "1600",
+    "height": "650",
+    "viewBox": "0 0 1600 650"
+  },
+  {
+    "path": "assets/flowcharts/so101-robot-learning-detailed.svg",
+    "bytes": 14800,
+    "sha256": "48df222ea4e9015176f10bb4c6f4cb5fffe414bb57bc96d945d19ca83e1104c8",
+    "format": "SVG",
+    "width": "1600",
+    "height": "900",
+    "viewBox": "0 0 1600 900"
+  },
+  {
+    "path": "assets/flowcharts/so101-robot-learning.svg",
+    "bytes": 6310,
+    "sha256": "8a3671a0640b91814f743653ad2d18c950524b5703ad33da3b0879e4a071558b",
+    "format": "SVG",
+    "width": "1600",
+    "height": "650",
+    "viewBox": "0 0 1600 650"
+  },
+  {
+    "path": "assets/flowcharts/telepresence-robot-detailed.svg",
+    "bytes": 13448,
+    "sha256": "9c3b36afdcd0b06b731e0d4c30e5a9e5fdb5de00bcd998b74eb9aae3c7ff2afb",
+    "format": "SVG",
+    "width": "1600",
+    "height": "900",
+    "viewBox": "0 0 1600 900"
+  },
+  {
+    "path": "assets/flowcharts/telepresence-robot.svg",
+    "bytes": 6045,
+    "sha256": "7bb3da2d9f0356057e443476847e64df4965af9f430433f61114557c15a18cf2",
+    "format": "SVG",
+    "width": "1600",
+    "height": "650",
+    "viewBox": "0 0 1600 650"
+  },
+  {
+    "path": "assets/flowcharts/turtlebot3-navigation-detailed.svg",
+    "bytes": 12305,
+    "sha256": "ee051c2d5a30815da5ec8c055c1b2e104822ec00d96a89bd54a206480024a9b5",
+    "format": "SVG",
+    "width": "1600",
+    "height": "900",
+    "viewBox": "0 0 1600 900"
+  },
+  {
+    "path": "assets/flowcharts/turtlebot3-navigation.svg",
+    "bytes": 6171,
+    "sha256": "badde6be84f99a7d4612f4dddfc4315b41f00b2e7f02fc3f5914d333101d8999",
+    "format": "SVG",
+    "width": "1600",
+    "height": "650",
+    "viewBox": "0 0 1600 650"
+  },
+  {
+    "path": "assets/flowcharts/unmanned-ground-vehicle-detailed.svg",
+    "bytes": 12692,
+    "sha256": "6552adab56330c8c273fbca7dfca903e5e08c4019b49f89b11b659f766733df2",
+    "format": "SVG",
+    "width": "1600",
+    "height": "900",
+    "viewBox": "0 0 1600 900"
+  },
+  {
+    "path": "assets/flowcharts/unmanned-ground-vehicle.svg",
+    "bytes": 6025,
+    "sha256": "cb3a406b03cd86e8d8545f53e6251b1af5e311a54da1e9daba5c748e59bd0d9b",
+    "format": "SVG",
+    "width": "1600",
+    "height": "650",
+    "viewBox": "0 0 1600 650"
+  },
+  {
+    "path": "assets/flowcharts/ur10-manipulator-detailed.svg",
+    "bytes": 13493,
+    "sha256": "5149d79ae6712335dc3d55ebbbb86f428ba3386cbeadc4f83b5393c5fe60051e",
+    "format": "SVG",
+    "width": "1600",
+    "height": "900",
+    "viewBox": "0 0 1600 900"
+  },
+  {
+    "path": "assets/flowcharts/ur10-manipulator.svg",
+    "bytes": 6338,
+    "sha256": "cf52d5cab73e069f8eee072e9e8066730bcdf1f156b07b19216ee1ddd0adbda0",
+    "format": "SVG",
+    "width": "1600",
+    "height": "650",
+    "viewBox": "0 0 1600 650"
+  },
+  {
+    "path": "assets/portfolio-ai-sprite.svg",
+    "bytes": 10046,
+    "sha256": "fcfa55a0dcb72ae0100771ca076d84c7771be4cb909e81de77efc37cf49de53d",
+    "format": "SVG",
+    "width": null,
+    "height": null,
+    "viewBox": "0 0 800 3150"
+  },
+  {
+    "path": "assets/project/autonomous-industrial-inspection-hd-v2.webp",
+    "bytes": 139960,
+    "sha256": "9db6956bf2d7015821bbfdf2ce4a61174b640bc50396d871b329d227374ab901",
+    "format": "WEBP",
+    "width": 1600,
+    "height": 900,
+    "display_width": 1600,
+    "display_height": 900,
+    "exif_orientation": null
+  },
+  {
+    "path": "assets/project/autonomous-industrial-inspection-hd.webp",
+    "bytes": 15044,
+    "sha256": "fee9afc3366e30488a90d414182df9ad4afec6ca6de47ed546804cbda60263c8",
+    "error": "could not create decoder object"
+  },
+  {
+    "path": "assets/project/fleet-observability-system.svg",
+    "bytes": 5509,
+    "sha256": "ee302e04a4f0329a9f15c0ddc7c902b1a9f0e94fbd8e59b05b845fe0fbfe9306",
+    "error": "not well-formed (invalid token): line 25, column 150"
+  },
+  {
+    "path": "assets/project/industrial-inspection-system.svg",
+    "bytes": 4715,
+    "sha256": "28851011309ffe7c7d71e18db2ab90dc49accfdd0004e9e94c92c2e099bffc76",
+    "format": "SVG",
+    "width": "1600",
+    "height": "900",
+    "viewBox": "0 0 1600 900"
+  },
+  {
+    "path": "assets/project/industrial-robot-operations-intelligence-hd-v2.webp",
+    "bytes": 89078,
+    "sha256": "1c4318170a239d2bd4e5845420dc406b15d82e3c6bf0c911daa6e8528b386c71",
+    "format": "WEBP",
+    "width": 1600,
+    "height": 900,
+    "display_width": 1600,
+    "display_height": 900,
+    "exif_orientation": null
+  },
+  {
+    "path": "assets/project/industrial-robot-operations-intelligence-hd.jpg",
+    "bytes": 15082,
+    "sha256": "11afafef4f472dafadd8e7cfe6eed494876ce034d713c3dbf63bda59f4fb7bfd",
+    "error": "cannot identify image file '/workspace/scratch/7c33d256affc/portfolio/assets/project/industrial-robot-operations-intelligence-hd.jpg'"
+  },
+  {
+    "path": "assets/project/operations-intelligence-system.svg",
+    "bytes": 5408,
+    "sha256": "79596fba196aae4f16ce04746c769002298df8ade6d94b28ffb73d7b161c5b0f",
+    "format": "SVG",
+    "width": "1600",
+    "height": "900",
+    "viewBox": "0 0 1600 900"
+  },
+  {
+    "path": "assets/project/robot-fleet-observability-hd-v2.webp",
+    "bytes": 121170,
+    "sha256": "efbd32d567949ce2b4c68c720e1839783c2ea27e05f233c587e6d0338e64ec1d",
+    "format": "WEBP",
+    "width": 1600,
+    "height": 900,
+    "display_width": 1600,
+    "display_height": 900,
+    "exif_orientation": null
+  },
+  {
+    "path": "assets/project/robot-fleet-observability-hd.webp",
+    "bytes": 15008,
+    "sha256": "6ea55cb077589587645cb652bfd0a9827e18f769c61bde65109bd609eeaf97cd",
+    "error": "could not create decoder object"
+  },
+  {
+    "path": "assets/robotics-scene.svg",
+    "bytes": 7297,
+    "sha256": "c33c86b02607f71bd55feb90704d3c8246e02d887ef73e35319ab0c40c7c1100",
+    "format": "SVG",
+    "width": null,
+    "height": null,
+    "viewBox": "0 0 720 600"
+  },
+  {
+    "path": "favicon.svg",
+    "bytes": 869,
+    "sha256": "ee1901c17856958fe267008289d2ed52749e2c04d4541cd02b6b85362c342899",
+    "format": "SVG",
+    "width": null,
+    "height": null,
+    "viewBox": "0 0 64 64"
+  },
+  {
+    "path": "profile.jpg",
+    "bytes": 2635689,
+    "sha256": "95895ae14bb4661ce2ae5ac0cf3fe7903b5f47bcdb66a378a4dee54c026dab00",
+    "format": "JPEG",
+    "width": 1792,
+    "height": 2400,
+    "display_width": 1792,
+    "display_height": 2400,
+    "exif_orientation": null
+  },
+  {
+    "path": "project2.jpg",
+    "bytes": 168713,
+    "sha256": "1f947a1929349170bf70f3ef3e4eb79ed155fa2f6f6a2334d0a325c5ad03d373",
+    "format": "PNG",
+    "width": 887,
+    "height": 592,
+    "display_width": 887,
+    "display_height": 592,
+    "exif_orientation": null
+  },
+  {
+    "path": "project4.jpg",
+    "bytes": 8473049,
+    "sha256": "a045ea3d05ac7df3e87b0cd1069ae12f5128b0e4d00d46c03eaab3a93457fe63",
+    "format": "JPEG",
+    "width": 4000,
+    "height": 3000,
+    "display_width": 3000,
+    "display_height": 4000,
+    "exif_orientation": 6
+  }
+]

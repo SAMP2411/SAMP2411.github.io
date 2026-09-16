@@ -1,0 +1,14 @@
+/* Final composition and enhancement states. */
+.name-dot{color:var(--cyan)}
+.project-status{font:10px/1.6 Consolas,monospace;color:var(--orange);margin:0 0 16px}
+.project-extension{margin-top:28px;padding:26px 30px;border-left:2px solid var(--cyan);background:var(--surface);display:grid;grid-template-columns:1fr 1.2fr;gap:0 32px;align-items:center}
+.project-extension .eyebrow{margin:0 0 8px}.project-extension p{grid-column:1;margin:0;color:var(--muted);font-size:14px}.project-extension .text-link{grid-column:2;grid-row:1/3;justify-self:end}
+.project-index{padding-bottom:24px}.evidence-links{list-style:none;padding:0;margin:20px 0 0}.evidence-links li+li{margin-top:8px}
+.experience-company{color:var(--cyan)!important;margin-bottom:10px}.contact-email{margin:14px 0 0;font-size:12px!important;overflow-wrap:anywhere}
+.portrait-caption{font:11px/1.6 Consolas,monospace;color:var(--muted);margin-top:12px}.case-header .eyebrow{margin-top:22px}.hero-visual .robotics-visual{margin:0;width:100%;border:0;border-radius:0}
+.flowchart-image{min-width:720px}.flowchart-panel{margin-inline:0}.case-section .text-link{margin-top:10px}
+.dialog .tags{margin-top:16px}.dialog .tags li{font-size:11px;color:var(--text)}.dialog .contribution-list{margin-bottom:28px}.dialog .eyebrow{color:var(--orange)}
+.print-note{font-size:13px;color:var(--muted)}
+@media(max-width:899px){.hero-visual{aspect-ratio:auto;max-height:none}.hero-visual .robotics-visual{max-width:590px}.flowchart-image{min-width:900px}}
+@media(max-width:639px){.hero-visual .robotics-visual{max-width:100%}.hero-visual{max-height:none;min-height:0}.project-extension{display:block;padding:22px}.project-extension .text-link{margin-top:12px}.contact-email{font-size:11px!important}.hero-meta{line-height:1.7}.case-visual img{max-height:400px}}
+@media print{.experience-row{break-inside:avoid}.eyebrow,.experience-date,.project-status,.experience-company{color:#222!important}.page-header{padding-top:12px}.section{padding-block:20px}.experience-row{padding-block:14px}.experience-body h3{font-size:17px}.experience-body p{font-size:12px}.tags>*{background:white;color:#222;border-color:#aaa}.print-note{display:none}.case-visual{display:none}.hero-meta{color:#333}}

@@ -1,0 +1,1336 @@
+[
+  {
+    "slug": "distributed-state-estimation",
+    "title": "Distributed State Estimation",
+    "summary": "Built the embedded-Linux deployment layer for a research team: minimal ARM images, signed RAUC A/B updates, rollback and repeatable CI builds.",
+    "domain": "Embedded systems",
+    "tags": [
+      "Yocto",
+      "Buildroot",
+      "RAUC",
+      "U-Boot",
+      "containerd",
+      "GitLab CI",
+      "QEMU",
+      "ARM Linux"
+    ],
+    "status": "TU Dortmund Research Project",
+    "image": "assets/ai/dse-photo-hd.webp",
+    "image_kind": "Illustrative visualization",
+    "objective": "Build a secure, reproducible embedded-Linux edge platform for distributed state-estimation workloads, with maintainable Yocto builds, signed RAUC A/B OTA updates, containerized application deployment and QEMU-based validation on a constrained ARM target.",
+    "role": "Embedded Linux and deployment contributor",
+    "timeline": "Research project",
+    "contributions": [
+      "Built a minimal Linux image first with Buildroot and later migrated the platform to Yocto Scarthgap.",
+      "Integrated U-Boot, BusyBox, musl and containerd, and implemented RAUC A/B updates with RSA-4096 signing and rollback logic.",
+      "Used QEMU qemuarm to validate images and update flows against the planned ARM deployment workflow."
+    ],
+    "implementation": "Built a minimal Linux image first with Buildroot and later migrated the platform to Yocto Scarthgap. Integrated U-Boot, BusyBox, musl and containerd, and implemented RAUC A/B updates with RSA-4096 signing and rollback logic. Used QEMU qemuarm to validate images and update flows. My contribution was the operating-system and deployment layer, not the team's electrical state-estimation algorithms.",
+    "decisions": "The main trade-off was minimizing RAM and image complexity without removing the mechanisms needed for recoverable updates and containerized application delivery.",
+    "challenges": "The project required an operating-system and deployment approach suitable for resource-constrained edge devices while still supporting reliable application delivery and remote maintenance.",
+    "validation": "Verified A/B update behavior and rollback in QEMU, measured idle-memory behavior on the minimal image, and moved the build process into GitLab CI to make image generation repeatable.",
+    "outcome": "Reproducible ARM image builds and a signed, recoverable update workflow validated in QEMU.",
+    "links": [
+      {
+        "label": "Source repository",
+        "url": "https://gitlab.tu-dortmund.de/ie3/ie3_protection_and_automation/pgwise2526/-/tree/samarth?ref_type=heads"
+      }
+    ],
+    "goals": [
+      "Target the ARM Cortex-A7 edge hardware and its memory/resource constraints.",
+      "Replace the initial Buildroot baseline with a maintainable Yocto Scarthgap image workflow.",
+      "Provide signed, rollback-capable A/B OTA updates through RAUC and U-Boot.",
+      "Run state-estimation applications in a lightweight containerd environment and validate releases before deployment."
+    ],
+    "architecture": "Bootloader → A/B root filesystem → minimal userspace → container runtime → management layer → state-estimation application containers. OTA bundles are signed, written to the inactive slot and only promoted after successful boot validation.",
+    "accent": "#00f0ff",
+    "flowchart": {
+      "image": "assets/flowcharts/distributed-state-estimation-detailed.svg",
+      "nodes": [
+        {
+          "label": "Grid / IEC 61850 context",
+          "detail": "Define substation data and edge-compute role"
+        },
+        {
+          "label": "ARM Cortex-A7 target",
+          "detail": "Constrained RAM/storage target"
+        },
+        {
+          "label": "Buildroot baseline",
+          "detail": "Bring up minimal Linux reference"
+        },
+        {
+          "label": "Yocto Scarthgap migration",
+          "detail": "Create reproducible maintainable image"
+        },
+        {
+          "label": "Linux + BusyBox image",
+          "detail": "Build kernel/rootfs/userspace"
+        },
+        {
+          "label": "U-Boot boot flow",
+          "detail": "Load kernel, DT and boot metadata"
+        },
+        {
+          "label": "A/B rootfs layout",
+          "detail": "Active and standby system slots"
+        },
+        {
+          "label": "RAUC signing",
+          "detail": "Build and cryptographically sign bundle"
+        },
+        {
+          "label": "OTA delivery",
+          "detail": "Transfer update bundle over HTTP"
+        },
+        {
+          "label": "Inactive-slot install",
+          "detail": "Write update without touching active slot"
+        },
+        {
+          "label": "Boot validation",
+          "detail": "Health-check newly booted system"
+        },
+        {
+          "label": "Rollback / confirm",
+          "detail": "Recover on failure or accept update"
+        },
+        {
+          "label": "containerd apps",
+          "detail": "Deploy isolated estimation workloads"
+        },
+        {
+          "label": "QEMU + CI/CD",
+          "detail": "Automate build, boot and release validation"
+        }
+      ],
+      "caption": "Technical illustration of the documented system. Planned stages remain subject to the project status and validation notes."
+    }
+  },
+  {
+    "slug": "telepresence-robot",
+    "title": "Telepresence Robot",
+    "summary": "Integrated ROS mapping, localization, navigation and Arduino drive control for a team-built telepresence robot, with a Gazebo model for testing.",
+    "domain": "Mobile robotics",
+    "tags": [
+      "ROS Noetic",
+      "GMapping",
+      "AMCL",
+      "move_base",
+      "DWA",
+      "Gazebo",
+      "RViz",
+      "Arduino"
+    ],
+    "status": "Completed Robotics Project",
+    "image": "project2.jpg",
+    "image_kind": "Project photograph",
+    "objective": "Build a ROS-based telepresence mobile robot that combines mapping, localization and autonomous navigation with onboard sensing and Arduino-based low-level drive control, so remote presence can operate on top of a reliable mobility stack.",
+    "role": "ROS navigation and mobile-base integration",
+    "timeline": "Completed project",
+    "contributions": [
+      "Used LiDAR-based GMapping to create occupancy-grid maps, AMCL for localization and move_base with DWA for local motion planning.",
+      "Arduino-based motor control handled base actuation while ROS nodes connected perception, localization and navigation.",
+      "A Gazebo model and RViz were used for debugging and visualization."
+    ],
+    "implementation": "Used LiDAR-based GMapping to create occupancy-grid maps, AMCL for localization and move_base with DWA for local motion planning. Arduino-based motor control handled base actuation while ROS nodes connected perception, localization and navigation. A Gazebo model and RViz were used for debugging and visualization.",
+    "decisions": "Simulation was used as the first integration layer so navigation and frame issues could be isolated before involving hardware limitations such as motor choice and static friction.",
+    "challenges": "The project combined mobile-base hardware, sensing and ROS navigation. The main engineering challenge was getting mapping, localization and motion control to behave coherently across simulation and the physical robot.",
+    "validation": "Tested the navigation workflow in simulation before transferring it to the real platform. Debugging focused on transforms, localization stability, map quality and whether commanded velocities were sufficient for the physical base.",
+    "outcome": "Integrated mapping, localization, navigation and Arduino actuation across simulation and the physical platform.",
+    "links": [
+      {
+        "label": "Source repository",
+        "url": "https://github.com/SAMP2411/Telepresence-Robot"
+      }
+    ],
+    "goals": [
+      "Integrate LiDAR, IMU/odometry and robot frames into a consistent ROS Noetic data model.",
+      "Create and save a 2D occupancy map with GMapping, then localize against it using AMCL.",
+      "Use move_base and DWA for global/local navigation and obstacle-aware velocity generation.",
+      "Bridge high-level cmd_vel commands to the Arduino motor layer and validate the stack in Gazebo/RViz and hardware."
+    ],
+    "architecture": "LiDAR/IMU/encoder data → ROS topics and TF → SLAM or AMCL → global/local navigation stack → velocity command → Arduino motor controller → differential-drive base.",
+    "accent": "#7000ff",
+    "flowchart": {
+      "image": "assets/flowcharts/telepresence-robot-detailed.svg",
+      "nodes": [
+        {
+          "label": "Chassis + compute",
+          "detail": "Mechanical platform and onboard computer"
+        },
+        {
+          "label": "LiDAR + IMU + odometry",
+          "detail": "Acquire environment and motion data"
+        },
+        {
+          "label": "ROS Noetic bring-up",
+          "detail": "Launch drivers and robot interfaces"
+        },
+        {
+          "label": "Topics + TF",
+          "detail": "Publish /scan, /imu, /odom and transforms"
+        },
+        {
+          "label": "Frame validation",
+          "detail": "Check map/odom/base/sensor consistency"
+        },
+        {
+          "label": "GMapping SLAM",
+          "detail": "Estimate pose while building occupancy map"
+        },
+        {
+          "label": "Map persistence",
+          "detail": "Save map.yaml and map image"
+        },
+        {
+          "label": "AMCL localization",
+          "detail": "Particle-filter localization in saved map"
+        },
+        {
+          "label": "move_base",
+          "detail": "Coordinate global/local navigation"
+        },
+        {
+          "label": "Global planning",
+          "detail": "Generate collision-aware route to goal"
+        },
+        {
+          "label": "DWA + costmaps",
+          "detail": "Local obstacle avoidance and tracking"
+        },
+        {
+          "label": "cmd_vel",
+          "detail": "Generate linear/angular velocity commands"
+        },
+        {
+          "label": "Arduino motor interface",
+          "detail": "Translate commands to wheel actuation"
+        },
+        {
+          "label": "Gazebo/RViz + hardware",
+          "detail": "Inspect, tune and validate real behavior"
+        }
+      ],
+      "caption": "Technical illustration of the documented system. Planned stages remain subject to the project status and validation notes."
+    }
+  },
+  {
+    "slug": "competitive-robotics",
+    "title": "Competitive Robotics",
+    "summary": "Contributed operator controls, embedded actuation and mechanism sequencing to the DD Robocon team's Raspberry Pi and Arduino robots.",
+    "domain": "Embedded systems",
+    "tags": [
+      "Raspberry Pi",
+      "Arduino",
+      "Embedded C",
+      "PID",
+      "PS4 Control",
+      "Mechanism Automation"
+    ],
+    "status": "Completed Team Robotics Work",
+    "image": "assets/ai/competitive-photo-hd.webp",
+    "image_kind": "Illustrative visualization",
+    "objective": "Develop a competition-robot control architecture that translates PS4 operator commands into coordinated mechanism actions through Raspberry Pi supervision, discrete task sequencing, Arduino actuation and iterative PID/control tuning.",
+    "role": "Team control and mechanism integration",
+    "timeline": "DD Robocon",
+    "contributions": [
+      "Worked with Raspberry Pi and Arduino-based control, including PS4 controller input, actuation routines and PID-oriented tuning.",
+      "The work focused on integrating mechanisms into reliable task sequences rather than treating each actuator as an isolated subsystem."
+    ],
+    "implementation": "Worked with Raspberry Pi and Arduino-based control, including PS4 controller input, actuation routines and PID-oriented tuning. The work focused on integrating mechanisms into reliable task sequences rather than treating each actuator as an isolated subsystem.",
+    "decisions": "The emphasis was on reliability and repeatability under time pressure, which is often more valuable in competition robotics than adding complex behavior that cannot be fully validated.",
+    "challenges": "Competition robots require mechanisms, electronics and control logic to work together reliably while the team iterates quickly around changing task strategies.",
+    "validation": "Validation was practical and competition-oriented: repeated mechanism execution, tuning response and checking that combined action sequences were robust enough for event use.",
+    "outcome": "Integrated operator input, embedded actuation and repeatable mechanism routines for competition use.",
+    "links": [
+      {
+        "label": "Source repository",
+        "url": "https://github.com/SAMP2411/Robocon-2k22"
+      }
+    ],
+    "goals": [
+      "Convert competition rules and scoring tasks into explicit robot behaviors.",
+      "Use Raspberry Pi as the high-level coordination layer and Arduino for low-level actuation.",
+      "Combine manual PS4 input with repeatable task/sequence logic for mechanisms.",
+      "Iteratively tune control, reliability and recovery under competition time and hardware constraints."
+    ],
+    "architecture": "Operator input → Raspberry Pi control layer → command logic → Arduino/embedded actuation → motors and mechanisms → task feedback and operator observation.",
+    "accent": "#0aff64",
+    "flowchart": {
+      "image": "assets/flowcharts/competitive-robotics-detailed.svg",
+      "nodes": [
+        {
+          "label": "Competition requirements",
+          "detail": "Break scoring rules into robot functions"
+        },
+        {
+          "label": "PS4 operator input",
+          "detail": "Capture motion and task commands"
+        },
+        {
+          "label": "Raspberry Pi supervisor",
+          "detail": "Manage high-level state and communication"
+        },
+        {
+          "label": "Command parsing",
+          "detail": "Convert operator commands to actions"
+        },
+        {
+          "label": "Task state machine",
+          "detail": "Sequence mechanisms and timed actions"
+        },
+        {
+          "label": "Safety / interlocks",
+          "detail": "Prevent invalid or conflicting actions"
+        },
+        {
+          "label": "Arduino controller",
+          "detail": "Receive low-level actuation targets"
+        },
+        {
+          "label": "Motor / servo drive",
+          "detail": "Generate PWM/direction outputs"
+        },
+        {
+          "label": "Mechanisms",
+          "detail": "Drive, manipulate, grip or launch"
+        },
+        {
+          "label": "Feedback sensing",
+          "detail": "Use available position/IMU/limit feedback"
+        },
+        {
+          "label": "PID + tuning",
+          "detail": "Improve repeatability and stability"
+        },
+        {
+          "label": "Iterative test loop",
+          "detail": "Debug, stress-test and refine for competition"
+        }
+      ],
+      "caption": "Technical illustration of the documented system. Planned stages remain subject to the project status and validation notes."
+    }
+  },
+  {
+    "slug": "unmanned-ground-vehicle",
+    "title": "Unmanned Ground Vehicle",
+    "summary": "Implemented waypoint navigation for an autonomous ground vehicle using GPS/IMU state estimation and PID-based motion control.",
+    "domain": "Mobile robotics",
+    "tags": [
+      "Python",
+      "Raspberry Pi",
+      "GPS",
+      "IMU",
+      "Kalman Filter",
+      "PID",
+      "Waypoint Navigation"
+    ],
+    "status": "Completed Autonomous Vehicle Project",
+    "image": "project4.jpg",
+    "image_kind": "Project photograph",
+    "objective": "Build a waypoint-navigation ground vehicle that fuses GPS and IMU measurements for state estimation and uses closed-loop PID control to continually reduce position and heading error during autonomous motion.",
+    "role": "State estimation and waypoint control",
+    "timeline": "Completed project",
+    "contributions": [
+      "Implemented a Kalman-filter-based GPS/IMU fusion workflow in Python on Raspberry Pi, then used the estimated state for waypoint guidance and PID control.",
+      "The project connected sensing, estimation and control into one navigation loop."
+    ],
+    "implementation": "Implemented a Kalman-filter-based GPS/IMU fusion workflow in Python on Raspberry Pi, then used the estimated state for waypoint guidance and PID control. The project connected sensing, estimation and control into one navigation loop.",
+    "decisions": "A standard Kalman filter was used because it matched the available state-estimation formulation and kept the implementation lightweight enough for the Raspberry Pi platform.",
+    "challenges": "Raw GPS and inertial measurements are noisy and arrive with different error characteristics, so navigation requires a usable state estimate before the controller can steer toward waypoints.",
+    "validation": "Tested waypoint-following behavior and observed position-estimation stability while tuning controller response. No ground-truth dataset or reproducible position-accuracy benchmark is available here.",
+    "outcome": "Connected GPS/IMU state estimation, waypoint guidance and PID control in a Raspberry Pi and Arduino navigation loop.",
+    "links": [
+      {
+        "label": "Source repository",
+        "url": "https://github.com/SAMP2411/Unmanned_Ground_Vehicle"
+      }
+    ],
+    "goals": [
+      "Represent the mission as a sequence of geographic waypoints.",
+      "Fuse noisy GPS and IMU measurements with a Kalman-filter state estimator.",
+      "Convert state estimates into waypoint position/heading errors.",
+      "Close the loop with PID-based steering/speed commands through Raspberry Pi and Arduino actuation."
+    ],
+    "architecture": "GPS + IMU → preprocessing/state update → Kalman filter → position/heading estimate → waypoint error → PID controller → drive commands.",
+    "accent": "#ef4444",
+    "flowchart": {
+      "image": "assets/flowcharts/unmanned-ground-vehicle-detailed.svg",
+      "nodes": [
+        {
+          "label": "Mission waypoints",
+          "detail": "Load geographic navigation targets"
+        },
+        {
+          "label": "GPS measurements",
+          "detail": "Acquire global position"
+        },
+        {
+          "label": "IMU measurements",
+          "detail": "Acquire acceleration / angular rate"
+        },
+        {
+          "label": "Preprocessing",
+          "detail": "Synchronize, filter and normalize sensors"
+        },
+        {
+          "label": "Kalman filter",
+          "detail": "Fuse GPS + IMU uncertainty"
+        },
+        {
+          "label": "State estimate",
+          "detail": "Position, heading and motion estimate"
+        },
+        {
+          "label": "Waypoint selection",
+          "detail": "Choose active navigation target"
+        },
+        {
+          "label": "Error computation",
+          "detail": "Position and heading error to target"
+        },
+        {
+          "label": "PID control",
+          "detail": "Compute steering / speed correction"
+        },
+        {
+          "label": "Raspberry Pi supervisor",
+          "detail": "Mission and safety logic"
+        },
+        {
+          "label": "Arduino interface",
+          "detail": "Translate commands to motor signals"
+        },
+        {
+          "label": "Drive actuation",
+          "detail": "Apply wheel/steering outputs"
+        },
+        {
+          "label": "Vehicle motion",
+          "detail": "Move through environment"
+        },
+        {
+          "label": "Feedback loop",
+          "detail": "New GPS/IMU data closes control loop"
+        }
+      ],
+      "caption": "Technical illustration of the documented system. Planned stages remain subject to the project status and validation notes."
+    }
+  },
+  {
+    "slug": "turtlebot3-navigation",
+    "title": "TurtleBot3 Autonomous Navigation",
+    "summary": "Integrated ROS2 mapping, AMCL localization and Nav2 waypoint navigation, then diagnosed TF, odometry and near-goal motion issues from simulation to hardware.",
+    "domain": "Mobile robotics",
+    "tags": [
+      "ROS2",
+      "TurtleBot3",
+      "Nav2",
+      "SLAM",
+      "AMCL",
+      "TF2",
+      "Gazebo",
+      "RViz"
+    ],
+    "status": "Completed Academic Robotics Project",
+    "image": "assets/ai/turtlebot3-photo-hd.webp",
+    "image_kind": "Illustrative visualization",
+    "objective": "Implement and validate an end-to-end ROS2 autonomous-navigation workflow for TurtleBot3, covering bring-up, TF/odometry integrity, SLAM, AMCL localization, global/local planning, controller tuning, simulation and real-robot execution.",
+    "role": "ROS2 navigation integration and debugging",
+    "timeline": "Academic project",
+    "contributions": [
+      "Verified robot bring-up, odometry and the TF tree, created maps using SLAM, saved and reused maps for navigation, localized with AMCL and sent autonomous waypoint goals through Nav2.",
+      "Planner experiments also compared RRT, BiRRT and PRM approaches in the broader project workflow."
+    ],
+    "implementation": "Verified robot bring-up, odometry and the TF tree, created maps using SLAM, saved and reused maps for navigation, localized with AMCL and sent autonomous waypoint goals through Nav2. Planner experiments also compared RRT, BiRRT and PRM approaches in the broader project workflow.",
+    "decisions": "The project emphasized reproducible debugging: first confirm frame and odometry consistency, then localization, then planner/controller behavior, and only then tune hardware-specific motion limits.",
+    "challenges": "Navigation failures can originate from perception, transforms, localization, costmaps or motion control, so the system had to be validated layer by layer rather than only checking whether the robot eventually reached a goal.",
+    "validation": "Used Gazebo and RViz to inspect pose, map, paths, costmaps and sensor behavior before moving to the physical TurtleBot3. A real-world issue near the goal was traced partly to minimum velocity being too low for the loaded platform, and the threshold was increased to overcome static friction.",
+    "outcome": "Completed a simulation-to-real navigation workflow and diagnosed a low-velocity near-goal issue on the loaded platform.",
+    "links": [],
+    "goals": [
+      "Validate hardware/simulation bring-up, odometry and the TF2 frame tree before navigation.",
+      "Generate, save and reuse maps through the SLAM workflow.",
+      "Localize probabilistically with AMCL and route goals through Nav2 planning/control.",
+      "Tune costmaps, planners and velocity limits in Gazebo/RViz before simulation-to-real execution."
+    ],
+    "architecture": "Sensors/odometry → TF tree → SLAM map or saved map → AMCL pose estimate → global planner → local controller/costmap → cmd_vel → TurtleBot3 base.",
+    "accent": "#00f0ff",
+    "flowchart": {
+      "image": "assets/flowcharts/turtlebot3-navigation-detailed.svg",
+      "nodes": [
+        {
+          "label": "Robot bring-up",
+          "detail": "Launch TurtleBot3 base and sensors"
+        },
+        {
+          "label": "LiDAR + odometry",
+          "detail": "Publish scan and odom inputs"
+        },
+        {
+          "label": "TF2 validation",
+          "detail": "Verify map→odom→base→sensor frames"
+        },
+        {
+          "label": "SLAM mapping",
+          "detail": "Build 2D occupancy representation"
+        },
+        {
+          "label": "Map save / reload",
+          "detail": "Persist map for later navigation"
+        },
+        {
+          "label": "AMCL",
+          "detail": "Estimate robot pose in known map"
+        },
+        {
+          "label": "Goal / waypoint input",
+          "detail": "Define desired navigation target"
+        },
+        {
+          "label": "Global costmap",
+          "detail": "Static map + obstacle context"
+        },
+        {
+          "label": "Global planner",
+          "detail": "Generate start-to-goal path"
+        },
+        {
+          "label": "Local costmap",
+          "detail": "Maintain nearby obstacle model"
+        },
+        {
+          "label": "Local controller",
+          "detail": "Track path and avoid obstacles"
+        },
+        {
+          "label": "Velocity limits",
+          "detail": "Tune min/max linear/angular behavior"
+        },
+        {
+          "label": "cmd_vel + base",
+          "detail": "Execute motion commands"
+        },
+        {
+          "label": "Gazebo/RViz→real",
+          "detail": "Inspect, tune and transfer to hardware"
+        }
+      ],
+      "caption": "Technical illustration of the documented system. Planned stages remain subject to the project status and validation notes."
+    }
+  },
+  {
+    "slug": "ur10-manipulator",
+    "title": "UR10 Manipulator Control",
+    "summary": "Connected UR10 forward and DLS inverse kinematics to ordered joint vectors and ROS trajectory messages, with simulation checks before hardware execution.",
+    "domain": "Manipulation",
+    "tags": [
+      "MATLAB",
+      "Simulink",
+      "Simscape",
+      "ROS",
+      "UR10",
+      "FK/IK",
+      "Damped Least Squares"
+    ],
+    "status": "Completed Academic Robotics Project",
+    "image": "assets/ai/ur10-photo-hd.webp",
+    "image_kind": "Illustrative visualization",
+    "objective": "Develop a manipulator-control workflow for UR10 that converts task-space targets into joint-space trajectories using forward/inverse kinematics, damped least squares, ordered joint conversion and ROS JointTrajectory messaging, with simulation-first validation before hardware.",
+    "role": "Kinematics and trajectory-control implementation",
+    "timeline": "Academic project",
+    "contributions": [
+      "Worked with forward and inverse kinematics and damped least-squares updates.",
+      "Helper functions mapped joint names to indexes, converted joint configurations into ordered vectors and transformed joint vectors into ROS-compatible trajectory messages.",
+      "The motion-control workflow was exercised from MATLAB/ROS and visualized in simulation."
+    ],
+    "implementation": "Worked with forward and inverse kinematics and damped least-squares updates. Helper functions mapped joint names to indexes, converted joint configurations into ordered vectors and transformed joint vectors into ROS-compatible trajectory messages. The motion-control workflow was exercised from MATLAB/ROS and visualized in simulation.",
+    "decisions": "Simulation-before-hardware and explicit joint-order conversion were treated as safety and reproducibility requirements rather than optional convenience layers.",
+    "challenges": "Manipulator commands must remain consistent across joint naming, vector ordering, kinematic calculations and ROS trajectory messages. Small indexing or representation errors can produce unsafe or incorrect robot motion.",
+    "validation": "Compared commanded motion in simulation before sending trajectories to the real robot. Examined joint-position and joint-trajectory control approaches and checked joint ordering and timed trajectory commands. This does not establish collision avoidance or jerk-limited motion.",
+    "outcome": "Produced ordered joint-vector and trajectory-message workflows with simulation checks before hardware execution.",
+    "links": [],
+    "goals": [
+      "Model the UR10 kinematic chain and compute forward/inverse kinematics.",
+      "Use damped least squares to improve numerical behavior near singular configurations.",
+      "Convert solved joint states into the exact UR10 joint-name/order convention.",
+      "Generate ROS-compatible trajectories and validate in MATLAB/Simulink/Simscape and simulation before hardware execution."
+    ],
+    "architecture": "Target pose/configuration → FK/IK and DLS computation → ordered joint vector → time-parameterized trajectory → JointTrajectory message → simulated UR10 → validated hardware execution.",
+    "accent": "#a855f7",
+    "flowchart": {
+      "image": "assets/flowcharts/ur10-manipulator-detailed.svg",
+      "nodes": [
+        {
+          "label": "Task / target pose",
+          "detail": "Specify desired position + orientation"
+        },
+        {
+          "label": "UR10 model / URDF",
+          "detail": "Load kinematic structure and joint limits"
+        },
+        {
+          "label": "Forward kinematics",
+          "detail": "Map joint vector to end-effector pose"
+        },
+        {
+          "label": "Pose error",
+          "detail": "Compare desired and current task pose"
+        },
+        {
+          "label": "Jacobian",
+          "detail": "Relate joint velocity to task-space change"
+        },
+        {
+          "label": "Damped least squares",
+          "detail": "Compute robust incremental IK update"
+        },
+        {
+          "label": "IK convergence",
+          "detail": "Iterate until target / tolerance"
+        },
+        {
+          "label": "Joint-name mapping",
+          "detail": "Map semantic names to UR10 indices"
+        },
+        {
+          "label": "Config→joint vector",
+          "detail": "Produce ordered numeric joint state"
+        },
+        {
+          "label": "Trajectory generation",
+          "detail": "Create ordered joint targets with timing"
+        },
+        {
+          "label": "JointTrajectory message",
+          "detail": "Populate names, positions and timing"
+        },
+        {
+          "label": "MATLAB/Simscape validation",
+          "detail": "Check model and control behavior"
+        },
+        {
+          "label": "Gazebo/RViz validation",
+          "detail": "Inspect commanded robot motion"
+        },
+        {
+          "label": "Hardware execution",
+          "detail": "Send validated trajectory to real UR10"
+        }
+      ],
+      "caption": "Technical illustration of the documented system. Planned stages remain subject to the project status and validation notes."
+    }
+  },
+  {
+    "slug": "iiot-anomaly-detector",
+    "title": "IIoT Anomaly Detector",
+    "summary": "Built a simulated industrial telemetry experiment using Isolation Forest for anomaly prediction and MQTT for alert publication.",
+    "domain": "Industrial AI",
+    "tags": [
+      "Python",
+      "MQTT",
+      "Isolation Forest",
+      "scikit-learn",
+      "Matplotlib",
+      "Simulated telemetry"
+    ],
+    "status": "Completed Industrial AI Project",
+    "image": "assets/ai/iiot-photo-hd.webp",
+    "image_kind": "Illustrative visualization",
+    "objective": "Explore unsupervised anomaly detection on simulated industrial measurements and publish detected anomalies over MQTT for downstream monitoring.",
+    "role": "Telemetry pipeline and anomaly-detection implementation",
+    "timeline": "Completed project",
+    "contributions": [
+      "Generated simulated industrial measurements for anomaly-detection experiments.",
+      "Applied Isolation Forest to predict anomalous readings.",
+      "Published anomaly alerts over MQTT and visualized results with Matplotlib."
+    ],
+    "implementation": "The repository separates simulated data generation, anomaly visualization and a live-style alert loop. simulate_sensor_data.py creates 1,000 rows. ai_agent.py generates 50 local readings at one-second intervals, calls IsolationForest.predict and publishes anomaly alerts over MQTT. detect_anomalies.py uses Matplotlib for visualization.",
+    "decisions": "Isolation Forest was chosen because labelled failure data was not available. The project therefore treats model output as anomaly detection, not as a claim of labelled fault-classification accuracy.",
+    "challenges": "Industrial telemetry needs to be processed continuously rather than only in an offline notebook, while anomaly detection must remain lightweight enough for a practical streaming pipeline.",
+    "validation": "Source inspection confirms a 1,000-row data generator and a 50-reading alert loop with one-second intervals. No reproducible end-to-end latency benchmark or verified fault-classification accuracy is established by these scripts.",
+    "outcome": "A runnable simulated-data anomaly-detection and MQTT alerting experiment. Evaluation remains limited to the documented prototype; performance metrics are not asserted.",
+    "links": [
+      {
+        "label": "Source repository",
+        "url": "https://github.com/SAMP2411/AI-Based-IIoT-Anomaly-Detector"
+      }
+    ],
+    "goals": [
+      "Generate simulated industrial telemetry.",
+      "Use unsupervised Isolation Forest predictions without requiring labelled fault classes.",
+      "Publish detected anomalies over MQTT.",
+      "Visualize anomalies and document the limits of prototype evaluation."
+    ],
+    "architecture": "Local simulated readings → IsolationForest.predict → anomalous-reading selection → MQTT alert publication. Separate scripts generate tabular data and display anomaly plots using Matplotlib.",
+    "accent": "#0aff64",
+    "flowchart": {
+      "image": "assets/flowcharts/iiot-anomaly-detector-reviewed.svg",
+      "nodes": [
+        {
+          "label": "Simulated data",
+          "detail": "Generate local measurements"
+        },
+        {
+          "label": "Isolation Forest",
+          "detail": "Predict normal or anomalous readings"
+        },
+        {
+          "label": "Anomaly selection",
+          "detail": "Identify readings to alert on"
+        },
+        {
+          "label": "MQTT publication",
+          "detail": "Publish anomaly alerts"
+        },
+        {
+          "label": "Offline visualization",
+          "detail": "Separate Matplotlib exploration"
+        }
+      ],
+      "caption": "Technical illustration of the documented system. Planned stages remain subject to the project status and validation notes."
+    }
+  },
+  {
+    "slug": "offline-face-recognition",
+    "title": "Offline Guided Face Enrollment and Recognition",
+    "summary": "Built an on-device face-recognition pipeline with guided multi-pose enrollment, sample-quality checks and ONNX inference; runtime is offline after model setup.",
+    "domain": "Computer vision",
+    "tags": [
+      "Python",
+      "OpenCV",
+      "InsightFace",
+      "ONNX Runtime",
+      "Offline Inference"
+    ],
+    "status": "Completed Computer Vision Project",
+    "image": "assets/ai/face-photo-hd.webp",
+    "image_kind": "Illustrative visualization",
+    "objective": "Build a guided enrollment and recognition pipeline that rejects weak enrollment samples, extracts face embeddings locally with InsightFace/ONNX Runtime and matches identities without a cloud inference service. Initial setup requires model weights; runtime can then operate offline.",
+    "role": "Enrollment and local recognition implementation",
+    "timeline": "Completed project",
+    "contributions": [
+      "Used OpenCV for the camera pipeline and InsightFace models through ONNX Runtime for face analysis and representation.",
+      "Enrollment guides the user through multiple poses and checks whether an input is suitable before accepting it.",
+      "Recognition runs locally without depending on a cloud service."
+    ],
+    "implementation": "Used OpenCV for the camera pipeline and InsightFace models through ONNX Runtime for face analysis and representation. Enrollment guides the user through multiple poses and checks whether an input is suitable before accepting it. Recognition runs locally without depending on a cloud service.",
+    "decisions": "The system was designed around guided enrollment because improving the stored reference data is often more reliable than trying to compensate for poor enrollment only at recognition time.",
+    "challenges": "Recognition quality depends heavily on enrollment quality. Accepting arbitrary frames can create weak identity representations, especially when pose or capture conditions are poor.",
+    "validation": "Tested live camera behavior and boundary cases such as weak inputs and pose inconsistency. The important validation target was not only successful matches, but whether the enrollment pipeline rejected samples that should not be stored.",
+    "outcome": "Created a local camera-to-identity workflow with guided enrollment and weak-sample rejection.",
+    "links": [
+      {
+        "label": "Source repository",
+        "url": "https://github.com/SAMP2411/Face-Recognition-System"
+      }
+    ],
+    "goals": [
+      "Guide enrollment so stored examples have useful pose and image quality.",
+      "Perform detection/alignment and embedding extraction locally rather than through a cloud API.",
+      "Store identity embeddings and compare live query embeddings against them.",
+      "Handle weak/boundary inputs and return an identity or unknown decision in a live OpenCV loop."
+    ],
+    "architecture": "Camera frame → face detection/analysis → pose and quality checks → embedding extraction → local enrollment store → live embedding → similarity decision → identity/unknown result.",
+    "accent": "#38bdf8",
+    "flowchart": {
+      "image": "assets/flowcharts/offline-face-recognition-detailed.svg",
+      "nodes": [
+        {
+          "label": "Camera frame",
+          "detail": "Capture local RGB video"
+        },
+        {
+          "label": "Face detection",
+          "detail": "Locate face region"
+        },
+        {
+          "label": "Landmark alignment",
+          "detail": "Normalize face geometry"
+        },
+        {
+          "label": "Pose validation",
+          "detail": "Check orientation constraints"
+        },
+        {
+          "label": "Input-quality checks",
+          "detail": "Reject weak enrollment frames"
+        },
+        {
+          "label": "Guided enrollment",
+          "detail": "Collect multiple acceptable samples"
+        },
+        {
+          "label": "InsightFace model",
+          "detail": "Extract discriminative face embedding"
+        },
+        {
+          "label": "ONNX Runtime",
+          "detail": "Execute model locally/offline"
+        },
+        {
+          "label": "Enrollment store",
+          "detail": "Persist identity + embeddings"
+        },
+        {
+          "label": "Live query embedding",
+          "detail": "Embed incoming face"
+        },
+        {
+          "label": "Similarity comparison",
+          "detail": "Compare query with stored identities"
+        },
+        {
+          "label": "Threshold decision",
+          "detail": "Best match vs unknown"
+        },
+        {
+          "label": "Display / monitoring",
+          "detail": "Render result and system status"
+        }
+      ],
+      "caption": "Technical illustration of the documented system. Planned stages remain subject to the project status and validation notes."
+    }
+  },
+  {
+    "slug": "rst-hackathon",
+    "title": "RST Hackathon — Vision-Guided Robot Arm",
+    "summary": "Helped integrate camera tracking, coordinate transforms and robot execution for a team ball-throwing solution at the RST hackathon.",
+    "domain": "Manipulation",
+    "tags": [
+      "Computer Vision",
+      "Tracking",
+      "Coordinate Transforms",
+      "Robot Manipulation",
+      "Rapid Prototyping"
+    ],
+    "status": "3rd Place · October 2025",
+    "image": "assets/ai/rst-photo-hd.webp",
+    "image_kind": "Illustrative visualization",
+    "objective": "Rapidly integrate computer vision, target tracking, coordinate transformation and robot-action planning into a robust hackathon system capable of converting visual target observations into executable ball-throw actions under strict time constraints.",
+    "role": "Team perception-to-action integration",
+    "timeline": "October 2025 · roughly 36 hours",
+    "contributions": [
+      "Integrated visual tracking with coordinate transformation logic and robot-arm action execution.",
+      "The team developed a ball-throwing strategy and iterated on the full perception-to-action chain rather than optimizing the vision stage in isolation."
+    ],
+    "implementation": "Integrated visual tracking with coordinate transformation logic and robot-arm action execution. The team developed a ball-throwing strategy and iterated on the full perception-to-action chain rather than optimizing the vision stage in isolation.",
+    "decisions": "The strongest engineering decision was scope control: simplify the strategy enough to make the entire system dependable. That trade-off contributed to a third-place finish.",
+    "challenges": "The system had to convert camera observations into usable robot actions within a very short development window, while still being reliable enough for competition attempts.",
+    "validation": "Repeated full task attempts were used to expose failures across perception, transforms and motion. Under time pressure, the team intentionally prioritized the most reliable executable strategy rather than adding higher-risk features that were not sufficiently validated.",
+    "outcome": "Third-place team finish through a reliable vision-guided ball-throwing strategy.",
+    "links": [],
+    "goals": [
+      "Detect and track the relevant target state from camera observations.",
+      "Transform observations from camera coordinates into a robot/task coordinate frame.",
+      "Choose a practical throw/action strategy that can be implemented and debugged within the hackathon.",
+      "Close the loop by observing the outcome and refining the strategy while prioritizing reliability."
+    ],
+    "architecture": "Camera/scene observation → target tracking/localization → coordinate convention/transform → strategy logic → robot-arm command sequence → throw execution.",
+    "accent": "#facc15",
+    "flowchart": {
+      "image": "assets/flowcharts/rst-hackathon-detailed.svg",
+      "nodes": [
+        {
+          "label": "Challenge definition",
+          "detail": "Understand rules, target and time limits"
+        },
+        {
+          "label": "Camera observation",
+          "detail": "Acquire scene frames"
+        },
+        {
+          "label": "Target detection",
+          "detail": "Identify moving/desired target"
+        },
+        {
+          "label": "Target tracking",
+          "detail": "Estimate target position over time"
+        },
+        {
+          "label": "Scene geometry",
+          "detail": "Relate pixels to spatial position"
+        },
+        {
+          "label": "Coordinate transform",
+          "detail": "Camera frame → robot/task frame"
+        },
+        {
+          "label": "Strategy selection",
+          "detail": "Choose trajectory/timing/speed approach"
+        },
+        {
+          "label": "Robot command / IK",
+          "detail": "Map target action to robot joints"
+        },
+        {
+          "label": "Throw execution",
+          "detail": "Execute arm release motion"
+        },
+        {
+          "label": "Outcome observation",
+          "detail": "Measure hit/miss/landing behavior"
+        },
+        {
+          "label": "Retry / refinement",
+          "detail": "Tune parameters from feedback"
+        },
+        {
+          "label": "Robust task completion",
+          "detail": "Prefer reliable execution under deadline"
+        }
+      ],
+      "caption": "Technical illustration of the documented system. Planned stages remain subject to the project status and validation notes."
+    }
+  },
+  {
+    "slug": "so101-robot-learning",
+    "title": "SO-101 Robot Learning",
+    "summary": "Developing a controlled SO-101 pick-and-place study comparing zero-shot, few-shot and in-context learning under one common evaluation protocol.",
+    "domain": "Robot learning",
+    "tags": [
+      "SO-101",
+      "Pick-and-Place",
+      "Zero-Shot",
+      "Few-Shot",
+      "In-Context Learning",
+      "Experiment Design"
+    ],
+    "status": "In Development",
+    "image": "assets/ai/so101-photo-hd.webp",
+    "image_kind": "Illustrative visualization",
+    "objective": "Design a controlled pick-and-place experiment for the SO-101 arm to compare zero-shot, few-shot and in-context learning strategies using common task definitions, demonstrations, success criteria, trial logging and eventual hardware transfer.",
+    "role": "Experiment design and implementation in progress",
+    "timeline": "In development",
+    "contributions": [
+      "The current work focuses on defining a common task interface, demonstration/context representation, trial protocol and machine-readable experiment logs.",
+      "Lightweight simulation is planned; policy evaluation and hardware transfer remain future work."
+    ],
+    "implementation": "The current work focuses on defining a common task interface, demonstration/context representation, trial protocol and machine-readable experiment logs. Lightweight simulation is planned; implemented policies, completed evaluations and hardware transfer are not yet claimed. The protocol must distinguish few-shot parameter adaptation from demonstrations supplied as inference-time context.",
+    "decisions": "The project deliberately separates planned evaluation from completed results. The strongest method will only be moved to physical SO-101 testing after it is stable in the lightweight experimental setup.",
+    "challenges": "The learning methods must be compared fairly: the task definition, observations, actions, reset conditions and evaluation metrics need to stay consistent across zero-shot, few-shot and in-context conditions.",
+    "validation": "Planned evaluation includes task success, completion behavior, failure/intervention type and any trajectory-quality measures that can be supported by the final implementation. No performance metric is claimed yet because the project is still in development.",
+    "outcome": "The comparison protocol is under development. Performance results and physical transfer are not yet claimed.",
+    "links": [],
+    "goals": [
+      "Define one common pick-and-place task and success criteria for all learning conditions.",
+      "Keep observations/action format consistent so zero-shot, few-shot and in-context approaches can be compared fairly.",
+      "Log every trial, failure mode and method configuration rather than presenting unverified performance.",
+      "Start with lightweight simulation/offline experimentation and transfer only validated behavior toward SO-101 hardware."
+    ],
+    "architecture": "Task definition → observation/context preparation → learning condition (zero/few-shot/in-context) → action generation → pick-and-place execution → success/failure logging → comparison → eventual hardware transfer.",
+    "accent": "#e879f9",
+    "flowchart": {
+      "image": "assets/flowcharts/so101-robot-learning-detailed.svg",
+      "nodes": [
+        {
+          "label": "Task + workspace",
+          "detail": "Define objects, source, target and constraints"
+        },
+        {
+          "label": "Success criteria",
+          "detail": "Specify what counts as task completion"
+        },
+        {
+          "label": "SO-101 / lightweight sim",
+          "detail": "Initialize robot model or hardware interface"
+        },
+        {
+          "label": "Observation capture",
+          "detail": "Collect image/state/gripper context"
+        },
+        {
+          "label": "Prompt / instruction",
+          "detail": "Define common task description"
+        },
+        {
+          "label": "Deterministic baseline",
+          "detail": "Establish non-learning reference"
+        },
+        {
+          "label": "Zero-shot branch",
+          "detail": "Instruction only, no examples"
+        },
+        {
+          "label": "Few-shot branch",
+          "detail": "Condition with a few demonstrations"
+        },
+        {
+          "label": "In-context branch",
+          "detail": "Condition with richer task context"
+        },
+        {
+          "label": "Action generation",
+          "detail": "Produce robot action sequence"
+        },
+        {
+          "label": "Safety / format checks",
+          "detail": "Validate generated action structure"
+        },
+        {
+          "label": "Pick-and-place execution",
+          "detail": "Run trial in controlled environment"
+        },
+        {
+          "label": "Trial logging",
+          "detail": "Record context, actions and failure modes"
+        },
+        {
+          "label": "Method comparison",
+          "detail": "Compare consistency/success qualitatively/quantitatively"
+        },
+        {
+          "label": "Prompt refinement",
+          "detail": "Iterate based on observed failure modes"
+        },
+        {
+          "label": "Hardware transfer",
+          "detail": "Validate selected approach on SO-101"
+        }
+      ],
+      "caption": "Technical illustration of the documented system. Planned stages remain subject to the project status and validation notes."
+    }
+  },
+  {
+    "slug": "autonomous-industrial-inspection-robot",
+    "title": "Autonomous Industrial Inspection Robot",
+    "summary": "Built a ROS2 inspection-patrol simulation with Nav2 waypoint execution, synthetic multimodal checks, evidence capture and deterministic follow-up decisions.",
+    "domain": "Industrial robotics",
+    "tags": [
+      "ROS 2 Jazzy",
+      "Nav2",
+      "Gazebo Harmonic",
+      "C++17",
+      "Python",
+      "OpenCV",
+      "pluginlib",
+      "yaml-cpp"
+    ],
+    "status": "Simulation project · Public release September 2026",
+    "image": "assets/project/autonomous-industrial-inspection-hd-v2.webp",
+    "image_kind": "Illustrative visualization",
+    "objective": "Build a deterministic ROS2 industrial inspection workflow that patrols configured industrial assets, executes multimodal inspection-at-waypoint tasks, preserves auditable evidence, aggregates findings and makes explicit follow-up decisions.",
+    "role": "Inspection mission and evidence-pipeline implementation",
+    "timeline": "Public release · September 2026",
+    "contributions": [
+      "Implemented ROS 2 Jazzy packages for an industrial inspection mission around a TurtleBot 4 simulation.",
+      "The repository defines custom InspectionResult and PatrolRoundSummary messages, configuration-driven sites/assets/checkpoints and inspection profiles, a Nav2 waypoint task-executor plugin, and synthetic visual, thermal, acoustic and gauge-style inspection modes.",
+      "The mission produces raw and annotated evidence together with health score, severity, confidence and diagnostic fields."
+    ],
+    "implementation": "Implemented ROS 2 Jazzy packages for an industrial inspection mission around a TurtleBot 4 simulation. The repository defines custom InspectionResult and PatrolRoundSummary messages, configuration-driven sites/assets/checkpoints and inspection profiles, a Nav2 waypoint task-executor plugin, and synthetic visual, thermal, acoustic and gauge-style inspection modes. The mission produces raw and annotated evidence together with health score, severity, confidence and diagnostic fields.",
+    "decisions": "The design favors deterministic, auditable behavior over opaque autonomy. Scenario seeds, evidence paths, severity rules, retry limits and mission decisions are explicit and configurable. The repository also clearly limits the work to simulation and documents the additional safety integration required before physical deployment.",
+    "challenges": "Industrial patrol automation needs more than successful navigation. Every checkpoint must preserve what was inspected, the evidence that was captured, how an anomaly was classified and what the mission should do next when captures or inspections fail.",
+    "validation": "The repository includes clean colcon build/test instructions, a headless smoke test, runtime cleanup and retry wrappers, a full benchmark path and multi-seed regression tooling. Seeded scenarios make failures reproducible; visual verification uses Gazebo and RViz to inspect maps, transforms, plans and robot state.",
+    "outcome": "A simulation-scoped, configuration-driven inspection workflow with structured evidence, reports and deterministic follow-up decisions.",
+    "links": [
+      {
+        "label": "Source repository",
+        "url": "https://github.com/SAMP2411/autonomous-industrial-inspection-robot"
+      }
+    ],
+    "goals": [
+      "Represent sites, assets, checkpoints and inspection profiles in configuration rather than hard-coded mission logic.",
+      "Use Nav2 waypoint execution with a custom inspection task plugin so navigation and inspection remain composable.",
+      "Capture visual/thermal/acoustic/gauge-style evidence and publish structured InspectionResult messages.",
+      "Aggregate a patrol round into auditable reports and deterministic continue/reinspect/watchlist/safety-hold decisions."
+    ],
+    "architecture": "Site / asset / checkpoint configuration → Gazebo Harmonic + ROS 2 → Nav2 waypoint navigation → inspection-at-waypoint plugin → evidence + InspectionResult messages → mission aggregation → JSON / CSV / Markdown / HTML reports → continue / targeted follow-up / watchlist / safety hold.",
+    "accent": "#f59e0b",
+    "flowchart": {
+      "image": "assets/flowcharts/autonomous-industrial-inspection-robot-detailed.svg",
+      "nodes": [
+        {
+          "label": "Site / asset config",
+          "detail": "Load facility, assets and checkpoint definitions"
+        },
+        {
+          "label": "Inspection profiles",
+          "detail": "Select modes, thresholds and parameters"
+        },
+        {
+          "label": "Seeded scenario",
+          "detail": "Make simulated anomalies reproducible"
+        },
+        {
+          "label": "Gazebo Harmonic",
+          "detail": "Simulate robot, environment and sensors"
+        },
+        {
+          "label": "ROS2 bring-up",
+          "detail": "Launch mission + inspection packages"
+        },
+        {
+          "label": "Nav2 waypoint mission",
+          "detail": "Navigate configured patrol route"
+        },
+        {
+          "label": "Waypoint task plugin",
+          "detail": "Trigger inspection after arrival"
+        },
+        {
+          "label": "Evidence capture",
+          "detail": "Visual / thermal / acoustic / gauge modes"
+        },
+        {
+          "label": "Evidence metadata",
+          "detail": "Timestamp, asset, checkpoint and paths"
+        },
+        {
+          "label": "Health / severity logic",
+          "detail": "Compute score, severity, confidence fields"
+        },
+        {
+          "label": "InspectionResult",
+          "detail": "Publish structured per-checkpoint result"
+        },
+        {
+          "label": "PatrolRoundSummary",
+          "detail": "Aggregate waypoint results"
+        },
+        {
+          "label": "Decision logic",
+          "detail": "Continue / reinspect / watchlist / safety hold"
+        },
+        {
+          "label": "Report generation",
+          "detail": "JSON / CSV / Markdown / HTML outputs"
+        },
+        {
+          "label": "Smoke + regression",
+          "detail": "Headless, retry and multi-seed validation"
+        }
+      ],
+      "caption": "Technical illustration of the documented system. Planned stages remain subject to the project status and validation notes."
+    }
+  },
+  {
+    "slug": "robot-fleet-observability-platform",
+    "title": "Robot Fleet Observability Platform",
+    "summary": "Built a tenant-aware fleet-monitoring prototype with FastAPI, InfluxDB telemetry, operator views, API-key ingestion and a five-AMR simulator.",
+    "domain": "Industrial software",
+    "tags": [
+      "Python",
+      "FastAPI",
+      "InfluxDB 2.x",
+      "Flux",
+      "JWT",
+      "Grafana",
+      "HTML/CSS/JavaScript",
+      "Docker"
+    ],
+    "status": "Development platform · Public release September 2026",
+    "image": "assets/project/robot-fleet-observability-hd-v2.webp",
+    "image_kind": "Illustrative visualization",
+    "objective": "Build a tenant-aware robot fleet observability platform that securely ingests AMR telemetry, stores time-series data in InfluxDB, computes fleet KPIs/fault context and presents operator-facing views through FastAPI, OpenAPI, dashboard and Grafana interfaces.",
+    "role": "Telemetry backend and operator interface implementation",
+    "timeline": "Public release · September 2026",
+    "contributions": [
+      "Built a FastAPI service with JWT operator authentication and separate API-key protection for telemetry producers.",
+      "Robot status, battery, odometry, task, uptime and fault measurements are written to InfluxDB 2.x and queried through tenant-scoped Flux expressions.",
+      "The project includes a browser dashboard, OpenAPI endpoints, an importable Grafana definition and a simulator that continuously publishes five AMRs."
+    ],
+    "implementation": "Built a FastAPI service with JWT operator authentication and separate API-key protection for telemetry producers. Robot status, battery, odometry, task, uptime and fault measurements are written to InfluxDB 2.x and queried through tenant-scoped Flux expressions. The project includes a browser dashboard, OpenAPI endpoints, an importable Grafana definition and a simulator that continuously publishes five AMRs.",
+    "decisions": "The project deliberately keeps user and tenant registration in process memory and calls that out as a development boundary rather than pretending it is production-ready. The documentation identifies the next production steps: persistent identity storage, separate revocable producer credentials, token rotation, rate limiting, audit events and backups.",
+    "challenges": "Operations teams need fleet-level visibility rather than separate robot logs. The service therefore has to authenticate operators, isolate tenant data, ingest robot telemetry safely and turn time-series measurements into useful fleet-level health and fault views.",
+    "validation": "The documented end-to-end procedure checks API/database health, authentication, protected fleet queries, HTTP 401 behavior, direct telemetry ingestion and browser-dashboard population. The health endpoint distinguishes a running API from a degraded database connection.",
+    "outcome": "A tenant-aware development platform for telemetry, fault context and fleet visibility. Identity persistence and production hardening remain documented boundaries.",
+    "links": [
+      {
+        "label": "Source repository",
+        "url": "https://github.com/SAMP2411/robot-fleet-observability-platform"
+      }
+    ],
+    "goals": [
+      "Ingest status, battery, odometry, task, uptime and fault telemetry from simulated or real AMRs.",
+      "Separate producer authentication from operator JWT access and keep data tenant-scoped.",
+      "Use InfluxDB/Flux for time-series persistence, aggregation and fleet-level views.",
+      "Expose health, KPIs and fault history through APIs plus operator/dashboard visualization and explicit degraded-health reporting."
+    ],
+    "architecture": "AMRs / five-robot simulator → X-API-Key + X-Tenant-ID ingestion → FastAPI → InfluxDB time-series storage → tenant-scoped fleet API → built-in operator dashboard / OpenAPI clients / optional Grafana dashboard.",
+    "accent": "#22d3ee",
+    "flowchart": {
+      "image": "assets/flowcharts/robot-fleet-observability-platform-detailed.svg",
+      "nodes": [
+        {
+          "label": "AMRs / simulator",
+          "detail": "Five-robot simulator or telemetry producers"
+        },
+        {
+          "label": "Telemetry payload",
+          "detail": "Status, battery, pose, task, uptime, faults"
+        },
+        {
+          "label": "Producer auth",
+          "detail": "X-API-Key + X-Tenant-ID"
+        },
+        {
+          "label": "FastAPI validation",
+          "detail": "Validate schema and resolve tenant"
+        },
+        {
+          "label": "Ingestion routing",
+          "detail": "Accept authorized telemetry writes"
+        },
+        {
+          "label": "InfluxDB write",
+          "detail": "Store tagged time-series measurements"
+        },
+        {
+          "label": "Retention / series model",
+          "detail": "Organize measurements for query"
+        },
+        {
+          "label": "Flux queries",
+          "detail": "Filter and aggregate per tenant"
+        },
+        {
+          "label": "Fleet KPI service",
+          "detail": "Compute fleet-level health/context"
+        },
+        {
+          "label": "Fault history",
+          "detail": "Retrieve robot fault/event context"
+        },
+        {
+          "label": "JWT operator auth",
+          "detail": "Authenticate human/API users"
+        },
+        {
+          "label": "Tenant-scoped API",
+          "detail": "Protect fleet/robot/KPI endpoints"
+        },
+        {
+          "label": "Dashboard / OpenAPI",
+          "detail": "Built-in operator and developer interfaces"
+        },
+        {
+          "label": "Grafana path",
+          "detail": "Optional advanced visualization"
+        },
+        {
+          "label": "Health endpoint",
+          "detail": "Report API/DB dependency state"
+        }
+      ],
+      "caption": "Technical illustration of the documented system. Planned stages remain subject to the project status and validation notes."
+    }
+  },
+  {
+    "slug": "industrial-robot-operations-intelligence",
+    "title": "Industrial Robot Operations Intelligence",
+    "summary": "Integrated inspection artifacts, operator finding workflows and historical incident diagnostics in a capstone with evidence-linked hypotheses and human-reviewed reports.",
+    "domain": "Industrial software",
+    "tags": [
+      "ROS 2 Jazzy",
+      "Nav2",
+      "FastAPI",
+      "SQLAlchemy",
+      "PostgreSQL",
+      "Alembic",
+      "Docker Compose",
+      "Pytest",
+      "Caddy"
+    ],
+    "status": "Integration capstone · Public release September 2026",
+    "image": "assets/project/industrial-robot-operations-intelligence-hd-v2.webp",
+    "image_kind": "Illustrative visualization",
+    "objective": "Unify live robot inspection workflows with historical multi-system incident diagnostics into an auditable operations-intelligence platform that preserves evidence provenance, aligns events across systems, supports operator finding lifecycle and keeps hypotheses subject to human review.",
+    "role": "Inspection and incident-intelligence integration",
+    "timeline": "Public release · September 2026",
+    "contributions": [
+      "Integrated the autonomous inspection stack with a FleetWatch operator workflow and a separate historical incident-intelligence service.",
+      "FleetWatch imports benchmark reports, campaign state and evidence into persistent site/asset/mission/finding records.",
+      "The diagnostic service ingests CSV, JSON, JSONL, structured logs, ROS exports and other supported files through preview-before-commit flows, then normalizes events, aligns timelines, maps assets, calculates incident/recovery context, links hypotheses to evidence and generates reviewable reports."
+    ],
+    "implementation": "Integrated the autonomous inspection stack with a FleetWatch operator workflow and a separate historical incident-intelligence service. FleetWatch imports benchmark reports, campaign state and evidence into persistent site/asset/mission/finding records. The diagnostic service ingests CSV, JSON, JSONL, structured logs, ROS exports and other supported files through preview-before-commit flows, then normalizes events, aligns timelines, maps assets, calculates incident/recovery context, links hypotheses to evidence and generates reviewable reports.",
+    "decisions": "The diagnostic subsystem is intentionally read-only with respect to robots and industrial control systems. Source files retain SHA-256 provenance, ingestion uses a preview-before-commit boundary, hypotheses can carry supporting or contradicting evidence, and human review remains explicit instead of allowing the system to present unverified root-cause claims as facts.",
+    "challenges": "A robot anomaly rarely lives in one log. Navigation and inspection evidence may need to be reconciled with fleet, WMS/WCS, PLC, network, charger, ticket and maintenance records before an operator can understand impact, recovery and likely causes.",
+    "validation": "The repository contains CI workflows plus contract, integration, end-to-end, browser, migration, fault-injection, parser-fuzz, property, performance, PostgreSQL, release and security tests. It also includes backup/restore tooling, migration history and release-gate checks. These are treated as validation surfaces in the portfolio, not as unsupported claims that every environment will pass unchanged.",
+    "outcome": "Integrated live inspection findings and historical diagnostics with evidence provenance and explicit human review. Test tooling is documented; universal environment compatibility is not claimed.",
+    "links": [
+      {
+        "label": "Source repository",
+        "url": "https://github.com/SAMP2411/industrial-robot-operations-intelligence"
+      }
+    ],
+    "goals": [
+      "Synchronize live inspection missions, reports and evidence into durable site/asset/mission/finding records.",
+      "Support operator acknowledgement, assignment, reinspect, resolve and close actions with traceable state transitions.",
+      "Safely ingest heterogeneous historical robot/WMS/WCS/PLC/network/maintenance data through preview-before-commit.",
+      "Preserve source provenance, normalize events, align timelines and generate evidence-linked hypotheses that remain human-reviewed rather than autonomous control actions."
+    ],
+    "architecture": "Live path: ROS 2 inspection → reports / evidence / campaign state → FleetWatch sync → operator acknowledge / assign / reinspect / resolve / close → follow-up mission queue. Historical path: robot / WMS / WCS / PLC / network / maintenance exports → safe preview + commit → immutable source records → normalization + asset mapping → aligned timeline → incident metrics + evidence-linked hypotheses → human-reviewed reports.",
+    "accent": "#a78bfa",
+    "flowchart": {
+      "image": "assets/flowcharts/industrial-robot-operations-intelligence-detailed.svg",
+      "nodes": [
+        {
+          "label": "ROS2 inspection missions",
+          "detail": "Live mission execution and findings"
+        },
+        {
+          "label": "Evidence + reports",
+          "detail": "Images/sensor context and summaries"
+        },
+        {
+          "label": "FleetWatch sync",
+          "detail": "Import mission state into operations DB"
+        },
+        {
+          "label": "Durable records",
+          "detail": "Site / asset / mission / finding entities"
+        },
+        {
+          "label": "Operator workflow",
+          "detail": "Acknowledge / assign / reinspect / resolve / close"
+        },
+        {
+          "label": "Follow-up queue",
+          "detail": "Create targeted repeat-inspection work"
+        },
+        {
+          "label": "Historical exports",
+          "detail": "Robot / WMS / WCS / PLC / network / maintenance"
+        },
+        {
+          "label": "Safe preview",
+          "detail": "Parse and inspect before persistence"
+        },
+        {
+          "label": "Commit + provenance",
+          "detail": "Store source metadata and SHA-256 lineage"
+        },
+        {
+          "label": "Normalization",
+          "detail": "Convert heterogeneous records to event model"
+        },
+        {
+          "label": "Asset mapping",
+          "detail": "Relate events to robots/assets/locations"
+        },
+        {
+          "label": "Timeline alignment",
+          "detail": "Correlate events across clocks/systems"
+        },
+        {
+          "label": "Incident metrics",
+          "detail": "Recovery and operational context"
+        },
+        {
+          "label": "Evidence-linked hypotheses",
+          "detail": "Attach support and contradiction evidence"
+        },
+        {
+          "label": "Human review",
+          "detail": "Validate findings and hypotheses"
+        },
+        {
+          "label": "Auditable report",
+          "detail": "Produce reviewable/exportable diagnostics"
+        }
+      ],
+      "caption": "Technical illustration of the documented system. Planned stages remain subject to the project status and validation notes."
+    }
+  }
+]

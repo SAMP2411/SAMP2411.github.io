@@ -6,47 +6,34 @@ on:
 permissions:
   contents: read
 jobs:
-  audit:
+  validate:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - run: pip install Pillow
-      - name: Audit original image dimensions
-        run: |
-          python - <<'PY'
-          import json, pathlib
-          from PIL import Image
-          result=[]
-          for p in pathlib.Path('.').rglob('*'):
-            if p.suffix.lower() in ['.jpg','.jpeg','.png','.webp','.avif']:
-              row=dict(path=str(p),bytes=p.stat().st_size)
-              try:
-                with Image.open(p) as im:
-                  im.load()
-                  row.update(width=im.width,height=im.height,format=im.format)
-              except Exception as e:
-                row['error']=str(e)
-              result.append(row)
-          pathlib.Path('image-audit.json').write_text(json.dumps(result,indent=2))
-          print(json.dumps(result,indent=2))
-          PY
-      - name: Collect existing high-resolution originals
-        run: |
-          mkdir -p original-asset-candidates
-          git archive 835584084349e96809a81be2d7ac912b5d997ae3 assets | tar -x -C original-asset-candidates
-      - uses: actions/upload-artifact@v4
-        if: always()
+      - uses: actions/setup-node@v4
         with:
-          name: repository-assets-audit
-          path: |
-            assets
-            profile.jpg
-            project2.jpg
-            project4.jpg
-            image-audit.json
-            original-asset-candidates
+          node-version: '22'
+      - name: Validate generated site
+        run: |
+          python scripts/build_site.py
+          python scripts/validate_site.py
+          git diff --exit-code -- '*.html' sitemap.xml robots.txt
+      - name: Install development-only QA tools
+        run: |
+          npm install --ignore-scripts
+          npx playwright install --with-deps chromium
+      - name: Browser regression and accessibility
+        run: |
+          python -m http.server 8000 > /tmp/portfolio-server.log 2>&1 &
+          node scripts/browser-test.mjs
+      - name: Upload verification report and screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: portfolio-qa
+          path: qa-output/
+          retention-days: 14

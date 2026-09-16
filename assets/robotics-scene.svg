@@ -1,0 +1,81 @@
+<svg class="robotics-scene" viewBox="0 0 720 600" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="robotics-title robotics-desc">
+<title id="robotics-title">Autonomy and manipulation, in one system</title>
+<desc id="robotics-desc">An illustrative industrial robot arm above an isometric workspace, with a mobile robot following a navigation route and coordinate frames showing its reference system. This is a conceptual illustration, not live robot telemetry.</desc>
+<defs>
+ <linearGradient id="rs-floor" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#172830"/><stop offset="1" stop-color="#0a141d"/></linearGradient>
+ <linearGradient id="rs-metal" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#426071"/><stop offset=".36" stop-color="#b4c7cd"/><stop offset=".65" stop-color="#6c8998"/><stop offset="1" stop-color="#263e4d"/></linearGradient>
+ <linearGradient id="rs-blue" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#80d4de"/><stop offset=".42" stop-color="#309cb0"/><stop offset="1" stop-color="#1c5267"/></linearGradient>
+ <linearGradient id="rs-base" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#283f4d"/><stop offset=".45" stop-color="#617d8a"/><stop offset="1" stop-color="#1b2d39"/></linearGradient>
+ <radialGradient id="rs-halo"><stop stop-color="#45c9ce" stop-opacity=".09"/><stop offset="1" stop-color="#45c9ce" stop-opacity="0"/></radialGradient>
+</defs>
+<ellipse cx="380" cy="290" rx="325" ry="275" fill="url(#rs-halo)"/>
+<!-- A deliberately legible, dimensional laboratory floor. -->
+<path d="M40 383 365 206 686 387 361 578Z" fill="#070e15"/>
+<path d="M40 369 365 192 686 373 361 564Z" fill="url(#rs-floor)" stroke="#355360" stroke-width="1.2"/>
+<path d="M40 369v14l321 195v-14M361 564l325-191v14L361 578" fill="none" stroke="#243d4c"/>
+<g fill="none" stroke="#29414d" stroke-width=".75" opacity=".65">
+<path d="m81 347 321 193M121 325l322 192M162 303l322 190M202 281l323 188M243 258l322 187M284 236l322 186M324 214l322 184"/>
+<path d="m80 393 325-178M120 417l325-179M160 442l325-181M200 466l325-183M240 491l325-185M280 515l325-186M321 539l325-188"/>
+</g>
+<!-- Workspace envelope and planned mobile route. -->
+<ellipse cx="413" cy="350" rx="160" ry="88" fill="none" stroke="#7b9bab" stroke-opacity=".24" stroke-dasharray="3 8"/>
+<path d="M161 389 298 466Q320 479 344 465L552 346" fill="none" stroke="#132d38" stroke-width="18" stroke-linecap="round"/>
+<path class="scene-route" d="M161 389 298 466Q320 479 344 465L552 346" fill="none" stroke="#55cbd0" stroke-width="2" stroke-linecap="round" stroke-dasharray="5 8"/>
+<g fill="#112a34" stroke="#65d4d5" stroke-width="1.5"><ellipse cx="161" cy="389" rx="7" ry="4"/><ellipse cx="552" cy="346" rx="7" ry="4"/></g>
+<!-- Manipulator pedestal. -->
+<ellipse cx="399" cy="365" rx="63" ry="28" fill="#040a0e" opacity=".55"/>
+<path d="m356 338 44-25 45 25v23l-44 26-45-26Z" fill="#192d39" stroke="#557180"/>
+<path d="m356 338 44 26 45-26-45-25Z" fill="#344e5a"/>
+<path d="M375 312v29c0 17 50 17 50 0v-29" fill="url(#rs-base)" stroke="#6b8792"/>
+<ellipse cx="400" cy="312" rx="25" ry="12" fill="#7894a0"/>
+<ellipse cx="400" cy="311" rx="18" ry="8" fill="#223d4b"/>
+<g class="scene-arm">
+<!-- Upper arm, elbow and forearm have separate material faces. -->
+<path d="M400 310 365 232" fill="none" stroke="#162a37" stroke-width="43" stroke-linecap="round"/>
+<path d="M395 304 361 231" fill="none" stroke="url(#rs-metal)" stroke-width="31" stroke-linecap="round"/>
+<path d="m386 292-25-56" fill="none" stroke="#d4e2e6" stroke-opacity=".55" stroke-width="3"/>
+<circle cx="397" cy="307" r="20" fill="url(#rs-blue)" stroke="#83d8dd"/>
+<ellipse cx="395" cy="307" rx="10" ry="13" fill="#233e4b" stroke="#9ae5e5" stroke-opacity=".6"/>
+<path d="M365 232 450 140" fill="none" stroke="#152a38" stroke-width="37" stroke-linecap="round"/>
+<path d="M363 229 447 139" fill="none" stroke="url(#rs-metal)" stroke-width="26" stroke-linecap="round"/>
+<path d="m370 216 65-70" fill="none" stroke="#d4e2e6" stroke-opacity=".5" stroke-width="3"/>
+<circle cx="363" cy="231" r="22" fill="url(#rs-blue)" stroke="#93dfe1"/>
+<circle cx="358" cy="231" r="12" fill="#294955" stroke="#62bfca"/>
+<circle cx="358" cy="231" r="4" fill="#9fd7dc"/>
+<path d="m449 141 61 40" fill="none" stroke="#142a37" stroke-width="30" stroke-linecap="round"/>
+<path d="m448 138 62 40" fill="none" stroke="url(#rs-metal)" stroke-width="21" stroke-linecap="round"/>
+<circle cx="449" cy="140" r="18" fill="url(#rs-blue)" stroke="#9cdfe1"/>
+<circle cx="446" cy="140" r="9" fill="#284753" stroke="#65b8c4"/>
+<path d="m510 178 0 27" fill="none" stroke="#82a5b2" stroke-width="17"/>
+<ellipse cx="510" cy="179" rx="12" ry="9" fill="url(#rs-blue)" stroke="#79c9d2"/>
+<path d="m498 205 12 6 13-7v12l-7 7m-18-18v13l7 6" fill="none" stroke="#b6c8cd" stroke-width="5" stroke-linejoin="round"/>
+<!-- Tool coordinate frame. -->
+<g stroke-width="1.5" fill="none"><path d="M510 229v-31" stroke="#6bcbd3"/><path d="m510 229 26 14" stroke="#edab76"/><path d="m510 229-23 14" stroke="#8099aa"/></g>
+<g fill="#aac6cd" font-family="monospace" font-size="10"><text x="513" y="194">z</text><text x="540" y="249">x</text><text x="477" y="253">y</text></g>
+</g>
+<!-- Pick station, with a restrained industrial orange target. -->
+<path d="m489 304 27-16 28 16v34l-28 16-27-16Z" fill="#263b46" stroke="#4d6875"/>
+<path d="m489 304 27 16 28-16-28-16Z" fill="#4b6571"/>
+<path d="m505 296 11-6 11 6v13l-11 6-11-6Z" fill="#b76b3d" stroke="#edac78"/>
+<path d="m505 296 11 6 11-6" fill="none" stroke="#f0bd96"/>
+<path d="M516 279v-24" stroke="#dc9c6c" stroke-dasharray="3 5" opacity=".7"/>
+<!-- Compact differential-drive AMR with a two-plane LiDAR field. -->
+<g class="scene-amr">
+<ellipse cx="217" cy="414" rx="64" ry="34" fill="none" stroke="#60cecf" stroke-opacity=".16"/>
+<ellipse class="scene-lidar" cx="217" cy="414" rx="87" ry="46" fill="none" stroke="#60cecf" stroke-opacity=".25" stroke-dasharray="2 6"/>
+<path d="m217 405-83-33m83 33-30-51m30 51 76-35" fill="none" stroke="#56c9ce" stroke-opacity=".2"/>
+<ellipse cx="217" cy="414" rx="34" ry="17" fill="#03090d" opacity=".6"/>
+<path d="m186 393 29-17 33 19v21l-30 17-32-19Z" fill="#213c49" stroke="#6b929f"/>
+<path d="m186 393 32 18 30-16-33-19Z" fill="#77939e"/>
+<path d="m218 411 30-16v21l-30 17Z" fill="#305564"/>
+<path d="m194 414 8 5v9l-8-5Zm38 5 8-5v9l-8 5Z" fill="#08141d" stroke="#58717e"/>
+<path d="M208 387v-9h17v9" fill="#1c323f" stroke="#8caab4"/>
+<ellipse cx="216.5" cy="378" rx="8.5" ry="4" fill="#71d1d5"/>
+<path d="m224 414 15-8" stroke="#66dfdb" stroke-width="3"/>
+</g>
+<!-- Annotation lines do not imply live metrics. -->
+<g fill="none" stroke="#658591" stroke-width=".8"><path d="M350 204H251l-22-17H123"/><path d="m412 354 48 36h123"/><path d="m191 430-32 23H97"/></g>
+<g font-family="ui-monospace, monospace" font-size="10" letter-spacing="1.2" fill="#a6c1ca"><text x="123" y="177">MANIPULATION</text><text x="473" y="408">REFERENCE FRAMES</text><text x="97" y="474">MOBILE AUTONOMY</text></g>
+<g stroke-width="2" fill="none"><path d="M110 345v-38" stroke="#65cdd1"/><path d="m110 345 31 18" stroke="#da9363"/><path d="m110 345-26 16" stroke="#8da6b2"/></g>
+<g font-family="ui-monospace, monospace" font-size="10" fill="#8eabb6"><text x="107" y="298">Z</text><text x="146" y="370">X</text><text x="74" y="370">Y</text></g>
+</svg>
