@@ -26,7 +26,7 @@ Graphite surfaces, warm-white typography, restrained cyan actions and orange tec
 
 All 13 projects and their existing routes remain. Objectives and detailed diagrams remain separate from hero images. The IIoT flow is corrected to source-backed local inference followed by MQTT alert publication, with offline Matplotlib analysis. Unsupported numerical accuracy/latency claims are not promoted. Johnson & Johnson is explicitly a Forage virtual job simulation under experience.
 
-Incoming B. Braun work is labelled as planned for October 2026, not completed employment. The résumé is a printable web edition, not a purported original uploaded CV.
+<!-- Temporarily unpublished: Incoming B. Braun work is labelled as planned for October 2026, not completed employment. --> The résumé is a printable web edition, not a purported original uploaded CV.
 
 ## Images
 
