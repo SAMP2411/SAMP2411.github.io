@@ -10,6 +10,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
@@ -22,13 +24,23 @@ jobs:
           result=[]
           for p in pathlib.Path('.').rglob('*'):
             if p.suffix.lower() in ['.jpg','.jpeg','.png','.webp','.avif']:
-              with Image.open(p) as im:
-                im.load()
-                result.append(dict(path=str(p),width=im.width,height=im.height,format=im.format,bytes=p.stat().st_size))
+              row=dict(path=str(p),bytes=p.stat().st_size)
+              try:
+                with Image.open(p) as im:
+                  im.load()
+                  row.update(width=im.width,height=im.height,format=im.format)
+              except Exception as e:
+                row['error']=str(e)
+              result.append(row)
           pathlib.Path('image-audit.json').write_text(json.dumps(result,indent=2))
           print(json.dumps(result,indent=2))
           PY
+      - name: Collect existing high-resolution originals
+        run: |
+          mkdir -p original-asset-candidates
+          git archive 835584084349e96809a81be2d7ac912b5d997ae3 assets | tar -x -C original-asset-candidates
       - uses: actions/upload-artifact@v4
+        if: always()
         with:
           name: repository-assets-audit
           path: |
@@ -37,3 +49,4 @@ jobs:
             project2.jpg
             project4.jpg
             image-audit.json
+            original-asset-candidates
