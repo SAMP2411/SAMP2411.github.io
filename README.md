@@ -1,5 +1,24 @@
 # Samarth Patel — Engineering Portfolio
 
+## September 2026 redesign
+
+Delivery status, milestones, architecture and validation evidence are maintained in [PROJECT_PLAN.md](PROJECT_PLAN.md).
+
+The live site is a dependency-free, pre-rendered HTML portfolio on the existing GitHub Pages infrastructure. All 13 case studies retain their original URLs, with a new project explorer, evidence-linked skills, dedicated experience/about pages and printable web résumé.
+
+Edit `data/projects.json` and `scripts/build_site.py`, then run:
+
+```sh
+python3 scripts/build_site.py
+python3 scripts/validate_site.py
+```
+
+Shared styles: `site.css`, `refinements.css`. Progressive interactions: `site.js`. Lightweight illustrative robot workspace: `assets/robotics-scene.svg`, `scene.css`, `scene.js`.
+
+GitHub Actions runs read-only structural, browser, responsive and accessibility checks. It does not regenerate or overwrite images on main. Runtime assets are repository-owned; npm dependencies are only for QA. See `docs/engineering-decisions.md` for maintenance, provenance and rollback instructions.
+
+Preserved rollback: `backup-before-portfolio-redesign-2026-09-15`.
+
 Source repository for **[samp2411.github.io](https://samp2411.github.io)**.
 
 I am an M.Sc. Automation & Robotics student at TU Dortmund University focused on **Robotics Software Engineering, SLAM, Perception, Autonomous Navigation, ROS2/Nav2, Embedded Linux, and CI/CD for physical systems**.

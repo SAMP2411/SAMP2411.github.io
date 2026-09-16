@@ -46,7 +46,7 @@ def dims(path):
     audit = ROOT/'docs/image-dimensions.json'
     if audit.exists():
         for item in json.loads(audit.read_text()):
-            if item['path'] == path and 'width' in item: return item['width'], item['height']
+            if item['path'] == path and item.get('width'): return item.get('display_width',item['width']), item.get('display_height',item['height'])
     return {'profile.jpg':(1792,2400),'project2.jpg':(887,592),'project4.jpg':(3000,4000)}.get(path,(1600,1000))
 
 def image(path, alt, prefix='', eager=False, cls=''):
@@ -58,6 +58,7 @@ def section_heading(number, title, detail='', link=''):
 
 def layout(title, desc, content, path, scene=False, modal=False):
     prefix = '../' if '/' in path else ''
+    preview = next((p['image'] for p in DATA if path == 'project/'+p['slug']+'.html'), 'profile.jpg')
     nav = [('projects.html','Projects'),('experience.html','Experience'),('skills.html','Skills'),('about.html','About')]
     links = ''.join(f'<a href="{prefix}{url}"'+(' aria-current="page"' if path==url else '')+f'>{label}</a>' for url,label in nav)
     schema = {'@context':'https://schema.org','@type':'Person','name':'Samarth Patel','url':SITE,'sameAs':['https://github.com/SAMP2411',LINKEDIN],'jobTitle':'Robotics Software Engineer','alumniOf':{'@type':'CollegeOrUniversity','name':'SRM Institute of Science and Technology'}}
@@ -69,7 +70,7 @@ def layout(title, desc, content, path, scene=False, modal=False):
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{esc(title)} | Samarth Patel</title><meta name="description" content="{esc(desc)}"><meta name="theme-color" content="#090f16">
 <link rel="canonical" href="{SITE}{'' if path=='index.html' else path}"><link rel="icon" href="{prefix}favicon.svg" type="image/svg+xml"><link rel="manifest" href="{prefix}site.webmanifest">
-<meta property="og:type" content="website"><meta property="og:title" content="{esc(title)} | Samarth Patel"><meta property="og:description" content="{esc(desc)}"><meta property="og:url" content="{SITE}{'' if path=='index.html' else path}"><meta property="og:image" content="{SITE}profile.jpg"><meta property="og:image:alt" content="Samarth Patel"><meta name="twitter:card" content="summary">
+<meta property="og:type" content="website"><meta property="og:title" content="{esc(title)} | Samarth Patel"><meta property="og:description" content="{esc(desc)}"><meta property="og:url" content="{SITE}{'' if path=='index.html' else path}"><meta property="og:image" content="{SITE}{preview}"><meta property="og:image:alt" content="{esc(title)}"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="{esc(title)} | Samarth Patel"><meta name="twitter:description" content="{esc(desc)}"><meta name="twitter:image" content="{SITE}{preview}">
 <link rel="stylesheet" href="{prefix}site.css"><link rel="stylesheet" href="{prefix}refinements.css">{f'<link rel="stylesheet" href="{prefix}scene.css">' if scene else ''}<script src="{prefix}site.js" defer></script>{f'<script src="{prefix}scene.js" defer></script>' if scene else ''}
 <script type="application/ld+json">{json.dumps(schema)}</script></head><body>
 <a class="skip-link" href="#main">Skip to content</a><header class="site-header"><div class="container"><a class="brand" href="{prefix}index.html" aria-label="Samarth Patel home"><span class="brand-mark" aria-hidden="true">SP</span>SAMARTH PATEL</a><button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" hidden>Menu</button><nav class="nav-links" id="primary-nav" aria-label="Primary">{links}<a href="{prefix}resume.html" class="button small">Résumé ↗</a><a href="{prefix}index.html#contact">Contact</a></nav></div></header>

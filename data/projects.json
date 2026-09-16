@@ -124,7 +124,7 @@
     ],
     "status": "Completed Robotics Project",
     "image": "project2.jpg",
-    "image_kind": "Project photograph",
+    "image_kind": "Project design illustration",
     "objective": "Build a ROS-based telepresence mobile robot that combines mapping, localization and autonomous navigation with onboard sensing and Arduino-based low-level drive control, so remote presence can operate on top of a reliable mobility stack.",
     "role": "ROS navigation and mobile-base integration",
     "timeline": "Completed project",

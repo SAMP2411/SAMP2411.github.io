@@ -4,8 +4,8 @@
   "description": "Robotics, autonomy, computer vision and industrial AI engineering portfolio of Samarth Patel.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#02040a",
-  "theme_color": "#02040a",
+  "background_color": "#090f16",
+  "theme_color": "#090f16",
   "icons": [
     {
       "src": "/favicon.svg",
