@@ -38,3 +38,5 @@
 @media(max-width:1150px){.compact-projects{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:850px){.compact-projects{grid-template-columns:repeat(2,minmax(0,1fr))}.hero-visual{display:none}.hero{grid-template-columns:1fr}.container{width:calc(100% - 40px)}}
 @media(max-width:540px){.compact-projects{grid-template-columns:1fr}.compact-projects .card-visual{width:88px;flex-basis:88px;min-height:112px}.compact-projects .card-title{font-size:17px}.container{width:calc(100% - 32px)}.hero{padding-block:24px}.hero-name{font-size:44px}}
+@media(min-width:851px){.hero{grid-template-columns:minmax(0,1fr) 300px;padding-block:20px}.hero .eyebrow{margin-bottom:8px}.hero-name{font-size:48px;margin-bottom:8px}.hero-role{font-size:18px;margin-block:8px}.hero-summary{font-size:14px;line-height:1.5}.hero .social-links,.hero-meta{display:none}.hero-visual{min-height:0;max-height:240px}.hero-visual .robotics-visual{max-width:300px}}
+@media(min-width:1280px){.compact-projects{grid-template-columns:repeat(5,minmax(0,1fr))}.compact-projects .card-visual{width:56px;flex-basis:56px}.compact-projects .card-body{padding:12px}}
