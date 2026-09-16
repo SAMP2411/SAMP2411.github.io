@@ -137,6 +137,7 @@ try {
     }
     await page.emulateMedia({ reducedMotion: 'no-preference' });
     for (const scene of await scenes.all()) {
+      if (!await scene.isVisible()) continue;
       await scene.scrollIntoViewIfNeeded();
       const pause = scene.locator('.scene-toggle');
       if (await pause.isVisible()) {

@@ -12,3 +12,29 @@
 @media(max-width:899px){.hero-visual{aspect-ratio:auto;max-height:none}.hero-visual .robotics-visual{max-width:590px}.flowchart-image{min-width:900px}}
 @media(max-width:639px){.hero-visual .robotics-visual{max-width:100%}.hero-visual{max-height:none;min-height:0}.project-extension{display:block;padding:22px}.project-extension .text-link{margin-top:12px}.contact-email{font-size:11px!important}.hero-meta{line-height:1.7}.case-visual img{max-height:400px}}
 @media print{.experience-row{break-inside:avoid}.eyebrow,.experience-date,.project-status,.experience-company{color:#222!important}.page-header{padding-top:12px}.section{padding-block:20px}.experience-row{padding-block:14px}.experience-body h3{font-size:17px}.experience-body p{font-size:12px}.tags>*{background:white;color:#222;border-color:#aaa}.print-note{display:none}.case-visual{display:none}.hero-meta{color:#333}}
+
+/* Scan-first overview: all projects together, detailed routes remain optional. */
+.container{max-width:1600px;width:calc(100% - 64px)}
+#projects,#experience,#skills,#about{scroll-margin-top:100px}
+.hero{min-height:0;padding-block:32px;gap:32px}
+.hero-name{font-size:clamp(40px,5vw,72px);line-height:1}.hero-name br{display:none}
+.hero-summary{font-size:15px;max-width:640px;margin-block:12px}
+.hero-role{font-size:20px;margin-block:12px}.hero-meta{margin-top:16px}
+.hero-visual{max-height:240px;overflow:hidden}.hero-visual .robotics-visual{max-width:350px;margin-inline:auto}
+.project-overview{padding-top:24px}.project-overview .section-heading{margin-bottom:20px}
+.compact-projects{grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.compact-projects .project-card{display:flex;flex-direction:row;min-width:0}
+.compact-projects .card-visual{width:76px;flex:0 0 76px;aspect-ratio:auto;min-height:140px}
+.compact-projects .card-visual img{height:100%;object-fit:cover}
+.compact-projects .image-label,.compact-projects .card-summary,.compact-projects .tags,.compact-projects .project-status{display:none}
+.compact-projects .card-body{padding:14px;min-width:0;display:flex;flex-direction:column;flex:1}
+.compact-projects .card-domain{font-size:9px;margin-bottom:6px}
+.compact-projects .card-title{font-size:16px;line-height:1.35;margin:0 0 12px}
+.compact-projects .card-actions{margin-top:auto;padding-top:0;border:0;gap:8px;flex-wrap:wrap}
+.compact-projects .card-actions .text-link{font-size:11px}
+.compact-projects .card-actions .button{font-size:11px;padding:6px 9px;min-height:32px}
+.page-header{padding-block:30px}.page-header h1{font-size:clamp(32px,4vw,56px)}
+@media(min-width:1500px){.compact-projects{grid-template-columns:repeat(5,minmax(0,1fr))}}
+@media(max-width:1150px){.compact-projects{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:850px){.compact-projects{grid-template-columns:repeat(2,minmax(0,1fr))}.hero-visual{display:none}.hero{grid-template-columns:1fr}.container{width:calc(100% - 40px)}}
+@media(max-width:540px){.compact-projects{grid-template-columns:1fr}.compact-projects .card-visual{width:88px;flex-basis:88px;min-height:112px}.compact-projects .card-title{font-size:17px}.container{width:calc(100% - 32px)}.hero{padding-block:24px}.hero-name{font-size:44px}}

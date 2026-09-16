@@ -85,3 +85,7 @@ All nine milestones are complete. Live site: https://samp2411.github.io/. The te
 ## Rollback
 
 Restore the backup tree in a new main commit if deployment catastrophically fails. Do not delete the backup, force-push main or erase history. The original main commit is `d2efd1781c07c497fcd8147e38e4aae4f08fb66c`.
+
+## Follow-up — simpler browsing
+
+User feedback: centered layouts and separate pages made the portfolio difficult to scan. Replaced the three-project homepage preview with all 13 projects in a compact, wider grid. Primary navigation now jumps to homepage sections; full experience and a short About section are available there. Quick views retain context and case-study URLs remain available for deeper reading. The project explorer uses the same compact cards. B. Braun content remains unpublished.
