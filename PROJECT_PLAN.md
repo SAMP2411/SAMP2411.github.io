@@ -89,3 +89,5 @@ Restore the backup tree in a new main commit if deployment catastrophically fail
 ## Follow-up — simpler browsing
 
 User feedback: centered layouts and separate pages made the portfolio difficult to scan. Replaced the three-project homepage preview with all 13 projects in a compact, wider grid. Primary navigation now jumps to homepage sections; full experience and a short About section are available there. Quick views retain context and case-study URLs remain available for deeper reading. The project explorer uses the same compact cards. B. Braun content remains unpublished.
+
+Compact overview validation: GitHub Actions run `35122232315` passed at 390/768/1440px. Desktop screenshot review confirmed all 13 cards in five columns and three rows; final polish restores name spacing and keeps the scene control visible.
