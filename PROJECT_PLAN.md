@@ -99,3 +99,7 @@ Replaced narrow full-height image strips with square 96px thumbnails (104px on p
 ## Live UI review — 24 September 2026
 
 Verified production directly: four-column grid and 96 × 96px thumbnails confirmed the card release was live. Browser caching was a possible explanation for stale presentation, not proven for the user’s browser. Added content-hashed CSS/JS query versions so new HTML requests the correct assets. Shifted the four-column threshold to 1480px to prevent wrapped card actions on laptop widths; corrected the homepage section numbering. Remaining design priorities: more informative project summaries, clearer distinction between primary quick view and deep case-study navigation, and image provenance visible at browsing level. Existing imagery retained as requested.
+
+## Recruiter-first hero refinement
+
+Replaced the monogram box with a compact typographic wordmark and the decorative boxed robotics scene with three direct evidence links. The name uses a single normal space, without line-break tricks. Role, degree, location, core stack, résumé and contact are visible together. Recruiter review criteria: identify specialization, academic context, technical evidence and a next action from the first screen. All project routes and existing image assets are retained; no new assets generated.

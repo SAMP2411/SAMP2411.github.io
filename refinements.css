@@ -47,3 +47,22 @@
 
 
 @media(min-width:851px){.hero-visual{max-height:none}.hero-visual .robotics-visual>svg{display:block;height:170px;width:100%}.hero-visual .scene-caption{padding:8px;flex-wrap:wrap;gap:8px}}
+
+/* Recruiter-first identity: typographic wordmark and evidence instead of decoration. */
+.brand{letter-spacing:0;text-transform:none}.brand-wordmark{font-size:19px;font-weight:650;letter-spacing:-.045em;white-space:nowrap}.brand-wordmark>span{color:var(--cyan)}
+.recruiter-hero{grid-template-columns:minmax(0,1.45fr) minmax(300px,1fr);padding:44px 0 40px;gap:clamp(32px,6vw,100px);border-bottom:1px solid var(--border)}
+.recruiter-hero .eyebrow{font-size:10px;letter-spacing:.12em;margin-bottom:16px}
+.recruiter-hero .hero-name{font-size:clamp(40px,4.6vw,68px);font-weight:650;letter-spacing:-.055em;line-height:1.06;word-spacing:normal;margin:0 0 14px}
+.recruiter-hero .hero-role{font-size:22px;line-height:1.35;margin:0 0 14px;color:var(--text);letter-spacing:-.025em}
+.recruiter-hero .hero-summary{font-size:15px;line-height:1.75;max-width:620px;margin:0 0 16px;color:var(--muted)}
+.hero-credentials{font-size:12px;line-height:1.8;color:var(--muted);margin-bottom:22px}
+.hero-contact{display:inline-flex;min-height:44px;align-items:center;font-size:13px;padding:0 8px;color:var(--text)}
+.hero-evidence{align-self:center}.hero-evidence>.eyebrow{color:var(--muted)}
+.hero-evidence>a{display:grid;grid-template-columns:24px minmax(0,1fr) 16px;gap:16px;align-items:center;padding:20px 0;border-top:1px solid var(--border)}
+.hero-evidence>a:last-child{border-bottom:1px solid var(--border)}
+.evidence-number{font:11px/1.5 Consolas,monospace;color:var(--cyan)}
+.hero-evidence strong{display:block;font-size:17px;font-weight:550;letter-spacing:-.025em;line-height:1.4}
+.hero-evidence small{display:block;font-size:12px;color:var(--muted);margin-top:5px;line-height:1.6}
+.project-overview{padding-top:36px}.project-overview .section-heading h2{font-size:32px}
+@media(max-width:899px){.recruiter-hero{grid-template-columns:1fr;gap:28px;padding-block:30px}.hero-evidence{max-width:none}.hero-evidence>a{padding-block:14px}}
+@media(max-width:539px){.recruiter-hero .hero-name{font-size:42px}.recruiter-hero .hero-role{font-size:20px}.recruiter-hero .hero-summary{font-size:14px}.recruiter-hero .eyebrow{font-size:9px}.hero-credentials{font-size:11px}.hero-contact{padding-left:0}.brand-wordmark{font-size:18px}}
