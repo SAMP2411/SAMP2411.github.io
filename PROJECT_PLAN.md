@@ -95,3 +95,7 @@ Compact overview validation: GitHub Actions run `35122232315` passed at 390/768/
 ## Card proportion refinement — 24 September 2026
 
 Replaced narrow full-height image strips with square 96px thumbnails (104px on phones), consistent 16px internal spacing, 20px grid gutters, flexible untruncated headings and bottom-aligned actions. Grid adapts through four, three, two and one columns. Existing images and project content remain unchanged; no assets generated or integrated for this update.
+
+## Live UI review — 24 September 2026
+
+Verified production directly: four-column grid and 96 × 96px thumbnails confirmed the card release was live. Browser caching was a possible explanation for stale presentation, not proven for the user’s browser. Added content-hashed CSS/JS query versions so new HTML requests the correct assets. Shifted the four-column threshold to 1480px to prevent wrapped card actions on laptop widths; corrected the homepage section numbering. Remaining design priorities: more informative project summaries, clearer distinction between primary quick view and deep case-study navigation, and image provenance visible at browsing level. Existing imagery retained as requested.

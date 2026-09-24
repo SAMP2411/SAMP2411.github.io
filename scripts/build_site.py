@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Build dependency-free, accessible portfolio pages from reviewed project data."""
 import html
+import hashlib
 import json
 from pathlib import Path
 import xml.etree.ElementTree as ET
@@ -57,6 +58,9 @@ def image(path, alt, prefix='', eager=False, cls=''):
 def section_heading(number, title, detail='', link=''):
     return f'<div class="section-heading"><div><span class="section-number">{number} / ENGINEERING PORTFOLIO</span><h2>{esc(title)}</h2></div>{f"<p>{esc(detail)}</p>" if detail else ""}{link}</div>'
 
+def asset_version(path):
+    return hashlib.sha256((ROOT/path).read_bytes()).hexdigest()[:10]
+
 def layout(title, desc, content, path, scene=False, modal=False):
     prefix = '../' if '/' in path else ''
     preview = next((p['image'] for p in DATA if path == 'project/'+p['slug']+'.html'), 'profile.jpg')
@@ -72,7 +76,7 @@ def layout(title, desc, content, path, scene=False, modal=False):
 <title>{esc(title)} | Samarth Patel</title><meta name="description" content="{esc(desc)}"><meta name="theme-color" content="#090f16">
 <link rel="canonical" href="{SITE}{'' if path=='index.html' else path}"><link rel="icon" href="{prefix}favicon.svg" type="image/svg+xml"><link rel="manifest" href="{prefix}site.webmanifest">
 <meta property="og:type" content="website"><meta property="og:title" content="{esc(title)} | Samarth Patel"><meta property="og:description" content="{esc(desc)}"><meta property="og:url" content="{SITE}{'' if path=='index.html' else path}"><meta property="og:image" content="{SITE}{preview}"><meta property="og:image:alt" content="{esc(title)}"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="{esc(title)} | Samarth Patel"><meta name="twitter:description" content="{esc(desc)}"><meta name="twitter:image" content="{SITE}{preview}">
-<link rel="stylesheet" href="{prefix}site.css"><link rel="stylesheet" href="{prefix}refinements.css">{f'<link rel="stylesheet" href="{prefix}scene.css">' if scene else ''}<script src="{prefix}site.js" defer></script>{f'<script src="{prefix}scene.js" defer></script>' if scene else ''}
+<link rel="stylesheet" href="{prefix}site.css?v={asset_version("site.css")}"><link rel="stylesheet" href="{prefix}refinements.css?v={asset_version("refinements.css")}">{f'<link rel="stylesheet" href="{prefix}scene.css?v={asset_version("scene.css")}">' if scene else ''}<script src="{prefix}site.js?v={asset_version("site.js")}" defer></script>{f'<script src="{prefix}scene.js?v={asset_version("scene.js")}" defer></script>' if scene else ''}
 <script type="application/ld+json">{json.dumps(schema)}</script></head><body>
 <a class="skip-link" href="#main">Skip to content</a><header class="site-header"><div class="container"><a class="brand" href="{prefix}index.html" aria-label="Samarth Patel home"><span class="brand-mark" aria-hidden="true">SP</span>SAMARTH PATEL</a><button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" hidden>Menu</button><nav class="nav-links" id="primary-nav" aria-label="Primary">{links}<a href="{prefix}resume.html" class="button small">Résumé ↗</a><a href="{prefix}index.html#contact">Contact</a></nav></div></header>
 <main id="main" class="container">{content}</main>{dialog}
@@ -104,8 +108,8 @@ def build():
     snapshot='<div class="snapshot" aria-label="Engineering snapshot">'+''.join(f'<a class="snapshot-item" href="projects.html?domain={d}"><strong>{label}</strong><span>{s}</span></a>' for d,label,s in [('autonomy','Mobile autonomy','ROS2 · SLAM · Nav2'),('manipulation','Manipulation','Kinematics · Trajectories · Control'),('embedded','Embedded platforms','Yocto · RAUC · CI/CD'),('perception','Perception & AI','OpenCV · ONNX · Sensor data')])+'</div>'
     ordered=FEATURED+[p['slug'] for p in DATA if p['slug'] not in FEATURED]
     featured='<section id="projects" class="section project-overview">'+section_heading('01','All projects','Open a quick view to browse the work without leaving this page.')+'<div class="project-grid compact-projects">'+''.join(card(PROJECTS[s],quick=True) for s in ordered)+'</div></section>'
-    capability='<section id="skills" class="section">'+section_heading('02','Across the robotics stack','Capabilities linked to the work that demonstrates them. No skill scores. Just engineering evidence.')+domains()+'</section>'
-    exp='<section id="experience" class="section">'+section_heading('03','Experience, in context',link='<a class="text-link" href="experience.html">Full experience ↗</a>')+experience()+'</section>'
+    capability='<section id="skills" class="section">'+section_heading('03','Across the robotics stack','Capabilities linked to the work that demonstrates them. No skill scores. Just engineering evidence.')+domains()+'</section>'
+    exp='<section id="experience" class="section">'+section_heading('02','Experience, in context',link='<a class="text-link" href="experience.html">Full experience ↗</a>')+experience()+'</section>'
     approach='<section id="approach" class="section">'+section_heading('04','Understand. Integrate. Validate.','A systems-first approach: make behavior observable, isolate the failing layer, and make the next change testable.')+'<div class="approach-grid">'+''.join(f'<article class="approach-item"><span class="eyebrow">0{i}</span><h3>{t}</h3><p>{b}</p></article>' for i,t,b in [(1,'Model the system','Start with frames, interfaces, constraints and failure modes—not only the nominal behavior.'),(2,'Integrate in layers','Verify sensing, transforms, estimation and control before tuning the complete robot.'),(3,'Measure behavior','Use recorded data, simulation, diagnostics and repeatable scenarios to understand the fault.'),(4,'Validate the change','Retest under the same conditions. Document the result and the boundaries of the evidence.')])+'</div></section>'
     write('index.html',layout('Robotics Software Engineer','Samarth Patel — robotics software, mobile autonomy, manipulation and embedded Linux. M.Sc. Automation & Robotics at TU Dortmund.',hero+featured+exp+capability+'<section id="about" class="section prose"><h2>About me</h2><p>I’m Samarth Patel, an M.Sc. Automation &amp; Robotics student at TU Dortmund. I build robotics software across navigation, manipulation, perception and embedded Linux.</p><p>Based in Dortmund, Germany. English C1 · German A2 · Hindi · Gujarati.</p><a class="text-link" href="about.html">Education and background ↗</a></section>'+contact(),'index.html',True,True))
     filters='<div class="filters" aria-label="Filter projects">'+''.join(f'<button type="button" class="filter-button" data-filter="{v}" aria-pressed="{"true" if v=="all" else "false"}" disabled>{label}</button>' for v,label in [('all','All projects'),('autonomy','Autonomy'),('manipulation','Manipulation'),('embedded','Embedded'),('perception','Perception'),('industrial-ai','Industrial AI')])+'</div>'
