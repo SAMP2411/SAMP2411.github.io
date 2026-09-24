@@ -22,23 +22,28 @@
 .hero-role{font-size:20px;margin-block:12px}.hero-meta{margin-top:16px}
 .hero-visual{max-height:240px;overflow:hidden}.hero-visual .robotics-visual{max-width:350px;margin-inline:auto}
 .project-overview{padding-top:24px}.project-overview .section-heading{margin-bottom:20px}
-.compact-projects{grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
-.compact-projects .project-card{display:flex;flex-direction:row;min-width:0}
-.compact-projects .card-visual{width:76px;flex:0 0 76px;aspect-ratio:auto;min-height:140px}
-.compact-projects .card-visual img{height:100%;object-fit:cover}
+/* Consistent editorial cards: square media, flexible text, aligned actions. */
+.compact-projects{grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;align-items:stretch}
+.compact-projects .project-card{display:grid;grid-template-columns:96px minmax(0,1fr);gap:16px;padding:16px;min-width:0;border-radius:12px;align-items:start}
+.compact-projects .card-visual{width:96px;height:96px;min-height:0;aspect-ratio:1;border-radius:8px;overflow:hidden;align-self:start}
+.compact-projects .card-visual img{width:100%;height:100%;object-fit:cover;object-position:center}
 .compact-projects .image-label,.compact-projects .card-summary,.compact-projects .tags,.compact-projects .project-status{display:none}
-.compact-projects .card-body{padding:14px;min-width:0;display:flex;flex-direction:column;flex:1}
-.compact-projects .card-domain{font-size:9px;margin-bottom:6px}
-.compact-projects .card-title{font-size:16px;line-height:1.35;margin:0 0 12px}
-.compact-projects .card-actions{margin-top:auto;padding-top:0;border:0;gap:8px;flex-wrap:wrap}
-.compact-projects .card-actions .text-link{font-size:11px}
-.compact-projects .card-actions .button{font-size:11px;padding:6px 9px;min-height:32px}
+.compact-projects .card-body{padding:0;min-width:0;display:flex;flex-direction:column;height:100%}
+.compact-projects .card-domain{font-size:9px;line-height:1.5;letter-spacing:.08em;margin-bottom:8px;min-height:27px}
+.compact-projects .card-title{font-size:16px;line-height:1.4;letter-spacing:-.02em;margin:0 0 18px;overflow-wrap:normal}
+.compact-projects .card-actions{margin-top:auto;padding-top:12px;border-top:1px solid var(--border);gap:6px 12px;flex-wrap:wrap;align-items:center}
+.compact-projects .card-actions .text-link{font-size:11px;min-height:36px;display:inline-flex;align-items:center}
+.compact-projects .card-actions .button{font-size:11px;padding:8px 10px;min-height:36px;border-radius:5px}
+@media(max-width:1359px){.compact-projects{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:1039px){.compact-projects{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:679px){.compact-projects{grid-template-columns:1fr;gap:14px}.compact-projects .project-card{grid-template-columns:104px minmax(0,1fr);padding:16px;gap:16px}.compact-projects .card-visual{width:104px;height:104px}.compact-projects .card-domain{min-height:0}.compact-projects .card-title{font-size:17px;margin-bottom:14px}}
+@media(max-width:359px){.compact-projects .project-card{grid-template-columns:80px minmax(0,1fr);padding:12px;gap:12px}.compact-projects .card-visual{width:80px;height:80px}}
 .page-header{padding-block:30px}.page-header h1{font-size:clamp(32px,4vw,56px)}
-@media(min-width:1500px){.compact-projects{grid-template-columns:repeat(5,minmax(0,1fr))}}
-@media(max-width:1150px){.compact-projects{grid-template-columns:repeat(3,minmax(0,1fr))}}
-@media(max-width:850px){.compact-projects{grid-template-columns:repeat(2,minmax(0,1fr))}.hero-visual{display:none}.hero{grid-template-columns:1fr}.container{width:calc(100% - 40px)}}
-@media(max-width:540px){.compact-projects{grid-template-columns:1fr}.compact-projects .card-visual{width:88px;flex-basis:88px;min-height:112px}.compact-projects .card-title{font-size:17px}.container{width:calc(100% - 32px)}.hero{padding-block:24px}.hero-name{font-size:44px}}
+
+
+@media(max-width:850px){.hero-visual{display:none}.hero{grid-template-columns:1fr}.container{width:calc(100% - 40px)}}
+@media(max-width:540px){.container{width:calc(100% - 32px)}.hero{padding-block:24px}.hero-name{font-size:44px}}
 @media(min-width:851px){.hero{grid-template-columns:minmax(0,1fr) 300px;padding-block:20px}.hero .eyebrow{margin-bottom:8px}.hero-name{font-size:48px;margin-bottom:8px}.hero-role{font-size:18px;margin-block:8px}.hero-summary{font-size:14px;line-height:1.5}.hero .social-links,.hero-meta{display:none}.hero-visual{min-height:0;max-height:240px}.hero-visual .robotics-visual{max-width:300px}}
-@media(min-width:1280px){.compact-projects{grid-template-columns:repeat(5,minmax(0,1fr))}.compact-projects .card-visual{width:56px;flex-basis:56px}.compact-projects .card-body{padding:12px}}
+
 
 @media(min-width:851px){.hero-visual{max-height:none}.hero-visual .robotics-visual>svg{display:block;height:170px;width:100%}.hero-visual .scene-caption{padding:8px;flex-wrap:wrap;gap:8px}}
