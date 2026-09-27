@@ -111,9 +111,25 @@ try {
     }
     const all = page.locator('button[data-filter="all"]');
     if (await all.count()) await all.click();
+    const gallery = page.locator('[data-view="gallery"]');
+    if (await gallery.count()) {
+      await gallery.click();
+      assert(await page.locator('.compact-projects').evaluate(n => n.classList.contains('gallery-view')), 'Gallery layout not applied');
+      await page.reload();
+      assert(await gallery.getAttribute('aria-pressed') === 'true', 'Gallery state not restored on reload');
+      await page.locator('[data-view="overview"]').click();
+    }
     const quick = page.locator('[data-quick-view]:visible').first();
     if (await quick.count()) {
+      await quick.scrollIntoViewIfNeeded();
+      const startingScroll = await page.evaluate(() => scrollY);
       await quick.click();
+      await page.goBack();
+      await page.waitForFunction(() => !document.querySelector('#project-dialog').open);
+      assert(Math.abs(await page.evaluate(() => scrollY) - startingScroll) < 5, 'Back did not restore collection scroll');
+      assert(await quick.evaluate(n => n === document.activeElement), 'Back did not restore project focus');
+      await quick.click();
+
       const dialog = page.locator('#project-dialog');
       assert(await dialog.evaluate(n => n.open), `${address.pathname}: quick view not open`);
       assert(await dialog.locator('h2').textContent(), `${address.pathname}: dialog missing title`);
@@ -173,7 +189,7 @@ try {
     });
     const failedImages = await fallback.locator('img').evaluateAll(images => images.filter(image => !image.naturalWidth || !image.naturalHeight).map(image => image.src));
     assert(!failedImages.length, `No-JS broken images: ${url}: ${failedImages.join(', ')}`);
-    assert(await fallback.locator('[data-quick-view]:visible').count() === 0, `No-JS inert quick-view controls visible: ${url}`);
+    assert(await fallback.locator('button[data-quick-view]:visible').count() === 0, `No-JS inert quick-view buttons visible: ${url}`);
     fallbackChecks.push({ url, projectCards: await cards.count(), brokenImages: failedImages });
     await fallback.screenshot({ path: path.join(out, `no-js-${file || 'home'}.png`), fullPage: true });
   }
