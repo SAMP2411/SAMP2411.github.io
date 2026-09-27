@@ -18,11 +18,23 @@ Images retain their originals. Compact overview thumbnails use a 4:3 frame, gall
 | Cyber visual concept | Approved | User authorized implementation and publication on 2026-09-27 |
 | Implementation | Complete | Generator, refinements.css, site.js and generated pages |
 | Local static checks | Passed | Build: 21 documents / 13 case studies; validator: 20 reachable pages, 52 assets, zero errors; JavaScript syntax check |
-| Browser regression | In progress | Release branch CI covers responsive overflow, accessibility, navigation, images, filters, layout persistence, preview Back/Escape and no-JS links |
-| Deployment and live verification | Pending | Publish after regression checks, then verify public rendering and interactions |
+| Browser regression | Passed | GitHub Actions run 36325562184: responsive overflow, accessibility, navigation, images, filters, layout persistence, preview Back/Escape and no-JS links |
+| Deployment and live verification | Complete | Pages run 36325672108 succeeded; public filter, preview, Back, Gallery/Overview and all 13 images verified |
 
 ## Verification and rollback
 
 The existing browser suite is extended for Gallery persistence and preview Back/scroll/focus restoration. Its no-JavaScript check now accepts enhanced anchors because they remain working case-study links. The suite crawls reachable pages and checks 390, 768 and 1440px widths, with axe WCAG A/AA checks. Browser-only checks are run in GitHub CI because the local workspace has no browser executable.
 
 Production baseline before this release: 785a96a85c6361bafcc329f8cefc3eb108f0775a. Rollback can restore the changed files from that commit in a new commit without deleting history. Planning artifacts remain on the separate planning branch.
+
+
+## Release evidence
+
+- Application commit: `39c8cb74db0827eebe7394a7b95c8efbf601b3c1`.
+- [Passing regression run](https://github.com/SAMP2411/SAMP2411.github.io/actions/runs/36325562184).
+- [Successful Pages deployment](https://github.com/SAMP2411/SAMP2411.github.io/actions/runs/36325672108).
+- [Live collection](https://samp2411.github.io/index.html#projects).
+- [Captured live layout](qa/cyber-explorer-live.jpg).
+- Live Embedded filter returned two projects. Opening Distributed State Estimation displayed its scope, contribution, validation, provenance and source link. Browser Back closed the panel and preserved the selected filter. Gallery and Overview toggled correctly. All 13 images reported successful decoding with original intrinsic widths (887–3000px).
+
+Verification limits: automated browser coverage is Chromium; this is not a substitute for testing every Safari/device combination or a recruiter user study. The collection intentionally scrolls; fitting all 13 readable cards above the fold is not a requirement. Existing images were retained, not regenerated or sharpened artificially.
