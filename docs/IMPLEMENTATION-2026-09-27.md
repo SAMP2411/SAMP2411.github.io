@@ -38,3 +38,8 @@ Production baseline before this release: 785a96a85c6361bafcc329f8cefc3eb108f0775
 - Live Embedded filter returned two projects. Opening Distributed State Estimation displayed its scope, contribution, validation, provenance and source link. Browser Back closed the panel and preserved the selected filter. Gallery and Overview toggled correctly. All 13 images reported successful decoding with original intrinsic widths (887–3000px).
 
 Verification limits: automated browser coverage is Chromium; this is not a substitute for testing every Safari/device combination or a recruiter user study. The collection intentionally scrolls; fitting all 13 readable cards above the fold is not a requirement. Existing images were retained, not regenerated or sharpened artificially.
+
+
+## Requested follow-up: question shortcuts and complete résumé
+
+Replaced the hero’s three project links with “Who is Sam?”, “What have I built?” and “Where have I worked?” section shortcuts. The hero Get in touch link now leads to the contact section. The web résumé now includes summaries and case-study links for all 13 projects. Existing theme and imagery are preserved. Build and internal-link validation passed before publication.
