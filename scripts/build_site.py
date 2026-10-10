@@ -157,6 +157,7 @@ def build():
 def build_case(p):
     prefix='../'; slug=p['slug']
     sections=[('objective','Objective'),('contribution','My contribution'),('architecture','System architecture'),('implementation','Implementation'),('decisions','Engineering decisions'),('challenges','Challenges & debugging'),('validation','Validation'),('outcome','Outcome & boundaries'),('links','Project sources')]
+    if p.get('evidence'): sections.insert(-1, ('execution', 'Visual run'))
     hero=f'<header class="case-header"><a class="text-link" href="../projects.html">← All projects</a><span class="eyebrow">{esc(p["domain"])} / {esc(p["status"])}</span><h1>{esc(p["title"])}</h1><p>{esc(p["summary"])}</p><div class="case-meta"><span><strong>Role</strong><br>{esc(p["role"])}</span><span><strong>Timeline</strong><br>{esc(DATES.get(slug,p["timeline"]))}</span></div>{tags(p["tags"])}<div class="hero-actions"><a class="button primary" href="#architecture">Explore architecture ↓</a>'+''.join(f'<a class="button" href="{esc(l["url"])}">{esc(l["label"])} ↗</a>' for l in p['links'])+'</div></header>'
     visual=f'<figure class="case-visual">{image(p["image"],p["title"]+" — "+p.get("image_kind","illustration"),prefix,eager=True)}<figcaption>{esc(p.get("image_kind","Illustrative visualization"))}. Project media and architecture are shown separately; illustrations are not evidence of hardware testing.</figcaption></figure>'
     nav='<nav class="case-nav" aria-label="On this page">'+''.join(f'<a href="#{i}">{label}</a>' for i,label in sections)+'</nav>'
@@ -165,6 +166,8 @@ def build_case(p):
     content={'objective':'<p>'+esc(p['objective'])+'</p><ul>'+''.join('<li>'+esc(v)+'</li>' for v in p['goals'])+'</ul>', 'contribution':'<ul>'+''.join('<li>'+esc(v)+'</li>' for v in p['contributions'])+'</ul>', 'architecture':architecture}
     for k in ['implementation','decisions','challenges','validation','outcome']: content[k]='<p>'+esc(p[k])+'</p>'
     content['links']='<p>Implementation notes and available project sources. Public code is linked where available; descriptive diagrams are not independent validation.</p>'+(''.join(f'<p><a href="{esc(l["url"])}">{esc(l["label"])} ↗</a></p>' for l in p['links']) if p['links'] else '<p>No public repository is linked for this project.</p>')
+    if p.get('evidence'):
+        content['execution']='<p>'+esc(p['evidence_scope'])+'</p>'+''.join('<figure class="flowchart-panel"><a href="../'+esc(e['image'])+'" aria-label="Open full-size execution plot">'+image(e['image'],e['caption'],prefix,cls='flowchart-image')+'</a><figcaption>'+esc(e['caption'])+'</figcaption></figure>' for e in p['evidence'])+'<p><a class="text-link" href="'+esc(p['evidence_url'])+'">Source repository and run files ↗</a></p>'
     article='<div class="case-layout">'+nav+'<article class="case-content">'+''.join(f'<section class="case-section" id="{i}"><h2>{label}</h2>{content[i]}</section>' for i,label in sections)+'</article></div>'
     related=sorted([x for x in DATA if x['slug']!=slug],key=lambda x:x['domain']!=p['domain'])[:2]
     related_html='<section class="section"><h2>Related engineering</h2><div class="related-grid">'+''.join(card(x,prefix) for x in related)+'</div></section>'

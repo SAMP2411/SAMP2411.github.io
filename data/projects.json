@@ -690,7 +690,19 @@
         }
       ],
       "caption": "Technical illustration of the documented system. Planned stages remain subject to the project status and validation notes."
-    }
+    },
+    "evidence_scope": "This local reproduction ran the original generator and detector on 1,000 synthetic readings. The plots show injected sample excursions and model flags. The detector was trained and scored on the same data; this is not a real-world accuracy result. No physical sensors or MQTT publishing were used.",
+    "evidence_url": "https://github.com/SAMP2411/AI-Based-IIoT-Anomaly-Detector",
+    "evidence": [
+      {
+        "image": "assets/evidence/iiot-anomaly-detector-2026-10-10/01-synthetic-sensor-stream.png",
+        "caption": "1. Generated input — temperature, vibration and current readings. Amber spans show events injected by the simulator."
+      },
+      {
+        "image": "assets/evidence/iiot-anomaly-detector-2026-10-10/02-isolation-forest-output.png",
+        "caption": "2. Model output — pink markers show the ten samples the Isolation Forest flagged in the same dataset."
+      }
+    ]
   },
   {
     "slug": "offline-face-recognition",
