@@ -655,5 +655,27 @@
     "display_width": 3000,
     "display_height": 4000,
     "exif_orientation": 6
+  },
+  {
+    "path": "assets/evidence/iiot-anomaly-detector-2026-10-10/01-synthetic-sensor-stream.png",
+    "bytes": 422599,
+    "sha256": "fd83b2bc0e82245c947cd4dabb25b0df94f76b91198005ab4031968028126efc",
+    "format": "PNG",
+    "width": 2240,
+    "height": 1440,
+    "display_width": 2240,
+    "display_height": 1440,
+    "exif_orientation": null
+  },
+  {
+    "path": "assets/evidence/iiot-anomaly-detector-2026-10-10/02-isolation-forest-output.png",
+    "bytes": 420708,
+    "sha256": "ab941d5eae2ac3bfc216a4c9d578d5836973537e820d0463350580130b6a7196",
+    "format": "PNG",
+    "width": 2240,
+    "height": 1440,
+    "display_width": 2240,
+    "display_height": 1440,
+    "exif_orientation": null
   }
 ]
